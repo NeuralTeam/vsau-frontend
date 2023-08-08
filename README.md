@@ -1,5 +1,5 @@
 # VSAU Frontend
 
 Стек:
-+ NextJS
++ Next.js
 + Tailwind
