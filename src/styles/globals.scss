@@ -1,0 +1,80 @@
+@import './animation.scss';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+	overflow-x: hidden;
+	&.close-navbar > .page {
+		width: calc(100vw - 160px);
+		transform: translateX(160px);
+	}
+	& > .page {
+		width: calc(100vw - 500px);
+		transform: translateX(500px);
+	}
+	.page {
+		transition: all 0.2s;
+	}
+}
+
+nav {
+	width: 160px;
+	transition: width 0.2s ease;
+	&.open {
+		width: 500px;
+		transition: width 0.2s ease;
+	}
+}
+.all-refs {
+	transition: all 0.2s ease;
+	&.close-navbar-refs {
+		.refs {
+			display: none;
+		}
+		.close-refs {
+			display: block;
+		}
+	}
+	.close-refs {
+		display: none;
+	}
+	.refs {
+		display: block;
+	}
+}
+
+.grid-cols-nav {
+	grid-template-columns: 10% 90%;
+}
+.grid-cols-act {
+	grid-template-columns: 30% 60%;
+}
+.close-navbar-icons {
+	animation: icon-close 0.2s ease;
+}
+
+@keyframes icon-close {
+	0% {
+		width: 30%;
+	}
+
+	100% {
+		width: 100%;
+	}
+}
+.slider {
+	animation: slider 0.2s ease-in-out;
+}
+.news::-webkit-scrollbar {
+	display: none;
+}
+.bg {
+	background-image: linear-gradient(90deg, #0f91d6 0%, #2b4b8d00 100%),
+		url('../vgau.png');
+
+	background-size: 100% 100%;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+}
