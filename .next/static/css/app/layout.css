@@ -622,6 +622,12 @@ video {
 .mb-16 {
   margin-bottom: 4rem;
 }
+.mt-20 {
+  margin-top: 5rem;
+}
+.mt-10 {
+  margin-top: 2.5rem;
+}
 .block {
   display: block;
 }
@@ -886,6 +892,10 @@ video {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
+.py-20 {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
 .pl-10 {
   padding-left: 2.5rem;
 }
@@ -897,6 +907,9 @@ video {
 }
 .pt-6 {
   padding-top: 1.5rem;
+}
+.pt-20 {
+  padding-top: 5rem;
 }
 .text-2xl {
   font-size: 1.5rem;

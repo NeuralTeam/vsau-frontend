@@ -1,4 +1,4 @@
-const Campus = ({ fill, height, width }: IIcon) => {
+const CampusIcon = ({ fill, height, width }: IIcon) => {
 	return (
 		<svg
 			width={width}
@@ -13,4 +13,4 @@ const Campus = ({ fill, height, width }: IIcon) => {
 	)
 }
 
-export default Campus
+export default CampusIcon
