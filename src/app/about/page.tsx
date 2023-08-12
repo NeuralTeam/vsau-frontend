@@ -3,10 +3,10 @@ import About from '@/shared/icons/navbar/About'
 const page = () => {
 	return (
 		<div className='min-h-screen w-full px-24 py-10 bg-slate-100'>
-			<div className='h-[250px] w-full  mb-20 bg rounded-lg text-white font-bold flex items-center justify-start p-20 text-4xl'>
-				<div className='flex items-center'>
+			<div className='h-[250px] w-full  mb-20 bg rounded-lg text-white font-semibold flex items-center justify-start p-20 text-4xl'>
+				<div className='flex items-end'>
 					<About width={60} height={60} fill='white' />
-					<h2 className='ml-10'>О ВУЗЕ</h2>
+					<h2 className='ml-6'>О ВУЗЕ</h2>
 				</div>
 			</div>
 			<p className=''>

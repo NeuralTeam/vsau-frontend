@@ -1,7 +1,7 @@
 'use client'
 
 import { actualityArray } from '@/TestArrays/actualityArray'
-import ActualityItem from '@/shared/actuality/ActualityItem'
+import ActualityItem from '@/shared/main/actuality/ActualityItem'
 import { useState } from 'react'
 
 const Actuality = () => {
