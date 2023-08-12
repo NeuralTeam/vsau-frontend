@@ -1,4 +1,4 @@
-const History = ({ fill, width, height }: IIcon) => {
+const HistoryIcon = ({ fill, width, height }: IIcon) => {
 	return (
 		<svg
 			width={width}
@@ -13,4 +13,4 @@ const History = ({ fill, width, height }: IIcon) => {
 	)
 }
 
-export default History
+export default HistoryIcon
