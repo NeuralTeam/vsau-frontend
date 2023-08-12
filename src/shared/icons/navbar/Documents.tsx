@@ -1,4 +1,4 @@
-const Documents = ({ fill, width, height }: IIcon) => {
+const DocumentsIcon = ({ fill, width, height }: IIcon) => {
 	return (
 		<svg
 			width={width}
@@ -13,4 +13,4 @@ const Documents = ({ fill, width, height }: IIcon) => {
 	)
 }
 
-export default Documents
+export default DocumentsIcon
