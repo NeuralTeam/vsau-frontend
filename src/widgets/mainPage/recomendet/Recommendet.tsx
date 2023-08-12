@@ -1,7 +1,7 @@
 'use client'
 
 import { recommendetArray } from '@/TestArrays/recommendetItem'
-import RecommendetItem from '@/shared/recommendet/RecommendetItem'
+import RecommendetItem from '@/shared/main/recommendet/RecommendetItem'
 import { useState } from 'react'
 
 const Recommendet = () => {

@@ -1,9 +1,11 @@
-const page = () => {
+import HistoryWidget from '@/widgets/history/HistoryWidget'
+
+const History = () => {
 	return (
-		<div className='h-screen w-full flex items-center justify-center'>
-			History
+		<div className='min-h-screen w-full bg-slate-100 history-page'>
+			<HistoryWidget />
 		</div>
 	)
 }
 
-export default page
+export default History

@@ -78,3 +78,38 @@ nav {
 	background-attachment: fixed;
 	background-repeat: no-repeat;
 }
+
+.history-image {
+	.exit {
+		display: none;
+	}
+	&.active-image {
+		background: #000000db;
+		width: 101%;
+		height: 101%;
+		position: absolute;
+		z-index: 50;
+		top: -15px;
+		left: -10px;
+
+		border-radius: 8px;
+		overflow-y: scroll;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		.exit {
+			display: block;
+			position: fixed;
+			right: 15px;
+			top: 15px;
+			color: rgb(241, 75, 75);
+			font-size: 30px;
+		}
+		img {
+			width: 60%;
+			max-height: 97%;
+
+			z-index: 50;
+		}
+	}
+}
