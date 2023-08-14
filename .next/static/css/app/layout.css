@@ -1166,3 +1166,7 @@ nav.open {
 .hover\:underline:hover {
   text-decoration-line: underline;
 }
+
+.disabled\:checked\:file\:w-1::file-selector-button:checked:disabled {
+  width: 0.25rem;
+}
