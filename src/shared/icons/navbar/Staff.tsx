@@ -1,4 +1,4 @@
-const Staff = ({ fill, width, height }: IIcon) => {
+const StaffIcon = ({ fill, width, height }: IIcon) => {
 	return (
 		<svg
 			width={width}
@@ -15,4 +15,4 @@ const Staff = ({ fill, width, height }: IIcon) => {
 	)
 }
 
-export default Staff
+export default StaffIcon
