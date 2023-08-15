@@ -1,4 +1,5 @@
 import EIOS from '@/shared/icons/navbar/EIOS'
+import EiosWidget from '@/widgets/eios/EiosWidget'
 
 const Eois = () => {
 	return (
@@ -7,6 +8,7 @@ const Eois = () => {
 				<EIOS fill='#0F91D6' width={50} />
 				<p className='ml-4 text-[#0f91d6] font-semibold text-2xl'>ЭИОС</p>
 			</div>
+			<EiosWidget />
 		</div>
 	)
 }
