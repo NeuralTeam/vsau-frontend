@@ -1,9 +1,25 @@
 {
   "pages": {
+    "/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/layout.css",
+      "static/chunks/app/layout.js"
+    ],
+    "/not-found": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/not-found.js"
+    ],
     "/campus/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/campus/page.js"
+    ],
+    "/staff/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/staff/page.js"
     ],
     "/page": [
       "static/chunks/webpack.js",
@@ -15,11 +31,6 @@
       "static/chunks/main-app.js",
       "static/chunks/app/documents/page.js"
     ],
-    "/staff/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/staff/page.js"
-    ],
     "/history/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -30,16 +41,15 @@
       "static/chunks/main-app.js",
       "static/chunks/app/staff/administration/page.js"
     ],
-    "/not-found": [
+    "/eios/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/not-found.js"
+      "static/chunks/app/eios/page.js"
     ],
-    "/layout": [
+    "/about/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/layout.css",
-      "static/chunks/app/layout.js"
+      "static/chunks/app/about/page.js"
     ]
   }
 }
