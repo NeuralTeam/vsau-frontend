@@ -1,4 +1,4 @@
-const InfEduOrg = ({ fill, width }: IIcon) => {
+const InfEduOrgIcon = ({ fill, width }: IIcon) => {
 	return (
 		<svg
 			width={width}
@@ -12,4 +12,4 @@ const InfEduOrg = ({ fill, width }: IIcon) => {
 	)
 }
 
-export default InfEduOrg
+export default InfEduOrgIcon

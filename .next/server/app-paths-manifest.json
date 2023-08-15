@@ -1,7 +1,7 @@
 {
-  "/history/page": "app/history/page.js",
+  "/page": "app/page.js",
   "/eios/page": "app/eios/page.js",
-  "/structure/page": "app/structure/page.js",
   "/campus/page": "app/campus/page.js",
-  "/staff/administration/page": "app/staff/administration/page.js"
+  "/information/page": "app/information/page.js",
+  "/structure/page": "app/structure/page.js"
 }
