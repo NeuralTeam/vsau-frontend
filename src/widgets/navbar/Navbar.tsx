@@ -2,6 +2,7 @@
 import ShortLogo from '@/shared/icons/logo/ShortLogo'
 import Arrow from '@/shared/icons/navbar/Arrow'
 import Button from '@/shared/icons/navbar/Button'
+import Link from 'next/link'
 import { useState } from 'react'
 import NavLinks from './navbarLinks/NavLinks'
 
@@ -24,36 +25,38 @@ const Navbar = () => {
 			}
 		>
 			<div className='flex items-center justify-between px-5 py-5 w-full'>
-				<div className=' flex'>
-					<div className='w-[120px] relative transition-all'>
-						<ShortLogo fill='white' width={120} />
-					</div>
+				<Link href={`/`}>
+					<div className=' flex'>
+						<div className='w-[120px] relative transition-all'>
+							<ShortLogo fill='white' width={120} />
+						</div>
 
-					{openNav ? (
-						<div className='flex text-white justify-between transition-all visible top-auto relative  items-center w-[300px]'>
-							<div className=''>
-								<p className='no-wrap text-[11px] leading-3 min-w-[250px] max-w-[full] transition-all  font-thin ml-5 overflow-hidden max-h-[150px]'>
+						{openNav ? (
+							<div className='flex text-white justify-between transition-all visible top-auto relative  items-center w-[300px]'>
+								<div className=''>
+									<p className='no-wrap text-[11px] leading-3 min-w-[250px] max-w-[full] transition-all  font-thin ml-5 overflow-hidden max-h-[150px]'>
+										Федеральное государственное бюджетное образовательное
+										учреждение высшего образования
+									</p>
+									<p className='no-wrap text-[20px] mt-1 leading-[22px] min-w-[320px] max-w-[320px] transition-all  font-normal ml-5 overflow-hidden max-h-[150px]'>
+										Воронежский государственный аграрный университет <br />{' '}
+										имени Петра I
+									</p>
+								</div>
+							</div>
+						) : (
+							<div className='flex text-white  absolute justify-between delay-200 flex-nowrap right-full invisible transition-all items-center w-[0] overflow-hidden'>
+								<p>
 									Федеральное государственное бюджетное образовательное
 									учреждение высшего образования
 								</p>
-								<p className='no-wrap text-[20px] mt-1 leading-[22px] min-w-[320px] max-w-[320px] transition-all  font-normal ml-5 overflow-hidden max-h-[150px]'>
-									Воронежский государственный аграрный университет <br /> имени
-									Петра I
+								<p className='no-wrap text-[16px] transition-all  font-semibold ml-5 min-w-[250px]'>
+									Воронежский государственный аграрный университет имени Петра I
 								</p>
 							</div>
-						</div>
-					) : (
-						<div className='flex text-white  absolute justify-between delay-200 flex-nowrap right-full invisible transition-all items-center w-[0] overflow-hidden'>
-							<p>
-								Федеральное государственное бюджетное образовательное учреждение
-								высшего образования
-							</p>
-							<p className='no-wrap text-[16px] transition-all  font-semibold ml-5 min-w-[250px]'>
-								Воронежский государственный аграрный университет имени Петра I
-							</p>
-						</div>
-					)}
-				</div>
+						)}
+					</div>
+				</Link>
 				<div
 					onClick={handleClick}
 					className='absolute -right-0 flex items-center justify-start cursor-pointer rounded-2xl top-[300px] '
