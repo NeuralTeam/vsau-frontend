@@ -1,16 +1,37 @@
 'use client'
 
 import { useState } from 'react'
+import Arrow from '../icons/arrow/Arrow'
 
 const StructureItem = ({ ...item }: IStructureDepart) => {
 	const [items] = useState(item.admin)
+	const [open, setOpen] = useState(false)
+
+	const styleItemClose = {
+		height: '100px',
+	}
+	const styleItemOpen = {
+		height: '100%',
+	}
+	const openHandler = () => {
+		setOpen(!open)
+	}
+
 	return (
-		<div className='p-10 bg-white text-white rounded-lg mb-10'>
-			<div className='text-[#0F91D6] text-xl font-semibold  flex items-center justify-start'>
-				<div className='h-1 w-4 mr-4 bg-[#0F91D6]'></div>
+		<div
+			style={open ? styleItemOpen : styleItemClose}
+			className='p-10 bg-white text-white  overflow-hidden rounded-lg mb-10'
+		>
+			<div
+				onClick={openHandler}
+				className='text-[#0F91D6] text-xl cursor-pointer  font-semibold  flex items-center justify-start'
+			>
+				<div className={open ? 'mr-3 rotate-90' : 'mr-3'}>
+					<Arrow fill='#0F91D6' width={15} />
+				</div>
 				<p>{item.name}</p>
 			</div>
-			<hr className='bg-[#0F91D6] h-[2px] my-4' />
+			<hr className='bg-[#0F91D6] h-[2px] my-8' />
 
 			<div className='text-black'>
 				<h4 className='text-xl '>{item.name}</h4>
