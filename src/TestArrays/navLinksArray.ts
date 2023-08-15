@@ -7,6 +7,8 @@ import main from '@/shared/icons/navbar/MainPage.svg'
 import structure from '@/shared/icons/navbar/OrgStructure.svg'
 import staff from '@/shared/icons/navbar/Staff.svg'
 
+import InfEduOrg from '@/shared/icons/navbar/InfEduOrg.svg'
+import VisuallyImpaired from '@/shared/icons/navbar/VisuallyImpired.svg'
 import { INavItem } from '../widgets/navbar/navbarLinks/interface'
 
 export const navItem: INavItem[] = [
@@ -70,12 +72,14 @@ export const navItem: INavItem[] = [
 export const navMiddleItems: INavItem[] = [
 	{
 		id: 9,
+		icon: VisuallyImpaired,
 		img: '@/shared/icons/navbar/VisuallyImpaired.svg',
 		path: '/shared-vision',
 		title: 'Версия для слабовидящих',
 	},
 	{
 		id: 10,
+		icon: InfEduOrg,
 		img: '@/shared/icons/navbar/MainPage.svg',
 		path: '/information',
 		title: 'Сведения об университете',

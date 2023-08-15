@@ -23,7 +23,7 @@ const Navbar = () => {
 					: 'h-screen relative overflow-hidden'
 			}
 		>
-			<div className='flex items-center justify-between px-5 py-10 w-full'>
+			<div className='flex items-center justify-between px-5 py-5 w-full'>
 				<div className=' flex'>
 					<div className='w-[120px] relative transition-all'>
 						<ShortLogo fill='white' width={120} />
