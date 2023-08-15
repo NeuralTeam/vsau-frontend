@@ -1,4 +1,4 @@
-const OrgStructure = ({ fill, width }: IIcon) => {
+const OrgStructureIcon = ({ fill, width }: IIcon) => {
 	return (
 		<svg
 			width={width}
@@ -16,4 +16,4 @@ const OrgStructure = ({ fill, width }: IIcon) => {
 	)
 }
 
-export default OrgStructure
+export default OrgStructureIcon
