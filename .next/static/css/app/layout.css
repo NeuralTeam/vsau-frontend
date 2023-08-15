@@ -615,6 +615,18 @@ video {
   margin-left: 1.25rem;
   margin-right: 1.25rem;
 }
+.mx-4 {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.my-6 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
 .mb-10 {
   margin-bottom: 2.5rem;
 }
@@ -684,6 +696,15 @@ video {
 .mt-20 {
   margin-top: 5rem;
 }
+.mr-4 {
+  margin-right: 1rem;
+}
+.mt-10 {
+  margin-top: 2.5rem;
+}
+.mt-3 {
+  margin-top: 0.75rem;
+}
 .block {
   display: block;
 }
@@ -714,6 +735,18 @@ video {
 }
 .h-screen {
   height: 100vh;
+}
+.h-2 {
+  height: 0.5rem;
+}
+.h-1 {
+  height: 0.25rem;
+}
+.h-\[1px\] {
+  height: 1px;
+}
+.h-\[2px\] {
+  height: 2px;
 }
 .max-h-\[150px\] {
   max-height: 150px;
@@ -784,6 +817,36 @@ video {
 .w-\[450px\] {
   width: 450px;
 }
+.w-4 {
+  width: 1rem;
+}
+.w-9\/12 {
+  width: 75%;
+}
+.w-\[250\%\] {
+  width: 250%;
+}
+.w-\[2500\%\] {
+  width: 2500%;
+}
+.w-\[1500\%\] {
+  width: 1500%;
+}
+.w-\[500\%\] {
+  width: 500%;
+}
+.w-\[1000\%\] {
+  width: 1000%;
+}
+.w-\[1200\%\] {
+  width: 1200%;
+}
+.w-\[1100\%\] {
+  width: 1100%;
+}
+.w-\[1050\%\] {
+  width: 1050%;
+}
 .min-w-\[250px\] {
   min-width: 250px;
 }
@@ -835,6 +898,9 @@ video {
 }
 .grid-cols-2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.grid-cols-8 {
+  grid-template-columns: repeat(8, minmax(0, 1fr));
 }
 .flex-wrap {
   flex-wrap: wrap;
@@ -914,6 +980,9 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
+.bg-\[\#\#0F91D6\] {
+  background-color: ##0F91D6;
+}
 .p-0 {
   padding: 0px;
 }
@@ -990,6 +1059,9 @@ video {
 .pt-7 {
   padding-top: 1.75rem;
 }
+.text-center {
+  text-align: center;
+}
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
@@ -1018,6 +1090,10 @@ video {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
+}
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 .font-bold {
   font-weight: 700;
@@ -1055,6 +1131,10 @@ video {
 .text-\[\#0f91d6\] {
   --tw-text-opacity: 1;
   color: rgb(15 145 214 / var(--tw-text-opacity));
+}
+.text-black {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 .shadow-lg {
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
