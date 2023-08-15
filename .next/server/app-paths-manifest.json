@@ -1,7 +1,12 @@
 {
   "/page": "app/page.js",
+  "/structure/page": "app/structure/page.js",
   "/eios/page": "app/eios/page.js",
-  "/campus/page": "app/campus/page.js",
+  "/about/page": "app/about/page.js",
+  "/history/page": "app/history/page.js",
   "/information/page": "app/information/page.js",
-  "/structure/page": "app/structure/page.js"
+  "/documents/page": "app/documents/page.js",
+  "/staff/page": "app/staff/page.js",
+  "/campus/page": "app/campus/page.js",
+  "/staff/administration/page": "app/staff/administration/page.js"
 }
