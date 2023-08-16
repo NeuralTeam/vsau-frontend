@@ -67,6 +67,7 @@ nav {
 .slider {
 	animation: slider 0.2s ease-in-out;
 }
+
 .news::-webkit-scrollbar {
 	display: none;
 }
@@ -115,4 +116,8 @@ nav {
 }
 .border-staff {
 	border-image: url('../shared/icons/staff/StaffCircle.svg');
+}
+
+nav::-webkit-scrollbar {
+	width: 0;
 }
