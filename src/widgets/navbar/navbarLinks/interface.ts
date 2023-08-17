@@ -1,7 +1,7 @@
 export interface INavItem {
 	id: number
-	icon?: object
-	img?: string
+	icon: any
+	img: string
 	path: string
 	title?: string
 	width?: number

@@ -10,7 +10,7 @@ const CloseLinks = ({ title, img, icon, path }: INavItem) => {
 			<div className='h-16 ref rounded flex items-center px-10 close-navbar-icons  justify-center text-white hover:bg-[#00000013]'>
 				<div className={router === path ? '' : 'opacity-50'}>
 					<Image
-						src={icon || img}
+						src={icon}
 						width={30}
 						height={30}
 						alt=''

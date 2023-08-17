@@ -9,7 +9,7 @@ import staff from '@/shared/icons/navbar/Staff.svg'
 
 import InfEduOrg from '@/shared/icons/navbar/InfEduOrg.svg'
 import VisuallyImpaired from '@/shared/icons/navbar/VisuallyImpired.svg'
-import { INavItem } from '../widgets/navbar/navbarLinks/interface'
+import { INavItem } from '@/widgets/navbar/navbarLinks/interface'
 
 export const navItem: INavItem[] = [
 	{
@@ -69,6 +69,7 @@ export const navItem: INavItem[] = [
 		title: 'ЭИОС',
 	},
 ]
+
 export const navMiddleItems: INavItem[] = [
 	{
 		id: 9,
@@ -85,40 +86,41 @@ export const navMiddleItems: INavItem[] = [
 		title: 'Сведения об университете',
 	},
 ]
-export const navDownItems: INavItem[] = [
-	{
-		id: 11,
-		path: '/shared-vision',
-		title: 'Абитуриенту 2021',
-	},
-	{
-		id: 12,
-		path: '/information',
-		title: 'Информация для студента',
-	},
-	{
-		id: 13,
-		path: '/information',
-		title: 'Информация для работников',
-	},
-	{
-		id: 14,
-		path: '/information',
-		title: 'Учебный процесс',
-	},
-	{
-		id: 13,
-		path: '/information',
-		title: 'Научная деятельность',
-	},
-	{
-		id: 14,
-		path: '/information',
-		title: 'Социально-воспитательная работа',
-	},
-	{
-		id: 15,
-		path: '/information',
-		title: 'Отделение СПО',
-	},
-]
+
+// export const navDownItems: INavItem[] = [
+// 	{
+// 		id: 11,
+// 		path: '/shared-vision',
+// 		title: 'Абитуриенту 2021',
+// 	},
+// 	{
+// 		id: 12,
+// 		path: '/information',
+// 		title: 'Информация для студента',
+// 	},
+// 	{
+// 		id: 13,
+// 		path: '/information',
+// 		title: 'Информация для работников',
+// 	},
+// 	{
+// 		id: 14,
+// 		path: '/information',
+// 		title: 'Учебный процесс',
+// 	},
+// 	{
+// 		id: 13,
+// 		path: '/information',
+// 		title: 'Научная деятельность',
+// 	},
+// 	{
+// 		id: 14,
+// 		path: '/information',
+// 		title: 'Социально-воспитательная работа',
+// 	},
+// 	{
+// 		id: 15,
+// 		path: '/information',
+// 		title: 'Отделение СПО',
+// 	},
+// ]
