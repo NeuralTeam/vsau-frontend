@@ -1,8 +1,7 @@
 /.vscode
 /.idea
+/.next
 /node_modules
+/.test
 
 .DS_Store
-
-.test
-/.next
