@@ -16,7 +16,7 @@ const NotFound = () => {
 					Страница не найдена
 				</p>
 				<Link
-					href={`/`}
+					href={'/'}
 					className='rounded w-[400px] text-white mx-auto bg-[#0f91d6] px-36 text-lg py-5'
 				>
 					На главную
