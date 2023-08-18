@@ -88,9 +88,12 @@ nav {
 	background: rgba(255, 166, 0, 0); /* цвет дорожки */
 }
 .news::-webkit-scrollbar-thumb {
-	background-color: #0f91d6; /* цвет плашки */
+	background-color: rgba(15, 144, 214, 0.463); /* цвет плашки */
 	border-radius: 4px; /* закругления плашки */
-	border: 10px solid #0f90d674; /* padding вокруг плашки */
+	cursor: pointer;
+	&:active {
+		background-color: rgb(15, 145, 214);
+	}
 }
 .news {
 	padding-bottom: 20px;
