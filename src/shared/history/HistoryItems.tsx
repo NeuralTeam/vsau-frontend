@@ -21,7 +21,7 @@ const HistoryItems = ({ ...item }: IHistory) => {
 			<h2 className='text-slate-500 px-2'>{item.title}</h2>
 			<div className='flex justify-between'>
 				{images.map(img => (
-					<div className='my-3  w-full p-0 mx-2 relative history-image '>
+					<div className='my-3  w-full p-0 mx-2 relative history-image'>
 						<div className='exit cursor-pointer fixed' onClick={imageViewClose}>
 							X
 						</div>
