@@ -21,6 +21,21 @@ body {
 	.page {
 		transition: all 0.2s;
 	}
+	&::-webkit-scrollbar {
+		width: 12px; /* ширина scrollbar */
+		height: 10px;
+	}
+	&::-webkit-scrollbar-track {
+		background: rgba(255, 166, 0, 0); /* цвет дорожки */
+	}
+	&::-webkit-scrollbar-thumb {
+		background-color: rgba(15, 144, 214, 0.463); /* цвет плашки */
+		border-radius: 4px; /* закругления плашки */
+		cursor: pointer;
+		&:active {
+			background-color: rgb(15, 145, 214);
+		}
+	}
 }
 
 nav {
