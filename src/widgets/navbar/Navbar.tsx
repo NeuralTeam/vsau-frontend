@@ -13,6 +13,7 @@ const Navbar = () => {
 		const bodyClass = document.querySelector('body')
 		const refTitle = document.querySelector('.all-refs')
 		setOpenNav(!openNav)
+
 		bodyClass?.classList.toggle('close-navbar')
 		refTitle?.classList.toggle('close-navbar-refs')
 	}
