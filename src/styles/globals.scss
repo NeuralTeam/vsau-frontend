@@ -1,139 +1,185 @@
 @import './animation.scss';
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-	font-family: 'Roboto';
-	overflow-x: hidden;
-	&.close-navbar > .page {
-		width: calc(100vw - 160px);
-		transform: translateX(160px);
-	}
-	& > .page {
-		width: calc(100vw - 500px);
-		transform: translateX(500px);
-	}
-	.page {
-		transition: all 0.2s;
-	}
+  font-family: 'Roboto';
+  overflow-x: hidden;
+
+  &.close-navbar > .page {
+    width: calc(100vw - 160px);
+    transform: translateX(160px);
+  }
+
+  & > .page {
+    width: calc(100vw - 500px);
+    transform: translateX(500px);
+  }
+
+  .page {
+    transition: all 0.2s;
+  }
+
+  &::-webkit-scrollbar {
+    width: 12px; /* ширина scrollbar */
+    height: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 166, 0, 0); /* цвет дорожки */
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(15, 144, 214, 0.463); /* цвет плашки */
+    border-radius: 4px; /* закругления плашки */
+    cursor: pointer;
+
+    &:active {
+      background-color: rgb(15, 145, 214);
+    }
+  }
 }
 
 nav {
-	width: 160px;
-	transition: width 0.2s ease;
-	&.open {
-		width: 500px;
-		transition: width 0.2s ease;
-	}
+  width: 160px;
+  transition: width 0.2s ease;
+
+  &.open {
+    width: 500px;
+    transition: width 0.2s ease;
+  }
 }
+
 .all-refs {
-	transition: all 0.2s ease;
-	&.close-navbar-refs {
-		.refs {
-			display: none;
-		}
-		.close-refs {
-			display: block;
-		}
-	}
-	.close-refs {
-		display: none;
-	}
-	.refs {
-		display: block;
-	}
+  transition: all 0.2s ease;
+
+  &.close-navbar-refs {
+    .refs {
+      display: none;
+    }
+
+    .close-refs {
+      display: block;
+    }
+  }
+
+  .close-refs {
+    display: none;
+  }
+
+  .refs {
+    display: block;
+  }
 }
 
 .grid-cols-nav {
-	grid-template-columns: 10% 90%;
+  grid-template-columns: 10% 90%;
 }
+
 .grid-cols-act {
-	grid-template-columns: 30% 60%;
+  grid-template-columns: 30% 60%;
 }
+
 .close-navbar-icons {
-	animation: icon-close 0.2s ease;
+  animation: icon-close 0.2s ease;
 }
 
 @keyframes icon-close {
-	0% {
-		width: 30%;
-	}
+  0% {
+    width: 30%;
+  }
 
-	100% {
-		width: 100%;
-	}
+  100% {
+    width: 100%;
+  }
 }
+
 .slider {
-	animation: slider 0.2s ease-in-out;
+  animation: slider 0.2s ease-in-out;
 }
 
 .bg {
-	background-image: linear-gradient(90deg, #0f91d6 0%, #2b4b8d00 100%),
-		url('../vgau.png');
+  background-image: linear-gradient(90deg, #0f91d6 0%, #2b4b8d00 100%),
+  url('../vgau.png');
 
-	background-size: 100% 100%;
-	background-attachment: fixed;
-	background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
+
 .news::-webkit-scrollbar {
-	width: 12px; /* ширина scrollbar */
-	height: 10px;
+  width: 12px; /* ширина scrollbar */
+  height: 10px;
+  cursor: pointer;
 }
+
 .news::-webkit-scrollbar-track {
-	background: rgba(255, 166, 0, 0); /* цвет дорожки */
+  background: rgba(255, 166, 0, 0); /* цвет дорожки */
 }
+
 .news::-webkit-scrollbar-thumb {
-	background-color: #0f91d6; /* цвет плашки */
-	border-radius: 4px; /* закругления плашки */
-	border: 10px solid #0f90d674; /* padding вокруг плашки */
+  background-color: rgba(15, 144, 214, 0.463); /* цвет плашки */
+  border-radius: 4px; /* закругления плашки */
+
+
+  &:active {
+    background-color: rgb(15, 145, 214);
+  }
+
+  &:hover {
+    background-color: rgb(15, 145, 214);
+  }
 }
+
 .news {
-	padding-bottom: 20px;
+  padding-bottom: 20px;
 }
 
 .history-image {
-	.exit {
-		display: none;
-	}
-	&.active-image {
-		background: #000000db;
-		width: 101%;
-		height: 101%;
-		position: absolute;
-		z-index: 50;
-		top: -15px;
-		left: -10px;
+  .exit {
+    display: none;
+  }
 
-		border-radius: 8px;
-		overflow-y: scroll;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		.exit {
-			display: block;
-			position: fixed;
-			right: 15px;
-			top: 15px;
-			color: rgb(241, 75, 75);
-			font-size: 30px;
-		}
-		img {
-			width: 850px;
-			max-height: 97%;
+  &.active-image {
+    background: #000000db;
+    width: 101%;
+    height: 101%;
+    position: absolute;
+    z-index: 50;
+    top: -15px;
+    left: -10px;
 
-			z-index: 50;
-		}
-	}
+    border-radius: 8px;
+    overflow-y: scroll;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .exit {
+      display: block;
+      position: fixed;
+      right: 15px;
+      top: 15px;
+      color: rgb(241, 75, 75);
+      font-size: 30px;
+    }
+
+    img {
+      width: 850px;
+      max-height: 97%;
+
+      z-index: 50;
+    }
+  }
 }
+
 .border-staff {
-	border-image: url('../shared/icons/staff/StaffCircle.svg');
+  border-image: url('../shared/icons/staff/StaffCircle.svg');
 }
 
 nav::-webkit-scrollbar {
-	display: none;
+  display: none;
 }
