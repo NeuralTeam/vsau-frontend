@@ -111,28 +111,32 @@ nav {
 }
 
 .news::-webkit-scrollbar {
-  width: 12px; /* ширина scrollbar */
-  height: 10px;
-  cursor: pointer;
+  display: none;
 }
 
-.news::-webkit-scrollbar-track {
-  background: rgba(255, 166, 0, 0); /* цвет дорожки */
-}
+//.news::-webkit-scrollbar {
+//  width: 12px; /* ширина scrollbar */
+//  height: 10px;
+//  cursor: pointer;
+//}
 
-.news::-webkit-scrollbar-thumb {
-  background-color: rgba(15, 144, 214, 0.463); /* цвет плашки */
-  border-radius: 4px; /* закругления плашки */
-
-
-  &:active {
-    background-color: rgb(15, 145, 214);
-  }
-
-  &:hover {
-    background-color: rgb(15, 145, 214);
-  }
-}
+//.news::-webkit-scrollbar-track {
+//  background: rgba(255, 166, 0, 0); /* цвет дорожки */
+//}
+//
+//.news::-webkit-scrollbar-thumb {
+//  background-color: rgba(15, 144, 214, 0.463); /* цвет плашки */
+//  border-radius: 4px; /* закругления плашки */
+//
+//
+//  &:active {
+//    background-color: rgb(15, 145, 214);
+//  }
+//
+//  &:hover {
+//    background-color: rgb(15, 145, 214);
+//  }
+//}
 
 .news {
   padding-bottom: 20px;
