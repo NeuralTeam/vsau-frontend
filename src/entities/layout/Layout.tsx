@@ -7,8 +7,10 @@ interface IChildren {
 
 const Layout = () => {
     return (
-        <div className='w-full h-full layout'>
-            <Navbar/>
+        <div>
+            <div className='w-full h-full layout'>
+                <Navbar/>
+            </div>
             
         </div>
     )
