@@ -22,11 +22,13 @@ const Staff = () => {
                 </div>
                 <div
                     className='bg-[#ffffff] p-20 w-10/12 rounded-lg cursor-pointer transition-all hover:border-[#ffffff] border-2 border-slate-100'>
-                    <StaffIcon width={100} fill='#0f90d659'/>
-                    <h2 className=' text-2xl pt-7 '>
-                        Состав педагогических работников каждой реализуемой образовательной
-                        пограммы
-                    </h2>
+                    <Link href={`staff/teachers`}>
+                        <StaffIcon width={100} fill='#0f90d659'/>
+                        <h2 className=' text-2xl pt-7 '>
+                            Состав педагогических работников каждой реализуемой образовательной
+                            пограммы
+                        </h2>
+                    </Link>
                 </div>
             </div>
         </div>
