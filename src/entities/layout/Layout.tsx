@@ -1,17 +1,19 @@
 import Navbar from '@/widgets/navbar/Navbar'
-import { ReactNode } from 'react'
+import {ReactNode} from 'react'
 
 interface IChildren {
-	children?: ReactNode
+    children?: ReactNode
 }
 
 const Layout = () => {
-	return (
-		<div className='w-full h-full layout'>
-			<Navbar />
-			<div className='w-30 h-30 bg-white'> vdfsv</div>
-		</div>
-	)
+    return (
+        <div>
+            <div className='w-full h-full layout'>
+                <Navbar/>
+            </div>
+            
+        </div>
+    )
 }
 
 export default Layout
