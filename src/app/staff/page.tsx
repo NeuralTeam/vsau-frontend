@@ -5,8 +5,8 @@ const Staff = () => {
     return (
         <div className='bg-slate-100 min-h-screen w-full p-10 pl-24'>
             <div className='flex items-end justify-start'>
-                <StaffIcon width={50} fill='#0F91D6'/>
-                <p className='ml-4 text-[#0F91D6] font-semibold text-2xl'>Персонал</p>
+                <StaffIcon width={70} fill='#0F91D6'/>
+                <p className='ml-4 text-[#0F91D6] font-semibold text-3xl'>Персонал</p>
             </div>
             <div className='grid grid-cols-2 my-20'>
                 <div
