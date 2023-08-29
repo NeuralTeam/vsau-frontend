@@ -5,8 +5,8 @@ const Staff = () => {
     return (
         <div className='bg-slate-100 min-h-screen w-full p-10 pl-24'>
             <div className='flex items-end justify-start'>
-                <StaffIcon width={50} fill='#0F91D6'/>
-                <p className='ml-4 text-[#0F91D6] font-semibold text-2xl'>Персонал</p>
+                <StaffIcon width={70} fill='#0F91D6'/>
+                <p className='ml-4 text-[#0F91D6] font-semibold text-3xl'>Персонал</p>
             </div>
             <div className='grid grid-cols-2 my-20'>
                 <div
@@ -22,11 +22,13 @@ const Staff = () => {
                 </div>
                 <div
                     className='bg-[#ffffff] p-20 w-10/12 rounded-lg cursor-pointer transition-all hover:border-[#ffffff] border-2 border-slate-100'>
-                    <StaffIcon width={100} fill='#0f90d659'/>
-                    <h2 className=' text-2xl pt-7 '>
-                        Состав педагогических работников каждой реализуемой образовательной
-                        пограммы
-                    </h2>
+                    <Link href={`staff/teachers`}>
+                        <StaffIcon width={100} fill='#0f90d659'/>
+                        <h2 className=' text-2xl pt-7 '>
+                            Состав педагогических работников каждой реализуемой образовательной
+                            пограммы
+                        </h2>
+                    </Link>
                 </div>
             </div>
         </div>

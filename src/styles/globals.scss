@@ -187,3 +187,48 @@ nav {
 nav::-webkit-scrollbar {
   display: none;
 }
+
+//ol {
+//  counter-reset: num;
+//  list-style-type: none;
+//
+//  .list {
+//    &:before {
+//      content: counter(num) '.';
+//    }
+//  }
+//}
+ol {
+  list-style-type: none;
+  counter-reset: num;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  font-size: 18px;
+
+}
+
+ol li {
+  position: relative;
+  width: 80%;
+  background: white;
+  margin: 10px 0 10px;
+
+  padding: 20px 0 20px 50px;
+  grid-template-columns: 10% 90%;
+  display: grid;
+  border-radius: 8px;
+}
+
+ol li:before {
+  content: counter(num);
+  counter-increment: num;
+  display: block;
+
+  top: 0px;
+
+  width: 20px;
+  color: #0f91d6;
+  text-align: right;
+  font-size: 36px;
+  font-weight: bold;
+}
