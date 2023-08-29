@@ -1,4 +1,7 @@
 ![Воронеж](src/herbs.png)
+ - - -
+- - - 
+- - -
 
 # *Voronezh State Agricultural University*
 
@@ -10,7 +13,7 @@
 
 ***
 
-## Getting Started
+## Getting Started:
 
 First, run the development server:
 
@@ -22,10 +25,20 @@ yarn dev
 pnpm dev
 ```
 
+## Run production server:
+
+```bash
+npm install
+npm install sharp
+npm run build
+npm run start
+```
+
 ## Tools in Project
 
 ![Next](https://img.shields.io/badge/NEXT-black?style=for-the-badge&logo=next.js&logoColor=white)
 ![Typescript](https://img.shields.io/badge/Typescript-blue?style=for-the-badge&logo=Typescript&logoColor=white)
+![Tailwind](https://img.shields.io/badge/tailwind-62BAF3?style=for-the-badge&logo=tailwindcss&logoColor=white)
 ![SCSS](https://img.shields.io/badge/scss-C16A98?style=for-the-badge&logo=sass&logoColor=white)
 ![FSD](https://img.shields.io/badge/future_sliced-design-408cff?style=for-the-badge&logo=future-sliced&logoColor=white)
 
