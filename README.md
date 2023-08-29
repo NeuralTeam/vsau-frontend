@@ -1,7 +1,5 @@
 ![Воронеж](src/herbs.png)
  - - -
-- - - 
-- - -
 
 # *Voronezh State Agricultural University*
 
