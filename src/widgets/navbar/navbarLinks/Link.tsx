@@ -8,7 +8,8 @@ const Links = ({title, img, icon, path}: INavItem) => {
         <div>
             <div
                 className='h-14 ref rounded flex items-center close-navbar-icons justify-start text-white hover:bg-[#00000013]'>
-                <div className='px-10 image grid items-center justify-start grid-cols-nav min-w-[500px]'>
+                <div
+                    className='px-10 image grid items-center justify-start grid-cols-nav min-w-[450px] max-w-10/12 overflow-hidden'>
                     <div className={router === path ? '' : 'opacity-50'}>
                         <Image
                             src={icon || img}
@@ -18,7 +19,7 @@ const Links = ({title, img, icon, path}: INavItem) => {
                             className='min-h-[25px] block min-w-[25px] '
                         />
                     </div>
-                    <p className='mx-[15px] block '>{title}</p>
+                    <p className='mx-[15px] block overflow-hidden'>{title}</p>
                 </div>
             </div>
         </div>

@@ -10,13 +10,13 @@ body {
   overflow-x: hidden;
 
   &.close-navbar > .page {
-    width: calc(100vw - 160px);
-    transform: translateX(160px);
+    width: calc(100vw - 120px);
+    transform: translateX(120px);
   }
 
   & > .page {
-    width: calc(100vw - 500px);
-    transform: translateX(500px);
+    width: calc(100vw - 450px);
+    transform: translateX(450px);
   }
 
 
@@ -45,11 +45,11 @@ body {
 }
 
 nav {
-  width: 160px;
+  width: 120px;
   transition: width 0.2s ease;
 
   &.open {
-    width: 500px;
+    width: 450px;
     transition: width 0.2s ease;
   }
 }

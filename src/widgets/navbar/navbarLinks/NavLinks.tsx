@@ -33,7 +33,7 @@ const NavLinks = () => {
                     </Link>
                 ))}
                 <div className='flex items-center justify-center'>
-                    <hr className='bg-[#0F91D6] h-[1px] w-10/12 opacity-50'/>
+                    <hr className='bg-[#0F91D6] my-3 h-[1px] w-10/12 opacity-50'/>
                 </div>
             </div>
             <div className='close-refs overflow-y-auto'>

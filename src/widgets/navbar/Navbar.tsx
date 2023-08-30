@@ -35,7 +35,7 @@ const Navbar = () => {
             <div
                 className={`flex items-center  ${openNav ? 'justify-between' : 'justify-center'}  py-5 px-5 w-full`}>
                 <Link href={`/`}>
-                    <div className=' flex items-center justify-center overflow-hidden '>
+                    <div className=' flex items-center  justify-center overflow-hidden '>
                         <div
                             className='w-[100px] logo mx-auto relative transition-none z-10 bg-[#0F91D6]'>
                             <ShortLogo fill='white' width={100}/>
@@ -43,13 +43,13 @@ const Navbar = () => {
 
                         {openNav ? (
                             <div
-                                className='flex text-white ml-3 justify-center transition-all visible top-auto relative  items-center w-[320px]'>
+                                className='flex text-white ml-1 justify-center transition-all visible top-auto relative  items-center w-[320px]'>
                                 <div className=''>
-                                    <p className=' text-[11px] leading-3 min-w-[250px] max-w-[full] transition-all  font-thin ml-5  '>
-                                        Федеральное государственное бюджетное образовательное
+                                    <p className=' text-[9px] leading-3 min-w-[250px] max-w-[full] transition-all  font-thin ml-5  '>
+                                        Федеральное государственное бюджетное <br/> образовательное
                                         учреждение высшего образования
                                     </p>
-                                    <p className='no-wrap text-[20px] mt-1 leading-[22px] min-w-[320px] max-w-[320px] transition-all  font-normal ml-5 overflow-hidden max-h-[150px]'>
+                                    <p className='no-wrap text-[18px] mt-1 leading-[22px] min-w-[320px] max-w-[320px] transition-all  font-normal ml-5 overflow-hidden max-h-[150px]'>
                                         Воронежский государственный аграрный университет <br/>{' '}
                                         имени Петра I
                                     </p>
@@ -92,7 +92,7 @@ const Navbar = () => {
                 <NavLinks/>
             </div>
             <div
-                className={`fixed z-10 bottom-0 py-2 bg-white ${openNav ? 'flex-row w-[500px]' : 'flex-col w-[160px]'} flex  items-center justify-between px-10`}>
+                className={`fixed z-10 bottom-0 py-2 bg-white ${openNav ? 'flex-row w-[450px]' : 'flex-col w-[120px]'} flex  items-center justify-between px-10`}>
                 <div className="my-2">
                     <Image src={vk} alt={`dk`}/>
                 </div>
