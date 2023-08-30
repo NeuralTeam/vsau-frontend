@@ -10,14 +10,15 @@ body {
   overflow-x: hidden;
 
   &.close-navbar > .page {
-    width: calc(100vw - 160px);
-    transform: translateX(160px);
+    width: calc(100vw - 120px);
+    transform: translateX(120px);
   }
 
   & > .page {
-    width: calc(100vw - 500px);
-    transform: translateX(500px);
+    width: calc(100vw - 450px);
+    transform: translateX(450px);
   }
+
 
   .page {
     transition: all 0.2s;
@@ -44,11 +45,11 @@ body {
 }
 
 nav {
-  width: 160px;
+  width: 120px;
   transition: width 0.2s ease;
 
   &.open {
-    width: 500px;
+    width: 450px;
     transition: width 0.2s ease;
   }
 }
@@ -111,32 +112,32 @@ nav {
 }
 
 .news::-webkit-scrollbar {
-  display: none;
+  width: 200px;
 }
 
-//.news::-webkit-scrollbar {
-//  width: 12px; /* ширина scrollbar */
-//  height: 10px;
-//  cursor: pointer;
-//}
+.news::-webkit-scrollbar {
+  width: 12px; /* ширина scrollbar */
+  height: 10px;
+  cursor: pointer;
+}
 
-//.news::-webkit-scrollbar-track {
-//  background: rgba(255, 166, 0, 0); /* цвет дорожки */
-//}
-//
-//.news::-webkit-scrollbar-thumb {
-//  background-color: rgba(15, 144, 214, 0.463); /* цвет плашки */
-//  border-radius: 4px; /* закругления плашки */
-//
-//
-//  &:active {
-//    background-color: rgb(15, 145, 214);
-//  }
-//
-//  &:hover {
-//    background-color: rgb(15, 145, 214);
-//  }
-//}
+.news::-webkit-scrollbar-track {
+  background: rgba(255, 166, 0, 0); /* цвет дорожки */
+}
+
+.news::-webkit-scrollbar-thumb {
+  background-color: rgba(15, 144, 214, 0.463); /* цвет плашки */
+  border-radius: 4px; /* закругления плашки */
+
+
+  &:active {
+    background-color: rgb(15, 145, 214);
+  }
+
+  &:hover {
+    background-color: rgb(15, 145, 214);
+  }
+}
 
 .news {
   padding-bottom: 20px;

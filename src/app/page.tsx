@@ -17,9 +17,11 @@ const page = () => {
                 />
             </div>
             <div className='w-full py-6 pl-20'>
-                <div className='news '>
+                <div className='news'>
                     <h1 className='text-[#3F3F3F66] py-8 text-3xl'> Новости</h1>
-                    <News/>
+                    <div className="news">
+                        <News/>
+                    </div>
                 </div>
                 <div className='actuality'>
                     <h1 className='text-[#3F3F3F66] py-8 text-3xl'> Актуальное</h1>
