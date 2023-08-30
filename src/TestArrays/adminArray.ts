@@ -1,9 +1,9 @@
-import agibalov from '@/shared/admin/img/Agibalov.png'
-import derkanosova from '@/shared/admin/img/Derkanosova.png'
-import zaporozhceva from '@/shared/admin/img/Zaporozhceva.png'
-import ageeva from '@/shared/admin/img/Ageeva.png'
-import vorokhobin from '@/shared/admin/img/Vorokhobin.png'
-import izmalkov from '@/shared/admin/img/Izmalkov.png'
+import agibalov from '@/shared/admin/img/Agibalov.jpg'
+import derkanosova from '@/shared/admin/img/Derkanosova.jpg'
+import zaporozhceva from '@/shared/admin/img/Zaporozhceva.jpg'
+import ageeva from '@/shared/admin/img/Ageeva.jpg'
+import vorokhobin from '@/shared/admin/img/Vorokhobin.jpg'
+import izmalkov from '@/shared/admin/img/Izmalkov.jpg'
 
 export const adminArray: IStaff[] = [
     {
