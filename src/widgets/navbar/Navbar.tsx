@@ -93,25 +93,25 @@ const Navbar = () => {
             </div>
             <div
                 className={`fixed z-10 bottom-0 py-2 bg-white ${openNav ? 'flex-row w-[450px]' : 'flex-col w-[120px]'} flex  items-center justify-between px-10`}>
-                <div className="my-2">
+                <Link href='https://vk.com/vsau1912' className="my-2">
                     <Image src={vk} alt={`dk`}/>
-                </div>
-                <div className="my-2">
+                </Link>
+                <Link href='https://ok.ru/vsau1912' className="my-2">
                     <Image src={ok} alt={`dk`}/>
-                </div>
-                <div className="my-2">
+                </Link>
+                <Link href='https://t.me/vsau1912' className="my-2">
                     <Image src={tg} alt={`dk`}/>
-                </div>
-                <div className="my-2">
+                </Link>
+                <Link href='https://www.youtube.com/channel/UCF3LAx0wx0kjOW2QchlP6KQ' className="my-2">
                     {openNav ?
                         <Image src={yt} alt={'yt'}/>
                         :
                         <Image src={ytSmall} alt={'yt'}/>
                     }
-                </div>
-                <div className="my-2">
+                </Link>
+                <Link href='https://dzen.ru/vsau1912' className="my-2">
                     <Image src={dzen} alt='dzen'/>
-                </div>
+                </Link>
             </div>
         </nav>
     )
