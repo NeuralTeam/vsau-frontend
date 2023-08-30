@@ -8,13 +8,13 @@ const AdminItem = ({id, post, name, photo, tel, cabinet, email}: IStaff) => {
             <div className=' h-7/12 mb-5'>
                 <div className=' flex items-center justify-center min-h-[300px]'>
                     <div className='absolute top-[10%] '>
-                        <StaffCircle fill='#ffffffbb' width={284}/>
+                        <StaffCircle fill='#ffffffbb' width={290}/>
                     </div>
-                    <div className='w-full flex items-center justify-center'>
+                    <div className='w-full w-[218px] h-218px flex items-center bg-white justify-center'>
                         <Image
                             src={photo}
                             alt='photo'
-                            className=' rounded-full bg-slate-100 w-[218px] h-[218px] overflow-hidden absolute top-[15%] '
+                            className=' rounded-full bg-slate-100 w-[218px] h-[218px] overflow-hidden absolute top-[15.4%] '
                         />
                     </div>
                 </div>
