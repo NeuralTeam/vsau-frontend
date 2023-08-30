@@ -1,6 +1,6 @@
 import agibalov from '@/shared/admin/img/Agibalov.png'
 import derkanosova from '@/shared/admin/img/Derkanosova.png'
-import zaporozhceva from '@/shared/admin/img/Zaporozhtseva.png'
+import zaporozhceva from '@/shared/admin/img/Zaporozhceva.png'
 import ageeva from '@/shared/admin/img/Ageeva.png'
 import vorokhobin from '@/shared/admin/img/Vorokhobin.png'
 import izmalkov from '@/shared/admin/img/Izmalkov.png'
