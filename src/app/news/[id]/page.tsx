@@ -1,7 +1,7 @@
 'use client'
 
 import {newsArray} from '@/TestArrays/newsArray'
-import news from '@/news.png'
+import news from '@/naw.jpg'
 import Image from 'next/image'
 import {useParams} from 'next/navigation'
 import {useState} from 'react'
