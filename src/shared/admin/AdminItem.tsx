@@ -9,14 +9,16 @@ const AdminItem = ({id, post, name, photo, tel, cabinet, email}: IStaff) => {
                 <div className=' flex items-center justify-center min-h-[300px]'>
                     <div className='absolute top-[10%] '>
                         <StaffCircle fill='#ffffffbb' width={290}/>
+                        <div className='w-full flex items-center bg-white justify-center'>
+                            <Image
+                                src={photo}
+
+                                alt='photo'
+                                className=' w-9/12 h-9/12  rounded-full bg-slate-100 overflow-hidden absolute top-[12.5%] '
+                            />
+                        </div>
                     </div>
-                    <div className='w-full w-[218px] h-218px flex items-center bg-white justify-center'>
-                        <Image
-                            src={photo}
-                            alt='photo'
-                            className=' rounded-full bg-slate-100 w-[218px] h-[218px] overflow-hidden absolute top-[15.4%] '
-                        />
-                    </div>
+
                 </div>
             </div>
             <div className='h-4/12 mt-10'>
