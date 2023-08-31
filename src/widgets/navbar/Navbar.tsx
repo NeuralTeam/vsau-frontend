@@ -92,7 +92,7 @@ const Navbar = () => {
                 <NavLinks/>
             </div>
             <div
-                className={`fixed z-10 bottom-0 py-2 bg-white ${openNav ? 'flex-row w-[450px]' : 'flex-col w-[120px]'} flex  items-center justify-between px-10`}>
+                className={`fixed z-10  bottom-0 py-2 bg-white ${openNav ? 'flex-row w-[450px] transition-[width]  delay-100' : 'flex-col w-[120px] '} flex  items-center justify-between px-10`}>
                 <Link href='https://vk.com/vsau1912' className="my-2">
                     <Image src={vk} alt={`dk`}/>
                 </Link>
