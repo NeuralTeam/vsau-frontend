@@ -3,8 +3,10 @@ import Actuality from '@/widgets/mainPage/actuality/Actuality'
 import News from '@/widgets/mainPage/news/News'
 import Recommendet from '@/widgets/mainPage/recomendet/Recommendet'
 import Image from 'next/image'
+import {MDXRemote} from "next-mdx-remote/rsc";
 
 const page = () => {
+
     return (
         <div className='min-h-screen min-w-full bg-slate-100'>
             <div className='flex'>
@@ -16,6 +18,10 @@ const page = () => {
                     className='w-full slider'
                 />
             </div>
+            <div className="prose">
+                <MDXRemote source={`# Hello world`}/>
+            </div>
+
             <div className='w-full py-6 pl-20'>
                 <div className='news'>
                     <h1 className='text-[#3F3F3F66] py-8 text-3xl'> Новости</h1>
