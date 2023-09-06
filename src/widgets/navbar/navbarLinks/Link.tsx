@@ -16,7 +16,7 @@ const Links = ({title, img, icon, path}: INavItem) => {
                             width={12}
                             height={12}
                             alt=''
-                            className='min-h-[18px] block min-w-[18px] '
+                            className='min-h-[20px] block min-w-[20px] '
                         />
                     </div> : <div className={router === path ? '' : 'opacity-50'}>
                         <Image
@@ -24,7 +24,7 @@ const Links = ({title, img, icon, path}: INavItem) => {
                             width={12}
                             height={12}
                             alt=''
-                            className='min-h-[20px] block min-w-[20px] '
+                            className='min-h-[24px] block min-w-[24px] '
                         />
                     </div>}
 
