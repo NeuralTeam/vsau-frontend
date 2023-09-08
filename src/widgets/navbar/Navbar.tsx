@@ -33,7 +33,7 @@ const Navbar = () => {
             }
         >
             <div
-                className={`flex items-center  ${openNav ? 'justify-between' : 'justify-center'}  py-5 px-5 w-full`}>
+                className={`flex items-center  ${openNav ? 'justify-between' : 'justify-center'}  py-4 px-5 w-full`}>
                 <Link href={`/`}>
                     <div className=' flex items-center  justify-center overflow-hidden '>
                         <div
@@ -44,14 +44,15 @@ const Navbar = () => {
                         {openNav ? (
                             <div
                                 className='flex text-white ml-1 justify-center transition-all visible top-auto relative  items-center w-[320px]'>
-                                <div className=''>
-                                    <p className=' text-[9px] leading-3 min-w-[250px] max-w-[full] transition-all  font-thin ml-5  '>
+                                <div
+                                    className='ml-2 w-full flex flex-col items-baseline justify-center min-h-[100px] max-h-[100px]'>
+                                    <p className=' text-[9px] leading-3  max-w-[full] transition-all text-left   font-thin  '>
                                         Федеральное государственное бюджетное <br/> образовательное
                                         учреждение высшего образования
                                     </p>
-                                    <p className='no-wrap text-[18px] mt-1 leading-[22px] min-w-[320px] max-w-[320px] transition-all  font-normal ml-5 overflow-hidden max-h-[150px]'>
-                                        Воронежский государственный аграрный университет <br/>{' '}
-                                        имени Петра I
+                                    <p className='no-wrap text-[16px] mt-[5px] leading-[16px] transition-all  font-normal overflow-hidden max-h-[51px]'>
+                                        Воронежский государственный аграрный университет
+                                        имени <br/> императора Петра I
                                     </p>
                                 </div>
                             </div>

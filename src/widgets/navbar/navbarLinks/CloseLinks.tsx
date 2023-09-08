@@ -9,15 +9,23 @@ const CloseLinks = ({title, img, icon, path}: INavItem) => {
         <div>
             <div
                 className='h-12 ref rounded flex items-center px-10 close-navbar-icons  justify-center text-white hover:bg-[#00000013]'>
-                <div className={router === path ? '' : 'opacity-50'}>
+                {path === '/documents' ? <div className={router === path ? '' : 'opacity-50'}>
                     <Image
-                        src={icon}
-                        width={15}
-                        height={15}
+                        src={icon || img}
+                        width={12}
+                        height={12}
                         alt=''
-                        className='min-h-[25px] block min-w-[25px]'
+                        className='min-h-[20px] block min-w-[20px] '
                     />
-                </div>
+                </div> : <div className={router === path ? '' : 'opacity-50'}>
+                    <Image
+                        src={icon || img}
+                        width={12}
+                        height={12}
+                        alt=''
+                        className='min-h-[24px] block min-w-[24px] '
+                    />
+                </div>}
             </div>
         </div>
     )
