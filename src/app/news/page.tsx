@@ -1,45 +1,19 @@
-'use client'
+import NewsCard from "@/widgets/news/news-card";
 
-import {newsArray} from '@/TestArrays/newsArray'
-import news from '@/news.png'
-import Image from 'next/image'
-import Link from 'next/link'
-import {useState} from 'react'
-
-const News = () => {
-    const [items] = useState<INews[]>(newsArray)
+const NewsPage = () => {
     return (
-        <div className='bg-slate-100 pl-24'>
-            <div className=''>
-                <p className='py-10 mx-10 font-bold text-xl'>Декабрь 2021</p>
-                <div className='flex flex-wrap mx-10 transition-all text-blue'>
-                    {items.map(item => (
-                        <div className=' mr-7 mb-7 w-[320px] h-[350px] relative bg-white rounded-lg'>
-                            <Image
-                                src={news}
-                                alt='#'
-                                width={320}
-                                height={0}
-                                className='w-full'
-                            />
-                            <div className='p-3'>
-                                <Link
-                                    href={`news/${item.id}`}
-                                    className='cursor-pointer hover:underline'
-                                >
-                                    <b>{item.title}</b>
-                                </Link>
-                                <div className='flex absolute w-[90%] bottom-2 justify-between  mt-7'>
-                                    <p>{item.date}</p>
-                                    <Link href='news/#'>Читать </Link>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
+        <div className="flex flex-col space-y-10">
+            <div className="flex flex-col">
+                <p className="text-xl font-bold">Заголовок</p>
+                <p className="text-xl">Описание</p>
+            </div>
+            <div className="flex flex-col space-y-4 sm:flex-row sm:flex-wrap sm:gap-8 sm:space-y-0">
+                {Array.from({ length: 10 }).map((_, i) => (
+                    <NewsCard key={i} id={i} title="С новым годом, с новым счастьем !!!" date="23.12.2002" />
+                ))}
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default News
+export default NewsPage;

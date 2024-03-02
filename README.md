@@ -1,15 +1,16 @@
-![Воронеж](src/herbs.png)
- - - -
+![Воронеж](.github/images/emblems.png)
 
-# *Voronezh State Agricultural University*
+---
 
-- - -
+# _Voronezh State Agricultural University_
 
-![Image](src/vgau.png "Voronezh State Agricultural University")
+---
+
+![Image](.github/images/vsau.png "Voronezh State Agricultural University")
 
 ### Frontend development repository
 
-***
+---
 
 ## Getting Started:
 
@@ -34,11 +35,9 @@ npm run start
 
 ## Tools in Project
 
-![Next](https://img.shields.io/badge/NEXT-black?style=for-the-badge&logo=next.js&logoColor=white)
 ![Typescript](https://img.shields.io/badge/Typescript-blue?style=for-the-badge&logo=Typescript&logoColor=white)
+![Next](https://img.shields.io/badge/NEXT-black?style=for-the-badge&logo=next.js&logoColor=white)
 ![Tailwind](https://img.shields.io/badge/tailwind-62BAF3?style=for-the-badge&logo=tailwindcss&logoColor=white)
-![SCSS](https://img.shields.io/badge/scss-C16A98?style=for-the-badge&logo=sass&logoColor=white)
-![FSD](https://img.shields.io/badge/future_sliced-design-408cff?style=for-the-badge&logo=future-sliced&logoColor=white)
 
 ## About Uneversity
 
@@ -52,4 +51,4 @@ To Nicholas II and signed by him.
 
 ## About Us
 
-comming soon...
+Coming soon...

@@ -1,0 +1,10 @@
+{
+    "extends": ["next/core-web-vitals", "prettier", "next"],
+    "globals": {
+        "React": "readonly"
+    },
+    "rules": {
+        "no-unused-vars": "off",
+        "no-const-assign": "error"
+    }
+}
