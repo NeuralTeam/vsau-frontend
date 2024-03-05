@@ -1,11 +1,12 @@
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
-    enabled: process.env.ANALYZE === "true"
+    enabled: process.env.DEV_ANALYZE_BUNDLE === "true"
 });
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    reactStrictMode: false,
-    output: "standalone"
+    output: "standalone",
+
+    reactStrictMode: process.env.DEV_STRICT_MODE === "true"
 };
 
 module.exports = withBundleAnalyzer(nextConfig);

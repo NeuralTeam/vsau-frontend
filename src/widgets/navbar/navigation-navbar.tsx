@@ -4,7 +4,7 @@ import { IoClose, IoEyeOutline, IoLanguageOutline } from "react-icons/io5";
 import { CiMenuBurger, CiSearch } from "react-icons/ci";
 import { ThemeSwitcher } from "@/shared/ui/vsau/theme-switcher";
 import { NavigationMenu } from "@/widgets/navbar/navigation-menu";
-import { Logo } from "@/shared/images/logo";
+import { Logo } from "@/shared/images/logo/logo";
 import Link from "next/link";
 import { Button } from "@/shared/ui/shadcn/button";
 import * as React from "react";
