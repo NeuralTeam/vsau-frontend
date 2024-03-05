@@ -1,0 +1,1 @@
+## Thx for package https://github.com/simov/slugify ♥ ♥ ♥
