@@ -23,6 +23,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # Misc
+.tmp
 .vercel
 .DS_Store
 *.pem
