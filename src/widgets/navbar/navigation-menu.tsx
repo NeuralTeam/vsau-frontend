@@ -9,7 +9,7 @@ import {
     NavigationMenuTrigger,
     navigationMenuTriggerStyle
 } from "@/shared/ui/shadcn/navigation-menu";
-import { Logo } from "@/shared/images/logo";
+import { Logo } from "@/shared/images/logo/logo";
 
 export const NavigationMenu = ({ pathname }: { pathname: string | null }) => {
     return (

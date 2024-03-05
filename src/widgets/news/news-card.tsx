@@ -1,4 +1,4 @@
-import imgTest from "@/shared/images/news.png";
+import cardNews from "@/shared/images/plugs/card_news.png";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -14,7 +14,7 @@ const NewsCard = ({ id, title, date, img }: INewsCard) => {
         <Link href={`/news/${id}`} className="group">
             <div className="flex flex-col rounded-lg rounded-t-xl border sm:h-[300px] sm:w-[300px]">
                 <Image
-                    src={imgTest}
+                    src={cardNews}
                     priority={false}
                     placeholder="blur"
                     alt="#"
