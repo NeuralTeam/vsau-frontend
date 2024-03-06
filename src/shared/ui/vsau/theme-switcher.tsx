@@ -5,7 +5,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { Button } from "@/shared/ui/shadcn/button";
 import { Moon, Sun } from "lucide-react";
 import * as React from "react";
-import { IoRadioButtonOn } from "react-icons/io5";
+import { IoCheckmarkOutline } from "react-icons/io5";
 
 export const ThemeSwitcher = () => {
     const { setTheme, theme } = useTheme();
@@ -20,17 +20,17 @@ export const ThemeSwitcher = () => {
                 </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-                <DropdownMenuItem onClick={() => setTheme("light")} className="flex space-x-3">
-                    {theme == "light" && <IoRadioButtonOn />}
+                <DropdownMenuItem onClick={() => setTheme("light")} className="flex justify-between">
                     <span>Light</span>
+                    {theme == "light" && <IoCheckmarkOutline />}
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setTheme("dark")} className="flex space-x-3">
-                    {theme == "dark" && <IoRadioButtonOn />}
+                <DropdownMenuItem onClick={() => setTheme("dark")} className="flex justify-between">
                     <span>Dark</span>
+                    {theme == "dark" && <IoCheckmarkOutline />}
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setTheme("system")} className="flex space-x-3">
-                    {theme == "system" && <IoRadioButtonOn />}
+                <DropdownMenuItem onClick={() => setTheme("system")} className="flex justify-between">
                     <span>System</span>
+                    {theme == "system" && <IoCheckmarkOutline />}
                 </DropdownMenuItem>
             </DropdownMenuContent>
         </DropdownMenu>
