@@ -4,11 +4,13 @@
     "private": true,
     "scripts": {
         "dev": "next dev",
+        "dev:ssl": "next dev --experimental-https",
         "dev:turbo": "next dev --turbo",
+        "dev:turbo:ssl": "next dev --turbo --experimental-https",
         "build": "next build",
         "build:analyze": "ANALYZE=true next build",
         "start": "next start",
-        "lint": "prettier -c . && next lint",
+        "lint": "next lint && prettier -c .",
         "fix": "prettier -c -w ."
     },
     "dependencies": {
