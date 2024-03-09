@@ -1,0 +1,34 @@
+{
+    "name": "ВГАУ: Сайт",
+    "short_name": "ВГАУ: Сайт",
+    "description": "Публичная страница ВГАУ",
+    "author": "NeuralTeam",
+    "display": "standalone",
+    "orientation": "any",
+    "id": "/",
+    "start_url": "/",
+    "scope": "/",
+    "background_color": "#020817",
+    "theme_color": "#020817",
+    "icons": [
+        {
+            "src": "/manifest_logo512_example.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "/manifest_logo512_example.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "form_factor": "wide"
+        },
+        {
+            "src": "/manifest_logo512_example.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "form_factor": "narrow"
+        }
+    ]
+}
