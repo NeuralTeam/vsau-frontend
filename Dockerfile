@@ -17,6 +17,7 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
 ENV NEXT_TELEMETRY_DISABLED 1
+ENV NEXT_PUBLIC_DOMAIN "https://vsau.neuralteam.ru"
 
 RUN \
   if [ -f package-lock.json ]; then npm i sharp && npm run build; \
