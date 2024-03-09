@@ -7,10 +7,36 @@ import { NavigationNavbar } from "@/widgets/navbar/navigation-navbar";
 import RootFooter from "@/widgets/footer";
 import * as React from "react";
 
+// https://fonts.google.com/specimen/Rubik
 const rubikFont = Rubik({ subsets: ["latin", "cyrillic"] });
 
 export const metadata: Metadata = {
-    title: "ВГАУ"
+    // https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+    metadataBase: new URL(process.env.NEXT_PUBLIC_DOMAIN),
+    title: "ВГАУ: Сайт",
+    description: "Публичный сайт Воронежского Государственного Аграрного Университета имени Петра Великого",
+    category: "education",
+    authors: [{ name: "NeuralTeam", url: "https://neuralteam.ru" }],
+    // https://ogp.me
+    openGraph: {
+        title: "ВГАУ",
+        description: "Публичный сайт Воронежского ГАУ",
+        url: process.env.NEXT_PUBLIC_DOMAIN,
+        images: [
+            {
+                url: `${process.env.NEXT_PUBLIC_DOMAIN}/og_example.jpg`, // Абсолютный URL
+                alt: "Публичный сайт Воронежского Государственного Аграрного Университета имени Петра Великого",
+                width: 1280,
+                height: 720
+            }
+        ],
+        countryName: "russia",
+        locale: "ru",
+        alternateLocale: ["en"],
+        type: "website"
+    },
+    referrer: "strict-origin-when-cross-origin"
+    // https://developer.mozilla.org/ru/docs/Web/Manifest
 };
 
 export default function RootLayout({
