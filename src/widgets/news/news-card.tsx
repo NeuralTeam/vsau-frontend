@@ -1,4 +1,4 @@
-import cardNews from "@/shared/images/plugs/card_news.png";
+import cardNewsPlug from "@/shared/images/plugs/card_news.png";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -14,19 +14,17 @@ const NewsCard = ({ id, title, date, img }: INewsCard) => {
         <Link href={`/news/${id}`} className="group">
             <div className="flex flex-col rounded-lg rounded-t-xl border sm:h-[300px] sm:w-[300px]">
                 <Image
-                    src={cardNews}
+                    src={img == null ? cardNewsPlug : img}
                     priority={false}
                     placeholder="blur"
                     alt="#"
-                    width={0}
-                    height={0}
-                    className="hidden w-full rounded-t-xl sm:block"
+                    className="hidden max-h-[50%] w-full rounded-t-xl object-cover sm:block"
                 />
-                <div className="mx-3 mb-1 mt-2 flex h-full flex-col justify-between space-y-2">
-                    <p className="line-clamp-2 cursor-pointer font-bold hover:underline sm:line-clamp-3">{title}</p>
+                <div className="mx-3 mb-2 mt-2 flex h-full flex-col justify-between space-y-2">
+                    <p className="line-clamp-2 w-fit cursor-pointer font-bold hover:underline sm:line-clamp-3">{title}</p>
                     <div className="flex justify-between">
                         <p>{date}</p>
-                        <p>#МбВажно</p>
+                        <p className="rounded-xl bg-primary/50 p-1 text-sm">Важно</p>
                     </div>
                 </div>
             </div>
