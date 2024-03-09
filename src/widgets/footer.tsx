@@ -13,7 +13,7 @@ const RootFooter = () => {
 
                 <p className="mt-5">
                     Сайт разработан командой{" "}
-                    <Link href="/" className="underline-offset-4 hover:underline">
+                    <Link target="_blank" href="https://neuralteam.ru" className="underline-offset-4 hover:underline">
                         NeuralTeam
                     </Link>
                 </p>

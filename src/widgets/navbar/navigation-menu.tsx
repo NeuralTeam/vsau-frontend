@@ -18,7 +18,7 @@ export const NavigationMenu = ({ pathname }: { pathname: string | null }) => {
                 <NavigationMenuItem>
                     <NavigationMenuTrigger>Об Университете</NavigationMenuTrigger>
                     <NavigationMenuContent>
-                        <ul className="grid gap-2 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                        <ul className="grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                             <li className="row-span-5">
                                 <NavigationMenuLink asChild>
                                     <Link
@@ -44,7 +44,7 @@ export const NavigationMenu = ({ pathname }: { pathname: string | null }) => {
                 <NavigationMenuItem>
                     <NavigationMenuTrigger>Образование</NavigationMenuTrigger>
                     <NavigationMenuContent>
-                        <ul className="grid w-[200px] gap-2 p-4 md:w-[300px] md:grid-cols-2 lg:w-[400px]">
+                        <ul className="grid w-[200px] gap-2 md:w-[300px] md:grid-cols-2 lg:w-[400px]">
                             <ListItem href="/" title="Студентам" description="Сдать сессию на отлично" />
 
                             <ListItem href="/" title="Аспирантам" description="Понять зачем им это нужно" />

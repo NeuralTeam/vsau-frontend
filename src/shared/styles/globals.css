@@ -31,6 +31,7 @@
 
         /* Scrollbar Section START */
         ::-webkit-scrollbar {
+            height: 5px;
             width: 5px;
         }
         ::-webkit-scrollbar-track {
@@ -38,7 +39,7 @@
         }
         ::-webkit-scrollbar-thumb {
             background: #27272a;
-            border-radius: 5px;
+            border-radius: 10px;
         }
         /* Scrollbar Section END */
     }
