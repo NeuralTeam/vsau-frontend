@@ -12,7 +12,7 @@ import { LuDot } from "react-icons/lu";
 
 export const NavigationNavbar = () => {
     return (
-        <nav className="sticky top-0 flex h-[70px] w-full flex-row justify-between space-x-10 border-b bg-background p-2 shadow-md md:shadow-xl">
+        <nav className="sticky top-0 z-50 flex h-[70px] w-full flex-row justify-between space-x-10 border-b bg-background p-2 shadow-md md:shadow-xl">
             <Link href="/" className="flex w-auto max-w-[400px] flex-row items-center space-x-1">
                 <div>
                     <Logo width={60} height={60} fillColor="" className="h-14 w-14 fill-foreground" />
