@@ -29,7 +29,7 @@ const RootPage = () => {
                         <Link href="/news">Новости</Link>
                     </h1>
 
-                    <div className="flex flex-col space-y-4 pb-3 sm:flex-row sm:flex-nowrap sm:gap-8 sm:space-y-0 sm:overflow-x-scroll">
+                    <div className="flex space-y-4 pb-3 sm:flex-row sm:flex-nowrap sm:gap-8 sm:space-y-0 sm:overflow-x-scroll">
                         {Array.from({ length: 5 }).map((_, i) => (
                             <NewsCard key={i} id={i} title="С новым годом, с новым счастьем !!!" date="23.12.2002" />
                         ))}
@@ -39,8 +39,8 @@ const RootPage = () => {
                     <h1 className="line-clamp-1 w-fit text-3xl font-semibold underline-offset-[5px] hover:underline">
                         <Link href="/news">Мероприятия</Link>
                     </h1>
-                    <div className="flex flex-col space-y-4 pb-3 sm:flex-row sm:flex-nowrap sm:gap-8 sm:space-y-0 sm:overflow-x-scroll">
-                        {Array.from({ length: 5 }).map((_, i) => (
+                    <div className="flex space-y-4 pb-3 sm:flex-row sm:flex-nowrap sm:gap-8 sm:space-y-0 sm:overflow-x-scroll">
+                        {Array.from({ length: 10 }).map((_, i) => (
                             <NewsCard key={i} id={i} title="С новым годом, с новым счастьем !!!" date="23.12.2002" />
                         ))}
                     </div>
