@@ -5,7 +5,7 @@ import * as React from "react";
 
 export default function SvedenLayout({ children }: Readonly<{ children: ReactNode }>) {
     return (
-        <div className="-m-8 flex">
+        <div className="-my-8 flex">
             <aside className="sm:h-dhv hidden h-screen sm:block sm:max-w-[350px] sm:border-r">
                 <div className="m-5 flex flex-col space-y-5">
                     <Link href="/sveden/common" className="group flex items-center space-x-3">

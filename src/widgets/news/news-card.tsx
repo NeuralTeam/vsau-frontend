@@ -12,7 +12,7 @@ interface INewsCard {
 const NewsCard = ({ id, title, date, img }: INewsCard) => {
     return (
         <Link href={`/news/${id}`} className="group">
-            <div className="flex flex-col rounded-lg rounded-t-xl border sm:h-[300px] sm:w-[300px]">
+            <div className="flex flex-col rounded-lg rounded-t-xl border sm:h-[250px] sm:w-[250px]">
                 <Image
                     src={img == null ? cardNewsPlug : img}
                     priority={false}
