@@ -13,10 +13,10 @@ import { LuDot } from "react-icons/lu";
 export const NavigationNavbar = () => {
     return (
         // TODO: попробовать без sticky
-        <nav className="sticky top-0 z-50 flex h-[70px] w-full flex-row justify-between space-x-10 border-b bg-[#0F91D6] p-2 text-accent shadow-md md:shadow-xl">
+        <nav className="sticky top-0 z-50 flex h-[70px] w-full flex-row justify-between space-x-10 border-b bg-header p-2 text-white shadow-md md:shadow-xl">
             <Link href="/" className="flex w-auto max-w-[400px] flex-row items-center space-x-1">
                 <div>
-                    <Logo width={60} height={60} fillColor="" className="h-14 w-14 fill-accent" />
+                    <Logo width={60} height={60} fillColor="" className="h-14 w-14 fill-white" />
                 </div>
                 <div className="flex w-auto min-w-[50px] flex-col">
                     <span className="ml-5 hidden text-[16px] font-semibold leading-[17px] sm:line-clamp-2">

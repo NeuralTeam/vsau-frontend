@@ -21,15 +21,15 @@ export const ThemeSwitcher = () => {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
                 <DropdownMenuItem onClick={() => setTheme("light")} className="flex justify-between">
-                    <span>Light</span>
+                    <span>Светлая</span>
                     {theme == "light" && <IoCheckmarkOutline />}
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => setTheme("dark")} className="flex justify-between">
-                    <span>Dark</span>
+                    <span>Темная</span>
                     {theme == "dark" && <IoCheckmarkOutline />}
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => setTheme("system")} className="flex justify-between">
-                    <span>System</span>
+                    <span>Авто</span>
                     {theme == "system" && <IoCheckmarkOutline />}
                 </DropdownMenuItem>
             </DropdownMenuContent>
