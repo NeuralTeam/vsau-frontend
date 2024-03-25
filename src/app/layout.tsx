@@ -49,7 +49,7 @@ export default function RootLayout({
             <body className={rubikFont.className}>
                 <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
                     <NavigationNavbar />
-                    <div className="m-8 min-h-[100vh]">{children}</div>
+                    <div className="my-8 min-h-[100vh] px-[15%]">{children}</div>
                     <RootFooter />
                 </ThemeProvider>
             </body>

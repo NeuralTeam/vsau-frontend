@@ -23,7 +23,7 @@ export const NavigationMenu = ({ pathname }: { pathname: string | null }) => {
                                 <NavigationMenuLink asChild>
                                     <Link
                                         href="/about"
-                                        className="flex h-full w-full select-none flex-col justify-center rounded-md bg-gradient-to-b from-muted/50 to-muted p-4 no-underline outline-none focus:shadow-md"
+                                        className="flex h-full w-full select-none flex-col justify-center rounded-md bg-gradient-to-b from-[#0f91d6]/20 to-[#0f91d6]/10 p-4 no-underline outline-none focus:shadow-md"
                                     >
                                         <Logo width={32} height={32} fillColor="" className="h-16 w-16 fill-foreground" />
                                         <div className="mb-2 mt-4 text-lg font-medium">Наш ВГАУ</div>
@@ -90,7 +90,7 @@ const ListItem = ({
                 <Link
                     href={href}
                     className={cn(
-                        "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+                        "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-[#0f91d6]/10 hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
                         className
                     )}
                 >

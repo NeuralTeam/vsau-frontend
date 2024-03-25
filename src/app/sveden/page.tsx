@@ -7,7 +7,7 @@ const SvedenPage = () => {
         <div className="flex flex-col space-y-10">
             <div className="flex flex-col">
                 <h1 className="text-3xl font-bold">Сведения об образовательной организации</h1>
-                <p className="w-[80%] text-xl">
+                <p className="text-xl">
                     <Link
                         target="_blank"
                         href="http://publication.pravo.gov.ru/document/0001202311290017"
