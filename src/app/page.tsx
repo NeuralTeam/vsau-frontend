@@ -1,47 +1,50 @@
-import RootCarousel, { IRootCarousel } from "@/widgets/root/root-carousel";
-import { Separator } from "@/shared/ui/shadcn/separator";
+import RootCarousel from "@/widgets/root/root-carousel";
 import NewsCard from "@/widgets/news/news-card";
-import StaticBanner from "@/widgets/root/root-static-banner";
 import Link from "next/link";
+import { IListPosts } from "@/app/news/page";
 
-const carouselData: IRootCarousel[] = [
-    { id: 1, title: "Смотрите на меня", description: "Да, да. На меня смотрите" },
-    { id: 2, title: "Смотрите на меня", description: "Да, да. На меня смотрите" },
-    { id: 3, title: "Смотрите на меня", description: "Да, да. На меня смотрите" },
-    { id: 4, title: "Смотрите на меня и только на меня", description: "Да, да. На меня смотрите. То-ль-ко на ме-ня!!!" },
-    { id: 5, title: "Не смотрите на меня", description: "НЕТ, нет. Смотрите не на меня пожалуйста. Я не баннер!" }
-];
+const getNews = async (): Promise<IListPosts[]> => {
+    return await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/news?limit=10&offset=0`).then((res) => res.json());
+};
 
-const RootPage = () => {
+const RootPage = async () => {
+    const news = await getNews();
+
     return (
         <>
-            <div className="-m-6 mt-0 flex flex-col items-center">
-                <RootCarousel data={carouselData} />
-            </div>
-            <Separator className="mt-16" />
-            <div className="mt-8 space-y-8">
-                <div className="flex flex-col items-center">
-                    <StaticBanner />
-                </div>
-                <Separator />
-                <div className="flex flex-col space-y-8">
-                    <h1 className="line-clamp-1 w-fit text-3xl font-semibold underline-offset-[5px] hover:underline">
-                        <Link href="/news">Новости</Link>
-                    </h1>
+            <RootCarousel />
 
-                    <div className="flex space-y-4 pb-3 sm:flex-row sm:flex-nowrap sm:gap-8 sm:space-y-0 sm:overflow-x-scroll">
-                        {Array.from({ length: 5 }).map((_, i) => (
-                            <NewsCard key={i} id={i} title="С новым годом, с новым счастьем !!!" date="23.12.2002" />
+            <div className="mt-8 space-y-8">
+                <div className="flex flex-col space-y-8">
+                    <div className="mr-[45px] flex items-center justify-between">
+                        <h1 className="line-clamp-1 w-fit text-3xl font-semibold">
+                            <Link href="/news">Новости</Link>
+                        </h1>
+                        <Link href="/news" className="text-[17px] font-normal leading-[20px] text-[#0F91D6] hover:underline">
+                            Все новости
+                        </Link>
+                    </div>
+
+                    <div className="flex flex-col space-y-4 pb-3 sm:flex-row sm:flex-nowrap sm:gap-8 sm:space-y-0 sm:overflow-x-scroll">
+                        {news.map((data) => (
+                            <NewsCard key={data.id} id={`${data.seo_title}-${data.id}`} title={data.title} createdAt={data.created_at} />
                         ))}
                     </div>
                 </div>
+
                 <div className="flex flex-col space-y-8">
-                    <h1 className="line-clamp-1 w-fit text-3xl font-semibold underline-offset-[5px] hover:underline">
-                        <Link href="/news">Мероприятия</Link>
-                    </h1>
-                    <div className="flex space-y-4 pb-3 sm:flex-row sm:flex-nowrap sm:gap-8 sm:space-y-0 sm:overflow-x-scroll">
-                        {Array.from({ length: 10 }).map((_, i) => (
-                            <NewsCard key={i} id={i} title="С новым годом, с новым счастьем !!!" date="23.12.2002" />
+                    <div className="mr-[45px] flex items-center justify-between">
+                        <h1 className="line-clamp-1 w-fit text-3xl font-semibold">
+                            <Link href="/news">Объявления</Link>
+                        </h1>
+                        <Link href="/news" className="text-[17px] font-normal leading-[20px] text-[#0F91D6] hover:underline">
+                            Все объявления
+                        </Link>
+                    </div>
+
+                    <div className="flex flex-col space-y-4 pb-3 sm:flex-row sm:flex-nowrap sm:gap-8 sm:space-y-0 sm:overflow-x-scroll">
+                        {news.map((data) => (
+                            <NewsCard key={data.id} id={`${data.seo_title}-${data.id}`} title={data.title} createdAt={data.created_at} />
                         ))}
                     </div>
                 </div>

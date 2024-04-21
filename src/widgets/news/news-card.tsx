@@ -3,29 +3,30 @@ import Image from "next/image";
 import Link from "next/link";
 
 interface INewsCard {
-    id: number;
+    id: string;
     title: string;
-    date: string;
+    createdAt: number;
     img?: string;
 }
 
-const NewsCard = ({ id, title, date, img }: INewsCard) => {
+const NewsCard = ({ id, title, createdAt, img }: INewsCard) => {
+    const fmtDate = new Date(createdAt * 1000).toLocaleString("ru", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" });
+
     return (
         <Link href={`/news/${id}`} className="group">
-            <div className="flex flex-col rounded-lg rounded-t-xl border sm:h-[250px] sm:w-[250px]">
-                <Image
-                    src={img == null ? cardNewsPlug : img}
-                    priority={false}
-                    placeholder="blur"
-                    alt="#"
-                    className="hidden max-h-[50%] w-full rounded-t-xl object-cover sm:block"
-                />
-                <div className="mx-3 mb-2 mt-2 flex h-full flex-col justify-between space-y-2">
-                    <p className="line-clamp-2 w-fit cursor-pointer font-bold hover:underline sm:line-clamp-3">{title}</p>
-                    <div className="flex justify-between">
-                        <p>{date}</p>
-                        <p className="rounded-xl bg-primary/50 p-1 text-sm">Важно</p>
-                    </div>
+            <div className="flex h-[300px] w-[300px] flex-col overflow-hidden rounded-[5px] bg-white">
+                <div className="min-h-[60%] w-full overflow-hidden">
+                    <Image
+                        src={img == null ? cardNewsPlug : img}
+                        priority={false}
+                        placeholder="blur"
+                        alt="#"
+                        className="w-full object-cover transition duration-200 group-hover:scale-105"
+                    />
+                </div>
+                <div className="mx-5 mb-2 mt-4 flex h-full flex-col justify-between">
+                    <p className="line-clamp-4 w-fit cursor-pointer text-[15px] font-semibold leading-[17px] group-hover:underline">{title}</p>
+                    <p className="text-[11px] font-normal leading-[13px]">{fmtDate}</p>
                 </div>
             </div>
         </Link>

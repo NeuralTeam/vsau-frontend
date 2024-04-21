@@ -3,9 +3,8 @@ import { Rubik } from "next/font/google";
 import "@/shared/styles/globals.css";
 import { ReactNode } from "react";
 import { ThemeProvider } from "@/shared/providers/theme-provider";
-import { NavigationNavbar } from "@/widgets/navbar/navigation-navbar";
-import RootFooter from "@/widgets/footer";
-import * as React from "react";
+import NavigationSidebar from "@/widgets/navbar/navigation-sidebar";
+import RootFooter from "@/widgets/root/root-footer";
 
 // https://fonts.google.com/specimen/Rubik
 const rubikFont = Rubik({ subsets: ["latin", "cyrillic"] });
@@ -35,8 +34,9 @@ export const metadata: Metadata = {
         alternateLocale: ["en"],
         type: "website"
     },
-    referrer: "strict-origin-when-cross-origin"
+    referrer: "strict-origin-when-cross-origin",
     // https://developer.mozilla.org/ru/docs/Web/Manifest
+    manifest: "/manifest.json"
 };
 
 export default function RootLayout({
@@ -47,10 +47,12 @@ export default function RootLayout({
     return (
         <html lang="ru" suppressHydrationWarning>
             <body className={rubikFont.className}>
-                <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-                    <NavigationNavbar />
-                    <div className="my-8 min-h-[100vh] px-[15%]">{children}</div>
-                    <RootFooter />
+                <ThemeProvider attribute="class" defaultTheme="light" disableTransitionOnChange>
+                    <NavigationSidebar />
+                    <div className="ml-[100px] bg-[#F8F8F8] pl-[70px] transition-all peer-checked:ml-[400px]">
+                        <div className="min-h-svh">{children}</div>
+                        <RootFooter />
+                    </div>
                 </ThemeProvider>
             </body>
         </html>
