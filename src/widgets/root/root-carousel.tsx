@@ -5,16 +5,9 @@ import { Carousel, CarouselApi, CarouselContent, CarouselItem } from "@/shared/u
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 import carouselBannerRoot from "@/shared/images/plugs/carousel_banner_root.png";
-import { LuDot } from "react-icons/lu";
 import { cn } from "@/shared/libs/shadcn-utils";
 
-export interface IRootCarousel {
-    id: number;
-    title: string;
-    description: string;
-}
-
-const RootCarousel = ({ data }: { data: IRootCarousel[] }) => {
+const RootCarousel = () => {
     const [api, setApi] = useState<CarouselApi>();
     const [current, setCurrent] = useState(0);
     const [count, setCount] = useState(0);
@@ -41,43 +34,27 @@ const RootCarousel = ({ data }: { data: IRootCarousel[] }) => {
     );
 
     return (
-        <div className="w-full sm:w-3/4">
-            <Carousel setApi={setApi} opts={{ loop: true }} plugins={[Autoplay({ delay: 50000 })]}>
+        <div className="-ml-[45px] flex flex-col items-center justify-center space-y-4">
+            <Carousel setApi={setApi} opts={{ loop: true }} plugins={[Autoplay({ delay: 10000 })]}>
                 <CarouselContent>
-                    {data.map((item) => (
-                        <CarouselItem key={item.id}>
-                            <div className="flex flex-col md:flex-row">
-                                <Image
-                                    src={carouselBannerRoot}
-                                    priority={false}
-                                    placeholder="blur"
-                                    alt="#"
-                                    className="max-h-[300px] w-full rounded-xl object-scale-down md:w-[70%] md:rounded-xl"
-                                />
-                                <div className="h-auto rounded-r-xl px-5 pt-3 md:w-[30%] md:p-5">
-                                    <h1 className="line-clamp-1 font-semibold md:line-clamp-2">{item.title}</h1>
-                                    <p className="line-clamp-2 text-muted-foreground sm:line-clamp-3 md:line-clamp-4 lg:line-clamp-5">
-                                        {item.description}
-                                    </p>
-                                </div>
-                            </div>
+                    {Array.from({ length: 10 }).map((_, index) => (
+                        <CarouselItem key={index}>
+                            <Image src={carouselBannerRoot} priority={false} placeholder="blur" alt="#" className="max-h-[350px] object-scale-down" />
                         </CarouselItem>
                     ))}
                 </CarouselContent>
-
-                <div className="absolute bottom-2 right-2 hidden sm:flex lg:space-x-2">
-                    {Array.from({ length: count }).map((_, i) => (
-                        <LuDot
-                            key={i}
-                            onClick={() => onDotButtonClick(i)}
-                            className={cn(
-                                "cursor-pointer rounded-full",
-                                i + 1 == current ? "border-2 border-primary bg-foreground" : "hover:bg-primary"
-                            )}
-                        />
-                    ))}
-                </div>
             </Carousel>
+
+            <div className="flex space-x-2">
+                {Array.from({ length: count }).map((_, i) => (
+                    <button
+                        key={i}
+                        className={cn("h-2 w-2 rounded-full", i + 1 == current ? "bg-[#0F91D6]" : "bg-[#3F3F3F70]")}
+                        onClick={() => onDotButtonClick(i)}
+                        disabled={i + 1 == current}
+                    />
+                ))}
+            </div>
         </div>
     );
 };

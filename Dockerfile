@@ -18,6 +18,7 @@ COPY . .
 
 ENV NEXT_TELEMETRY_DISABLED 1
 ENV NEXT_PUBLIC_DOMAIN "https://vsau.neuralteam.ru"
+ENV NEXT_PUBLIC_API_DOMAIN "https://vsau.neuralteam.ru/api"
 
 RUN \
   if [ -f package-lock.json ]; then npm i sharp && npm run build; \
@@ -29,6 +30,8 @@ WORKDIR /app
 
 ENV NODE_ENV production
 ENV NEXT_TELEMETRY_DISABLED 1
+ENV NEXT_PUBLIC_DOMAIN "https://vsau.neuralteam.ru"
+ENV NEXT_PUBLIC_API_DOMAIN "https://vsau.neuralteam.ru/api"
 
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
@@ -47,5 +50,6 @@ EXPOSE 3000
 ENV PORT 3000
 ENV HOSTNAME "0.0.0.0"
 ENV NEXT_PUBLIC_DOMAIN "https://vsau.neuralteam.ru"
+ENV NEXT_PUBLIC_API_DOMAIN "https://vsau.neuralteam.ru/api"
 
 CMD ["node", "server.js"]

@@ -5,7 +5,7 @@
 @layer base {
     :root {
         /* Color Vars START */
-        --background: 0 0% 100%;
+        --background: #e3e3e3;
         --foreground: 222.2 84% 4.9%;
         --card: 0 0% 100%;
         --card-foreground: 222.2 84% 4.9%;
@@ -26,7 +26,7 @@
         --ring: 221.2 83.2% 53.3%;
         --radius: 0.5rem;
 
-        --text-header: #0d80be;
+        --text-header: #3f3f3f70;
         /* Color Vars END */
 
         /* Scrollbar Section START */
@@ -38,7 +38,7 @@
             background: transparent;
         }
         ::-webkit-scrollbar-thumb {
-            background: #27272a;
+            background: #0f91d6;
             border-radius: 10px;
         }
         /* Scrollbar Section END */
@@ -80,5 +80,8 @@
     }
     h1 {
         @apply text-2xl text-header;
+    }
+    h2 {
+        @apply text-[#030303];
     }
 }
