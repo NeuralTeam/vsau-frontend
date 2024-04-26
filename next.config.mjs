@@ -8,18 +8,7 @@ const withBundleAnalyzer = NextBundleAnalyzer({
 const nextConfig = {
     output: "standalone",
 
-    reactStrictMode: process.env.DEV_STRICT_MODE === "true",
-    async rewrites() {
-        if (process.env.DEV_API_PROXY === "true") {
-            return [
-                {
-                    source: "/api/:path*",
-                    destination: "http://localhost:8000/api/:path*"
-                }
-            ];
-        }
-        return [];
-    }
+    reactStrictMode: process.env.DEV_STRICT_MODE === "true"
 };
 
 export default withBundleAnalyzer(nextConfig);

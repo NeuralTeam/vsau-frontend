@@ -1,6 +1,6 @@
 {
     "name": "vsau-frontend",
-    "version": "0.10.0",
+    "version": "0.10.1",
     "private": true,
     "scripts": {
         "dev": "next dev",
@@ -14,7 +14,6 @@
         "fix": "prettier -c -w ."
     },
     "dependencies": {
-        "lodash": "^4.17.21",
         "@formatjs/intl-localematcher": "^0.5.4",
         "@next/bundle-analyzer": "^14.1.0",
         "@radix-ui/react-accordion": "^1.1.2",
@@ -40,6 +39,7 @@
         "cmdk": "^0.2.1",
         "embla-carousel-autoplay": "^8.0.0",
         "embla-carousel-react": "^8.0.0",
+        "lodash": "^4.17.21",
         "lucide-react": "^0.334.0",
         "markdown-to-txt": "^2.0.1",
         "negotiator": "^0.6.3",
@@ -49,6 +49,7 @@
         "react": "^18",
         "react-dom": "^18",
         "react-icons": "^5.0.1",
+        "swr": "^2.2.5",
         "tailwind-merge": "^2.2.1",
         "tailwindcss-animate": "^1.0.7"
     },
