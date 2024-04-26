@@ -7,17 +7,10 @@ import { Metadata, ResolvingMetadata } from "next";
 import Image from "next/image";
 import cardNewsPlug from "@/shared/images/plugs/card_news.png";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import { IListPosts } from "@/app/news/page";
+import { IListPosts } from "@/app/news/(static)/page";
 import NewsCard from "@/widgets/news/news-card";
-
-// export async function generateStaticParams() {
-//     const newsList = await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/news`).then((res) => res.json());
-//     return newsList.slice(0, 2).map((i) => {
-//         return {
-//             id: i.id.toString()
-//         };
-//     });s
-// }
+import { Suspense } from "react";
+import { Skeleton } from "@/shared/ui/shadcn/skeleton";
 
 export interface IPost {
     seo_title: string;
@@ -27,10 +20,6 @@ export interface IPost {
     topic: string;
     created_at: number;
 }
-
-const getNews = async (): Promise<IListPosts[]> => {
-    return await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/news?limit=3&offset=0`).then((res) => res.json());
-};
 
 async function getNewsByID(id: number): Promise<IPost> {
     return await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/news/${id}`).then((res) => {
@@ -59,6 +48,20 @@ export async function generateMetadata(
     };
 }
 
+const RecommendedPosts = async () => {
+    const posts: { count: number; posts: IListPosts[] } = await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/news?limit=3&offset=0`).then((res) =>
+        res.json()
+    );
+
+    return (
+        <>
+            {posts.posts.map((data) => (
+                <NewsCard key={data.id} id={`${data.seo_title}-${data.id}`} title={data.title} createdAt={data.created_at} />
+            ))}
+        </>
+    );
+};
+
 const NewsIDPage = async ({ params, searchParams }: { params: { id: string }; searchParams: { ref: string } }) => {
     const idSplit = params.id.split("-");
     const id = idSplit.slice(-1)[0];
@@ -72,12 +75,9 @@ const NewsIDPage = async ({ params, searchParams }: { params: { id: string }; se
 
     const fmtDate = new Date(news.created_at * 1000).toLocaleString("ru", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" });
 
-    // TODO: перенести на сторону клиента
-    const recommendedPosts = await getNews();
-
     return (
-        <div className="flex justify-between space-x-[70px] pr-[70px] pt-[70px]">
-            <div className="flex w-full flex-col space-y-10">
+        <main className="flex justify-center space-x-[70px] pr-[70px] pt-[70px]">
+            <div className="flex flex-col space-y-10">
                 <div className="flex justify-between">
                     <div className="space-y-3">
                         <p className="text-[14px] font-normal leading-[16px] text-[#030303]">{fmtDate}</p>
@@ -100,7 +100,9 @@ const NewsIDPage = async ({ params, searchParams }: { params: { id: string }; se
                 <div className="flex flex-col space-y-10">
                     <h1 className="max-w-[70%] text-[28px] font-medium leading-[32px] text-[#030303]">{news.title}</h1>
                     <Image src={cardNewsPlug} priority={false} placeholder="blur" alt="#" className="aspect-video rounded-[10px] object-cover" />
-                    <MDXRemote source={news.body} />
+                    <div className="max-w-[1400px]">
+                        <MDXRemote source={news.body} />
+                    </div>
                     <div></div>
                     <div className="space-y-5 rounded-[10px] bg-[#0F91D6] p-10 text-[16px] font-normal leading-[16px] text-white" id="share-section">
                         <p>Поделиться</p>
@@ -125,15 +127,33 @@ const NewsIDPage = async ({ params, searchParams }: { params: { id: string }; se
             <div className="flex flex-col space-y-5">
                 <div className="flex items-center justify-between space-x-10">
                     <h2 className="text-2xl font-semibold">Рекомендуемое</h2>
-                    <Link href="/" className="text-[17px] font-normal leading-[20px] text-[#0F91D6]">
+                    <Link href="/news" className="text-[17px] font-normal leading-[20px] text-[#0F91D6]">
                         Все
                     </Link>
                 </div>
-                {recommendedPosts.map((data) => (
-                    <NewsCard key={data.id} id={`${data.seo_title}-${data.id}`} title={data.title} createdAt={data.created_at} />
-                ))}
+
+                <Suspense
+                    fallback={Array.from({ length: 3 }).map((_, i) => (
+                        <div key={i} className="flex h-[300px] w-[300px] flex-col justify-between rounded-[5px] bg-white p-5">
+                            <div className="flex space-x-3">
+                                <Skeleton className="h-20 min-w-20 rounded-full" />
+                                <div className="w-full space-y-3">
+                                    <Skeleton className="h-6" />
+                                    <Skeleton className="h-6" />
+                                    <Skeleton className="h-6" />
+                                </div>
+                            </div>
+                            <div className="space-y-3">
+                                <Skeleton className="h-8" />
+                                <Skeleton className="h-16" />
+                            </div>
+                        </div>
+                    ))}
+                >
+                    <RecommendedPosts />
+                </Suspense>
             </div>
-        </div>
+        </main>
     );
 };
 
