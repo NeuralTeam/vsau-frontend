@@ -18,7 +18,9 @@ interface IMainInfo {
 }
 
 const CommonPage = async () => {
-    const mainInfo: IMainInfo = await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/sveden/main-info`).then((res) => res.json());
+    const mainInfo: IMainInfo = await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/sveden/main-info`, { next: { revalidate: 3600 } }).then((res) =>
+        res.json()
+    );
     for (const key in mainInfo) {
         if (mainInfo[key] === null) mainInfo[key] = "Отсутствует";
     }
