@@ -8,7 +8,8 @@ const withBundleAnalyzer = NextBundleAnalyzer({
 const nextConfig = {
     output: "standalone",
 
-    reactStrictMode: process.env.DEV_STRICT_MODE === "true"
+    reactStrictMode: process.env.DEV_STRICT_MODE === "true",
+    transpilePackages: ["next-mdx-remote"]
 };
 
 export default withBundleAnalyzer(nextConfig);
