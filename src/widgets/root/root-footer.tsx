@@ -8,12 +8,14 @@ import { DzenLogo } from "@/shared/images/icons/social-networks/dzen-logo";
 import { Logo } from "@/shared/images/logo/logo";
 
 const RootFooter = () => {
+    const currentYear = new Date().getFullYear();
+
     return (
         <div className="-ml-[70px] mt-[45px] flex h-[280px] flex-col justify-between bg-[#E4E4E4] pb-16 pt-10">
             <div className="flex items-center justify-between px-20">
                 <Link href="/" className="flex items-center justify-center">
                     <div>
-                        <Logo width={80} height={80} fillColor="#000000" className="h-20 w-20" />
+                        <Logo width={100} height={100} fillColor="black" className="w-25 h-25" />
                     </div>
 
                     <div className="w-[350px] items-center space-y-1 text-[#000000]">
@@ -21,7 +23,7 @@ const RootFooter = () => {
                             Федеральное государственное бюджетное образовательное учреждение высшего образования
                         </p>
                         <p className="ml-5 line-clamp-3 min-w-[250px] max-w-[full] text-[16px] font-semibold leading-[17px]">
-                            Воронежский государственный аграрный университет имени Петра I
+                            Воронежский государственный аграрный университет имени императора Петра I
                         </p>
                     </div>
                 </Link>
@@ -45,9 +47,9 @@ const RootFooter = () => {
                 </div>
             </div>
 
-            <div className="flex items-center justify-between space-x-14 px-28">
-                <div className="flex flex-col text-[10px] font-light leading-3">
-                    <p>© 2024 ВГАУ - Воронежский государственный аграрный университет</p>
+            <div className="grid grid-cols-6 items-center gap-10 px-28">
+                <div className="col-span-2 flex flex-col text-[10px] font-light leading-3">
+                    <p>© {currentYear} ВГАУ - Воронежский государственный аграрный университет</p>
                     <p>Все права на материалы сайта vsau.ru принадлежат ВГАУ</p>
                     <p>
                         Сайт разработан командой{" "}
