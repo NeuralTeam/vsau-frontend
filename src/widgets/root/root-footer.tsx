@@ -47,7 +47,7 @@ const RootFooter = () => {
                 </div>
             </div>
 
-            <div className="grid grid-cols-6 items-center gap-10 px-28">
+            <div className="grid grid-cols-6 items-center gap-10 pl-24 pr-20">
                 <div className="col-span-2 flex flex-col text-[10px] font-light leading-3">
                     <p>© {currentYear} ВГАУ - Воронежский государственный аграрный университет</p>
                     <p>Все права на материалы сайта vsau.ru принадлежат ВГАУ</p>
