@@ -34,12 +34,12 @@ const RootCarousel = () => {
     );
 
     return (
-        <div className="-ml-[45px] flex flex-col items-center justify-center space-y-4">
+        <div className="-ml-[70px] flex flex-col items-center justify-center space-y-4">
             <Carousel setApi={setApi} opts={{ loop: true }} plugins={[Autoplay({ delay: 10000 })]}>
                 <CarouselContent>
                     {Array.from({ length: 10 }).map((_, index) => (
                         <CarouselItem key={index}>
-                            <Image src={carouselBannerRoot} priority={false} placeholder="blur" alt="#" className="max-h-[350px] object-scale-down" />
+                            <Image src={carouselBannerRoot} priority={false} placeholder="blur" alt="#" className="max-h-[350px]" />
                         </CarouselItem>
                     ))}
                 </CarouselContent>
