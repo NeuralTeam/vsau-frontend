@@ -2,6 +2,7 @@ import RootCarousel from "@/widgets/root/root-carousel";
 import NewsCard from "@/widgets/news/news-card";
 import Link from "next/link";
 import { IListPosts } from "@/app/news/(static)/page";
+import { CarouselSize } from "@/widgets/news/news-carousel";
 
 const getNews = async (): Promise<{ count: number; posts: IListPosts[] }> => {
     return await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/news?limit=7&offset=0`, { next: { revalidate: 3600 } }).then((res) => res.json());
@@ -25,11 +26,7 @@ const RootPage = async () => {
                         </Link>
                     </div>
 
-                    <div className="flex flex-col space-y-4 pb-3 sm:flex-row sm:flex-nowrap sm:gap-8 sm:space-y-0 sm:overflow-x-scroll">
-                        {news.posts.map((data) => (
-                            <NewsCard key={data.id} id={`${data.seo_title}-${data.id}`} title={data.title} createdAt={data.created_at} />
-                        ))}
-                    </div>
+                    <CarouselSize posts={news.posts} />
                 </div>
 
                 <div className="flex flex-col space-y-8">
@@ -42,11 +39,7 @@ const RootPage = async () => {
                         </Link>
                     </div>
 
-                    <div className="flex flex-col space-y-4 pb-3 sm:flex-row sm:flex-nowrap sm:gap-8 sm:space-y-0 sm:overflow-x-scroll">
-                        {news.posts.map((data) => (
-                            <NewsCard key={data.id} id={`${data.seo_title}-${data.id}`} title={data.title} createdAt={data.created_at} />
-                        ))}
-                    </div>
+                    <CarouselSize posts={news.posts} />
                 </div>
             </div>
         </>

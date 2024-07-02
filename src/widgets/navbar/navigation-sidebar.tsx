@@ -19,6 +19,7 @@ import InfoIcon from "@/shared/images/icons/raw-svg/info_icon.svg?url";
 import { usePathname } from "next/navigation";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/shared/ui/shadcn/accordion";
 import { cn } from "@/shared/libs/shadcn-utils";
+import BackArrow from "@/shared/images/icons/raw-svg/back_arrow.svg?url";
 
 const NavigationSidebar = () => {
     const pathname = usePathname();
@@ -79,14 +80,29 @@ const NavigationSidebar = () => {
                     </Link>
 
                     {pathname.startsWith("/sveden") ? (
-                        <div className="mr-1 mt-10 flex flex-col space-y-10 transition-all group-peer-checked:ml-10 group-peer-checked:mr-16">
-                            {navSvedenItems.map((item) => (
-                                <div key={item.id} className="group/navbarSubLink flex flex-col space-y-5">
-                                    <Link href={item.href} className="group/navbarLink flex items-center text-white">
-                                        <p className="ml-3 hidden group-peer-checked:block">{item.title}</p>
-                                    </Link>
-                                </div>
-                            ))}
+                        <div className="mr-1 mt-10 flex flex-col space-y-10 rounded-[10px] transition-all group-peer-checked:ml-8 group-peer-checked:mr-8 group-peer-checked:bg-[#FFFFFF15] group-peer-checked:p-8">
+                            <Link href="/" className="hidden cursor-pointer items-center space-x-5 text-white group-peer-checked:flex">
+                                <Image src={BackArrow} width={15} height={15} alt="" className="min-h-[25px] min-w-[25px]" />
+                                <p className="text-[18px] font-bold leading-[20px]">Сведения об образовательной организации</p>
+                            </Link>
+
+                            <div className="flex flex-col space-y-5">
+                                {navSvedenItems.map((item) => (
+                                    <div key={item.id} className="group/navbarSubLink flex flex-col">
+                                        <Link href={item.href} className="group/navbarLink flex items-center text-white">
+                                            {/*<p className="ml-3 hidden group-peer-checked:block">{item.title}</p>*/}
+                                            <p
+                                                className={cn(
+                                                    "ml-3 hidden underline-offset-2 hover:underline group-peer-checked:block",
+                                                    pathname == item.href && "cursor-default font-semibold hover:no-underline"
+                                                )}
+                                            >
+                                                {item.title}
+                                            </p>
+                                        </Link>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     ) : (
                         <>
@@ -109,7 +125,7 @@ const NavigationSidebar = () => {
                                                 <p
                                                     className={cn(
                                                         "ml-3 hidden underline-offset-2 hover:underline group-peer-checked:block",
-                                                        pathname == item.href && "font-semibold"
+                                                        pathname == item.href && "cursor-default font-semibold hover:no-underline"
                                                     )}
                                                 >
                                                     {item.title}
@@ -130,7 +146,7 @@ const NavigationSidebar = () => {
                                                                     key={child.id}
                                                                     className={cn(
                                                                         "block text-[13px] font-light leading-[15px] text-white",
-                                                                        pathname == child.href && "font-semibold"
+                                                                        pathname == child.href && "cursor-default font-semibold"
                                                                     )}
                                                                 >
                                                                     {child.title}

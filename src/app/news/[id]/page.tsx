@@ -76,7 +76,7 @@ const NewsIDPage = async ({ params, searchParams }: { params: { id: string }; se
     const fmtDate = new Date(news.created_at * 1000).toLocaleString("ru", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" });
 
     return (
-        <main className="flex justify-center space-x-[70px] pr-[70px] pt-[70px]">
+        <main className="flex justify-center space-x-[70px] pl-[10%] pr-[calc(70px+10%)] pt-[70px]">
             <div className="flex flex-col space-y-10">
                 <div className="flex justify-between">
                     <div className="space-y-3">
@@ -98,7 +98,7 @@ const NewsIDPage = async ({ params, searchParams }: { params: { id: string }; se
                     </div>
                 </div>
                 <div className="flex flex-col space-y-10">
-                    <h1 className="max-w-[70%] text-[28px] font-medium leading-[32px] text-[#030303]">{news.title}</h1>
+                    <h1 className="text-[28px] font-medium leading-[32px] text-[#030303]">{news.title}</h1>
                     <Image src={cardNewsPlug} priority={false} placeholder="blur" alt="#" className="aspect-video rounded-[10px] object-cover" />
                     <div className="max-w-[1400px]">
                         <MDXRemote source={news.body} />
