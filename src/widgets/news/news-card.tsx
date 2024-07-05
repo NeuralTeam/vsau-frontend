@@ -17,7 +17,7 @@ const NewsCard = ({ id, title, createdAt, img }: INewsCard) => {
             <div className="flex h-[300px] w-[300px] flex-col overflow-hidden rounded-[5px] bg-white">
                 <div className="min-h-[60%] w-full overflow-hidden">
                     <Image
-                        src={img == null ? cardNewsPlug : img}
+                        src={img ?? cardNewsPlug}
                         priority={false}
                         placeholder="blur"
                         alt="#"

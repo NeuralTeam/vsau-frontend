@@ -18,8 +18,8 @@ const RootFooter = () => {
                         <Logo width={100} height={100} fillColor="black" className="w-25 h-25" />
                     </div>
 
-                    <div className="w-[350px] items-center space-y-1 text-[#000000]">
-                        <p className="ml-5 line-clamp-2 min-w-[250px] max-w-[full] text-[10px] font-normal leading-3">
+                    <div className="w-[300px] items-center space-y-1 text-[#000000]">
+                        <p className="ml-5 line-clamp-2 min-w-[200px] max-w-[full] text-[10px] font-normal leading-3">
                             Федеральное государственное бюджетное образовательное учреждение высшего образования
                         </p>
                         <p className="ml-5 line-clamp-3 min-w-[250px] max-w-[full] text-[16px] font-semibold leading-[17px]">
@@ -47,8 +47,8 @@ const RootFooter = () => {
                 </div>
             </div>
 
-            <div className="grid grid-cols-6 items-center gap-10 pl-24 pr-20">
-                <div className="col-span-2 flex flex-col text-[10px] font-light leading-3">
+            <div className="flex items-center justify-between gap-10 pl-24 pr-20">
+                <div className="flex flex-col text-[10px] font-light leading-3">
                     <p>© {currentYear} ВГАУ - Воронежский государственный аграрный университет</p>
                     <p>Все права на материалы сайта vsau.ru принадлежат ВГАУ</p>
                     <p>

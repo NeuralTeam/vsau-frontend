@@ -21,14 +21,6 @@ export const metadata: Metadata = {
         title: "ВГАУ",
         description: "Публичный сайт Воронежского ГАУ",
         url: process.env.NEXT_PUBLIC_DOMAIN,
-        images: [
-            {
-                url: `${process.env.NEXT_PUBLIC_DOMAIN}/og_example.jpg`, // Абсолютный URL
-                alt: "Публичный сайт Воронежского Государственного Аграрного Университета имени Петра Великого",
-                width: 1280,
-                height: 720
-            }
-        ],
         countryName: "russia",
         locale: "ru",
         alternateLocale: ["en"],

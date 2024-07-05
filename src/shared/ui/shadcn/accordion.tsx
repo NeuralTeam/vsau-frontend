@@ -22,7 +22,7 @@ const AccordionTrigger = React.forwardRef<
     <AccordionPrimitive.Header className="flex">
         <AccordionPrimitive.Trigger
             ref={ref}
-            className={cn("flex flex-1 items-center underline-offset-2 transition-all hover:underline [&[data-state=open]>svg]:rotate-0", className)}
+            className={cn("flex flex-1 items-center transition-all [&[data-state=open]>svg]:rotate-0", className)}
             {...props}
         >
             <NavCollapseArrow
