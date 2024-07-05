@@ -17,7 +17,7 @@ interface IMainInfo {
     uchred_website: string;
 }
 
-const CommonPage = async () => {
+const SvedenCommonPage = async () => {
     const mainInfo: IMainInfo = await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/sveden/main-info`, { next: { revalidate: 3600 } }).then((res) =>
         res.json()
     );
@@ -126,4 +126,4 @@ const CommonPage = async () => {
     );
 };
 
-export default CommonPage;
+export default SvedenCommonPage;
