@@ -11,6 +11,9 @@ import { IListPosts } from "@/app/news/(static)/page";
 import NewsCard from "@/widgets/news/news-card";
 import { Suspense } from "react";
 import { Skeleton } from "@/shared/ui/shadcn/skeleton";
+import { NewsOpenPhotoDialog } from "@/widgets/news/news-open-photo-dialog";
+import { NewsGallery } from "@/widgets/news/news-gallery";
+import { ArrowLeft, Eye, Files, Share2 } from "lucide-react";
 
 export interface IPost {
     seo_title: string;
@@ -62,7 +65,7 @@ const RecommendedPosts = async () => {
     );
 };
 
-const NewsIDPage = async ({ params, searchParams }: { params: { id: string }; searchParams: { ref: string } }) => {
+const NewsIDPage = async ({ params, searchParams }: { params: { id: string }; searchParams: { ref: string; mediaId?: number } }) => {
     const idSplit = params.id.split("-");
     const id = idSplit.slice(-1)[0];
     const seoTitle = idSplit.slice(0, -1).join("-");
@@ -76,38 +79,81 @@ const NewsIDPage = async ({ params, searchParams }: { params: { id: string }; se
     const fmtDate = new Date(news.created_at * 1000).toLocaleString("ru", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" });
 
     return (
-        <main className="flex justify-center space-x-[70px] pl-[10%] pr-[calc(70px+10%)] pt-[70px]">
-            <div className="flex flex-col space-y-10">
+        <main className="flex justify-center space-x-[5vw] pl-[calc(4vw-70px)] pr-[4vw] pt-[70px]">
+            <div className="flex max-w-[1000px] flex-col space-y-10">
                 <div className="flex justify-between">
                     <div className="space-y-3">
-                        <p className="text-[14px] font-normal leading-[16px] text-[#030303]">{fmtDate}</p>
+                        <div className="flex items-center space-x-8">
+                            <p className="text-[14px] font-normal leading-[16px] text-[#030303]">{fmtDate}</p>
+                            <div className="flex items-center space-x-1">
+                                <Eye size={20} strokeWidth={2} />
+                                <p className="text-[14px] font-normal leading-[16px] text-[#030303]">1234</p>
+                            </div>
+                        </div>
                         <p className="text-[17px] font-normal leading-[20px] text-[#030303] opacity-50">
                             Раздел: {news.topic.charAt(0).toUpperCase() + news.topic.slice(1)}
                         </p>
                     </div>
-                    <div className="space-x-5">
+
+                    <div className="flex space-x-5">
                         <Link
                             href={searchParams.ref ? `/${searchParams.ref}` : "/news"}
-                            className="text-nowrap rounded-[10px] bg-[#E3E3E3FF] px-6 py-3"
+                            className="flex h-fit w-fit items-center space-x-2 text-nowrap rounded-[10px] bg-[#E3E3E3FF] px-6 py-3"
                         >
-                            Назад к новостям
+                            <ArrowLeft size={24} strokeWidth={3} />
+                            <p>Назад к новостям</p>
                         </Link>
-                        <Link href="#share-section" className="rounded-[10px] bg-[#E3E3E3FF] px-6 py-3">
-                            Поделиться
+                        <Link
+                            href="#share-section"
+                            className="flex h-fit w-fit items-center space-x-2 text-nowrap rounded-[10px] bg-[#E3E3E3FF] px-6 py-3"
+                        >
+                            <Share2 size={20} strokeWidth={3} />
+                            <p>Поделиться</p>
                         </Link>
                     </div>
                 </div>
+
                 <div className="flex flex-col space-y-10">
                     <h1 className="text-[28px] font-medium leading-[32px] text-[#030303]">{news.title}</h1>
-                    <Image src={cardNewsPlug} priority={false} placeholder="blur" alt="#" className="aspect-video rounded-[10px] object-cover" />
-                    <div className="max-w-[1400px]">
-                        <MDXRemote source={news.body} />
+
+                    <div className="space-y-5">
+                        <NewsOpenPhotoDialog isOpen={searchParams.mediaId == 0} photo={cardNewsPlug}>
+                            <Image
+                                src={cardNewsPlug}
+                                priority={false}
+                                placeholder="blur"
+                                alt="#"
+                                className="aspect-video rounded-[10px] object-cover"
+                            />
+                        </NewsOpenPhotoDialog>
+
+                        <div>
+                            <MDXRemote source={news.body} />
+                        </div>
+
+                        <NewsGallery mediaId={searchParams.mediaId} photoList={Array.from({ length: 11 }).map(() => cardNewsPlug)} />
                     </div>
-                    <div></div>
+
                     <div className="space-y-5 rounded-[10px] bg-[#0F91D6] p-10 text-[16px] font-normal leading-[16px] text-white" id="share-section">
-                        <p>Поделиться</p>
+                        <div className="flex items-center space-x-2">
+                            <Share2 size={20} strokeWidth={3} />
+                            <p>Поделиться</p>
+                        </div>
+
+                        <div className="flex space-x-8 rounded-[10px] bg-white px-8 py-4">
+                            <button className="flex items-center space-x-2 text-nowrap text-[14px] text-[#030303]">
+                                <Files size={20} strokeWidth={2} />
+                                <p>Скопировать ссылку</p>
+                            </button>
+                            <input
+                                readOnly
+                                value="https://vsau.neuralteam.ru/news/studenty-prinyali-uchastie-v-proekte-bez-sroka-davnosti2-8"
+                                className="w-full bg-transparent text-[14px] text-[#808080] outline-none"
+                            />
+                        </div>
+
                         <div className="flex items-center space-x-12">
-                            <button className="rounded-[10px] bg-[#E3E3E3FF] px-6 py-2 text-[14px] text-[#030303]">Скопировать ссылку</button>
+                            <p>Поделиться через:</p>
                             <Link target="_blank" href="https://vk.com/vsau1912">
                                 <VkLogo width={30} height={20} fillColor="#FFFFFF" />
                             </Link>
@@ -124,6 +170,7 @@ const NewsIDPage = async ({ params, searchParams }: { params: { id: string }; se
                     </div>
                 </div>
             </div>
+
             <div className="flex flex-col space-y-5">
                 <div className="flex items-center justify-between space-x-10">
                     <h2 className="text-2xl font-semibold">Рекомендуемое</h2>
