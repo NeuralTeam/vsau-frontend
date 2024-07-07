@@ -3,7 +3,6 @@ import { NewsOpenPhotoDialog } from "@/widgets/news/news-open-photo-dialog";
 import { Download } from "lucide-react";
 
 export function NewsGallery({ mediaId, photoList }: { mediaId?: number; photoList: StaticImageData[] }) {
-    console.log(mediaId);
     return (
         <div className="space-y-5">
             <div className="grid w-full grid-cols-4 gap-5">
