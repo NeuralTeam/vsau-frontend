@@ -29,9 +29,9 @@ const SvedenCommonPage = async () => {
         <div className="flex flex-wrap gap-8 pr-[70px] pt-[70px]">
             <div className="max-w-[550px] space-y-3 rounded-[10px] bg-white p-8">
                 <h1 className="text-[23px] font-semibold leading-[20px] text-[#0F91D6]">Полное наименование образовательной организации</h1>
-                <div itemProp="fullName" className="leading-[18px]">
+                <p itemProp="fullName" className="leading-[18px]">
                     {mainInfo.full_name}
-                </div>
+                </p>
             </div>
 
             <div className="max-w-[500px] space-y-3 rounded-[10px] bg-white p-8">
