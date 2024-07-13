@@ -11,7 +11,7 @@ const RootFooter = () => {
     const currentYear = new Date().getFullYear();
 
     return (
-        <div className="-ml-[70px] mt-[45px] flex h-[280px] flex-col justify-between bg-[#E4E4E4] pb-16 pt-10">
+        <footer className="-ml-[70px] flex h-[280px] flex-col justify-center space-y-20 bg-[#E4E4E4]">
             <div className="flex items-center justify-between px-20">
                 <Link href="/" className="flex items-center justify-center">
                     <div>
@@ -94,7 +94,7 @@ const RootFooter = () => {
                     <p>Перерыв с 12:15 до 13:00</p>
                 </div>
             </div>
-        </div>
+        </footer>
     );
 };
 

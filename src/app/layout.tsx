@@ -40,11 +40,12 @@ export default function RootLayout({
         <html lang="ru" suppressHydrationWarning>
             <body className={rubikFont.className}>
                 <ThemeProvider attribute="class" defaultTheme="light" disableTransitionOnChange>
-                    <NavigationSidebar />
-                    <div className="ml-[150px] bg-[#F8F8F8] pl-[70px] transition-all peer-checked:ml-[470px]">
-                        <div className="min-h-svh">{children}</div>
-                        <RootFooter />
-                    </div>
+                    <NavigationSidebar>
+                        <main className="space-y-10">
+                            {children}
+                            <RootFooter />
+                        </main>
+                    </NavigationSidebar>
                 </ThemeProvider>
             </body>
         </html>

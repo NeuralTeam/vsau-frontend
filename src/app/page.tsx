@@ -14,9 +14,9 @@ const RootPage = async () => {
 
     return (
         <>
-            <RootCarousel />
+            {/*<RootCarousel />*/}
 
-            <div className="mt-8 select-none space-y-8">
+            <div className="select-none space-y-8">
                 <div className="flex flex-col space-y-8">
                     <div className="mr-[45px] flex items-center justify-between">
                         <h1 className="line-clamp-1 w-fit text-3xl font-semibold">
