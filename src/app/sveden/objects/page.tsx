@@ -38,7 +38,14 @@ const SvedenObjectsPage = () => {
                 <div className="flex items-center justify-between px-8 py-4">
                     <p className="text-[23px] font-semibold leading-[20px]">Сведения об оборудованных учебных кабинетах</p>
                     <button className="rounded-full bg-[#0F91D6] p-4" onClick={() => dispatch({ type: "open1" })}>
-                        <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg
+                            width="12"
+                            height="10"
+                            viewBox="0 0 12 10"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            className={cn("-rotate-90 duration-300", state.open1 && "rotate-0")}
+                        >
                             <path
                                 d="M7.73205 9C6.96225 10.3333 5.03775 10.3333 4.26795 9L0.803845 3C0.0340452 1.66666 0.996297 -1.83146e-07 2.5359 -4.85495e-08L9.4641 5.57134e-07C11.0037 6.9173e-07 11.966 1.66667 11.1962 3L7.73205 9Z"
                                 fill="white"
@@ -99,7 +106,14 @@ const SvedenObjectsPage = () => {
                 <div className="flex items-center justify-between px-8 py-4">
                     <p className="text-[23px] font-semibold leading-[20px]">Сведения об объектах для проведения практических занятий</p>
                     <button className="rounded-full bg-[#0F91D6] p-4" onClick={() => dispatch({ type: "open2" })}>
-                        <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg
+                            width="12"
+                            height="10"
+                            viewBox="0 0 12 10"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            className={cn("-rotate-90 duration-300", state.open2 && "rotate-0")}
+                        >
                             <path
                                 d="M7.73205 9C6.96225 10.3333 5.03775 10.3333 4.26795 9L0.803845 3C0.0340452 1.66666 0.996297 -1.83146e-07 2.5359 -4.85495e-08L9.4641 5.57134e-07C11.0037 6.9173e-07 11.966 1.66667 11.1962 3L7.73205 9Z"
                                 fill="white"
@@ -160,7 +174,14 @@ const SvedenObjectsPage = () => {
                 <div className="flex items-center justify-between px-8 py-4">
                     <p className="text-[23px] font-semibold leading-[20px]">Сведения о библиотеках</p>
                     <button className="rounded-full bg-[#0F91D6] p-4" onClick={() => dispatch({ type: "open3" })}>
-                        <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg
+                            width="12"
+                            height="10"
+                            viewBox="0 0 12 10"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            className={cn("-rotate-90 duration-300", state.open3 && "rotate-0")}
+                        >
                             <path
                                 d="M7.73205 9C6.96225 10.3333 5.03775 10.3333 4.26795 9L0.803845 3C0.0340452 1.66666 0.996297 -1.83146e-07 2.5359 -4.85495e-08L9.4641 5.57134e-07C11.0037 6.9173e-07 11.966 1.66667 11.1962 3L7.73205 9Z"
                                 fill="white"
@@ -227,7 +248,14 @@ const SvedenObjectsPage = () => {
                 <div className="flex items-center justify-between px-8 py-4">
                     <p className="text-[23px] font-semibold leading-[20px]">Сведения об объектах спорта</p>
                     <button className="rounded-full bg-[#0F91D6] p-4" onClick={() => dispatch({ type: "open4" })}>
-                        <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg
+                            width="12"
+                            height="10"
+                            viewBox="0 0 12 10"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            className={cn("-rotate-90 duration-300", state.open4 && "rotate-0")}
+                        >
                             <path
                                 d="M7.73205 9C6.96225 10.3333 5.03775 10.3333 4.26795 9L0.803845 3C0.0340452 1.66666 0.996297 -1.83146e-07 2.5359 -4.85495e-08L9.4641 5.57134e-07C11.0037 6.9173e-07 11.966 1.66667 11.1962 3L7.73205 9Z"
                                 fill="white"
