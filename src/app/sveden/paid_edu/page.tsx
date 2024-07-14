@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const SvedenPaidEduPage = () => {
     return (
-        <main className="space-y-5 pr-[70px] pt-[50px]">
+        <main itemProp="copy" className="space-y-5 pr-[70px] pt-[50px]">
             <h1>Платные образовательные услуги</h1>
 
             <div className="space-y-2 rounded-[10px] bg-white p-8">

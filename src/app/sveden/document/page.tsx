@@ -3,7 +3,7 @@ import { Dot } from "lucide-react";
 
 const SvedenDocumentPage = () => {
     return (
-        <main className="space-y-5 pr-[70px] pt-[50px]">
+        <main itemProp="copy" className="space-y-5 pr-[70px] pt-[50px]">
             <h1>Документы</h1>
 
             <div className="space-y-2 rounded-[10px] bg-white p-8">
@@ -56,11 +56,15 @@ const SvedenDocumentPage = () => {
                     </li>
                     <li className="flex items-center text-[18px] text-[#0F91D6] underline underline-offset-2">
                         <Dot className="min-h-6 min-w-6" />
-                        <Link href="#">Показатели деятельности образовательной организации высшего образования, подлежащей самообследованию</Link>
+                        <Link href="#" itemProp="reportEduDocLink">
+                            Показатели деятельности образовательной организации высшего образования, подлежащей самообследованию
+                        </Link>
                     </li>
                     <li className="flex items-center text-[18px] text-[#0F91D6] underline underline-offset-2">
                         <Dot className="min-h-6 min-w-6" />
-                        <Link href="#">Порядок проведения самообследования образовательной организацией</Link>
+                        <Link href="#" itemProp="reportEduDocLink">
+                            Порядок проведения самообследования образовательной организацией
+                        </Link>
                     </li>
                 </ul>
             </div>
@@ -78,11 +82,13 @@ const SvedenDocumentPage = () => {
                     </li>
                     <li className="flex items-center text-[18px] text-[#0F91D6] underline underline-offset-2">
                         <Dot className="min-h-6 min-w-6" />
-                        <Link href="#">Приказ №311 от 28.08.2017 г.</Link>
+                        <Link href="#" itemProp="prescriptionDocLink">
+                            Приказ №311 от 28.08.2017 г.
+                        </Link>
                     </li>
                     <li className="flex items-center text-[18px] text-[#0F91D6] underline underline-offset-2">
                         <Dot className="min-h-6 min-w-6" />
-                        <Link href="#">
+                        <Link href="#" itemProp="prescriptionDocLink">
                             План мероприятий по устранению нарушений, несоответствий и причин, способствующих их совершению, указанных в Акте проверки
                             Федеральной службой по надзору в сфере образования и науки юридического лица от 25.08.2017 г.№271/3/К и Предписании
                             Федеральной службы по надзору в сфере образования и науки от 25.08.2017 г. № 07-55-123/18-3
@@ -90,14 +96,14 @@ const SvedenDocumentPage = () => {
                     </li>
                     <li className="flex items-center text-[18px] text-[#0F91D6] underline underline-offset-2">
                         <Dot className="min-h-6 min-w-6" />
-                        <Link href="#">
+                        <Link href="#" itemProp="prescriptionDocLink">
                             Отчет об устранении нарушений, указанных в Предписании об устранении выявленных нарушений Федеральной службы по надзору в
                             сфере образования и науки от 25.08.2017 №07-55-123/18-3
                         </Link>
                     </li>
                     <li className="flex items-center text-[18px] text-[#0F91D6] underline underline-offset-2">
                         <Dot className="min-h-6 min-w-6" />
-                        <Link href="#">
+                        <Link href="#" itemProp="prescriptionDocLink">
                             Отчет об устранении несоответствий, указанных в Акте проверки Федеральной службой по надзору в сфере образования и науки
                             юридического лица от 25.08.2017 №271/3/К
                         </Link>

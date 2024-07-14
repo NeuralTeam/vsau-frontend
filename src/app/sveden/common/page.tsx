@@ -79,216 +79,224 @@ const SvedenCommonPage = async () => {
     }
 
     return (
-        <div className="flex flex-wrap gap-8 pr-[70px] pt-[70px]">
-            <div className="max-w-[550px] space-y-3 rounded-[10px] bg-white p-8">
-                <h1 className="text-[23px] font-semibold leading-[20px] text-[#0F91D6]">Полное наименование образовательной организации</h1>
-                <p itemProp="fullName" className="leading-[18px]">
-                    {mainInfo.full_name}
-                </p>
-            </div>
+        <main itemProp="copy" className="space-y-5 pr-[70px] pt-[50px]">
+            <h1>Основные сведения</h1>
 
-            <div className="max-w-[500px] space-y-3 rounded-[10px] bg-white p-8">
-                <h1 className="text-[23px] font-semibold leading-[20px] text-[#0F91D6]">Сокращенное наименование образовательной организации</h1>
-                <p itemProp="shortName" className="leading-[18px]">
-                    {mainInfo.short_name}
-                </p>
-            </div>
+            <div className="flex flex-wrap gap-8">
+                <div className="max-w-[550px] space-y-3 rounded-[10px] bg-white p-8">
+                    <h1 className="text-[23px] font-semibold leading-[20px] text-[#0F91D6]">Полное наименование образовательной организации</h1>
+                    <p itemProp="fullName" className="leading-[18px]">
+                        {mainInfo.full_name}
+                    </p>
+                </div>
 
-            <div className="max-w-[250px] space-y-3 rounded-[10px] bg-white p-8">
-                <h1 className="text-[23px] font-semibold leading-[20px] text-[#0F91D6]">Дата создания образовательной организации</h1>
-                <p itemProp="regDate" className="leading-[18px]">
-                    {mainInfo.reg_date}
-                </p>
-            </div>
+                <div className="max-w-[500px] space-y-3 rounded-[10px] bg-white p-8">
+                    <h1 className="text-[23px] font-semibold leading-[20px] text-[#0F91D6]">Сокращенное наименование образовательной организации</h1>
+                    <p itemProp="shortName" className="leading-[18px]">
+                        {mainInfo.short_name}
+                    </p>
+                </div>
 
-            <div className="max-w-[600px] space-y-3 rounded-[10px] bg-white p-8">
-                <h1 className="text-[23px] font-semibold leading-[20px] text-[#0F91D6]">Справочная информация об образовательной организации</h1>
-                <div className="leading-[22px]">
-                    <div className="space-x-3">
-                        <span>Адрес:</span>
-                        <span itemProp="address">{mainInfo.address}</span>
-                    </div>
-                    <div className="space-x-3">
-                        <span>Телефон:</span>
-                        <Link itemProp="telephone" href={`tel:${mainInfo.tel}`} className="underline-offset-4 hover:underline">
-                            {mainInfo.tel}
-                        </Link>
-                    </div>
-                    <div className="space-x-3">
-                        <span>Адрес электронной почты:</span>
-                        <Link itemProp="email" href={`mailto:${mainInfo.email}`} className="underline-offset-4 hover:underline">
-                            {mainInfo.email}
-                        </Link>
-                    </div>
-                    <div className="space-x-3">
-                        <span>График работы:</span>
-                        <span itemProp="workTime">{mainInfo.work_time}</span>
+                <div className="max-w-[250px] space-y-3 rounded-[10px] bg-white p-8">
+                    <h1 className="text-[23px] font-semibold leading-[20px] text-[#0F91D6]">Дата создания образовательной организации</h1>
+                    <p itemProp="regDate" className="leading-[18px]">
+                        {mainInfo.reg_date}
+                    </p>
+                </div>
+
+                <div className="max-w-[600px] space-y-3 rounded-[10px] bg-white p-8">
+                    <h1 className="text-[23px] font-semibold leading-[20px] text-[#0F91D6]">Справочная информация об образовательной организации</h1>
+                    <div className="leading-[22px]">
+                        <div className="space-x-3">
+                            <span>Адрес:</span>
+                            <span itemProp="address">{mainInfo.address}</span>
+                        </div>
+                        <div className="space-x-3">
+                            <span>Телефон:</span>
+                            <Link itemProp="telephone" href={`tel:${mainInfo.tel}`} className="underline-offset-4 hover:underline">
+                                {mainInfo.tel}
+                            </Link>
+                        </div>
+                        <div className="space-x-3">
+                            <span>Адрес электронной почты:</span>
+                            <Link itemProp="email" href={`mailto:${mainInfo.email}`} className="underline-offset-4 hover:underline">
+                                {mainInfo.email}
+                            </Link>
+                        </div>
+                        <div className="space-x-3">
+                            <span>График работы:</span>
+                            <span itemProp="workTime">{mainInfo.work_time}</span>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div className="max-w-[700px] space-y-3 rounded-[10px] bg-white p-8">
-                <h1 className="text-[23px] font-semibold leading-[20px] text-[#0F91D6]">
-                    {mainInfo.founders.length > 1 ? "Учредители" : "Учредитель"}
-                </h1>
-                {mainInfo.founders.length != 0 ? (
-                    mainInfo.founders.map((founder) => (
-                        <div key={founder.id} itemProp="uchredLaw" className="leading-[22px]">
-                            <div className="space-x-3">
-                                <span>Наименование:</span>
-                                <span itemProp="nameUchred">{founder.name}</span>
+                <div className="max-w-[700px] space-y-3 rounded-[10px] bg-white p-8">
+                    <h1 className="text-[23px] font-semibold leading-[20px] text-[#0F91D6]">
+                        {mainInfo.founders.length > 1 ? "Учредители" : "Учредитель"}
+                    </h1>
+                    {mainInfo.founders.length != 0 ? (
+                        mainInfo.founders.map((founder) => (
+                            <div key={founder.id} itemProp="uchredLaw" className="leading-[22px]">
+                                <div className="space-x-3">
+                                    <span>Наименование:</span>
+                                    <span itemProp="nameUchred">{founder.name}</span>
+                                </div>
+                                <div className="space-x-3">
+                                    <span>Юридический адрес:</span>
+                                    <span itemProp="addressUchred">{founder.address}</span>
+                                </div>
+                                <div className="space-x-3">
+                                    <span>Контактные телефоны:</span>
+                                    <Link itemProp="telUchred" href="tel:+74956078000" className="underline-offset-4 hover:underline">
+                                        {founder.tel}
+                                    </Link>
+                                </div>
+                                <div className="space-x-3">
+                                    <span>Адрес сайта учредителя:</span>
+                                    <Link itemProp="websiteUchred" href={founder.website} className="underline-offset-4 hover:underline">
+                                        mcx.ru
+                                    </Link>
+                                </div>
+                                <div className="space-x-3">
+                                    <span>Адрес электронной почты учредителя:</span>
+                                    <Link itemProp="mailUchred" href={`mailto:${founder.email}`} className="underline-offset-4 hover:underline">
+                                        {founder.email}
+                                    </Link>
+                                </div>
                             </div>
-                            <div className="space-x-3">
-                                <span>Юридический адрес:</span>
-                                <span itemProp="addressUchred">{founder.address}</span>
+                        ))
+                    ) : (
+                        <div itemProp="uchredLaw" className="leading-[22px]">
+                            Отсутствует
+                        </div>
+                    )}
+                </div>
+
+                <div className="max-w-[600px] space-y-3 rounded-[10px] bg-white p-8">
+                    <h1 className="text-[23px] font-semibold leading-[20px] text-[#0F91D6]">Документы</h1>
+                    <ul className="space-y-2">
+                        <li className="flex items-start text-[18px] text-[#0F91D6] underline underline-offset-2">
+                            <Dot className="min-h-6 min-w-6" />
+                            <Link href={mainInfo.license_doc.link} itemProp="licenseDocLink">
+                                {mainInfo.license_doc.title}
+                            </Link>
+                        </li>
+                        <li className="flex items-start text-[18px] text-[#0F91D6] underline underline-offset-2">
+                            <Dot className="min-h-6 min-w-6" />
+                            <Link href={mainInfo.accreditation_doc.link} itemProp="accreditationDocLink">
+                                {mainInfo.accreditation_doc.title}
+                            </Link>
+                        </li>
+                    </ul>
+                </div>
+
+                <div className="max-w-[700px] space-y-3 rounded-[10px] bg-white p-8">
+                    <h1 className="text-[23px] font-semibold leading-[20px] text-[#0F91D6]">
+                        О местах осуществления образовательной деятельности при использовании сетевой формы реализации образовательных программ
+                    </h1>
+                    {mainInfo.online_activity_addresses.length != 0 ? (
+                        mainInfo.online_activity_addresses.map((address, i) => (
+                            <div key={address.id} itemProp="addressPlaceSet" className="space-x-3 leading-[22px]">
+                                <span>{i + 1}</span>
+                                <span>{address.title}</span>
                             </div>
-                            <div className="space-x-3">
-                                <span>Контактные телефоны:</span>
-                                <Link itemProp="telUchred" href="tel:+74956078000" className="underline-offset-4 hover:underline">
-                                    {founder.tel}
-                                </Link>
+                        ))
+                    ) : (
+                        <div itemProp="addressPlaceSet" className="leading-[22px]">
+                            Отсутствует
+                        </div>
+                    )}
+                </div>
+
+                <div className="max-w-[700px] space-y-3 rounded-[10px] bg-white p-8">
+                    <h1 className="text-[23px] font-semibold leading-[20px] text-[#0F91D6]">О местах проведения практики</h1>
+                    {mainInfo.practice_addresses.length != 0 ? (
+                        mainInfo.practice_addresses.map((address, i) => (
+                            <div key={address.id} itemProp="addressPlacePrac" className="space-x-3 leading-[22px]">
+                                <span>{i + 1}</span>
+                                <span>{address.title}</span>
                             </div>
-                            <div className="space-x-3">
-                                <span>Адрес сайта учредителя:</span>
-                                <Link itemProp="websiteUchred" href={founder.website} className="underline-offset-4 hover:underline">
-                                    mcx.ru
-                                </Link>
+                        ))
+                    ) : (
+                        <div itemProp="addressPlacePrac" className="leading-[22px]">
+                            Отсутствует
+                        </div>
+                    )}
+                </div>
+
+                <div className="max-w-[700px] space-y-3 rounded-[10px] bg-white p-8">
+                    <h1 className="text-[23px] font-semibold leading-[20px] text-[#0F91D6]">
+                        О местах проведения практической подготовки обучающихся
+                    </h1>
+                    {mainInfo.practical_training_addresses.length != 0 ? (
+                        mainInfo.practical_training_addresses.map((address, i) => (
+                            <div key={address.id} itemProp="addressPlacePodg" className="space-x-3 leading-[22px]">
+                                <span>{i + 1}</span>
+                                <span>{address.title}</span>
                             </div>
-                            <div className="space-x-3">
-                                <span>Адрес электронной почты учредителя:</span>
-                                <Link itemProp="mailUchred" href={`mailto:${founder.email}`} className="underline-offset-4 hover:underline">
-                                    {founder.email}
-                                </Link>
+                        ))
+                    ) : (
+                        <div itemProp="addressPlacePodg" className="leading-[22px]">
+                            Отсутствует
+                        </div>
+                    )}
+                </div>
+
+                <div className="max-w-[700px] space-y-3 rounded-[10px] bg-white p-8">
+                    <h1 className="text-[23px] font-semibold leading-[20px] text-[#0F91D6]">
+                        О местах проведения государственной итоговой аттестации
+                    </h1>
+                    {mainInfo.final_certification_addresses.length != 0 ? (
+                        mainInfo.final_certification_addresses.map((address, i) => (
+                            <div key={address.id} itemProp="addressPlaceGia" className="space-x-3 leading-[22px]">
+                                <span>{i + 1}</span>
+                                <span>{address.title}</span>
                             </div>
+                        ))
+                    ) : (
+                        <div itemProp="addressPlaceGia" className="leading-[22px]">
+                            Отсутствует
                         </div>
-                    ))
-                ) : (
-                    <div itemProp="uchredLaw" className="leading-[22px]">
-                        Отсутствует
-                    </div>
-                )}
-            </div>
+                    )}
+                </div>
 
-            <div className="max-w-[600px] space-y-3 rounded-[10px] bg-white p-8">
-                <h1 className="text-[23px] font-semibold leading-[20px] text-[#0F91D6]">Документы</h1>
-                <ul className="space-y-2">
-                    <li className="flex items-start text-[18px] text-[#0F91D6] underline underline-offset-2">
-                        <Dot className="min-h-6 min-w-6" />
-                        <Link href={mainInfo.license_doc.link} itemProp="ustavDocLink">
-                            {mainInfo.license_doc.title}
-                        </Link>
-                    </li>
-                    <li className="flex items-start text-[18px] text-[#0F91D6] underline underline-offset-2">
-                        <Dot className="min-h-6 min-w-6" />
-                        <Link href={mainInfo.accreditation_doc.link} itemProp="ustavDocLink">
-                            {mainInfo.accreditation_doc.title}
-                        </Link>
-                    </li>
-                </ul>
-            </div>
-
-            <div className="max-w-[700px] space-y-3 rounded-[10px] bg-white p-8">
-                <h1 className="text-[23px] font-semibold leading-[20px] text-[#0F91D6]">
-                    О местах осуществления образовательной деятельности при использовании сетевой формы реализации образовательных программ
-                </h1>
-                {mainInfo.online_activity_addresses.length != 0 ? (
-                    mainInfo.online_activity_addresses.map((address, i) => (
-                        <div key={address.id} itemProp="addressPlaceSet" className="space-x-3 leading-[22px]">
-                            <span>{i + 1}</span>
-                            <span>{address.title}</span>
+                <div className="max-w-[700px] space-y-3 rounded-[10px] bg-white p-8">
+                    <h1 className="text-[23px] font-semibold leading-[20px] text-[#0F91D6]">
+                        О местах осуществления образовательной деятельности по основным программам профессионального обучения
+                    </h1>
+                    {mainInfo.main_activity_addresses.length != 0 ? (
+                        mainInfo.main_activity_addresses.map((address, i) => (
+                            <div key={address.id} itemProp="addressPlaceOppo" className="space-x-3 leading-[22px]">
+                                <span>{i + 1}</span>
+                                <span>{address.title}</span>
+                            </div>
+                        ))
+                    ) : (
+                        <div itemProp="addressPlaceOppo" className="leading-[22px]">
+                            Отсутствует
                         </div>
-                    ))
-                ) : (
-                    <div itemProp="addressPlaceSet" className="leading-[22px]">
-                        Отсутствует
-                    </div>
-                )}
-            </div>
+                    )}
+                </div>
 
-            <div className="max-w-[700px] space-y-3 rounded-[10px] bg-white p-8">
-                <h1 className="text-[23px] font-semibold leading-[20px] text-[#0F91D6]">О местах проведения практики</h1>
-                {mainInfo.practice_addresses.length != 0 ? (
-                    mainInfo.practice_addresses.map((address, i) => (
-                        <div key={address.id} itemProp="addressPlacePrac" className="space-x-3 leading-[22px]">
-                            <span>{i + 1}</span>
-                            <span>{address.title}</span>
+                <div className="max-w-[700px] space-y-3 rounded-[10px] bg-white p-8">
+                    <h1 className="text-[23px] font-semibold leading-[20px] text-[#0F91D6]">
+                        О местах осуществления образовательной деятельности по дополнительным образовательным программам
+                    </h1>
+                    {mainInfo.additional_activity_addresses.length != 0 ? (
+                        mainInfo.additional_activity_addresses.map((address, i) => (
+                            <div key={address.id} itemProp="addressPlaceDop" className="space-x-3 leading-[22px]">
+                                <span>{i + 1}</span>
+                                <span>{address.title}</span>
+                            </div>
+                        ))
+                    ) : (
+                        <div itemProp="addressPlaceDop" className="leading-[22px]">
+                            Отсутствует
                         </div>
-                    ))
-                ) : (
-                    <div itemProp="addressPlacePrac" className="leading-[22px]">
-                        Отсутствует
-                    </div>
-                )}
+                    )}
+                </div>
             </div>
-
-            <div className="max-w-[700px] space-y-3 rounded-[10px] bg-white p-8">
-                <h1 className="text-[23px] font-semibold leading-[20px] text-[#0F91D6]">О местах проведения практической подготовки обучающихся</h1>
-                {mainInfo.practical_training_addresses.length != 0 ? (
-                    mainInfo.practical_training_addresses.map((address, i) => (
-                        <div key={address.id} itemProp="addressPlacePodg" className="space-x-3 leading-[22px]">
-                            <span>{i + 1}</span>
-                            <span>{address.title}</span>
-                        </div>
-                    ))
-                ) : (
-                    <div itemProp="addressPlacePodg" className="leading-[22px]">
-                        Отсутствует
-                    </div>
-                )}
-            </div>
-
-            <div className="max-w-[700px] space-y-3 rounded-[10px] bg-white p-8">
-                <h1 className="text-[23px] font-semibold leading-[20px] text-[#0F91D6]">О местах проведения государственной итоговой аттестации</h1>
-                {mainInfo.final_certification_addresses.length != 0 ? (
-                    mainInfo.final_certification_addresses.map((address, i) => (
-                        <div key={address.id} itemProp="addressPlaceGia" className="space-x-3 leading-[22px]">
-                            <span>{i + 1}</span>
-                            <span>{address.title}</span>
-                        </div>
-                    ))
-                ) : (
-                    <div itemProp="addressPlaceGia" className="leading-[22px]">
-                        Отсутствует
-                    </div>
-                )}
-            </div>
-
-            <div className="max-w-[700px] space-y-3 rounded-[10px] bg-white p-8">
-                <h1 className="text-[23px] font-semibold leading-[20px] text-[#0F91D6]">
-                    О местах осуществления образовательной деятельности по основным программам профессионального обучения
-                </h1>
-                {mainInfo.main_activity_addresses.length != 0 ? (
-                    mainInfo.main_activity_addresses.map((address, i) => (
-                        <div key={address.id} itemProp="addressPlaceOppo" className="space-x-3 leading-[22px]">
-                            <span>{i + 1}</span>
-                            <span>{address.title}</span>
-                        </div>
-                    ))
-                ) : (
-                    <div itemProp="addressPlaceOppo" className="leading-[22px]">
-                        Отсутствует
-                    </div>
-                )}
-            </div>
-
-            <div className="max-w-[700px] space-y-3 rounded-[10px] bg-white p-8">
-                <h1 className="text-[23px] font-semibold leading-[20px] text-[#0F91D6]">
-                    О местах осуществления образовательной деятельности по дополнительным образовательным программам
-                </h1>
-                {mainInfo.additional_activity_addresses.length != 0 ? (
-                    mainInfo.additional_activity_addresses.map((address, i) => (
-                        <div key={address.id} itemProp="addressPlaceDop" className="space-x-3 leading-[22px]">
-                            <span>{i + 1}</span>
-                            <span>{address.title}</span>
-                        </div>
-                    ))
-                ) : (
-                    <div itemProp="addressPlaceDop" className="leading-[22px]">
-                        Отсутствует
-                    </div>
-                )}
-            </div>
-        </div>
+        </main>
     );
 };
 

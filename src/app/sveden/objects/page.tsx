@@ -31,7 +31,7 @@ const SvedenObjectsPage = () => {
     const [state, dispatch] = useReducer(appReducer, { open1: false, open2: false, open3: false, open4: false });
 
     return (
-        <main className="space-y-5 pr-[70px] pt-[50px]">
+        <main itemProp="copy" className="space-y-5 pr-[70px] pt-[50px]">
             <h1>Материально-техническое обеспечение и оснащённость образовательного процесса. Доступная среда</h1>
 
             <div className="rounded-[10px] bg-white">
@@ -319,73 +319,127 @@ const SvedenObjectsPage = () => {
             </div>
 
             <div className="space-y-2 rounded-[10px] bg-white p-8">
-                <p itemProp="ovz" className="text-[23px] font-semibold leading-[20px] text-black">
+                <p className="text-[23px] font-semibold leading-[20px] text-black">
                     Информация об обеспечении беспрепятственного доступа в здания образовательной организации
                 </p>
-                <p>Отсутствует</p>
+                <p itemProp="ovz">Отсутствует</p>
             </div>
 
             <div className="space-y-2 rounded-[10px] bg-white p-8">
-                <p itemProp="purposeFacil" className="text-[23px] font-semibold leading-[20px] text-black">
-                    Сведения о средствах обучения и воспитания
-                </p>
-                <p>Отсутствует</p>
+                <p className="text-[23px] font-semibold leading-[20px] text-black">Сведения о средствах обучения и воспитания</p>
+                <p itemProp="purposeFacil">Отсутствует</p>
             </div>
 
             <div className="space-y-2 rounded-[10px] bg-white p-8">
-                <p itemProp="purposeFacilOvz" className="text-[23px] font-semibold leading-[20px] text-black">
-                    Информация о приспособленных средствах обучения и воспитания
-                </p>
-                <p>Отсутствует</p>
+                <p className="text-[23px] font-semibold leading-[20px] text-black">Информация о приспособленных средствах обучения и воспитания</p>
+                <p itemProp="purposeFacilOvz">Отсутствует</p>
             </div>
 
             <div className="space-y-2 rounded-[10px] bg-white p-8">
-                <p itemProp="comNet" className="text-[23px] font-semibold leading-[20px] text-black">
+                <p className="text-[23px] font-semibold leading-[20px] text-black">
                     Сведения о доступе к информационным системам и информационно-телекоммуникационным сетям
                 </p>
-                <p>Отсутствует</p>
+                <p itemProp="comNet">Отсутствует</p>
             </div>
 
             <div className="space-y-2 rounded-[10px] bg-white p-8">
-                <p itemProp="comNetOvz" className="text-[23px] font-semibold leading-[20px] text-black">
+                <p className="text-[23px] font-semibold leading-[20px] text-black">
                     Информация о доступе к приспособленным информационным системам и информационнотелекоммуникационным сетям
                 </p>
-                <p>Отсутствует</p>
+                <p itemProp="comNetOvz">Отсутствует</p>
             </div>
 
             <div className="space-y-2 rounded-[10px] bg-white p-8">
-                <p itemProp="purposeEios" className="text-[23px] font-semibold leading-[20px] text-black">
+                <p className="text-[23px] font-semibold leading-[20px] text-black">
                     Наличие в образовательной организации электронной информационно-образовательной среды
                 </p>
-                <p>Отсутствует</p>
+                <p itemProp="purposeEios">Отсутствует</p>
             </div>
 
             <div className="space-y-2 rounded-[10px] bg-white p-8">
-                <p itemProp="eoisOwn" className="text-[23px] font-semibold leading-[20px] text-black">
+                <p className="text-[23px] font-semibold leading-[20px] text-black">
                     Количество собственных электронных образовательных и информационных ресурсов
                 </p>
-                <p>Отсутствует</p>
+                <p itemProp="eoisOwn">Отсутствует</p>
             </div>
 
             <div className="space-y-2 rounded-[10px] bg-white p-8">
-                <p itemProp="eoisSide" className="text-[23px] font-semibold leading-[20px] text-black">
+                <p className="text-[23px] font-semibold leading-[20px] text-black">
                     Количество сторонних электронных образовательных и информационных ресурсов
                 </p>
-                <p>Отсутствует</p>
+                <p itemProp="eoisSide">Отсутствует</p>
             </div>
 
             <div className="space-y-2 rounded-[10px] bg-white p-8">
-                <p itemProp="bdec" className="text-[23px] font-semibold leading-[20px] text-black">
-                    Количество баз данных электронного каталога
-                </p>
-                <p>Отсутствует</p>
+                <p className="text-[23px] font-semibold leading-[20px] text-black">Количество баз данных электронного каталога</p>
+                <p itemProp="bdec">Отсутствует</p>
             </div>
 
             <div className="space-y-2 rounded-[10px] bg-white p-8">
-                <p itemProp="erList" className="text-[23px] font-semibold leading-[20px] text-black">
-                    Ссылка на электронный образовательный ресурс, к которым обеспечивается доступ обучающихся
+                <p className="text-[23px] font-semibold leading-[20px] text-black">Электронный образовательный ресурс</p>
+                <p itemProp="erList">Отсутствует</p>
+            </div>
+
+            <div className="space-y-2 rounded-[10px] bg-white p-8">
+                <p className="text-[23px] font-semibold leading-[20px] text-black">Приспособленный электронный образовательный ресурс</p>
+                <p itemProp="erListOvz">Отсутствует</p>
+            </div>
+
+            <div className="space-y-2 rounded-[10px] bg-white p-8">
+                <p className="text-[23px] font-semibold leading-[20px] text-black">
+                    Информация о наличии специальных технических средств обучения коллективного и индивидуального пользования
                 </p>
-                <p>Отсутствует</p>
+                <p itemProp="techOvz">Отсутствует</p>
+            </div>
+
+            <div className="space-y-2 rounded-[10px] bg-white p-8">
+                <p className="text-[23px] font-semibold leading-[20px] text-black">Количество общежитий</p>
+                <p itemProp="hostelInfo">Отсутствует</p>
+            </div>
+
+            <div className="space-y-2 rounded-[10px] bg-white p-8">
+                <p className="text-[23px] font-semibold leading-[20px] text-black">Количество интернатов</p>
+                <p itemProp="interInfo">Отсутствует</p>
+            </div>
+
+            <div className="space-y-2 rounded-[10px] bg-white p-8">
+                <p className="text-[23px] font-semibold leading-[20px] text-black">Количество мест в общежитиях</p>
+                <p itemProp="hostelNum">Отсутствует</p>
+            </div>
+
+            <div className="space-y-2 rounded-[10px] bg-white p-8">
+                <p className="text-[23px] font-semibold leading-[20px] text-black">
+                    Количество жилых помещений в общежитии, приспособленных для использования инвалидами и лицами с ограниченными возможностями
+                    здоровья
+                </p>
+                <p itemProp="hostelNumOvz">Отсутствует</p>
+            </div>
+
+            <div className="space-y-2 rounded-[10px] bg-white p-8">
+                <p className="text-[23px] font-semibold leading-[20px] text-black">Количество мест в интернатах</p>
+                <p itemProp="interNum">Отсутствует</p>
+            </div>
+
+            <div className="space-y-2 rounded-[10px] bg-white p-8">
+                <p className="text-[23px] font-semibold leading-[20px] text-black">
+                    Количество жилых помещений в интернате, приспособленных для использования инвалидами и лицами с ограниченными возможностями
+                    здоровья
+                </p>
+                <p itemProp="interNumOvz">Отсутствует</p>
+            </div>
+
+            <div className="space-y-2 rounded-[10px] bg-white p-8">
+                <p className="text-[23px] font-semibold leading-[20px] text-black">
+                    Информация о наличии условий для беспрепятственного доступа в общежитие, интернат
+                </p>
+                <p itemProp="hostelInterOvz">Отсутствует</p>
+            </div>
+
+            <div className="space-y-2 rounded-[10px] bg-white p-8">
+                <p className="text-[23px] font-semibold leading-[20px] text-black">
+                    Ссылка на информацию о формировании платы за проживание в общежитии
+                </p>
+                <p itemProp="localActObSt">Отсутствует</p>
             </div>
         </main>
     );

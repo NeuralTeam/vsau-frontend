@@ -1,6 +1,6 @@
 const SvedenInterPage = () => {
     return (
-        <main className="space-y-5 pr-[70px] pt-[50px]">
+        <main itemProp="copy" className="space-y-5 pr-[70px] pt-[50px]">
             <h1>Международное сотрудничество</h1>
 
             <div className="space-y-4 rounded-[10px] bg-white px-8 py-4">
