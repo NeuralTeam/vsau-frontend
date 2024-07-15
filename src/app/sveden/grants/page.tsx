@@ -12,7 +12,7 @@ const SvedenGrantsPage = () => {
                 </p>
                 <ul className="space-y-2">
                     <li className="text-[18px]">
-                        <p itemProp="paidParents">Отсутствует</p>
+                        <p itemProp="localAct">Отсутствует</p>
                     </li>
                 </ul>
             </div>
@@ -21,7 +21,7 @@ const SvedenGrantsPage = () => {
                 <p className="text-[23px] font-semibold leading-[20px]">Информация о предоставлении стипендии обучающимся</p>
                 <ul className="space-y-2">
                     <li className="text-[18px]">
-                        <p itemProp="paidParents">Отсутствует</p>
+                        <p itemProp="grant">Отсутствует</p>
                     </li>
                 </ul>
             </div>
@@ -30,7 +30,7 @@ const SvedenGrantsPage = () => {
                 <p className="text-[23px] font-semibold leading-[20px]">Информация о мерах социальной поддержки обучающихся</p>
                 <ul className="space-y-2">
                     <li className="text-[18px]">
-                        <p itemProp="paidParents">Отсутствует</p>
+                        <p itemProp="support">Отсутствует</p>
                     </li>
                 </ul>
             </div>
