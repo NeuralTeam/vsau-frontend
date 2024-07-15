@@ -1,6 +1,6 @@
 const SvedenVacantPage = () => {
     return (
-        <main className="space-y-5 pr-[70px] pt-[50px]">
+        <main itemProp="copy" className="space-y-5 pr-[70px] pt-[50px]">
             <h1>Вакантные места для приема (перевода) обучающихся</h1>
 
             <div className="space-y-8 rounded-[10px] bg-white p-8">
@@ -42,17 +42,37 @@ const SvedenVacantPage = () => {
                     </thead>
                     <tbody className="[&>*:nth-child(odd)]:bg-[#E7F4FB]">
                         {Array.from({ length: 3 }).map((_, i) => (
-                            <tr key={i} itemProp="internationalDog">
-                                <td itemProp="eduCode" className="px-4 py-4"></td>
-                                <td itemProp="eduName" className="px-4 py-4"></td>
-                                <td itemProp="eduLevel" className="px-4 py-4"></td>
-                                <td itemProp="eduProf" className="px-4 py-4"></td>
-                                <td itemProp="eduCourse" className="px-4 py-4"></td>
-                                <td itemProp="eduForm" className="px-4 py-4"></td>
-                                <td itemProp="numberBFVacant" className="px-4 py-4"></td>
-                                <td itemProp="numberBRVacant" className="px-4 py-4"></td>
-                                <td itemProp="numberBMVacant" className="px-4 py-4"></td>
-                                <td itemProp="numberPVacant" className="px-4 py-4"></td>
+                            <tr key={i} itemProp="vacant">
+                                <td itemProp="eduCode" className="px-4 py-4">
+                                    36.02.01
+                                </td>
+                                <td itemProp="eduName" className="px-4 py-4">
+                                    Ветеринария 3 года 10 месяцев
+                                </td>
+                                <td itemProp="eduLevel" className="px-4 py-4">
+                                    Среднее профессиональное образование
+                                </td>
+                                <td itemProp="eduProf" className="px-4 py-4">
+                                    Отсутствует
+                                </td>
+                                <td itemProp="eduCourse" className="px-4 py-4">
+                                    1
+                                </td>
+                                <td itemProp="eduForm" className="px-4 py-4">
+                                    Очная
+                                </td>
+                                <td itemProp="numberBFVacant" className="px-4 py-4">
+                                    1
+                                </td>
+                                <td itemProp="numberBRVacant" className="px-4 py-4">
+                                    0
+                                </td>
+                                <td itemProp="numberBMVacant" className="px-4 py-4">
+                                    0
+                                </td>
+                                <td itemProp="numberPVacant" className="px-4 py-4">
+                                    53
+                                </td>
                             </tr>
                         ))}
                     </tbody>
