@@ -53,13 +53,13 @@ const SvedenBudgetPage = () => {
                 <table className="text-surface min-w-full text-left text-sm font-light">
                     <thead className="sticky top-0 z-10 bg-[#0F91D6] font-medium">
                         <tr>
-                            <th scope="col" className="px-4 py-4 text-center text-white">
+                            <th scope="col" className="px-4 py-4 text-white">
                                 Год
                             </th>
-                            <th scope="col" className="px-4 py-4 text-center text-white">
+                            <th scope="col" className="px-4 py-4 text-white">
                                 Поступившие финансовые и материальные средства
                             </th>
-                            <th scope="col" className="px-4 py-4 text-center text-white">
+                            <th scope="col" className="px-4 py-4 text-white">
                                 Расходованные финансовые и материальные средств
                             </th>
                         </tr>
