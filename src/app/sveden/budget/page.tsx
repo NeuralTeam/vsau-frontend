@@ -11,16 +11,16 @@ const SvedenBudgetPage = () => {
                 <table className="text-surface min-w-full text-left text-sm font-light">
                     <thead className="sticky top-0 z-10 bg-[#0F91D6] font-medium">
                         <tr>
-                            <th scope="col" className="px-4 py-4 text-center text-white">
+                            <th scope="col" className="px-4 py-4 text-white">
                                 За счёт бюджетных ассигнований федерального бюджета (тыс. руб.)
                             </th>
-                            <th scope="col" className="px-4 py-4 text-center text-white">
+                            <th scope="col" className="px-4 py-4 text-white">
                                 За счёт бюджетов субъектов Российской Федерации (тыс. руб.)
                             </th>
-                            <th scope="col" className="px-4 py-4 text-center text-white">
+                            <th scope="col" className="px-4 py-4 text-white">
                                 За счёт местных бюджетов (тыс. руб.)
                             </th>
-                            <th scope="col" className="px-4 py-4 text-center text-white">
+                            <th scope="col" className="px-4 py-4 text-white">
                                 По договорам об оказании платных образовательных услуг (тыс. руб.)
                             </th>
                         </tr>
