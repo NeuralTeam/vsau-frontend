@@ -4,7 +4,7 @@ import Link from "next/link";
 const SvedenEduStandartsPage = () => {
     return (
         <main itemProp="copy" className="space-y-8 pr-[70px] pt-[50px]">
-            <h1>«Образовательные стандарты и требования</h1>
+            <h1>Образовательные стандарты и требования</h1>
 
             <div className="space-y-8 rounded-[10px] bg-white p-8">
                 <p className="text-[23px] font-semibold leading-[20px]">
