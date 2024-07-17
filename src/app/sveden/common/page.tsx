@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Dot } from "lucide-react";
+import { TemplatePage } from "@/shared/ui/vsau/sveden";
 
 interface IDocLink {
     [key: string]: string;
@@ -79,32 +80,30 @@ const SvedenCommonPage = async () => {
     }
 
     return (
-        <main itemProp="copy" className="space-y-5 pr-[70px] pt-[50px]">
-            <h1>Основные сведения</h1>
-
+        <TemplatePage title="Основные сведения">
             <div className="flex flex-wrap gap-8">
-                <div className="max-w-[550px] space-y-3 rounded-[10px] bg-white p-8">
+                <div className="max-w-[550px] space-y-4 rounded-[10px] bg-white p-8">
                     <h1 className="text-[23px] font-semibold leading-[20px] text-[#0F91D6]">Полное наименование образовательной организации</h1>
                     <p itemProp="fullName" className="leading-[18px]">
                         {mainInfo.full_name}
                     </p>
                 </div>
 
-                <div className="max-w-[500px] space-y-3 rounded-[10px] bg-white p-8">
+                <div className="max-w-[500px] space-y-4 rounded-[10px] bg-white p-8">
                     <h1 className="text-[23px] font-semibold leading-[20px] text-[#0F91D6]">Сокращенное наименование образовательной организации</h1>
                     <p itemProp="shortName" className="leading-[18px]">
                         {mainInfo.short_name}
                     </p>
                 </div>
 
-                <div className="max-w-[250px] space-y-3 rounded-[10px] bg-white p-8">
+                <div className="max-w-[250px] space-y-4 rounded-[10px] bg-white p-8">
                     <h1 className="text-[23px] font-semibold leading-[20px] text-[#0F91D6]">Дата создания образовательной организации</h1>
                     <p itemProp="regDate" className="leading-[18px]">
                         {mainInfo.reg_date}
                     </p>
                 </div>
 
-                <div className="max-w-[600px] space-y-3 rounded-[10px] bg-white p-8">
+                <div className="max-w-[600px] space-y-4 rounded-[10px] bg-white p-8">
                     <h1 className="text-[23px] font-semibold leading-[20px] text-[#0F91D6]">Справочная информация об образовательной организации</h1>
                     <div className="leading-[22px]">
                         <div className="space-x-3">
@@ -130,7 +129,7 @@ const SvedenCommonPage = async () => {
                     </div>
                 </div>
 
-                <div className="max-w-[700px] space-y-3 rounded-[10px] bg-white p-8">
+                <div className="max-w-[700px] space-y-4 rounded-[10px] bg-white p-8">
                     <h1 className="text-[23px] font-semibold leading-[20px] text-[#0F91D6]">
                         {mainInfo.founders.length > 1 ? "Учредители" : "Учредитель"}
                     </h1>
@@ -172,7 +171,7 @@ const SvedenCommonPage = async () => {
                     )}
                 </div>
 
-                <div className="max-w-[600px] space-y-3 rounded-[10px] bg-white p-8">
+                <div className="max-w-[600px] space-y-4 rounded-[10px] bg-white p-8">
                     <h1 className="text-[23px] font-semibold leading-[20px] text-[#0F91D6]">Документы</h1>
                     <ul className="space-y-2">
                         <li className="flex items-start text-[18px] text-[#0F91D6] underline underline-offset-2">
@@ -190,7 +189,7 @@ const SvedenCommonPage = async () => {
                     </ul>
                 </div>
 
-                <div className="max-w-[700px] space-y-3 rounded-[10px] bg-white p-8">
+                <div className="max-w-[700px] space-y-4 rounded-[10px] bg-white p-8">
                     <h1 className="text-[23px] font-semibold leading-[20px] text-[#0F91D6]">
                         О местах осуществления образовательной деятельности при использовании сетевой формы реализации образовательных программ
                     </h1>
@@ -208,7 +207,7 @@ const SvedenCommonPage = async () => {
                     )}
                 </div>
 
-                <div className="max-w-[700px] space-y-3 rounded-[10px] bg-white p-8">
+                <div className="max-w-[700px] space-y-4 rounded-[10px] bg-white p-8">
                     <h1 className="text-[23px] font-semibold leading-[20px] text-[#0F91D6]">О местах проведения практики</h1>
                     {mainInfo.practice_addresses.length != 0 ? (
                         mainInfo.practice_addresses.map((address, i) => (
@@ -224,7 +223,7 @@ const SvedenCommonPage = async () => {
                     )}
                 </div>
 
-                <div className="max-w-[700px] space-y-3 rounded-[10px] bg-white p-8">
+                <div className="max-w-[700px] space-y-4 rounded-[10px] bg-white p-8">
                     <h1 className="text-[23px] font-semibold leading-[20px] text-[#0F91D6]">
                         О местах проведения практической подготовки обучающихся
                     </h1>
@@ -242,7 +241,7 @@ const SvedenCommonPage = async () => {
                     )}
                 </div>
 
-                <div className="max-w-[700px] space-y-3 rounded-[10px] bg-white p-8">
+                <div className="max-w-[700px] space-y-4 rounded-[10px] bg-white p-8">
                     <h1 className="text-[23px] font-semibold leading-[20px] text-[#0F91D6]">
                         О местах проведения государственной итоговой аттестации
                     </h1>
@@ -260,7 +259,7 @@ const SvedenCommonPage = async () => {
                     )}
                 </div>
 
-                <div className="max-w-[700px] space-y-3 rounded-[10px] bg-white p-8">
+                <div className="max-w-[700px] space-y-4 rounded-[10px] bg-white p-8">
                     <h1 className="text-[23px] font-semibold leading-[20px] text-[#0F91D6]">
                         О местах осуществления образовательной деятельности по основным программам профессионального обучения
                     </h1>
@@ -278,7 +277,7 @@ const SvedenCommonPage = async () => {
                     )}
                 </div>
 
-                <div className="max-w-[700px] space-y-3 rounded-[10px] bg-white p-8">
+                <div className="max-w-[700px] space-y-4 rounded-[10px] bg-white p-8">
                     <h1 className="text-[23px] font-semibold leading-[20px] text-[#0F91D6]">
                         О местах осуществления образовательной деятельности по дополнительным образовательным программам
                     </h1>
@@ -296,7 +295,7 @@ const SvedenCommonPage = async () => {
                     )}
                 </div>
             </div>
-        </main>
+        </TemplatePage>
     );
 };
 

@@ -1,11 +1,8 @@
-import { Dot } from "lucide-react";
-import Link from "next/link";
+import { DocumentListBlock, TemplatePage } from "@/shared/ui/vsau/sveden";
 
 const SvedenBudgetPage = () => {
     return (
-        <main itemProp="copy" className="space-y-8 pr-[70px] pt-[50px]">
-            <h1>Финансово-хозяйственная деятельность</h1>
-
+        <TemplatePage title="Финансово-хозяйственная деятельность">
             <div className="space-y-8 rounded-[10px] bg-white p-8">
                 <p className="text-[23px] font-semibold leading-[20px]">Сведения об объеме образовательной деятельности</p>
                 <table className="text-surface min-w-full text-left text-sm font-light">
@@ -82,20 +79,22 @@ const SvedenBudgetPage = () => {
                 </table>
             </div>
 
-            <div className="space-y-8 rounded-[10px] bg-white p-8">
-                <p className="text-[23px] font-semibold leading-[20px]">
-                    Утвержденный план финансово-хозяйственной деятельности образовательной организации или бюджетные сметы образовательной организации
-                </p>
-                <ul className="space-y-2">
-                    <li className="flex items-center text-[18px] text-[#0F91D6] underline underline-offset-2">
-                        <Dot className="min-h-6 min-w-6" />
-                        <Link href="#" itemProp="finPlanDocLink">
-                            Приказ №578 от 29.12.2021 “О внесении изменений и дополнений в приказ от 29.12.2017 №524 “Об утверждении учетной политики”
-                        </Link>
-                    </li>
-                </ul>
-            </div>
-        </main>
+            <DocumentListBlock
+                title="Утвержденный план финансово-хозяйственной деятельности образовательной организации или бюджетные сметы образовательной организации"
+                docList={[
+                    {
+                        id: 1,
+                        title: "Приказ №421 от 31.12.2020 “О внесении изменений и дополнений в приказ от 29.12.2017 №524 “Об утверждении учетной политики”",
+                        itemProp: "finPlanDocLink"
+                    },
+                    {
+                        id: 2,
+                        title: "Приказ №578 от 29.12.2021 “О внесении изменений и дополнений в приказ от 29.12.2017 №524 “Об утверждении учетной политики”",
+                        itemProp: "finPlanDocLink"
+                    }
+                ]}
+            />
+        </TemplatePage>
     );
 };
 

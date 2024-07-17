@@ -1,8 +1,8 @@
+import { TemplatePage } from "@/shared/ui/vsau/sveden";
+
 const SvedenVacantPage = () => {
     return (
-        <main itemProp="copy" className="space-y-5 pr-[70px] pt-[50px]">
-            <h1>Вакантные места для приема (перевода) обучающихся</h1>
-
+        <TemplatePage title="Вакантные места для приема (перевода) обучающихся">
             <div className="space-y-8 rounded-[10px] bg-white p-8">
                 <p className="text-[23px] font-semibold leading-[20px]">Информация о количестве вакантных мест для приема (перевода) обучающихся</p>
                 <table className="text-surface min-w-full text-left text-sm font-light">
@@ -78,7 +78,7 @@ const SvedenVacantPage = () => {
                     </tbody>
                 </table>
             </div>
-        </main>
+        </TemplatePage>
     );
 };
 

@@ -1,10 +1,9 @@
 import Image from "next/image";
+import { TemplatePage } from "@/shared/ui/vsau/sveden";
 
 const SvedenManagersPage = () => {
     return (
-        <main itemProp="copy" className="space-y-8 pr-[70px] pt-[50px]">
-            <h1>Руководство</h1>
-
+        <TemplatePage title="Руководство">
             <div className="grid grid-cols-2 grid-rows-3 gap-5 rounded-[10px] bg-white p-8">
                 {Array.from({ length: 6 }).map((_, i) => (
                     <div key={i} className="flex max-w-[650px] items-center space-x-10 rounded-[10px] bg-[#0F91D6] p-10">
@@ -92,7 +91,7 @@ const SvedenManagersPage = () => {
                     </div>
                 ))}
             </div>
-        </main>
+        </TemplatePage>
     );
 };
 

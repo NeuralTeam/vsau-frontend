@@ -1,8 +1,8 @@
+import { TemplatePage } from "@/shared/ui/vsau/sveden";
+
 const SvedenInterPage = () => {
     return (
-        <main itemProp="copy" className="space-y-5 pr-[70px] pt-[50px]">
-            <h1>Международное сотрудничество</h1>
-
+        <TemplatePage title="Международное сотрудничество">
             <div className="space-y-4 rounded-[10px] bg-white px-8 py-4">
                 <p className="text-[23px] font-semibold leading-[20px]">
                     Информация о заключенных и планируемых к заключению договорах с иностранными и (или) международными организациями по вопросам
@@ -44,7 +44,7 @@ const SvedenInterPage = () => {
                     </tbody>
                 </table>
             </div>
-        </main>
+        </TemplatePage>
     );
 };
 

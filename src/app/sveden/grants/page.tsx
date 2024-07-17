@@ -1,11 +1,10 @@
 import { Dot } from "lucide-react";
 import Link from "next/link";
+import { TemplatePage } from "@/shared/ui/vsau/sveden";
 
 const SvedenGrantsPage = () => {
     return (
-        <main itemProp="copy" className="space-y-5 pr-[70px] pt-[50px]">
-            <h1>Стипендии и меры поддержки виды обучающихся</h1>
-
+        <TemplatePage title="Стипендии и меры поддержки виды обучающихся">
             <div className="space-y-2 rounded-[10px] bg-white p-8">
                 <p className="text-[23px] font-semibold leading-[20px]">
                     Локальные нормативные акты, которыми регламентируется наличие и условия предоставления стипендий
@@ -100,7 +99,7 @@ const SvedenGrantsPage = () => {
                     </Link>
                 </div>
             </div>
-        </main>
+        </TemplatePage>
     );
 };
 

@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Dot } from "lucide-react";
 import { useState, useEffect } from "react";
+import { TemplatePage } from "@/shared/ui/vsau/sveden";
 
 const SvedenEducationPage = () => {
     const [open, setOpen] = useState(false);
@@ -86,9 +87,7 @@ const SvedenEducationPage = () => {
                 </div>
             </dialog>
 
-            <main className="space-y-5 pr-[70px] pt-[50px]">
-                <h1>Образование</h1>
-
+            <TemplatePage title="Образование">
                 <div className="space-y-5 rounded-[10px] bg-white p-8">
                     <p className="text-[23px] font-semibold leading-[20px]">
                         Информация о реализуемых уровнях образования, о формах обучения, нормативных сроках обучения, сроке действия государственной
@@ -225,7 +224,7 @@ const SvedenEducationPage = () => {
                         <p>Открыть данные</p>
                     </Link>
                 </div>
-            </main>
+            </TemplatePage>
         </>
     );
 };

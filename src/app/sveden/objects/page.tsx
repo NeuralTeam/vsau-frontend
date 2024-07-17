@@ -2,6 +2,7 @@
 
 import { useReducer } from "react";
 import { cn } from "@/shared/libs/shadcn-utils";
+import { DocumentListBlock, TemplatePage } from "@/shared/ui/vsau/sveden";
 
 interface AppState {
     open1: boolean;
@@ -31,9 +32,7 @@ const SvedenObjectsPage = () => {
     const [state, dispatch] = useReducer(appReducer, { open1: false, open2: false, open3: false, open4: false });
 
     return (
-        <main itemProp="copy" className="space-y-5 pr-[70px] pt-[50px]">
-            <h1>Материально-техническое обеспечение и оснащённость образовательного процесса. Доступная среда</h1>
-
+        <TemplatePage title="Материально-техническое обеспечение и оснащённость образовательного процесса. Доступная среда">
             <div className="rounded-[10px] bg-white">
                 <div className="flex items-center justify-between px-8 py-4">
                     <p className="text-[23px] font-semibold leading-[20px]">Сведения об оборудованных учебных кабинетах</p>
@@ -318,6 +317,8 @@ const SvedenObjectsPage = () => {
                 </div>
             </div>
 
+            <DocumentListBlock title="AAAAAA" itemProp="AAAAAA" />
+
             <div className="space-y-2 rounded-[10px] bg-white p-8">
                 <p className="text-[23px] font-semibold leading-[20px] text-black">
                     Информация об обеспечении беспрепятственного доступа в здания образовательной организации
@@ -441,7 +442,7 @@ const SvedenObjectsPage = () => {
                 </p>
                 <p itemProp="localActObSt">Отсутствует</p>
             </div>
-        </main>
+        </TemplatePage>
     );
 };
 

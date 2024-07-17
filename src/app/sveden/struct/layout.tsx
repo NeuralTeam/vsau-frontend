@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import Link from "next/link";
 import { headers } from "next/headers";
 import { cn } from "@/shared/libs/shadcn-utils";
+import { TemplatePage } from "@/shared/ui/vsau/sveden";
 
 const SvedenStructLayout = ({
     children
@@ -13,8 +14,7 @@ const SvedenStructLayout = ({
     const activeSectionClass = "font-bold text-[#0F91D6]";
 
     return (
-        <main className="space-y-5 pr-[70px] pt-[50px]">
-            <h1>Структура и органы управления образовательной организацией</h1>
+        <TemplatePage title="Структура и органы управления образовательной организацией">
             <div className="flex space-x-10">
                 <div className="flex w-[500px] flex-col justify-between rounded-[10px] bg-white p-8">
                     <div className="space-y-5">
@@ -61,7 +61,7 @@ const SvedenStructLayout = ({
                 </div>
                 <div className="w-full">{children}</div>
             </div>
-        </main>
+        </TemplatePage>
     );
 };
 

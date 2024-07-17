@@ -3,6 +3,7 @@
 import { cn } from "@/shared/libs/shadcn-utils";
 import { useState } from "react";
 import { InView } from "react-intersection-observer";
+import { TemplatePage } from "@/shared/ui/vsau/sveden";
 
 function getAlphabet() {
     const startCharCode = "а".charCodeAt(0);
@@ -32,9 +33,7 @@ const SvedenEmployeesPage = () => {
     };
 
     return (
-        <main itemProp="copy" className="space-y-8 pr-[70px] pt-[50px]">
-            <h1>Педагогический состав</h1>
-
+        <TemplatePage title="Педагогический состав">
             <div className="space-y-8 rounded-[10px] bg-white py-8">
                 <p className="px-8 text-[23px] font-semibold leading-[20px]">
                     Информация о персональном составе педагогических работников образовательной программы
@@ -92,7 +91,7 @@ const SvedenEmployeesPage = () => {
                     </div>
                 </div>
             </div>
-        </main>
+        </TemplatePage>
     );
 };
 

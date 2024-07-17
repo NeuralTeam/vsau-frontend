@@ -1,5 +1,7 @@
+import { TemplatePage } from "@/shared/ui/vsau/sveden";
+
 const SvedenCateringPage = () => {
-    return <main>SvedenCateringPage</main>;
+    return <TemplatePage title="Организация питания в образовательной организации"></TemplatePage>;
 };
 
 export default SvedenCateringPage;
