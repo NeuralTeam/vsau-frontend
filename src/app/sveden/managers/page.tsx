@@ -32,7 +32,7 @@ const SvedenManagersPage = () => {
                 {Array.from({ length: 2 }).map((_, i) => (
                     <div key={i}>
                         <p itemProp="nameFil" className="text-[23px] font-semibold leading-[20px]">
-                            Филиал №{i + 1}
+                            Руководитель филиала №{i + 1}
                         </p>
 
                         <div className="grid grid-cols-2 gap-5">
@@ -64,7 +64,7 @@ const SvedenManagersPage = () => {
                 {Array.from({ length: 2 }).map((_, i) => (
                     <div key={i}>
                         <p itemProp="nameRep" className="text-[23px] font-semibold leading-[20px]">
-                            Представительство №{i + 1}
+                            Руководитель представительства №{i + 1}
                         </p>
 
                         <div className="grid grid-cols-2 gap-5">
