@@ -15,10 +15,7 @@ const SvedenGrantsPage = () => {
 
             <DocumentListBlock title="Информация о мерах социальной поддержки обучающихся" itemProp="support" docList={[]} />
 
-            <Block
-                title="Информация о заключенных и планируемых к заключению договорах с иностранными и (или) международными организациями по вопросам
-                    образования и науки"
-            >
+            <Block title="Сведения об общежитии, интернате, количестве жилых помещений в общежитии, интернате для иногородних обучающихся">
                 <table className="text-surface min-w-full text-left text-sm font-light">
                     <thead className="sticky top-0 z-10 bg-[#0F91D6] font-medium">
                         <tr>
@@ -73,7 +70,7 @@ const SvedenGrantsPage = () => {
                 <div className="flex items-center text-[18px] text-[#0F91D6] underline underline-offset-2">
                     <Dot className="min-h-6 min-w-6" />
                     <Link href="#" itemProp="localActObSt">
-                        информация о формировании платы за проживание в общежитии
+                        Информация о формировании платы за проживание в общежитии
                     </Link>
                 </div>
             </Block>
