@@ -1,19 +1,7 @@
 import Link from "next/link";
-import { Dot } from "lucide-react";
-import { TemplatePage } from "@/shared/ui/vsau/sveden";
+import { AddressListBlock, DocumentListBlock, TemplatePage, Block } from "@/shared/ui/vsau/sveden";
+import { IAddress, IDocument } from "@/shared/ui/vsau/sveden/types";
 
-interface IDocLink {
-    [key: string]: string;
-
-    title: string;
-    link: string;
-}
-interface IAddresses {
-    [key: string]: string | number;
-
-    id: number;
-    title: string;
-}
 interface IFounders {
     [key: string]: string | number;
 
@@ -25,7 +13,7 @@ interface IFounders {
     website: string;
 }
 interface IMainInfo {
-    [key: string]: string | IDocLink | IFounders[] | IAddresses[];
+    [key: string]: string | IDocument | IFounders[] | IAddress[];
 
     full_name: string;
     short_name: string;
@@ -34,15 +22,15 @@ interface IMainInfo {
     work_time: string;
     tel: string;
     email: string;
-    license_doc: IDocLink;
-    accreditation_doc: IDocLink;
+    license_doc: IDocument;
+    accreditation_doc: IDocument;
     founders: IFounders[];
-    online_activity_addresses: IAddresses[];
-    practice_addresses: IAddresses[];
-    practical_training_addresses: IAddresses[];
-    final_certification_addresses: IAddresses[];
-    additional_activity_addresses: IAddresses[];
-    main_activity_addresses: IAddresses[];
+    online_activity_addresses: IAddress[];
+    practice_addresses: IAddress[];
+    practical_training_addresses: IAddress[];
+    final_certification_addresses: IAddress[];
+    additional_activity_addresses: IAddress[];
+    main_activity_addresses: IAddress[];
 }
 
 const SvedenCommonPage = async () => {
@@ -55,8 +43,8 @@ const SvedenCommonPage = async () => {
         work_time: "Мы не работаем!",
         tel: "+74732538651",
         email: "main@vsau.ru",
-        license_doc: { title: "Лицензия на осуществление образовательной деятельности", link: "http://localhost:3000" },
-        accreditation_doc: { title: "Государственная аккредитация образовательной деятельности", link: "http://localhost:3000" },
+        license_doc: { id: 1, title: "Лицензия на осуществление образовательной деятельности", href: "http://localhost:3000" },
+        accreditation_doc: { id: 1, title: "Государственная аккредитация образовательной деятельности", href: "http://localhost:3000" },
         founders: [
             {
                 id: 1,
@@ -68,11 +56,14 @@ const SvedenCommonPage = async () => {
             }
         ],
         online_activity_addresses: [],
-        practice_addresses: [{ id: 1, title: "394087, Воронежская область, г Воронеж, ул. Мичурина, 1" }],
-        practical_training_addresses: [{ id: 1, title: "394087, Воронежская область, г Воронеж, ул. Мичурина, 1" }],
-        final_certification_addresses: [{ id: 1, title: "394087, Воронежская область, г Воронеж, ул. Мичурина, 1" }],
-        additional_activity_addresses: [{ id: 1, title: "394087, Воронежская область, г Воронеж, ул. Мичурина, 1" }],
-        main_activity_addresses: [{ id: 1, title: "394087, Воронежская область, г Воронеж, ул. Тимирязева, 13" }]
+        practice_addresses: [{ id: 1, address: "394087, Воронежская область, г Воронеж, ул. Мичурина, 1" }],
+        practical_training_addresses: [
+            { id: 1, address: "394087, Воронежская область, г Воронеж, ул. Мичурина, 1" },
+            { id: 2, address: "394087, Воронежская область, г Воронеж, ул. Дарвина, 3" }
+        ],
+        final_certification_addresses: [{ id: 1, address: "394087, Воронежская область, г Воронеж, ул. Мичурина, 1" }],
+        additional_activity_addresses: [{ id: 1, address: "394087, Воронежская область, г Воронеж, ул. Мичурина, 1" }],
+        main_activity_addresses: [{ id: 1, address: "394087, Воронежская область, г Воронеж, ул. Тимирязева, 13" }]
     };
 
     for (const key in mainInfo) {
@@ -81,30 +72,26 @@ const SvedenCommonPage = async () => {
 
     return (
         <TemplatePage title="Основные сведения">
-            <div className="flex flex-wrap gap-8">
-                <div className="max-w-[550px] space-y-4 rounded-[10px] bg-white p-8">
-                    <h1 className="text-[23px] font-semibold leading-[20px] text-[#0F91D6]">Полное наименование образовательной организации</h1>
-                    <p itemProp="fullName" className="leading-[18px]">
+            <div className="grid grid-cols-4 gap-8">
+                <Block title="Полное наименование образовательной организации" className="col-span-2">
+                    <p itemProp="fullName" className="leading-[20px]">
                         {mainInfo.full_name}
                     </p>
-                </div>
+                </Block>
 
-                <div className="max-w-[500px] space-y-4 rounded-[10px] bg-white p-8">
-                    <h1 className="text-[23px] font-semibold leading-[20px] text-[#0F91D6]">Сокращенное наименование образовательной организации</h1>
-                    <p itemProp="shortName" className="leading-[18px]">
+                <Block title="Сокращенное наименование образовательной организации" className="col-span-2">
+                    <p itemProp="shortName" className="leading-[20px]">
                         {mainInfo.short_name}
                     </p>
-                </div>
+                </Block>
 
-                <div className="max-w-[250px] space-y-4 rounded-[10px] bg-white p-8">
-                    <h1 className="text-[23px] font-semibold leading-[20px] text-[#0F91D6]">Дата создания образовательной организации</h1>
-                    <p itemProp="regDate" className="leading-[18px]">
+                <Block title="Дата создания образовательной организации" className="col-span-1">
+                    <p itemProp="regDate" className="leading-[20px]">
                         {mainInfo.reg_date}
                     </p>
-                </div>
+                </Block>
 
-                <div className="max-w-[600px] space-y-4 rounded-[10px] bg-white p-8">
-                    <h1 className="text-[23px] font-semibold leading-[20px] text-[#0F91D6]">Справочная информация об образовательной организации</h1>
+                <Block title="Справочная информация об образовательной организации" className="col-span-3">
                     <div className="leading-[22px]">
                         <div className="space-x-3">
                             <span>Адрес:</span>
@@ -127,12 +114,9 @@ const SvedenCommonPage = async () => {
                             <span itemProp="workTime">{mainInfo.work_time}</span>
                         </div>
                     </div>
-                </div>
+                </Block>
 
-                <div className="max-w-[700px] space-y-4 rounded-[10px] bg-white p-8">
-                    <h1 className="text-[23px] font-semibold leading-[20px] text-[#0F91D6]">
-                        {mainInfo.founders.length > 1 ? "Учредители" : "Учредитель"}
-                    </h1>
+                <Block title={mainInfo.founders.length > 1 ? "Учредители" : "Учредитель"} className="col-span-2">
                     {mainInfo.founders.length != 0 ? (
                         mainInfo.founders.map((founder) => (
                             <div key={founder.id} itemProp="uchredLaw" className="leading-[22px]">
@@ -169,131 +153,63 @@ const SvedenCommonPage = async () => {
                             Отсутствует
                         </div>
                     )}
-                </div>
+                </Block>
 
-                <div className="max-w-[600px] space-y-4 rounded-[10px] bg-white p-8">
-                    <h1 className="text-[23px] font-semibold leading-[20px] text-[#0F91D6]">Документы</h1>
-                    <ul className="space-y-2">
-                        <li className="flex items-start text-[18px] text-[#0F91D6] underline underline-offset-2">
-                            <Dot className="min-h-6 min-w-6" />
-                            <Link href={mainInfo.license_doc.link} itemProp="licenseDocLink">
-                                {mainInfo.license_doc.title}
-                            </Link>
-                        </li>
-                        <li className="flex items-start text-[18px] text-[#0F91D6] underline underline-offset-2">
-                            <Dot className="min-h-6 min-w-6" />
-                            <Link href={mainInfo.accreditation_doc.link} itemProp="accreditationDocLink">
-                                {mainInfo.accreditation_doc.title}
-                            </Link>
-                        </li>
-                    </ul>
-                </div>
+                <DocumentListBlock
+                    title="Лицензия на осуществление образовательной деятельности"
+                    itemProp="licenseDocLink"
+                    className="col-span-2"
+                    docList={[mainInfo.license_doc]}
+                />
 
-                <div className="max-w-[700px] space-y-4 rounded-[10px] bg-white p-8">
-                    <h1 className="text-[23px] font-semibold leading-[20px] text-[#0F91D6]">
-                        О местах осуществления образовательной деятельности при использовании сетевой формы реализации образовательных программ
-                    </h1>
-                    {mainInfo.online_activity_addresses.length != 0 ? (
-                        mainInfo.online_activity_addresses.map((address, i) => (
-                            <div key={address.id} itemProp="addressPlaceSet" className="space-x-3 leading-[22px]">
-                                <span>{i + 1}</span>
-                                <span>{address.title}</span>
-                            </div>
-                        ))
-                    ) : (
-                        <div itemProp="addressPlaceSet" className="leading-[22px]">
-                            Отсутствует
-                        </div>
-                    )}
-                </div>
+                <DocumentListBlock
+                    title="Государственная аккредитация образовательной деятельности"
+                    itemProp="accreditationDocLink"
+                    className="col-span-2"
+                    docList={[mainInfo.accreditation_doc]}
+                />
 
-                <div className="max-w-[700px] space-y-4 rounded-[10px] bg-white p-8">
-                    <h1 className="text-[23px] font-semibold leading-[20px] text-[#0F91D6]">О местах проведения практики</h1>
-                    {mainInfo.practice_addresses.length != 0 ? (
-                        mainInfo.practice_addresses.map((address, i) => (
-                            <div key={address.id} itemProp="addressPlacePrac" className="space-x-3 leading-[22px]">
-                                <span>{i + 1}</span>
-                                <span>{address.title}</span>
-                            </div>
-                        ))
-                    ) : (
-                        <div itemProp="addressPlacePrac" className="leading-[22px]">
-                            Отсутствует
-                        </div>
-                    )}
-                </div>
+                <AddressListBlock
+                    title="О местах осуществления образовательной деятельности при использовании сетевой формы реализации образовательных программ"
+                    itemProp="addressPlaceSet"
+                    className="col-span-2"
+                    addressList={mainInfo.online_activity_addresses}
+                />
 
-                <div className="max-w-[700px] space-y-4 rounded-[10px] bg-white p-8">
-                    <h1 className="text-[23px] font-semibold leading-[20px] text-[#0F91D6]">
-                        О местах проведения практической подготовки обучающихся
-                    </h1>
-                    {mainInfo.practical_training_addresses.length != 0 ? (
-                        mainInfo.practical_training_addresses.map((address, i) => (
-                            <div key={address.id} itemProp="addressPlacePodg" className="space-x-3 leading-[22px]">
-                                <span>{i + 1}</span>
-                                <span>{address.title}</span>
-                            </div>
-                        ))
-                    ) : (
-                        <div itemProp="addressPlacePodg" className="leading-[22px]">
-                            Отсутствует
-                        </div>
-                    )}
-                </div>
+                <AddressListBlock
+                    title="О местах проведения практики"
+                    itemProp="addressPlacePrac"
+                    className="col-span-2"
+                    addressList={mainInfo.practice_addresses}
+                />
 
-                <div className="max-w-[700px] space-y-4 rounded-[10px] bg-white p-8">
-                    <h1 className="text-[23px] font-semibold leading-[20px] text-[#0F91D6]">
-                        О местах проведения государственной итоговой аттестации
-                    </h1>
-                    {mainInfo.final_certification_addresses.length != 0 ? (
-                        mainInfo.final_certification_addresses.map((address, i) => (
-                            <div key={address.id} itemProp="addressPlaceGia" className="space-x-3 leading-[22px]">
-                                <span>{i + 1}</span>
-                                <span>{address.title}</span>
-                            </div>
-                        ))
-                    ) : (
-                        <div itemProp="addressPlaceGia" className="leading-[22px]">
-                            Отсутствует
-                        </div>
-                    )}
-                </div>
+                <AddressListBlock
+                    title="О местах проведения практической подготовки обучающихся"
+                    itemProp="addressPlacePodg"
+                    className="col-span-2"
+                    addressList={mainInfo.practical_training_addresses}
+                />
 
-                <div className="max-w-[700px] space-y-4 rounded-[10px] bg-white p-8">
-                    <h1 className="text-[23px] font-semibold leading-[20px] text-[#0F91D6]">
-                        О местах осуществления образовательной деятельности по основным программам профессионального обучения
-                    </h1>
-                    {mainInfo.main_activity_addresses.length != 0 ? (
-                        mainInfo.main_activity_addresses.map((address, i) => (
-                            <div key={address.id} itemProp="addressPlaceOppo" className="space-x-3 leading-[22px]">
-                                <span>{i + 1}</span>
-                                <span>{address.title}</span>
-                            </div>
-                        ))
-                    ) : (
-                        <div itemProp="addressPlaceOppo" className="leading-[22px]">
-                            Отсутствует
-                        </div>
-                    )}
-                </div>
+                <AddressListBlock
+                    title="О местах проведения государственной итоговой аттестации"
+                    itemProp="addressPlaceGia"
+                    className="col-span-2"
+                    addressList={mainInfo.final_certification_addresses}
+                />
 
-                <div className="max-w-[700px] space-y-4 rounded-[10px] bg-white p-8">
-                    <h1 className="text-[23px] font-semibold leading-[20px] text-[#0F91D6]">
-                        О местах осуществления образовательной деятельности по дополнительным образовательным программам
-                    </h1>
-                    {mainInfo.additional_activity_addresses.length != 0 ? (
-                        mainInfo.additional_activity_addresses.map((address, i) => (
-                            <div key={address.id} itemProp="addressPlaceDop" className="space-x-3 leading-[22px]">
-                                <span>{i + 1}</span>
-                                <span>{address.title}</span>
-                            </div>
-                        ))
-                    ) : (
-                        <div itemProp="addressPlaceDop" className="leading-[22px]">
-                            Отсутствует
-                        </div>
-                    )}
-                </div>
+                <AddressListBlock
+                    title="О местах осуществления образовательной деятельности по основным программам профессионального обучения"
+                    itemProp="addressPlaceOppo"
+                    className="col-span-2"
+                    addressList={mainInfo.main_activity_addresses}
+                />
+
+                <AddressListBlock
+                    title="О местах осуществления образовательной деятельности по дополнительным образовательным программам"
+                    itemProp="addressPlaceDop"
+                    className="col-span-2"
+                    addressList={mainInfo.additional_activity_addresses}
+                />
             </div>
         </TemplatePage>
     );
