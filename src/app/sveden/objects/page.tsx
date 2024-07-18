@@ -2,7 +2,9 @@
 
 import { useReducer } from "react";
 import { cn } from "@/shared/libs/shadcn-utils";
-import { DocumentListBlock, TemplatePage } from "@/shared/ui/vsau/sveden";
+import { Block, TemplatePage } from "@/shared/ui/vsau/sveden";
+import { Dot } from "lucide-react";
+import Link from "next/link";
 
 interface AppState {
     open1: boolean;
@@ -317,8 +319,6 @@ const SvedenObjectsPage = () => {
                 </div>
             </div>
 
-            <DocumentListBlock title="AAAAAA" itemProp="AAAAAA" />
-
             <div className="space-y-2 rounded-[10px] bg-white p-8">
                 <p className="text-[23px] font-semibold leading-[20px] text-black">
                     Информация об обеспечении беспрепятственного доступа в здания образовательной организации
@@ -358,25 +358,6 @@ const SvedenObjectsPage = () => {
             </div>
 
             <div className="space-y-2 rounded-[10px] bg-white p-8">
-                <p className="text-[23px] font-semibold leading-[20px] text-black">
-                    Количество собственных электронных образовательных и информационных ресурсов
-                </p>
-                <p itemProp="eoisOwn">Отсутствует</p>
-            </div>
-
-            <div className="space-y-2 rounded-[10px] bg-white p-8">
-                <p className="text-[23px] font-semibold leading-[20px] text-black">
-                    Количество сторонних электронных образовательных и информационных ресурсов
-                </p>
-                <p itemProp="eoisSide">Отсутствует</p>
-            </div>
-
-            <div className="space-y-2 rounded-[10px] bg-white p-8">
-                <p className="text-[23px] font-semibold leading-[20px] text-black">Количество баз данных электронного каталога</p>
-                <p itemProp="bdec">Отсутствует</p>
-            </div>
-
-            <div className="space-y-2 rounded-[10px] bg-white p-8">
                 <p className="text-[23px] font-semibold leading-[20px] text-black">Электронный образовательный ресурс</p>
                 <p itemProp="erList">Отсутствует</p>
             </div>
@@ -393,55 +374,112 @@ const SvedenObjectsPage = () => {
                 <p itemProp="techOvz">Отсутствует</p>
             </div>
 
-            <div className="space-y-2 rounded-[10px] bg-white p-8">
-                <p className="text-[23px] font-semibold leading-[20px] text-black">Количество общежитий</p>
-                <p itemProp="hostelInfo">Отсутствует</p>
-            </div>
+            <Block title="Информация о наличии электронных образовательных и информационных ресурсов">
+                <table className="text-surface min-w-full text-left text-sm font-light">
+                    <thead className="sticky top-0 z-10 bg-[#0F91D6] font-medium">
+                        <tr>
+                            <th scope="col" className="max-w-10 px-4 py-4 text-white">
+                                Наименование
+                            </th>
+                            <th scope="col" className="max-w-16 px-4 py-4 text-center text-white">
+                                Количество
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody className="[&>*:nth-child(odd)]:bg-[#E7F4FB]">
+                        <tr>
+                            <th scope="row" className="max-w-10 px-4 py-4">
+                                Количество собственных электронных образовательных и информационных ресурсов
+                            </th>
+                            <td itemProp="eoisOwn" className="max-w-10 px-4 py-4 text-center">
+                                111
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row" className="max-w-16 px-4 py-4">
+                                Количество сторонних электронных образовательных и информационных ресурсов
+                            </th>
+                            <td itemProp="eoisSide" className="max-w-16 px-4 py-4 text-center">
+                                222
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row" className="max-w-32 px-4 py-4">
+                                Количество баз данных электронного каталога
+                            </th>
+                            <td itemProp="bdec" className="max-w-32 px-4 py-4 text-center">
+                                333
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </Block>
 
-            <div className="space-y-2 rounded-[10px] bg-white p-8">
-                <p className="text-[23px] font-semibold leading-[20px] text-black">Количество интернатов</p>
-                <p itemProp="interInfo">Отсутствует</p>
-            </div>
-
-            <div className="space-y-2 rounded-[10px] bg-white p-8">
-                <p className="text-[23px] font-semibold leading-[20px] text-black">Количество мест в общежитиях</p>
-                <p itemProp="hostelNum">Отсутствует</p>
-            </div>
-
-            <div className="space-y-2 rounded-[10px] bg-white p-8">
-                <p className="text-[23px] font-semibold leading-[20px] text-black">
-                    Количество жилых помещений в общежитии, приспособленных для использования инвалидами и лицами с ограниченными возможностями
-                    здоровья
-                </p>
-                <p itemProp="hostelNumOvz">Отсутствует</p>
-            </div>
-
-            <div className="space-y-2 rounded-[10px] bg-white p-8">
-                <p className="text-[23px] font-semibold leading-[20px] text-black">Количество мест в интернатах</p>
-                <p itemProp="interNum">Отсутствует</p>
-            </div>
-
-            <div className="space-y-2 rounded-[10px] bg-white p-8">
-                <p className="text-[23px] font-semibold leading-[20px] text-black">
-                    Количество жилых помещений в интернате, приспособленных для использования инвалидами и лицами с ограниченными возможностями
-                    здоровья
-                </p>
-                <p itemProp="interNumOvz">Отсутствует</p>
-            </div>
-
-            <div className="space-y-2 rounded-[10px] bg-white p-8">
-                <p className="text-[23px] font-semibold leading-[20px] text-black">
-                    Информация о наличии условий для беспрепятственного доступа в общежитие, интернат
-                </p>
-                <p itemProp="hostelInterOvz">Отсутствует</p>
-            </div>
-
-            <div className="space-y-2 rounded-[10px] bg-white p-8">
-                <p className="text-[23px] font-semibold leading-[20px] text-black">
-                    Ссылка на информацию о формировании платы за проживание в общежитии
-                </p>
-                <p itemProp="localActObSt">Отсутствует</p>
-            </div>
+            <Block title="Сведения об общежитии, интернате, количестве жилых помещений в общежитии, интернате для иногородних обучающихся">
+                <table className="text-surface min-w-full text-left text-sm font-light">
+                    <thead className="sticky top-0 z-10 bg-[#0F91D6] font-medium">
+                        <tr>
+                            <th scope="col" className="max-w-10 px-4 py-4 text-white">
+                                Наименование показателя
+                            </th>
+                            <th scope="col" className="max-w-16 px-4 py-4 text-center text-white">
+                                Общежития
+                            </th>
+                            <th scope="col" className="max-w-32 px-4 py-4 text-center text-white">
+                                Интернаты
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody className="[&>*:nth-child(odd)]:bg-[#E7F4FB]">
+                        <tr>
+                            <th scope="row" className="max-w-10 px-4 py-4">
+                                Количество общежитий/интернатов
+                            </th>
+                            <td itemProp="hostelInfo" className="max-w-10 px-4 py-4 text-center">
+                                111
+                            </td>
+                            <td itemProp="interInfo" className="max-w-10 px-4 py-4 text-center">
+                                111111
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row" className="max-w-16 px-4 py-4">
+                                Количество мест
+                            </th>
+                            <td itemProp="hostelNum" className="max-w-16 px-4 py-4 text-center">
+                                222
+                            </td>
+                            <td itemProp="interNum" className="max-w-16 px-4 py-4 text-center">
+                                222222
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row" className="max-w-32 px-4 py-4">
+                                Количество жилых помещений, приспособленных для использования инвалидами и лицами с ограниченными возможностями
+                                здоровья
+                            </th>
+                            <td itemProp="hostelNumOvz" className="max-w-32 px-4 py-4 text-center">
+                                333
+                            </td>
+                            <td itemProp="interNumOvz" className="max-w-32 px-4 py-4 text-center">
+                                333333
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div className="flex items-center text-[18px] text-[#0F91D6] underline underline-offset-2">
+                    <Dot className="min-h-6 min-w-6" />
+                    <Link href="#" itemProp="localActObSt">
+                        Информация о формировании платы за проживание в общежитии
+                    </Link>
+                </div>
+                <div className="flex items-center text-[18px] text-[#0F91D6] underline underline-offset-2">
+                    <Dot className="min-h-6 min-w-6" />
+                    <Link href="#" itemProp="hostelInterOvz">
+                        Информация о наличии условий для беспрепятственного доступа в общежитие, интернат
+                    </Link>
+                </div>
+            </Block>
         </TemplatePage>
     );
 };
