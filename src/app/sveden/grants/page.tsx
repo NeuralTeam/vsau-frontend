@@ -1,45 +1,24 @@
 import { Dot } from "lucide-react";
 import Link from "next/link";
-import { TemplatePage } from "@/shared/ui/vsau/sveden";
+import { Block, DocumentListBlock, TemplatePage } from "@/shared/ui/vsau/sveden";
 
 const SvedenGrantsPage = () => {
     return (
         <TemplatePage title="Стипендии и меры поддержки виды обучающихся">
-            <div className="space-y-2 rounded-[10px] bg-white p-8">
-                <p className="text-[23px] font-semibold leading-[20px]">
-                    Локальные нормативные акты, которыми регламентируется наличие и условия предоставления стипендий
-                </p>
-                <ul className="space-y-2">
-                    <li className="text-[18px]">
-                        <p itemProp="localAct">Отсутствует</p>
-                    </li>
-                </ul>
-            </div>
+            <DocumentListBlock
+                title="Локальные нормативные акты, которыми регламентируется наличие и условия предоставления стипендий"
+                itemProp="localAct"
+                docList={[]}
+            />
 
-            <div className="space-y-2 rounded-[10px] bg-white p-8">
-                <p className="text-[23px] font-semibold leading-[20px]">Информация о предоставлении стипендии обучающимся</p>
-                <ul className="space-y-2">
-                    <li className="text-[18px]">
-                        <p itemProp="grant">Отсутствует</p>
-                    </li>
-                </ul>
-            </div>
+            <DocumentListBlock title="Информация о предоставлении стипендии обучающимся" itemProp="grant" docList={[]} />
 
-            <div className="space-y-2 rounded-[10px] bg-white p-8">
-                <p className="text-[23px] font-semibold leading-[20px]">Информация о мерах социальной поддержки обучающихся</p>
-                <ul className="space-y-2">
-                    <li className="text-[18px]">
-                        <p itemProp="support">Отсутствует</p>
-                    </li>
-                </ul>
-            </div>
+            <DocumentListBlock title="Информация о мерах социальной поддержки обучающихся" itemProp="support" docList={[]} />
 
-            <div className="space-y-4 rounded-[10px] bg-white p-8">
-                <p className="text-[23px] font-semibold leading-[20px]">
-                    Информация о заключенных и планируемых к заключению договорах с иностранными и (или) международными организациями по вопросам
-                    образования и науки
-                </p>
-
+            <Block
+                title="Информация о заключенных и планируемых к заключению договорах с иностранными и (или) международными организациями по вопросам
+                    образования и науки"
+            >
                 <table className="text-surface min-w-full text-left text-sm font-light">
                     <thead className="sticky top-0 z-10 bg-[#0F91D6] font-medium">
                         <tr>
@@ -91,14 +70,13 @@ const SvedenGrantsPage = () => {
                         </tr>
                     </tbody>
                 </table>
-
                 <div className="flex items-center text-[18px] text-[#0F91D6] underline underline-offset-2">
                     <Dot className="min-h-6 min-w-6" />
                     <Link href="#" itemProp="localActObSt">
                         информация о формировании платы за проживание в общежитии
                     </Link>
                 </div>
-            </div>
+            </Block>
         </TemplatePage>
     );
 };
