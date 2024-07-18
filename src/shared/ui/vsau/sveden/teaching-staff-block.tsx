@@ -3,51 +3,26 @@
 import { InView } from "react-intersection-observer";
 import { cn } from "@/shared/libs/shadcn-utils";
 import { useState } from "react";
-
-interface IDiscipline {}
-
-interface IProfDevelopment {}
-
-interface IEduProgram {}
-
-interface ITeachingStaff {
-    id: number;
-    first_name: string;
-    last_name: string;
-    post: string;
-    disciplines: IDiscipline[];
-    level: string;
-    qualification: string;
-    degree?: string;
-    academStat?: string;
-    profDevelopments?: IProfDevelopment[];
-    totalWorkExperience: number;
-    specWorkExperience: number;
-    eduPrograms: IEduProgram[];
-}
-
-interface ITeachingStaffBlock {
-    staffList: ITeachingStaff[];
-}
+import { ITeachingStaff, ITeachingStaffBlock } from "@/shared/ui/vsau/sveden/types";
+import Link from "next/link";
 
 export const TeachingStaffBlock = ({ staffList }: ITeachingStaffBlock) => {
     const sortedList = Object.fromEntries(
         Object.entries(
             staffList.reduce(
-                (acc, { last_name }) => {
+                (acc, teachingStaff) => {
                     // Получаем первую букву или пустую строку
-                    const firstLetter = last_name[0] || "";
+                    const firstLetter = teachingStaff.last_name[0] || "";
                     // Добавляем объект в соответствующий массив в аккумуляторе
-                    acc[firstLetter] = [...(acc[firstLetter] || []), { last_name }];
+                    acc[firstLetter] = [...(acc[firstLetter] || []), teachingStaff];
                     return acc;
                 },
-                {} as Record<string, { last_name: string }[]>
+                {} as Record<string, ITeachingStaff[]>
             )
         ).sort(([keyA], [keyB]) => keyA.localeCompare(keyB))
     );
 
     const [hash, setHash] = useState("а");
-    const [state, setState] = useState(false);
 
     const setLetterState = (hash: string, hashAuto: boolean) => {
         if (!hashAuto) {
@@ -63,6 +38,20 @@ export const TeachingStaffBlock = ({ staffList }: ITeachingStaffBlock) => {
                 Информация о персональном составе педагогических работников образовательной программы
             </p>
 
+            <div itemProp="teachingStaff" className="hidden">
+                <p itemProp="fio">X</p>
+                <p itemProp="post">X</p>
+                <p itemProp="teachingDiscipline">X</p>
+                <p itemProp="teachingLevel">X</p>
+                <p itemProp="employeeQualification">X</p>
+                <p itemProp="degree">X</p>
+                <p itemProp="academStat">X</p>
+                <p itemProp="profDevelopment">X</p>
+                <p itemProp="genExperience">X</p>
+                <p itemProp="specExperience">X</p>
+                <p itemProp="teachingOp">X</p>
+            </div>
+
             <div className="flex h-svh justify-between space-x-8 overflow-hidden pr-8">
                 <div className="h-full w-full space-y-4 overflow-auto py-1 pl-8 pr-4">
                     {Object.entries(sortedList).map(([char, valueList]) => (
@@ -77,30 +66,11 @@ export const TeachingStaffBlock = ({ staffList }: ITeachingStaffBlock) => {
                             <p className="text-[26px] font-bold text-[#0F91D6]">{char.toUpperCase()}</p>
                             <ul className="relative space-y-4">
                                 {valueList.map((staff) => (
-                                    <li
-                                        key={staff.last_name}
-                                        itemProp="teachingStaff"
-                                        className="flex w-full flex-col rounded-[10px] py-4 pl-10 shadow"
-                                    >
-                                        <p itemProp="fio" onClick={() => setState(!state)} className="text-[18px]">
-                                            {staff.last_name}
-                                            {/*{staff.first_name}*/}
-                                        </p>
-                                        <p itemProp="post" className="text-[13px]">
-                                            {/*{staff.post}*/}
-                                        </p>
-
-                                        <div className={cn("max-h-0 overflow-hidden duration-300 ease-linear", state && "max-h-[700px]")}>
-                                            <p itemProp="teachingDiscipline">teachingDiscipline</p>
-                                            {/*<p itemProp="teachingLevel">{staff.level}</p>*/}
-                                            <p itemProp="employeeQualification">employeeQualification</p>
-                                            {/*<p itemProp="degree">{staff.degree}</p>*/}
-                                            {/*<p itemProp="academStat">{staff.academStat}</p>*/}
-                                            <p itemProp="profDevelopment">profDevelopment</p>
-                                            {/*<p itemProp="genExperience">{staff.totalWorkExperience}</p>*/}
-                                            {/*<p itemProp="specExperience">{staff.specWorkExperience}</p>*/}
-                                            <p itemProp="teachingOp">teachingOp</p>
-                                        </div>
+                                    <li key={staff.id} className="flex w-full flex-col rounded-[10px] py-4 pl-10 shadow">
+                                        <Link href={`/sveden/employees/${staff.id}`} className="text-[18px]">
+                                            {staff.last_name} {staff.first_name}
+                                        </Link>
+                                        <p className="text-[13px]">{staff.post}</p>
                                     </li>
                                 ))}
                             </ul>
