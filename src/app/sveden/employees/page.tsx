@@ -32,11 +32,7 @@ const SvedenEmployeesPage = () => {
         { last_name: "абв" }
     ];
 
-    return (
-        <TemplatePage title="Педагогический состав">
-            <TeachingStaffBlock staffList={a} />
-        </TemplatePage>
-    );
+    return <TemplatePage title="Педагогический состав">{/*<TeachingStaffBlock staffList={a} />*/}</TemplatePage>;
 };
 
 export default SvedenEmployeesPage;
