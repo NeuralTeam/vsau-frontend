@@ -1,12 +1,12 @@
 export interface IDocumentListBlock {
     title: string;
-    itemProp?: string;
-    docList?: IDocumentList[];
+    itemProp: string;
+    docList?: IDocument[];
+    className?: string;
 }
 
-export interface IDocumentList {
+export interface IDocument {
     id: number;
     title: string;
     href?: string;
-    itemProp: string;
 }

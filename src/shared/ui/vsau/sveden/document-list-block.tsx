@@ -3,7 +3,7 @@ import Link from "next/link";
 import { cn } from "@/shared/libs/shadcn-utils";
 import { IDocumentListBlock } from "@/shared/ui/vsau/sveden/types";
 
-export const DocumentListBlock = ({ title, itemProp, docList }: IDocumentListBlock) => {
+export const DocumentListBlock = ({ title, itemProp, docList, className }: IDocumentListBlock) => {
     let data = <p itemProp={itemProp}>Отсутствует</p>;
 
     if (docList && docList.length == 1)
@@ -11,9 +11,9 @@ export const DocumentListBlock = ({ title, itemProp, docList }: IDocumentListBlo
             <div className={cn("flex", docList[0].href && "text-[#0F91D6] underline-offset-2 hover:underline")}>
                 <Dot className="min-h-6 min-w-6" />
                 {!docList[0].href ? (
-                    <p itemProp={docList[0].itemProp}>{docList[0].title}</p>
+                    <p itemProp={itemProp}>{docList[0].title}</p>
                 ) : (
-                    <Link href={docList[0].href} itemProp={docList[0].itemProp}>
+                    <Link href={docList[0].href} itemProp={itemProp}>
                         {docList[0].title}
                     </Link>
                 )}
@@ -26,9 +26,9 @@ export const DocumentListBlock = ({ title, itemProp, docList }: IDocumentListBlo
                     <li key={docEl.id} className={cn("flex", docEl.href && "text-[#0F91D6] underline-offset-2 hover:underline")}>
                         <Dot className="min-h-6 min-w-6" />
                         {!docEl.href ? (
-                            <p itemProp={docEl.itemProp}>{docEl.title}</p>
+                            <p itemProp={itemProp}>{docEl.title}</p>
                         ) : (
-                            <Link href={docEl.href} itemProp={docEl.itemProp}>
+                            <Link href={docEl.href} itemProp={itemProp}>
                                 {docEl.title}
                             </Link>
                         )}
@@ -38,7 +38,7 @@ export const DocumentListBlock = ({ title, itemProp, docList }: IDocumentListBlo
         );
 
     return (
-        <div className="space-y-4 rounded-[10px] bg-white p-8 text-[18px]">
+        <div className={cn("space-y-4 rounded-[10px] bg-white p-8 text-[18px]", className)}>
             <p className="text-[24px] font-semibold leading-[24px] text-[#0F91D6]">{title}</p>
 
             {data}
