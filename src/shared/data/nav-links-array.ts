@@ -37,7 +37,7 @@ export const navGroups: INavItem[] = [
                 id: 21,
                 title: "Наша история",
                 icon: InfoIcon,
-                href: "/21"
+                href: "/about"
             },
             {
                 id: 22,
@@ -55,7 +55,7 @@ export const navGroups: INavItem[] = [
                 id: 24,
                 title: "Интерактивная карта университетского городка",
                 icon: InfoIcon,
-                href: "/24"
+                href: "/interactive-map"
             }
         ]
     },
@@ -144,7 +144,7 @@ export const navGroups: INavItem[] = [
         id: 6,
         title: "ЭИОС",
         icon: EiosIcon,
-        href: "/eios"
+        href: "/6"
     }
 ];
 
@@ -171,60 +171,66 @@ export const navSvedenItems: INavSvedenItem[] = [
         id: 4,
         title: "Образование",
         icon: InfoIcon,
-        href: "/4"
+        href: "/sveden/education"
     },
     {
         id: 5,
-        title: "Руководство",
+        title: "Образовательные стандарты и требования",
         icon: InfoIcon,
-        href: "/5"
+        href: "/sveden/eduStandarts"
     },
     {
         id: 6,
-        title: "Педагогический состав",
+        title: "Руководство",
         icon: InfoIcon,
-        href: "/6"
+        href: "/sveden/managers"
     },
     {
         id: 7,
-        title: "Материально-техническое обеспечение и оснащенность образовательного процесса. Доступная среда",
+        title: "Педагогический состав",
         icon: InfoIcon,
-        href: "/7"
+        href: "/sveden/employees"
     },
     {
         id: 8,
-        title: "Платные образовательные услуги",
+        title: "Материально-техническое обеспечение и оснащенность образовательного процесса. Доступная среда",
         icon: InfoIcon,
-        href: "/8"
+        href: "/sveden/objects"
     },
     {
         id: 9,
-        title: "Финансово-хозяйственная деятельность",
+        title: "Стипендии и меры поддержки виды обучающихся",
         icon: InfoIcon,
-        href: "/9"
+        href: "/sveden/grants"
     },
     {
         id: 10,
-        title: "Вакантные места для приема (перевода) обучающихся",
+        title: "Платные образовательные услуги",
         icon: InfoIcon,
-        href: "/10"
+        href: "/sveden/paid_edu"
     },
     {
         id: 11,
-        title: "Стипендии и меры поддержки виды обучающихся",
+        title: "Финансово-хозяйственная деятельность",
         icon: InfoIcon,
-        href: "/11"
+        href: "/sveden/budget"
     },
     {
         id: 12,
-        title: "Международное сотрудничество",
+        title: "Вакантные места для приема (перевода) обучающихся",
         icon: InfoIcon,
-        href: "/12"
+        href: "/sveden/vacant"
     },
     {
         id: 13,
+        title: "Международное сотрудничество",
+        icon: InfoIcon,
+        href: "/sveden/inter"
+    },
+    {
+        id: 14,
         title: "Организация питания в образовательной организации",
         icon: InfoIcon,
-        href: "/13"
+        href: "/sveden/catering"
     }
 ];
