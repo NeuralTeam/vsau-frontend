@@ -70,7 +70,7 @@ export const TeachingStaffBlock = ({ staffList }: ITeachingStaffBlock) => {
                                         <Link href={`/sveden/employees/${staff.id}`} className="text-[18px]">
                                             {staff.last_name} {staff.first_name}
                                         </Link>
-                                        <p className="text-[13px]">{staff.post}</p>
+                                        <p className="text-[13px]">{staff.post[0].title}</p>
                                     </li>
                                 ))}
                             </ul>
