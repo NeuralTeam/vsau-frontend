@@ -1,6 +1,7 @@
 import { ShareBlock } from "@/shared/ui/vsau/share-block";
-import { Dot, UserRound } from "lucide-react";
+import { Dot, Files, Share2, UserRound } from "lucide-react";
 import { ITeachingStaff } from "@/shared/ui/vsau/sveden/types";
+import Link from "next/link";
 
 const SvedenEmployerPage = ({ params }: { params: { id: string } }) => {
     const staff: ITeachingStaff = {
@@ -57,7 +58,19 @@ const SvedenEmployerPage = ({ params }: { params: { id: string } }) => {
                         {staff.last_name} {staff.first_name}
                     </p>
                 </div>
-                <div></div>
+                <div className="flex w-full flex-col items-end space-y-4">
+                    <button className="flex h-fit w-fit items-center space-x-2 text-nowrap rounded-[10px] bg-[#E3E3E3FF] px-6 py-3">
+                        <Files size={20} strokeWidth={2} />
+                        <p>Скопировать данные</p>
+                    </button>
+                    <Link
+                        href="#share-section"
+                        className="flex h-fit w-fit items-center space-x-2 text-nowrap rounded-[10px] bg-[#E3E3E3FF] px-6 py-3"
+                    >
+                        <Share2 size={20} strokeWidth={3} />
+                        <p>Поделиться</p>
+                    </Link>
+                </div>
             </div>
 
             <div className="flex w-full flex-col justify-center space-y-4 rounded-[10px] bg-white p-8">
