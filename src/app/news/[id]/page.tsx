@@ -4,26 +4,18 @@ import { Metadata, ResolvingMetadata } from "next";
 import Image from "next/image";
 import cardNewsPlug from "@/shared/images/plugs/card_news.png";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import { IListPosts } from "@/app/news/(static)/page";
-import NewsCard from "@/widgets/news/news-card";
 import { Suspense } from "react";
 import { Skeleton } from "@/shared/ui/shadcn/skeleton";
 import { NewsOpenPhotoDialog } from "@/widgets/news/news-open-photo-dialog";
 import { NewsGallery } from "@/widgets/news/news-gallery";
-import { ArrowLeft, Eye, Files, Share2 } from "lucide-react";
+import { ArrowLeft, Eye, Share2 } from "lucide-react";
 import { ShareBlock } from "@/shared/ui/vsau/share-block";
+import { IListPost } from "@/shared/ui/vsau/posts/post-list-block";
+import { slugifyReplace } from "@/shared/libs/slugify";
+import { RecommendedPostsBlock } from "@/shared/ui/vsau/posts/recommended-posts-block";
 
-export interface IPost {
-    seo_title: string;
-    title: string;
-    body: string;
-    picture: string | null;
-    topic: string;
-    created_at: number;
-}
-
-async function getNewsByID(id: number): Promise<IPost> {
-    return await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/news/${id}`).then((res) => {
+async function getNewsByID(id: number): Promise<IListPost> {
+    return await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/posts/${id}`).then((res) => {
         const data = res.json();
         if (res.status !== 200) notFound();
 
@@ -43,35 +35,21 @@ export async function generateMetadata(
         title: news.title,
         openGraph: {
             title: news.title,
-            tags: [news.topic],
             releaseDate: fmtDate
         }
     };
 }
 
-const RecommendedPosts = async () => {
-    const posts: { count: number; posts: IListPosts[] } = await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/news?limit=3&offset=0`).then((res) =>
-        res.json()
-    );
-
-    return (
-        <>
-            {posts.posts.map((data) => (
-                <NewsCard key={data.id} id={`${data.seo_title}-${data.id}`} title={data.title} createdAt={data.created_at} />
-            ))}
-        </>
-    );
-};
-
 const NewsIDPage = async ({ params, searchParams }: { params: { id: string }; searchParams: { ref: string; mediaId?: number } }) => {
     const idSplit = params.id.split("-");
     const id = idSplit.slice(-1)[0];
-    const seoTitle = idSplit.slice(0, -1).join("-");
+    const querySeoTitle = idSplit.slice(0, -1).join("-");
 
     const news = await getNewsByID(+id);
-    if (seoTitle !== news.seo_title) {
+    const seoTitle = slugifyReplace(news.title, { lower: true, strict: true });
+    if (querySeoTitle !== seoTitle) {
         const ref = `?ref=${searchParams.ref}`;
-        redirect(`${process.env.NEXT_PUBLIC_DOMAIN}/news/${news.seo_title}-${id}${searchParams.ref !== undefined ? ref : ""}`);
+        redirect(`${process.env.NEXT_PUBLIC_DOMAIN}/news/${seoTitle}-${id}${searchParams.ref !== undefined ? ref : ""}`);
     }
 
     const fmtDate = new Date(news.created_at * 1000).toLocaleString("ru", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" });
@@ -125,9 +103,7 @@ const NewsIDPage = async ({ params, searchParams }: { params: { id: string }; se
                             />
                         </NewsOpenPhotoDialog>
 
-                        <div>
-                            <MDXRemote source={news.body} />
-                        </div>
+                        <div>{/*<MDXRemote source={news.body} />*/}</div>
 
                         <NewsGallery mediaId={searchParams.mediaId} photoList={Array.from({ length: 11 }).map(() => cardNewsPlug)} />
                     </div>
@@ -144,26 +120,7 @@ const NewsIDPage = async ({ params, searchParams }: { params: { id: string }; se
                     </Link>
                 </div>
 
-                <Suspense
-                    fallback={Array.from({ length: 3 }).map((_, i) => (
-                        <div key={i} className="flex h-[300px] w-[300px] flex-col justify-between rounded-[5px] bg-white p-5">
-                            <div className="flex space-x-3">
-                                <Skeleton className="h-20 min-w-20 rounded-full" />
-                                <div className="w-full space-y-3">
-                                    <Skeleton className="h-6" />
-                                    <Skeleton className="h-6" />
-                                    <Skeleton className="h-6" />
-                                </div>
-                            </div>
-                            <div className="space-y-3">
-                                <Skeleton className="h-8" />
-                                <Skeleton className="h-16" />
-                            </div>
-                        </div>
-                    ))}
-                >
-                    <RecommendedPosts />
-                </Suspense>
+                <RecommendedPostsBlock />
             </div>
         </main>
     );

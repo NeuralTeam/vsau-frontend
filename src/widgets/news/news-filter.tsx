@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 
 export interface ITopic {
     id: number;
-    label: string;
+    title: string;
 }
 
 const SectionFilter = ({ topics }: { topics: ITopic[] }) => {
@@ -19,7 +19,7 @@ const SectionFilter = ({ topics }: { topics: ITopic[] }) => {
             </Link>
             {topics.map((data) => (
                 <Link key={data.id} href={`/news?topic=${data.id}`} className={currentTopic == data.id ? "font-semibold" : ""}>
-                    {data.label.charAt(0).toUpperCase() + data.label.slice(1)}
+                    {data.title.charAt(0).toUpperCase() + data.title.slice(1)}
                 </Link>
             ))}
         </div>

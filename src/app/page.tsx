@@ -1,16 +1,15 @@
 import RootCarousel from "@/widgets/root/root-carousel";
 import Link from "next/link";
-import { IListPosts } from "@/app/news/(static)/page";
 import { CarouselSize } from "@/widgets/news/news-carousel";
 import Image from "next/image";
 import relevantPlug from "@/shared/images/plugs/relevant.png";
-
-const getNews = async (): Promise<{ count: number; posts: IListPosts[] }> => {
-    return await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/news?limit=7&offset=0`, { next: { revalidate: 3600 } }).then((res) => res.json());
-};
+import { IListPost } from "@/shared/ui/vsau/posts/post-list-block";
 
 const RootPage = async () => {
-    const news = await getNews();
+    let response = await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/posts?type=1`);
+    const newsPosts: { count: number; posts: IListPost[] } = await response.json();
+    response = await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/posts?type=2`);
+    const adPosts: { count: number; posts: IListPost[] } = await response.json();
 
     return (
         <>
@@ -27,7 +26,7 @@ const RootPage = async () => {
                         </Link>
                     </div>
 
-                    <CarouselSize posts={news.posts} />
+                    <CarouselSize posts={newsPosts.posts} />
                 </div>
 
                 <div className="flex flex-col space-y-8">
@@ -40,7 +39,7 @@ const RootPage = async () => {
                         </Link>
                     </div>
 
-                    <CarouselSize posts={news.posts} />
+                    <CarouselSize posts={adPosts.posts} />
                 </div>
 
                 <div className="flex flex-col space-y-8">
