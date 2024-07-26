@@ -1,8 +1,9 @@
 import { SlugifyOpts } from "@/shared/libs/slugify/types";
+import { charMap } from "@/shared/libs/slugify/charMap";
 
 const slugifyReplace = (slug: string, opts: SlugifyOpts): string => {
-    const replacement = opts.replacement !== undefined ? opts.replacement : "-";
-    const trim = opts.trim !== undefined ? opts.trim : true;
+    const replacement = opts.replacement ?? "-";
+    const trim = opts.trim ?? true;
 
     let _slug = slug
         .normalize()
@@ -11,7 +12,7 @@ const slugifyReplace = (slug: string, opts: SlugifyOpts): string => {
             let appendChar = charMap[ch];
             if (appendChar === undefined) appendChar = ch;
             if (appendChar === replacement) appendChar = " ";
-            return result + appendChar.replace(opts.remove || /[^\w\s$*_+~.()'"!\-:@]+/g, "");
+            return result + appendChar.replace(opts.remove || /[^\w\s]/g, "");
         }, "");
 
     if (opts.strict) {
