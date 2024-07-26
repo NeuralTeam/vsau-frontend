@@ -50,9 +50,9 @@ export async function generateMetadata(
 }
 
 const RecommendedPosts = async () => {
-    const posts: { count: number; posts: IListPosts[] } = await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/news?limit=3&offset=0`).then((res) =>
-        res.json()
-    );
+    const posts: { count: number; posts: IListPosts[] } = await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/news?limit=3&offset=0`, {
+        cache: "no-cache"
+    }).then((res) => res.json());
 
     return (
         <>

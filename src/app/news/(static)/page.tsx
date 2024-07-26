@@ -25,7 +25,7 @@ const NewsPage = ({
     const pagination = {
         currentPage: currentPage,
         offsetPage: (currentPage - 1) * 2,
-        limitOnPage: 2
+        limitOnPage: 10
     };
 
     return (
