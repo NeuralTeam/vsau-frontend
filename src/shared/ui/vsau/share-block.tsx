@@ -2,9 +2,9 @@
 
 import { Files, Share2 } from "lucide-react";
 import Link from "next/link";
-import { VkLogo } from "@/shared/images/icons/social-networks/vk-logo";
-import { OkLogo } from "@/shared/images/icons/social-networks/ok-logo";
-import { TgLogo } from "@/shared/images/icons/social-networks/tg-logo";
+import { VkIcon } from "@/shared/images/icons/social-networks/vk-icon";
+import { OkIcon } from "@/shared/images/icons/social-networks/ok-icon";
+import { TgIcon } from "@/shared/images/icons/social-networks/tg-icon";
 import { usePathname } from "next/navigation";
 
 export const ShareBlock = () => {
@@ -29,16 +29,16 @@ export const ShareBlock = () => {
                 />
             </div>
 
-            <div className="flex items-center space-x-12">
+            <div className="flex items-center space-x-4">
                 <p>Поделиться через:</p>
                 <Link target="_blank" href="https://vk.com/vsau1912">
-                    <VkLogo width={30} height={20} fillColor="#FFFFFF" />
+                    <VkIcon width={28} height={28} fill="#FFFFFF" />
                 </Link>
                 <Link target="_blank" href="https://ok.ru/profile/574433460640">
-                    <OkLogo width={17} height={28} fillColor="#FFFFFF" />
+                    <OkIcon width={24} height={24} fill="#FFFFFF" />
                 </Link>
                 <Link target="_blank" href="">
-                    <TgLogo width={32} height={25} fillColor="#FFFFFF" />
+                    <TgIcon width={28} height={28} fill="#FFFFFF" />
                 </Link>
             </div>
         </div>

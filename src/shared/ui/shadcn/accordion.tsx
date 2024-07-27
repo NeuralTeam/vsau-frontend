@@ -25,12 +25,6 @@ const AccordionTrigger = React.forwardRef<
             className={cn("flex flex-1 items-center transition-all [&[data-state=open]>svg]:rotate-0", className)}
             {...props}
         >
-            <NavCollapseArrow
-                width={9}
-                height={8}
-                fillColor="#FFFFFF50"
-                className="duration-400 absolute left-[54px] hidden shrink-0 -rotate-90 transition-transform group-peer-checked:block"
-            />
             {children}
         </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>

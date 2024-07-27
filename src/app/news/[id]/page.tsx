@@ -116,13 +116,15 @@ const NewsIDPage = async ({ params, searchParams }: { params: { id: string }; se
 
                     <div className="space-y-5">
                         <NewsOpenPhotoDialog isOpen={searchParams.mediaId == 0} photo={cardNewsPlug}>
-                            <Image
-                                src={cardNewsPlug}
-                                priority={false}
-                                placeholder="blur"
-                                alt="#"
-                                className="aspect-video rounded-[10px] object-cover"
-                            />
+                            <div className="overflow-hidden rounded-[10px]">
+                                <Image
+                                    src={cardNewsPlug}
+                                    priority={false}
+                                    placeholder="blur"
+                                    alt="#"
+                                    className="aspect-video object-cover transition duration-300 hover:scale-105 active:scale-100 active:opacity-50"
+                                />
+                            </div>
                         </NewsOpenPhotoDialog>
 
                         <div>

@@ -1,6 +1,5 @@
 "use client";
 
-import OpenLink from "@/shared/images/icons/raw-svg/open_link.svg?url";
 import Image from "next/image";
 import Link from "next/link";
 import { Dot } from "lucide-react";
@@ -98,7 +97,7 @@ const SvedenEducationPage = () => {
                         onClick={() => setOpenModal(!open)}
                         className="flex h-11 w-[250px] items-center justify-center space-x-3 rounded-[10px] bg-[#0F91D6] text-white"
                     >
-                        <Image src={OpenLink} width={18} height={17} alt="" className="" />
+                        {/*<Image src={OpenLink} width={18} height={17} alt="" className="" />*/}
                         <p>Открыть данные</p>
                     </button>
                 </div>
@@ -121,7 +120,7 @@ const SvedenEducationPage = () => {
                     </p>
                     <p className="text-[18px]">Опциональный блок</p>
                     <Link href="#" className="flex h-11 w-[250px] items-center justify-center space-x-3 rounded-[10px] bg-[#0F91D6] text-white">
-                        <Image src={OpenLink} width={18} height={17} alt="" className="" />
+                        {/*<Image src={OpenLink} width={18} height={17} alt="" className="" />*/}
                         <p>Открыть данные</p>
                     </Link>
                 </div>
@@ -130,7 +129,7 @@ const SvedenEducationPage = () => {
                     <p className="text-[23px] font-semibold leading-[20px]">Информация об общественной аккредитации образовательной организации</p>
                     <p className="text-[18px]">Опциональный блок</p>
                     <Link href="#" className="flex h-11 w-[250px] items-center justify-center space-x-3 rounded-[10px] bg-[#0F91D6] text-white">
-                        <Image src={OpenLink} width={18} height={17} alt="" className="" />
+                        {/*<Image src={OpenLink} width={18} height={17} alt="" className="" />*/}
                         <p>Открыть данные</p>
                     </Link>
                 </div>
@@ -187,7 +186,7 @@ const SvedenEducationPage = () => {
                     <p className="text-[23px] font-semibold leading-[20px]">Информация об образовательной программе</p>
                     <p className="text-[18px]">Обязательный блок</p>
                     <Link href="#" className="flex h-11 w-[250px] items-center justify-center space-x-3 rounded-[10px] bg-[#0F91D6] text-white">
-                        <Image src={OpenLink} width={18} height={17} alt="" className="" />
+                        {/*<Image src={OpenLink} width={18} height={17} alt="" className="" />*/}
                         <p>Открыть данные</p>
                     </Link>
                 </div>
@@ -196,7 +195,7 @@ const SvedenEducationPage = () => {
                     <p className="text-[23px] font-semibold leading-[20px]">Информация об адаптированной образовательной программе</p>
                     <p className="text-[18px]">Опциональный блок</p>
                     <Link href="#" className="flex h-11 w-[250px] items-center justify-center space-x-3 rounded-[10px] bg-[#0F91D6] text-white">
-                        <Image src={OpenLink} width={18} height={17} alt="" className="" />
+                        {/*<Image src={OpenLink} width={18} height={17} alt="" className="" />*/}
                         <p>Открыть данные</p>
                     </Link>
                 </div>
@@ -209,7 +208,7 @@ const SvedenEducationPage = () => {
                     </p>
                     <p className="text-[18px]">Обязательный блок</p>
                     <Link href="#" className="flex h-11 w-[250px] items-center justify-center space-x-3 rounded-[10px] bg-[#0F91D6] text-white">
-                        <Image src={OpenLink} width={18} height={17} alt="" className="" />
+                        {/*<Image src={OpenLink} width={18} height={17} alt="" className="" />*/}
                         <p>Открыть данные</p>
                     </Link>
                 </div>
@@ -220,7 +219,7 @@ const SvedenEducationPage = () => {
                     </p>
                     <p className="text-[18px]">Обязательный блок</p>
                     <Link href="#" className="flex h-11 w-[250px] items-center justify-center space-x-3 rounded-[10px] bg-[#0F91D6] text-white">
-                        <Image src={OpenLink} width={18} height={17} alt="" className="" />
+                        {/*<Image src={OpenLink} width={18} height={17} alt="" className="" />*/}
                         <p>Открыть данные</p>
                     </Link>
                 </div>
