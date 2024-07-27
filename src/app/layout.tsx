@@ -26,9 +26,9 @@ export const metadata: Metadata = {
         alternateLocale: ["en"],
         type: "website"
     },
-    referrer: "strict-origin-when-cross-origin",
+    referrer: "strict-origin-when-cross-origin"
     // https://developer.mozilla.org/ru/docs/Web/Manifest
-    manifest: "/manifest.json"
+    // manifest: "/manifest.json"
 };
 
 export default function RootLayout({
@@ -41,7 +41,7 @@ export default function RootLayout({
             <body className={rubikFont.className}>
                 <ThemeProvider attribute="class" defaultTheme="light" disableTransitionOnChange>
                     <NavigationSidebar />
-                    <div className="ml-[150px] bg-[#F8F8F8] pl-[70px] transition-all peer-checked:ml-[470px]">
+                    <div className="ml-[470px] bg-[#F8F8F8] pl-[70px]">
                         <div className="min-h-svh">{children}</div>
                         <RootFooter />
                     </div>

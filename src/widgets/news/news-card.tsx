@@ -13,7 +13,7 @@ const NewsCard = ({ id, title, createdAt, img }: INewsCard) => {
     const fmtDate = new Date(createdAt * 1000).toLocaleString("ru", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" });
 
     return (
-        <Link href={`/news/${id}`} className="group">
+        <Link href={`/news/${id}`} className="group duration-300 active:opacity-50">
             <div className="flex h-[300px] w-[300px] flex-col overflow-hidden rounded-[5px] bg-white">
                 <div className="min-h-[60%] w-full overflow-hidden">
                     <Image
@@ -21,11 +21,11 @@ const NewsCard = ({ id, title, createdAt, img }: INewsCard) => {
                         priority={false}
                         placeholder="blur"
                         alt="#"
-                        className="w-full object-cover transition duration-200 group-hover:scale-105"
+                        className="w-full object-cover transition duration-300 group-hover:scale-105 group-active:scale-100"
                     />
                 </div>
                 <div className="mx-5 mb-2 mt-4 flex h-full flex-col justify-between">
-                    <p className="line-clamp-4 w-fit cursor-pointer text-[15px] font-semibold leading-[17px] group-hover:underline">{title}</p>
+                    <p className="line-clamp-4 w-fit text-[15px] font-semibold leading-[17px]">{title}</p>
                     <p className="text-[11px] font-normal leading-[13px]">{fmtDate}</p>
                 </div>
             </div>

@@ -49,7 +49,10 @@ const RootCarousel = () => {
                 {Array.from({ length: count }).map((_, i) => (
                     <button
                         key={i}
-                        className={cn("h-2 w-2 rounded-full", i + 1 == current ? "bg-[#0F91D6]" : "bg-[#3F3F3F70]")}
+                        className={cn(
+                            "h-3 w-3 rounded-full duration-300",
+                            i + 1 == current ? "bg-[#0F91D6]" : "bg-[#3F3F3F70] hover:scale-110 hover:bg-[#0F91D650]"
+                        )}
                         onClick={() => onDotButtonClick(i)}
                         disabled={i + 1 == current}
                     />

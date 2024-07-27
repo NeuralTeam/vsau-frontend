@@ -1,11 +1,7 @@
 import Link from "next/link";
 import { FooterYandexMap } from "@/shared/images/icons/footer-yandex-map";
-import { VkLogo } from "@/shared/images/icons/social-networks/vk-logo";
-import { OkLogo } from "@/shared/images/icons/social-networks/ok-logo";
-import { TgLogo } from "@/shared/images/icons/social-networks/tg-logo";
-import { YtLogo } from "@/shared/images/icons/social-networks/yt-logo";
-import { DzenLogo } from "@/shared/images/icons/social-networks/dzen-logo";
-import { Logo } from "@/shared/images/logo/logo";
+import { DzenIcon, OkIcon, TgIcon, VkIcon, YtIcon } from "@/shared/images/icons/social-networks";
+import { VsauLogoIcon } from "@/shared/images/icons/logo";
 
 const RootFooter = () => {
     const currentYear = new Date().getFullYear();
@@ -15,7 +11,7 @@ const RootFooter = () => {
             <div className="flex items-center justify-between px-20">
                 <Link href="/" className="flex items-center justify-center">
                     <div>
-                        <Logo width={100} height={100} fillColor="black" className="w-25 h-25" />
+                        <VsauLogoIcon width={100} height={100} fill="#030303" />
                     </div>
 
                     <div className="w-[300px] items-center space-y-1 text-[#000000]">
@@ -28,21 +24,21 @@ const RootFooter = () => {
                     </div>
                 </Link>
 
-                <div className="flex items-center space-x-12">
-                    <Link target="_blank" href="https://vk.com/vsau1912">
-                        <VkLogo width={30} height={20} fillColor="#030303" />
+                <div className="flex items-center space-x-8">
+                    <Link target="_blank" href="https://vk.com/vsau1912" className="hover:scale-105">
+                        <VkIcon width={28} height={28} fill="#030303" />
                     </Link>
-                    <Link target="_blank" href="https://ok.ru/profile/574433460640">
-                        <OkLogo width={17} height={28} fillColor="#030303" />
+                    <Link target="_blank" href="https://ok.ru/profile/574433460640" className="hover:scale-105">
+                        <OkIcon width={28} height={28} fill="#030303" />
                     </Link>
-                    <Link target="_blank" href="https://t.me/vsau1912">
-                        <TgLogo width={32} height={25} fillColor="#030303" />
+                    <Link target="_blank" href="https://t.me/vsau1912" className="hover:scale-105">
+                        <TgIcon width={28} height={28} fill="#030303" />
                     </Link>
-                    <Link target="_blank" href="https://dzen.ru/vsau1912">
-                        <DzenLogo width={29} height={28} fillColor="#030303" />
+                    <Link target="_blank" href="https://www.youtube.com/channel/UCF3LAx0wx0kjOW2QchlP6KQ" className="hover:scale-105">
+                        <YtIcon width={80} height={40} fill="#030303" />
                     </Link>
-                    <Link target="_blank" href="https://www.youtube.com/channel/UCF3LAx0wx0kjOW2QchlP6KQ">
-                        <YtLogo width={96} height={22} fillColor="#030303" />
+                    <Link target="_blank" href="https://dzen.ru/vsau1912" className="hover:scale-105">
+                        <DzenIcon width={28} height={28} fill="#030303" />
                     </Link>
                 </div>
             </div>
@@ -71,19 +67,19 @@ const RootFooter = () => {
                 <div className="flex flex-col text-[12px] font-light leading-[14px]">
                     <p>
                         Тел:{" "}
-                        <Link itemProp="telephone" href="tel:+74732538651" className="underline-offset-2 hover:underline">
+                        <Link itemProp="telephone" href="tel:+74732538651" className="font-normal underline-offset-2 hover:underline">
                             +7 (473) 253-86-51
                         </Link>
                     </p>
                     <p>
                         Факс:{" "}
-                        <Link itemProp="telephone" href="tel:+74732538651" className="underline-offset-2 hover:underline">
+                        <Link itemProp="telephone" href="tel:+74732538651" className="font-normal underline-offset-2 hover:underline">
                             +7 (473) 253-86-51
                         </Link>
                     </p>
                     <p>
                         Эл. почта:{" "}
-                        <Link itemProp="email" href="mailto:main@vsau.ru" className="underline-offset-2 hover:underline">
+                        <Link itemProp="email" href="mailto:main@vsau.ru" className="font-normal underline-offset-2 hover:underline">
                             main@vsau.ru
                         </Link>
                     </p>
