@@ -33,44 +33,9 @@ const RootPage = async () => {
             <RootCarousel />
 
             <div className="mt-8 select-none space-y-8">
-                <div className="flex flex-col space-y-8">
-                    <div className="mr-[45px] flex items-center justify-between">
-                        <h1 className="line-clamp-1 w-fit text-3xl font-semibold">
-                            <Link href="/news">Новости</Link>
-                        </h1>
-                        <Link href="/news" className="text-[17px] font-normal leading-[20px] text-[#0F91D6] hover:underline">
-                            Все новости
-                        </Link>
-                    </div>
-
-                    <CarouselSize posts={news.posts} />
-                </div>
-
-                <div className="flex flex-col space-y-8">
-                    <div className="mr-[45px] flex items-center justify-between">
-                        <h1 className="line-clamp-1 w-fit text-3xl font-semibold">
-                            <Link href="/news">Объявления</Link>
-                        </h1>
-                        <Link href="/news" className="text-[17px] font-normal leading-[20px] text-[#0F91D6] hover:underline">
-                            Все объявления
-                        </Link>
-                    </div>
-
-                    <CarouselSize posts={ads.posts} />
-                </div>
-
-                <div className="flex flex-col space-y-8">
-                    <div className="mr-[45px] flex items-center justify-between">
-                        <h1 className="line-clamp-1 w-fit text-3xl font-semibold">
-                            <Link href="/news">Анонсы</Link>
-                        </h1>
-                        <Link href="/news" className="text-[17px] font-normal leading-[20px] text-[#0F91D6] hover:underline">
-                            Все анонсы
-                        </Link>
-                    </div>
-
-                    <CarouselSize posts={announces.posts} />
-                </div>
+                <CarouselSize title="Новости" posts={news.posts} />
+                <CarouselSize title="Объявления" posts={ads.posts} />
+                <CarouselSize title="Анонсы" posts={announces.posts} />
 
                 <div className="flex flex-col space-y-8">
                     <div className="mr-[45px] flex items-center justify-between">
