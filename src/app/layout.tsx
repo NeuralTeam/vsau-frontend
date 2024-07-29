@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Rubik } from "next/font/google";
+import { Roboto, Rubik } from "next/font/google";
 import "@/shared/styles/globals.css";
 import { ReactNode } from "react";
 import { ThemeProvider } from "@/shared/providers/theme-provider";
@@ -7,7 +7,7 @@ import NavigationSidebar from "@/widgets/navbar/navigation-sidebar";
 import RootFooter from "@/widgets/root/root-footer";
 
 // https://fonts.google.com/specimen/Rubik
-const rubikFont = Rubik({ subsets: ["latin", "cyrillic"] });
+const rubikFont = Roboto({ subsets: ["latin", "cyrillic"], weight: ["100", "300", "400", "500", "700", "900"] });
 
 export const metadata: Metadata = {
     // https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
