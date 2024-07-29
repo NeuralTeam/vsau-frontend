@@ -1,14 +1,30 @@
 "use client";
 
-import { Files, Share2 } from "lucide-react";
+import { CircleCheck, Files, Share2 } from "lucide-react";
 import Link from "next/link";
 import { VkIcon } from "@/shared/images/icons/social-networks/vk-icon";
 import { OkIcon } from "@/shared/images/icons/social-networks/ok-icon";
 import { TgIcon } from "@/shared/images/icons/social-networks/tg-icon";
 import { usePathname } from "next/navigation";
+import { useEffect, useState, useRef } from "react";
 
 export const ShareBlock = () => {
     const pathname = usePathname();
+    const [open, setOpen] = useState(false);
+    const timerRef = useRef(0);
+
+    useEffect(() => {
+        return () => clearTimeout(timerRef.current);
+    }, []);
+
+    const handleCopy = async () => {
+        try {
+            await navigator.clipboard.writeText(`${process.env.NEXT_PUBLIC_DOMAIN}${pathname}`);
+            setOpen(true);
+        } catch (error) {
+            console.error(error);
+        }
+    };
 
     return (
         <div className="space-y-5 rounded-[10px] bg-[#0F91D6] p-10 text-[16px] font-normal leading-[16px] text-white" id="share-section">
@@ -17,15 +33,33 @@ export const ShareBlock = () => {
                 <p>Поделиться</p>
             </div>
 
-            <div className="flex space-x-8 rounded-[10px] bg-white px-8 py-4">
-                <button className="flex items-center space-x-2 text-nowrap text-[14px] font-medium text-[#030303]">
-                    <Files size={20} strokeWidth={2} />
-                    <p>Скопировать ссылку</p>
+            <div className="flex rounded-[10px] bg-white px-8 py-4">
+                <button
+                    onClick={async () => {
+                        await handleCopy();
+                        window.clearTimeout(timerRef.current);
+                        timerRef.current = window.setTimeout(() => {
+                            setOpen(false);
+                        }, 3000);
+                    }}
+                    className="flex w-1/4 items-center space-x-2 text-nowrap pr-4 text-[14px] font-medium text-[#030303] duration-300 active:scale-110"
+                >
+                    {open ? (
+                        <>
+                            <CircleCheck size={20} strokeWidth={2} />
+                            <p>Скопировано</p>
+                        </>
+                    ) : (
+                        <>
+                            <Files size={20} strokeWidth={2} />
+                            <p>Скопировать ссылку</p>
+                        </>
+                    )}
                 </button>
                 <input
                     readOnly
                     value={`${process.env.NEXT_PUBLIC_DOMAIN}${pathname}`}
-                    className="w-full bg-transparent text-[14px] text-[#808080] outline-none"
+                    className="w-3/4 bg-transparent text-[14px] text-[#808080] outline-none"
                 />
             </div>
 

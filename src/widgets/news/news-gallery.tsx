@@ -7,7 +7,7 @@ export function NewsGallery({ mediaId, photoList }: { mediaId?: number; photoLis
         <div className="space-y-5">
             <div className="grid w-full grid-cols-4 gap-5">
                 {photoList.map((photo, i) => (
-                    <NewsOpenPhotoDialog key={i} isOpen={mediaId == i + 100} photo={photo}>
+                    <NewsOpenPhotoDialog key={i} isOpen={mediaId == i + 100} mediaId={i + 100} photo={photo}>
                         <Image
                             src={photo}
                             priority={false}

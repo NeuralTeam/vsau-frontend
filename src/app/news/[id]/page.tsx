@@ -136,7 +136,7 @@ const NewsIDPage = async ({ params, searchParams }: { params: { id: string }; se
                     <h1 className="text-[28px] font-medium leading-[32px] text-[#030303]">{post.title}</h1>
 
                     <div className="space-y-5">
-                        <NewsOpenPhotoDialog isOpen={searchParams.mediaId == 0} photo={cardNewsPlug}>
+                        <NewsOpenPhotoDialog isOpen={searchParams.mediaId == 0} mediaId={0} photo={cardNewsPlug}>
                             <div className="overflow-hidden rounded-[10px]">
                                 <Image
                                     src={cardNewsPlug}
