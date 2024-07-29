@@ -1,7 +1,7 @@
 export interface IAddressListBlock {
     title: string;
     itemProp: string;
-    addressList?: IAddress[];
+    addressList?: string[];
     className?: string;
 }
 

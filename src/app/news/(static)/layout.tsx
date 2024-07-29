@@ -1,20 +1,22 @@
 import { ReactNode } from "react";
 import Link from "next/link";
 import SectionFilter, { ITopic } from "@/widgets/news/news-filter";
-import { IListPosts } from "@/app/news/(static)/page";
 import NewsCard from "@/widgets/news/news-card";
+import { IListPost } from "@/app/news/[id]/page";
+import { slugifyReplace } from "@/shared/libs/slugify";
 
 const NewsLayout = async ({
     children
 }: Readonly<{
     children: ReactNode;
 }>) => {
-    const topics: ITopic[] = await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/news/topics`, { next: { revalidate: 3600 } }).then((res) =>
+    const topics: ITopic[] = await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/posts/topics`, { next: { revalidate: 3600 } }).then((res) =>
         res.json()
     );
-    const news: { count: number; posts: IListPosts[] } = await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/news?limit=3&offset=0`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/posts?type=1&page=1&perPage=4`, {
         next: { revalidate: 3600 }
-    }).then((res) => res.json());
+    });
+    const news: { count_page: number; current_page: number; posts: IListPost[] } = await response.json();
 
     return (
         <main className="grid justify-center gap-x-16 space-y-10 pt-16">
@@ -36,7 +38,12 @@ const NewsLayout = async ({
                         </Link>
                     </div>
                     {news.posts.map((data) => (
-                        <NewsCard key={data.id} id={`${data.seo_title}-${data.id}`} title={data.title} createdAt={data.created_at} />
+                        <NewsCard
+                            key={data.id}
+                            id={`${slugifyReplace(data.title, { lower: true, strict: true })}-${data.id}`}
+                            title={data.title}
+                            createdAt={data.created_at}
+                        />
                     ))}
                 </div>
 

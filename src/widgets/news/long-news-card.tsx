@@ -25,7 +25,8 @@ export const LongNewsCard = ({ id, title, body, createdAt, img, currentPage }: I
                 <div className="flex w-full flex-col justify-between px-10 pb-5 pt-8">
                     <div className="flex flex-col space-y-3">
                         <p className="line-clamp-2 text-[16px] font-semibold leading-[18px]">{title}</p>
-                        <p className="line-clamp-3 text-[12px] font-normal leading-[14px]">{markdownToTxt(`${body.slice(0, 256).trim()}`)}</p>
+                        {/*<p className="line-clamp-3 text-[12px] font-normal leading-[14px]">{markdownToTxt(`${body.slice(0, 256).trim()}`)}</p>*/}
+                        <p className="line-clamp-3 text-[12px] font-normal leading-[14px]">{body}</p>
                     </div>
 
                     <div className="flex justify-between text-[11px] font-normal leading-[13px]">

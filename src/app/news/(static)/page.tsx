@@ -2,15 +2,6 @@ import NewsList from "@/widgets/news/news-list";
 import { Skeleton } from "@/shared/ui/shadcn/skeleton";
 import { Suspense } from "react";
 
-export interface IListPosts {
-    id: number;
-    seo_title: string;
-    title: string;
-    short_body: string;
-    picture: string | null;
-    created_at: number;
-}
-
 const NewsPage = ({
     searchParams
 }: {
@@ -23,9 +14,8 @@ const NewsPage = ({
 }) => {
     const currentPage = searchParams.page || 1;
     const pagination = {
-        currentPage: currentPage,
-        offsetPage: (currentPage - 1) * 2,
-        limitOnPage: 10
+        page: currentPage,
+        perPage: 10
     };
 
     return (

@@ -9,16 +9,16 @@ export const AddressListBlock = ({ title, itemProp, addressList, className }: IA
         data = (
             <div className="flex">
                 <Dot className="min-h-6 min-w-6" />
-                <p itemProp={itemProp}>{addressList[0].address}</p>
+                <p itemProp={itemProp}>{addressList[0]}</p>
             </div>
         );
     else if (addressList && addressList.length > 1)
         data = (
             <ul className="space-y-2">
-                {addressList.map((addressEl) => (
-                    <li key={addressEl.id} className="flex">
+                {addressList.map((addressEl, i) => (
+                    <li key={i} className="flex">
                         <Dot className="min-h-6 min-w-6" />
-                        <p itemProp={itemProp}>{addressEl.address}</p>
+                        <p itemProp={itemProp}>{addressEl}</p>
                     </li>
                 ))}
             </ul>
