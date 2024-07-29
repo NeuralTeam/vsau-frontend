@@ -2,19 +2,43 @@
 
 import { Dialog, DialogTrigger, DialogContent } from "@/shared/ui/shadcn/dialog";
 import Image, { StaticImageData } from "next/image";
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { VkIcon } from "@/shared/images/icons/social-networks/vk-icon";
 import { OkIcon } from "@/shared/images/icons/social-networks/ok-icon";
 import { TgIcon } from "@/shared/images/icons/social-networks/tg-icon";
-import { Download, Files, Share2 } from "lucide-react";
+import { CircleCheck, Download, Files, Share2 } from "lucide-react";
+import { usePathname } from "next/navigation";
 
-export function NewsOpenPhotoDialog({ children, isOpen, photo }: { children: ReactNode; isOpen?: boolean; photo: StaticImageData }) {
+export function NewsOpenPhotoDialog({
+    children,
+    isOpen,
+    mediaId,
+    photo
+}: {
+    children: ReactNode;
+    mediaId?: number;
+    isOpen?: boolean;
+    photo: StaticImageData;
+}) {
+    const pathname = usePathname();
     const [open, setOpen] = useState(false);
+    const [open2, setOpen2] = useState(false);
+    const timerRef = useRef(0);
 
     useEffect(() => {
         if (isOpen != undefined) setOpen(isOpen);
+        return () => clearTimeout(timerRef.current);
     }, [isOpen]);
+
+    const handleCopy = async () => {
+        try {
+            await navigator.clipboard.writeText(`${process.env.NEXT_PUBLIC_DOMAIN}${pathname}?mediaId=${mediaId}`);
+            setOpen2(true);
+        } catch (error) {
+            console.error(error);
+        }
+    };
 
     return (
         <Dialog open={open} onOpenChange={setOpen}>
@@ -28,7 +52,7 @@ export function NewsOpenPhotoDialog({ children, isOpen, photo }: { children: Rea
                         <div className="flex space-x-5">
                             <div className="flex items-center space-x-2">
                                 <Share2 size={20} strokeWidth={3} />
-                                <p>Поделиться через:</p>
+                                <p>Поделиться через: {mediaId}</p>
                             </div>
                             <div className="flex items-center space-x-6">
                                 <Link target="_blank" href="https://vk.com/vsau1912">
@@ -43,10 +67,28 @@ export function NewsOpenPhotoDialog({ children, isOpen, photo }: { children: Rea
                             </div>
                         </div>
 
-                        <div className="flex items-center space-x-2">
-                            <Files size={20} strokeWidth={2} />
-                            <p>Скопировать ссылку на фото</p>
-                        </div>
+                        <button
+                            onClick={async () => {
+                                await handleCopy();
+                                window.clearTimeout(timerRef.current);
+                                timerRef.current = window.setTimeout(() => {
+                                    setOpen2(false);
+                                }, 3000);
+                            }}
+                            className="flex items-center space-x-2 text-nowrap outline-none duration-300 active:scale-110"
+                        >
+                            {open2 ? (
+                                <>
+                                    <CircleCheck size={20} strokeWidth={2} />
+                                    <p>Скопировано</p>
+                                </>
+                            ) : (
+                                <>
+                                    <Files size={20} strokeWidth={2} />
+                                    <p>Скопировать ссылку на фото</p>
+                                </>
+                            )}
+                        </button>
                     </div>
 
                     <div className="flex items-center space-x-2">

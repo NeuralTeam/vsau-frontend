@@ -20,7 +20,6 @@ const NavigationSidebar = () => {
     const [activeAccordion, setActiveAccordion] = useState("");
 
     useEffect(() => {
-        console.log(pathname);
         navGroups.forEach((item) => {
             if (!item.child && pathname == item.href) {
                 setActiveAccordion(`item-${item.id.toString()}`);

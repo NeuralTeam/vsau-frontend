@@ -15,7 +15,7 @@ const NewsPage = ({
     const currentPage = searchParams.page || 1;
     const pagination = {
         page: currentPage,
-        perPage: 10
+        perPage: 3
     };
 
     return (

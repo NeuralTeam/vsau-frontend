@@ -21,8 +21,8 @@ const NewsPagination = ({ pageCount }: { pageCount: number }) => {
         );
     }
     return (
-        <div className="flex h-12 w-[900px] items-center justify-center space-x-10 rounded-[10px] bg-[#EBEBEB]">
-            <Pagination>
+        <div className="flex h-12 items-center justify-center space-x-5">
+            <Pagination className="rounded-[10px] bg-[#EBEBEB]">
                 <PaginationContent>
                     {pageCount > maxPages && currentPage > halfMaxPages && (
                         <PaginationItem>
@@ -46,6 +46,7 @@ const NewsPagination = ({ pageCount }: { pageCount: number }) => {
                     )}
                 </PaginationContent>
             </Pagination>
+            <button className="w-1/3 rounded-[10px] bg-[#EBEBEB] px-10 py-2">Показать ещё</button>
         </div>
     );
 };
