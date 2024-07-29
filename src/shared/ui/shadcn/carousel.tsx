@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import useEmblaCarousel, { type UseEmblaCarouselType } from "embla-carousel-react";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 import { cn } from "@/shared/libs/shadcn-utils";
 import { Button } from "@/shared/ui/shadcn/button";
@@ -165,7 +165,7 @@ const CarouselPrevious = React.forwardRef<HTMLButtonElement, React.ComponentProp
 
         return (
             <button ref={ref} className={className} disabled={!canScrollPrev} onClick={scrollPrev} {...props}>
-                <ArrowLeft color="#0F91D6" className="h-6 w-6" />
+                <ChevronLeft color="#0F91D6" className="h-6 w-6" />
                 <span className="sr-only">Previous slide</span>
             </button>
         );
@@ -179,7 +179,7 @@ const CarouselNext = React.forwardRef<HTMLButtonElement, React.ComponentProps<ty
 
         return (
             <button ref={ref} className={className} disabled={!canScrollNext} onClick={scrollNext} {...props}>
-                <ArrowRight color="#0F91D6" className="h-6 w-6" />
+                <ChevronRight color="#0F91D6" className="h-6 w-6" />
                 <span className="sr-only">Next slide</span>
             </button>
         );
