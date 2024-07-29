@@ -107,9 +107,11 @@ const NewsIDPage = async ({ params, searchParams }: { params: { id: string }; se
                                 <p className="text-[14px] font-normal leading-[16px] text-[#030303]">1234</p>
                             </div>
                         </div>
-                        <p className="text-[17px] font-normal leading-[20px] text-[#030303] opacity-50">
-                            Раздел: {post.topic.charAt(0).toUpperCase() + post.topic.slice(1)}
-                        </p>
+                        {post.topic != null && (
+                            <p className="text-[17px] font-normal leading-[20px] text-[#030303] opacity-50">
+                                Раздел: {post.topic.charAt(0).toUpperCase() + post.topic.slice(1)}
+                            </p>
+                        )}
                     </div>
 
                     <div className="flex space-x-5">
