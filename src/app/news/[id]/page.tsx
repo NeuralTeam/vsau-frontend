@@ -4,26 +4,36 @@ import { Metadata, ResolvingMetadata } from "next";
 import Image from "next/image";
 import cardNewsPlug from "@/shared/images/plugs/card_news.png";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import { IListPosts } from "@/app/news/(static)/page";
 import NewsCard from "@/widgets/news/news-card";
 import { Suspense } from "react";
 import { Skeleton } from "@/shared/ui/shadcn/skeleton";
 import { NewsOpenPhotoDialog } from "@/widgets/news/news-open-photo-dialog";
 import { NewsGallery } from "@/widgets/news/news-gallery";
-import { ArrowLeft, Eye, Files, Share2 } from "lucide-react";
+import { ArrowLeft, Eye, Share2 } from "lucide-react";
 import { ShareBlock } from "@/shared/ui/vsau/share-block";
+import { slugifyReplace } from "@/shared/libs/slugify";
 
 export interface IPost {
-    seo_title: string;
     title: string;
     body: string;
-    picture: string | null;
+    preview_picture: string | null;
     topic: string;
     created_at: number;
 }
 
+export interface IListPost {
+    id: number;
+    title: string;
+    body: string;
+    preview_picture: string | null;
+    type: number;
+    topic: string;
+    updated_at: number;
+    created_at: number;
+}
+
 async function getNewsByID(id: number): Promise<IPost> {
-    return await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/news/${id}`).then((res) => {
+    return await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/posts/${id}`).then((res) => {
         const data = res.json();
         if (res.status !== 200) notFound();
 
@@ -50,14 +60,22 @@ export async function generateMetadata(
 }
 
 const RecommendedPosts = async () => {
-    const posts: { count: number; posts: IListPosts[] } = await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/news?limit=3&offset=0`, {
-        cache: "no-cache"
-    }).then((res) => res.json());
+    const posts: { count_page: number; current_page: number; posts: IListPost[] } = await fetch(
+        `${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/posts?type=1&page=1&perPage=4`,
+        {
+            cache: "no-cache"
+        }
+    ).then((res) => res.json());
 
     return (
         <>
             {posts.posts.map((data) => (
-                <NewsCard key={data.id} id={`${data.seo_title}-${data.id}`} title={data.title} createdAt={data.created_at} />
+                <NewsCard
+                    key={data.id}
+                    id={`${slugifyReplace(data.title, { lower: true, strict: true })}-${data.id}`}
+                    title={data.title}
+                    createdAt={data.created_at}
+                />
             ))}
         </>
     );
@@ -66,15 +84,16 @@ const RecommendedPosts = async () => {
 const NewsIDPage = async ({ params, searchParams }: { params: { id: string }; searchParams: { ref: string; mediaId?: number } }) => {
     const idSplit = params.id.split("-");
     const id = idSplit.slice(-1)[0];
-    const seoTitle = idSplit.slice(0, -1).join("-");
+    const querySeoTitle = idSplit.slice(0, -1).join("-");
 
-    const news = await getNewsByID(+id);
-    if (seoTitle !== news.seo_title) {
+    const post = await getNewsByID(+id);
+    const seo_title = slugifyReplace(post.title, { lower: true, strict: true });
+    if (querySeoTitle !== seo_title) {
         const ref = `?ref=${searchParams.ref}`;
-        redirect(`${process.env.NEXT_PUBLIC_DOMAIN}/news/${news.seo_title}-${id}${searchParams.ref !== undefined ? ref : ""}`);
+        redirect(`${process.env.NEXT_PUBLIC_DOMAIN}/news/${seo_title}-${id}${searchParams.ref !== undefined ? ref : ""}`);
     }
 
-    const fmtDate = new Date(news.created_at * 1000).toLocaleString("ru", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" });
+    const fmtDate = new Date(post.created_at * 1000).toLocaleString("ru", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" });
 
     return (
         <main className="flex justify-center space-x-[5vw] pl-[calc(4vw-70px)] pr-[4vw] pt-[70px]">
@@ -89,7 +108,7 @@ const NewsIDPage = async ({ params, searchParams }: { params: { id: string }; se
                             </div>
                         </div>
                         <p className="text-[17px] font-normal leading-[20px] text-[#030303] opacity-50">
-                            Раздел: {news.topic.charAt(0).toUpperCase() + news.topic.slice(1)}
+                            Раздел: {post.topic.charAt(0).toUpperCase() + post.topic.slice(1)}
                         </p>
                     </div>
 
@@ -112,7 +131,7 @@ const NewsIDPage = async ({ params, searchParams }: { params: { id: string }; se
                 </div>
 
                 <div className="flex flex-col space-y-10">
-                    <h1 className="text-[28px] font-medium leading-[32px] text-[#030303]">{news.title}</h1>
+                    <h1 className="text-[28px] font-medium leading-[32px] text-[#030303]">{post.title}</h1>
 
                     <div className="space-y-5">
                         <NewsOpenPhotoDialog isOpen={searchParams.mediaId == 0} photo={cardNewsPlug}>
@@ -128,7 +147,7 @@ const NewsIDPage = async ({ params, searchParams }: { params: { id: string }; se
                         </NewsOpenPhotoDialog>
 
                         <div>
-                            <MDXRemote source={news.body} />
+                            <MDXRemote source={post.body} />
                         </div>
 
                         <NewsGallery mediaId={searchParams.mediaId} photoList={Array.from({ length: 11 }).map(() => cardNewsPlug)} />

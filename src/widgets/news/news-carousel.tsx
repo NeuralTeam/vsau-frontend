@@ -2,9 +2,10 @@
 
 import { Carousel, CarouselContent, CarouselItem } from "@/shared/ui/shadcn/carousel";
 import NewsCard from "@/widgets/news/news-card";
-import { IListPosts } from "@/app/news/(static)/page";
+import { IListPost } from "@/app/news/[id]/page";
+import { slugifyReplace } from "@/shared/libs/slugify";
 
-export function CarouselSize({ posts }: Readonly<{ posts: IListPosts[] }>) {
+export function CarouselSize({ posts }: Readonly<{ posts: IListPost[] }>) {
     return (
         <Carousel
             opts={{
@@ -14,10 +15,14 @@ export function CarouselSize({ posts }: Readonly<{ posts: IListPosts[] }>) {
             }}
         >
             <CarouselContent>
-                {posts.map((data) => (
-                    <CarouselItem key={data.id} className="md:basis-1/2 lg:basis-[22%]">
+                {posts.map((post) => (
+                    <CarouselItem key={post.id} className="md:basis-1/2 lg:basis-[22%]">
                         <div className="flex flex-col space-y-4 pb-3 sm:flex-row sm:flex-nowrap sm:gap-8 sm:space-y-0">
-                            <NewsCard id={`${data.seo_title}-${data.id}`} title={data.title} createdAt={data.created_at} />
+                            <NewsCard
+                                id={`${slugifyReplace(post.title, { lower: true, strict: true })}-${post.id}`}
+                                title={post.title}
+                                createdAt={post.created_at}
+                            />
                         </div>
                     </CarouselItem>
                 ))}
