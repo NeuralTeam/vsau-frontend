@@ -65,6 +65,7 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
+            docker login ${{ env.REGISTRY }} --username ${{ env.USERNAME }} --password ${{ secrets.GITHUB_TOKEN }}
             docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:develop
             docker rm -f ${{ env.CONTAINER_NAME }}
             docker container run -d -p "127.0.0.1:3015:3000" --name ${{ env.CONTAINER_NAME }} ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:develop
