@@ -45,7 +45,7 @@ export const navGroups: INavItem[] = [
             {
                 id: 24,
                 title: "Интерактивная карта университетского городка",
-                href: "/interactive-map"
+                href: "/map"
             }
         ]
     },
