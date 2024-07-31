@@ -14,16 +14,18 @@ const NewsList = async ({ pagination, topic }: { pagination: { page: number; per
 
     return (
         <>
-            {newsList.posts.map((post) => (
-                <LongNewsCard
-                    key={post.id}
-                    id={`${slugifyReplace(post.title, { lower: true, strict: true })}-${post.id}`}
-                    title={post.title}
-                    body={post.body}
-                    createdAt={post.created_at}
-                    currentPage={pagination.page}
-                />
-            ))}
+            <div className="space-y-5">
+                {newsList.posts.map((post) => (
+                    <LongNewsCard
+                        key={post.id}
+                        id={`${slugifyReplace(post.title, { lower: true, strict: true })}-${post.id}`}
+                        title={post.title}
+                        body={post.body}
+                        createdAt={post.created_at}
+                        currentPage={pagination.page}
+                    />
+                ))}
+            </div>
             <NewsPagination pageCount={newsList.count_page} />
         </>
     );
