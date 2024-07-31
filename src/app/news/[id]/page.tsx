@@ -9,9 +9,11 @@ import { Suspense } from "react";
 import { Skeleton } from "@/shared/ui/shadcn/skeleton";
 import { NewsOpenPhotoDialog } from "@/widgets/news/news-open-photo-dialog";
 import { NewsGallery } from "@/widgets/news/news-gallery";
-import { ArrowLeft, Eye, Share2 } from "lucide-react";
+import { Eye } from "lucide-react";
 import { ShareBlock } from "@/shared/ui/vsau/share-block";
 import { slugifyReplace } from "@/shared/libs/slugify";
+import { ShareIcon } from "@/shared/images/icons/other";
+import { BtnBackArrowIcon } from "@/shared/images/icons/other/btn-back-arrow-icon";
 
 export interface IPost {
     title: string;
@@ -99,7 +101,7 @@ const NewsIDPage = async ({ params, searchParams }: { params: { id: string }; se
         <main className="flex justify-center space-x-[5vw] pl-[calc(4vw-70px)] pr-[4vw] pt-[70px]">
             <div className="flex max-w-[1000px] flex-col space-y-10">
                 <div className="flex justify-between">
-                    <div className="space-y-3">
+                    <div className="space-y-2">
                         <div className="flex items-center space-x-8">
                             <p className="text-[14px] font-normal leading-[16px] text-[#030303]">{fmtDate}</p>
                             <div className="flex items-center space-x-1">
@@ -108,34 +110,37 @@ const NewsIDPage = async ({ params, searchParams }: { params: { id: string }; se
                             </div>
                         </div>
                         {post.topic != null && (
-                            <p className="text-[17px] font-normal leading-[20px] text-[#030303] opacity-50">
-                                Раздел: {post.topic.charAt(0).toUpperCase() + post.topic.slice(1)}
-                            </p>
+                            <div className="flex text-[17px] font-normal leading-[20px] text-[#7C7C7C]">
+                                Раздел:
+                                <Link href="/news?topic=1" className="pl-2 text-[#0F91D6]">
+                                    {post.topic.charAt(0).toUpperCase() + post.topic.slice(1)}
+                                </Link>
+                            </div>
                         )}
                     </div>
 
                     <div className="flex space-x-5">
                         <Link
                             href={searchParams.ref ? `/${searchParams.ref}` : "/news"}
-                            className="flex h-fit w-fit items-center space-x-2 text-nowrap rounded-[10px] bg-[#E3E3E3FF] px-6 py-3"
+                            className="group flex h-fit w-fit items-center space-x-3 text-nowrap rounded-[10px] bg-[#E3E3E3FF] px-8 py-3 duration-300 hover:bg-[#767676] hover:text-[#FFFFFF] active:scale-90"
                         >
-                            <ArrowLeft size={24} strokeWidth={3} />
+                            <BtnBackArrowIcon width={20} height={20} fill="#000000" className="duration-300 group-hover:fill-[#FFFFFF]" />
                             <p>Назад к новостям</p>
                         </Link>
                         <Link
                             href="#share-section"
-                            className="flex h-fit w-fit items-center space-x-2 text-nowrap rounded-[10px] bg-[#E3E3E3FF] px-6 py-3"
+                            className="group flex h-fit w-fit items-center space-x-3 text-nowrap rounded-[10px] bg-[#E3E3E3FF] px-8 py-3 duration-300 hover:bg-[#767676] hover:text-[#FFFFFF] active:scale-90"
                         >
-                            <Share2 size={20} strokeWidth={3} />
+                            <ShareIcon width={20} height={20} fill="#000000" className="duration-300 group-hover:fill-[#FFFFFF]" />
                             <p>Поделиться</p>
                         </Link>
                     </div>
                 </div>
 
-                <div className="flex flex-col space-y-10">
+                <div className="flex flex-col space-y-6">
                     <h1 className="text-[28px] font-medium leading-[32px] text-[#030303]">{post.title}</h1>
 
-                    <div className="space-y-5">
+                    <div className="space-y-8">
                         <NewsOpenPhotoDialog isOpen={searchParams.mediaId == 0} mediaId={0} photo={cardNewsPlug}>
                             <div className="overflow-hidden rounded-[10px]">
                                 <Image
@@ -143,7 +148,7 @@ const NewsIDPage = async ({ params, searchParams }: { params: { id: string }; se
                                     priority={false}
                                     placeholder="blur"
                                     alt="#"
-                                    className="aspect-video object-cover transition duration-300 hover:scale-105 active:scale-100 active:opacity-50"
+                                    className="aspect-video object-cover transition duration-300 hover:scale-110 active:scale-100 active:opacity-50"
                                 />
                             </div>
                         </NewsOpenPhotoDialog>
