@@ -1,6 +1,7 @@
 import Image, { StaticImageData } from "next/image";
 import { NewsOpenPhotoDialog } from "@/widgets/news/news-open-photo-dialog";
-import { Download } from "lucide-react";
+import { DownloadIcon, ShareIcon } from "@/shared/images/icons/other";
+import Link from "next/link";
 
 export function NewsGallery({ mediaId, photoList }: { mediaId?: number; photoList: StaticImageData[] }) {
     return (
@@ -19,8 +20,8 @@ export function NewsGallery({ mediaId, photoList }: { mediaId?: number; photoLis
                 ))}
             </div>
 
-            <button className="flex w-fit items-center space-x-2 rounded-[10px] bg-[#E3E3E3FF] px-6 py-3">
-                <Download size={24} strokeWidth={3} />
+            <button className="group flex w-fit items-center space-x-3 rounded-[10px] bg-[#E3E3E3FF] px-10 py-3 duration-300 hover:bg-[#767676] hover:text-[#FFFFFF] active:scale-90">
+                <DownloadIcon width={20} height={20} fill="#000000" className="duration-300 group-hover:fill-[#FFFFFF]" />
                 <p>Скачать альбом</p>
             </button>
         </div>

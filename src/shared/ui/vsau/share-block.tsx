@@ -1,12 +1,13 @@
 "use client";
 
-import { CircleCheck, Files, Share2 } from "lucide-react";
+import { CircleCheck } from "lucide-react";
 import Link from "next/link";
 import { VkIcon } from "@/shared/images/icons/social-networks/vk-icon";
 import { OkIcon } from "@/shared/images/icons/social-networks/ok-icon";
 import { TgIcon } from "@/shared/images/icons/social-networks/tg-icon";
 import { usePathname } from "next/navigation";
 import { useEffect, useState, useRef } from "react";
+import { CopyIcon, ShareIcon } from "@/shared/images/icons/other";
 
 export const ShareBlock = () => {
     const pathname = usePathname();
@@ -29,7 +30,7 @@ export const ShareBlock = () => {
     return (
         <div className="space-y-5 rounded-[10px] bg-[#0F91D6] p-10 text-[16px] font-normal leading-[16px] text-white" id="share-section">
             <div className="flex items-center space-x-2">
-                <Share2 size={20} strokeWidth={3} />
+                <ShareIcon width={20} height={20} fill="#FFFFFF" />
                 <p>Поделиться</p>
             </div>
 
@@ -42,17 +43,17 @@ export const ShareBlock = () => {
                             setOpen(false);
                         }, 3000);
                     }}
-                    className="flex w-1/4 items-center space-x-2 text-nowrap pr-4 text-[14px] font-medium text-[#030303] duration-300 active:scale-110"
+                    className="group flex w-1/4 items-center space-x-2 text-nowrap pr-4 text-[14px] font-medium text-[#030303] duration-300 active:scale-110"
                 >
                     {open ? (
                         <>
-                            <CircleCheck size={20} strokeWidth={2} />
-                            <p>Скопировано</p>
+                            <CircleCheck size={20} strokeWidth={2} color="#0F91D6" />
+                            <p className="text-[#0F91D6]">Скопировано</p>
                         </>
                     ) : (
                         <>
-                            <Files size={20} strokeWidth={2} />
-                            <p>Скопировать ссылку</p>
+                            <CopyIcon width={20} height={20} fill="#000000" className="duration-300 group-hover:fill-[#0F91D6]" />
+                            <p className="duration-300 group-hover:text-[#0F91D6]">Скопировать ссылку</p>
                         </>
                     )}
                 </button>
@@ -63,16 +64,16 @@ export const ShareBlock = () => {
                 />
             </div>
 
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-5">
                 <p>Поделиться через:</p>
                 <Link target="_blank" href="https://vk.com/vsau1912">
-                    <VkIcon width={28} height={28} fill="#FFFFFF" />
+                    <VkIcon width={24} height={24} fill="#FFFFFF" />
                 </Link>
                 <Link target="_blank" href="https://ok.ru/profile/574433460640">
-                    <OkIcon width={24} height={24} fill="#FFFFFF" />
+                    <OkIcon width={22} height={22} fill="#FFFFFF" />
                 </Link>
                 <Link target="_blank" href="">
-                    <TgIcon width={28} height={28} fill="#FFFFFF" />
+                    <TgIcon width={24} height={24} fill="#FFFFFF" />
                 </Link>
             </div>
         </div>

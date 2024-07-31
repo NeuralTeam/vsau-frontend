@@ -38,7 +38,7 @@
             background: transparent;
         }
         ::-webkit-scrollbar-thumb {
-            background: #0f91d6;
+            background: #aeaeae;
             border-radius: 10px;
         }
         /* Scrollbar Section END */
@@ -79,7 +79,7 @@
         @apply bg-background text-foreground;
     }
     h1 {
-        @apply text-2xl text-header;
+        @apply text-[27px] font-medium text-[#AEAEAE];
     }
     h2 {
         @apply text-[#030303];

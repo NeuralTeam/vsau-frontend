@@ -115,10 +115,15 @@ const NavigationSidebar = () => {
                                                     fillColor="#87C8EA"
                                                     className="absolute -left-5 shrink-0 -rotate-90 duration-300 group-hover:fill-white"
                                                 />
-                                                <item.icon width={24} height={24} fill="#87C8EA" className="duration-300 group-hover:fill-white" />
+                                                <item.icon
+                                                    width={24}
+                                                    height={24}
+                                                    fill="#87C8EA"
+                                                    className="duration-300 group-hover:fill-white group-active:scale-75"
+                                                />
                                                 <p className="ml-3 duration-300 group-hover:font-semibold">{item.title}</p>
                                             </AccordionTrigger>
-                                            <AccordionContent className="mt-3 space-y-3 rounded-[10px] bg-[#FFFFFF15] p-5">
+                                            <AccordionContent className="mt-3 space-y-4 rounded-[10px] bg-[#FFFFFF15] px-8 py-5">
                                                 {item.child?.map(
                                                     (child, index) =>
                                                         child.href !== undefined && (
@@ -126,7 +131,7 @@ const NavigationSidebar = () => {
                                                                 href={child.href}
                                                                 key={child.id}
                                                                 className={cn(
-                                                                    "block text-[13px] font-light leading-[15px] text-white duration-300 hover:font-semibold",
+                                                                    "block text-[13px] font-light leading-[15px] text-white duration-300 hover:scale-105 hover:font-semibold active:scale-100",
                                                                     pathname == child.href && "cursor-default font-semibold"
                                                                 )}
                                                             >
@@ -141,10 +146,15 @@ const NavigationSidebar = () => {
                             </Accordion>
                         </div>
 
-                        <div className="group mx-8 mt-8 rounded-[10px] bg-[#FFFFFF15] p-6 duration-300 hover:bg-[#FFFFFF30]">
-                            <Link href="/sveden/common" className="flex items-center justify-center">
-                                <SpecialPageIcon width={40} height={40} fill="#87C8EA" className="duration-300 group-hover:fill-white" />
-                                <p className="ml-3 font-normal leading-[18px] text-white duration-300 group-hover:font-semibold">
+                        <div className="group mx-8 mt-8 rounded-[10px] bg-[#FFFFFF15] px-10 py-8 duration-300 hover:bg-[#FFFFFF30]">
+                            <Link href="/sveden/common" className="flex items-center justify-center space-x-5 duration-300 active:scale-95">
+                                <SpecialPageIcon
+                                    width={24}
+                                    height={24}
+                                    fill="#87C8EA"
+                                    className="min-h-6 min-w-6 duration-300 group-hover:fill-white"
+                                />
+                                <p className="font-normal leading-[18px] text-white duration-300 group-hover:font-semibold">
                                     Сведения об образовательной организации
                                 </p>
                             </Link>
@@ -154,36 +164,55 @@ const NavigationSidebar = () => {
 
                 <div className="mx-8 mt-3 flex space-x-3">
                     <button className="group flex items-center justify-center rounded-[10px] bg-[#FFFFFF15] p-5 duration-300 hover:bg-[#FFFFFF30]">
-                        <EyeIcon width={32} height={21} fillColor="#FFFFFF80" className="duration-300 group-hover:fill-white" />
+                        <EyeIcon
+                            width={32}
+                            height={21}
+                            fillColor="#FFFFFF80"
+                            className="duration-300 group-hover:fill-white group-active:scale-[.8]"
+                        />
                     </button>
                     <button className="group flex items-center justify-center rounded-[10px] bg-[#FFFFFF15] p-5 duration-300 hover:bg-[#FFFFFF30]">
-                        <LanguageIcon width={32} height={21} fillColor="#FFFFFF80" className="duration-300 group-hover:fill-white" />
+                        <LanguageIcon
+                            width={32}
+                            height={21}
+                            fillColor="#FFFFFF80"
+                            className="duration-300 group-hover:fill-white group-active:scale-[.8]"
+                        />
                     </button>
                     <button className="group flex items-center justify-center rounded-[10px] bg-[#FFFFFF15] p-5 duration-300 hover:bg-[#FFFFFF30]">
-                        <PlugIcon width={24} height={24} fillColor="#FFFFFF80" className="duration-300 group-hover:fill-white" />
+                        <PlugIcon
+                            width={24}
+                            height={24}
+                            fillColor="#FFFFFF80"
+                            className="duration-300 group-hover:fill-white group-active:scale-[.8]"
+                        />
                     </button>
-                    <button className="group col-span-2 flex grow items-center justify-center space-x-2 rounded-[10px] bg-[#FFFFFF15] p-5 duration-300 hover:bg-[#FFFFFF30]">
-                        <SearchIcon width={24} height={24} fillColor="#FFFFFF80" className="duration-300 group-hover:fill-white" />
-                        <p className="text-[10px] font-medium leading-[10px] text-[#FFFFFF80] duration-300 group-hover:text-white">Поиск по сайту</p>
+                    <button className="group col-span-2 flex grow items-center justify-center rounded-[10px] bg-[#FFFFFF15] p-5 duration-300 hover:bg-[#FFFFFF30]">
+                        <div className="flex items-center justify-center space-x-2 duration-300 group-active:scale-90">
+                            <SearchIcon width={24} height={24} fillColor="#FFFFFF80" className="duration-300 group-hover:fill-white" />
+                            <p className="text-[10px] font-medium leading-[10px] text-[#FFFFFF80] duration-300 group-hover:text-white">
+                                Поиск по сайту
+                            </p>
+                        </div>
                     </button>
                 </div>
             </div>
 
-            <div className={cn("flex h-[90px] w-full items-center justify-between bg-white px-20", pathname.startsWith("/sveden") && "hidden")}>
+            <div className={cn("flex h-[90px] w-full items-center justify-between bg-white px-16", pathname.startsWith("/sveden") && "hidden")}>
                 <Link target="_blank" href="https://vk.com/vsau1912" className="hover:scale-105">
-                    <VkIcon width={28} height={28} fill="#0F91D6" />
+                    <VkIcon width={24} height={24} fill="#0F91D6" />
                 </Link>
                 <Link target="_blank" href="https://ok.ru/profile/574433460640" className="hover:scale-105">
-                    <OkIcon width={28} height={28} fill="#0F91D6" />
+                    <OkIcon width={22} height={22} fill="#0F91D6" />
                 </Link>
                 <Link target="_blank" href="https://t.me/vsau1912" className="hover:scale-105">
-                    <TgIcon width={28} height={28} fill="#0F91D6" />
+                    <TgIcon width={24} height={24} fill="#0F91D6" />
                 </Link>
                 <Link target="_blank" href="https://www.youtube.com/channel/UCF3LAx0wx0kjOW2QchlP6KQ" className="hover:scale-105">
-                    <YtIcon width={80} height={40} fill="#0F91D6" />
+                    <YtIcon width={70} height={32} fill="#0F91D6" />
                 </Link>
                 <Link target="_blank" href="https://dzen.ru/vsau1912" className="hover:scale-105">
-                    <DzenIcon width={28} height={28} fill="#0F91D6" />
+                    <DzenIcon width={22} height={22} fill="#0F91D6" />
                 </Link>
             </div>
         </nav>

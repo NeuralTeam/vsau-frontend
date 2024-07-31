@@ -13,7 +13,7 @@ const NewsCard = ({ id, title, createdAt, img }: INewsCard) => {
     const fmtDate = new Date(createdAt * 1000).toLocaleString("ru", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" });
 
     return (
-        <Link href={`/news/${id}`} className="group duration-300 active:opacity-50">
+        <Link href={`/news/${id}`} className="group duration-300 hover:scale-105 hover:shadow-xl active:scale-100 active:opacity-50">
             <div className="flex h-[300px] w-[300px] flex-col overflow-hidden rounded-[5px] bg-white">
                 <div className="min-h-[60%] w-full overflow-hidden">
                     <Image

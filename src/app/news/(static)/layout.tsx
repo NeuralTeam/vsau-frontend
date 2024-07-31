@@ -19,14 +19,14 @@ const NewsLayout = async ({
     const news: { count_page: number; current_page: number; posts: IListPost[] } = await response.json();
 
     return (
-        <main className="grid justify-center gap-x-16 space-y-10 pt-16">
+        <main className="grid justify-center gap-x-16 space-y-7 pt-16">
             <h1 className="col-span-2 w-fit text-3xl font-semibold">Новости</h1>
             {children}
             <div className="w-fit space-y-10">
-                <h2 className="w-fit text-3xl font-semibold">Фильтры</h2>
+                <h2 className="w-fit text-xl font-semibold">Фильтры</h2>
 
                 <div className="space-y-5">
-                    <h2 className="w-fit text-3xl font-semibold">Разделы</h2>
+                    <h2 className="w-fit text-xl font-semibold">Разделы</h2>
                     <SectionFilter topics={topics} />
                 </div>
 
@@ -49,17 +49,17 @@ const NewsLayout = async ({
 
                 <div className="space-y-5">
                     <h2 className="w-fit text-3xl font-semibold">Контакты</h2>
-                    <div className="w-[300px] rounded-[5px] bg-white p-8">
-                        <p>
+                    <div className="w-[300px] space-y-1 rounded-[5px] bg-white p-8">
+                        <p className="leading-[20px]">
                             <b>E-mail:</b> pr@id.vsau.ru
                         </p>
-                        <p>
+                        <p className="leading-[20px]">
                             <b>Телефон:</b> +7(473) 253-81-57
                         </p>
-                        <p>
+                        <p className="leading-[20px]">
                             <b>Адрес:</b> Россия, 394087, г. Воронеж, ул. Мичурина, 1
                         </p>
-                        <p>
+                        <p className="leading-[20px]">
                             <b>График работы:</b> с 8:00 до 17:00, перерыв с 12:15 до 13:00
                         </p>
                     </div>

@@ -21,19 +21,19 @@ const NewsPagination = ({ pageCount }: { pageCount: number }) => {
         );
     }
     return (
-        <div className="flex h-12 items-center justify-center space-x-5">
-            <Pagination className="rounded-[10px] bg-[#EBEBEB]">
-                <PaginationContent>
+        <div className="flex items-center justify-center space-x-5">
+            <Pagination className="min-h-12 rounded-[10px] bg-[#EBEBEB]">
+                <PaginationContent className="space-x-5">
                     {pageCount > maxPages && currentPage > halfMaxPages && (
                         <PaginationItem>
                             <PaginationEllipsis />
                         </PaginationItem>
                     )}
                     {visiblePages.map((i) => (
-                        <PaginationItem key={i}>
+                        <PaginationItem key={i} className={cn(currentPage != i && "duration-100 active:scale-90")}>
                             <PaginationLink
                                 href={searchParams.get("topic") !== null ? `/news?page=${i}&topic=${searchParams.get("topic")}` : `/news?page=${i}`}
-                                className={cn("text-[#767676] opacity-30 hover:text-[#767676]", currentPage == i ? "font-bold opacity-100" : "")}
+                                className={cn("font-bold text-[#767676] opacity-30 hover:opacity-100", currentPage == i ? "opacity-100" : "")}
                             >
                                 {i}
                             </PaginationLink>
@@ -46,7 +46,9 @@ const NewsPagination = ({ pageCount }: { pageCount: number }) => {
                     )}
                 </PaginationContent>
             </Pagination>
-            <button className="w-1/3 rounded-[10px] bg-[#EBEBEB] px-10 py-2">Показать ещё</button>
+            <button className="min-h-12 w-1/3 rounded-[10px] bg-[#EBEBEB] px-10 font-bold text-[#767676] duration-300 hover:bg-[#767676] hover:text-[#EBEBEB] active:scale-90">
+                Показать ещё
+            </button>
         </div>
     );
 };
