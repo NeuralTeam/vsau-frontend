@@ -34,23 +34,29 @@ const RootCarousel = () => {
     );
 
     return (
-        <div className="-ml-[70px] flex flex-col items-center justify-center space-y-4">
+        <div className="-ml-[70px] flex flex-col items-center justify-center space-y-5">
             <Carousel setApi={setApi} opts={{ loop: true }} plugins={[Autoplay({ delay: 10000 })]}>
                 <CarouselContent>
                     {Array.from({ length: 10 }).map((_, index) => (
                         <CarouselItem key={index}>
-                            <Image src={carouselBannerRoot} priority={false} placeholder="blur" alt="#" className="max-h-[350px]" />
+                            <Image
+                                src={carouselBannerRoot}
+                                priority={false}
+                                placeholder="blur"
+                                alt="#"
+                                className="max-h-[350px] duration-300 hover:scale-105"
+                            />
                         </CarouselItem>
                     ))}
                 </CarouselContent>
             </Carousel>
 
-            <div className="flex space-x-2">
+            <div className="flex space-x-3">
                 {Array.from({ length: count }).map((_, i) => (
                     <button
                         key={i}
                         className={cn(
-                            "h-3 w-3 rounded-full duration-300",
+                            "h-2.5 w-2.5 rounded-full duration-300",
                             i + 1 == current ? "bg-[#0F91D6]" : "bg-[#3F3F3F70] hover:scale-110 hover:bg-[#0F91D650]"
                         )}
                         onClick={() => onDotButtonClick(i)}

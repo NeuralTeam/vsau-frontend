@@ -137,7 +137,7 @@ const CarouselContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HT
     const { carouselRef, orientation } = useCarousel();
 
     return (
-        <div ref={carouselRef} className="overflow-hidden">
+        <div ref={carouselRef} className="overflow-x-clip">
             <div ref={ref} className={cn("flex", orientation === "horizontal" ? "-ml-4" : "-mt-4 flex-col", className)} {...props} />
         </div>
     );
@@ -164,9 +164,18 @@ const CarouselPrevious = React.forwardRef<HTMLButtonElement, React.ComponentProp
         const { orientation, scrollPrev, canScrollPrev } = useCarousel();
 
         return (
-            <button ref={ref} className={className} disabled={!canScrollPrev} onClick={scrollPrev} {...props}>
-                <ChevronLeft color="#0F91D6" className="h-6 w-6" />
-                <span className="sr-only">Previous slide</span>
+            <button
+                ref={ref}
+                className={cn(
+                    "group flex items-center justify-center rounded-full p-0.5 duration-300",
+                    canScrollPrev && "hover:bg-[#909090] active:scale-75",
+                    className
+                )}
+                disabled={!canScrollPrev}
+                onClick={scrollPrev}
+                {...props}
+            >
+                <ChevronLeft size={24} className={cn("text-[#909090]", canScrollPrev && "duration-300 group-hover:text-[#FFFFFF]")} />
             </button>
         );
     }
@@ -178,9 +187,18 @@ const CarouselNext = React.forwardRef<HTMLButtonElement, React.ComponentProps<ty
         const { orientation, scrollNext, canScrollNext } = useCarousel();
 
         return (
-            <button ref={ref} className={className} disabled={!canScrollNext} onClick={scrollNext} {...props}>
-                <ChevronRight color="#0F91D6" className="h-6 w-6" />
-                <span className="sr-only">Next slide</span>
+            <button
+                ref={ref}
+                className={cn(
+                    "group flex items-center justify-center rounded-full p-0.5 duration-300",
+                    canScrollNext && "hover:bg-[#909090] active:scale-75",
+                    className
+                )}
+                disabled={!canScrollNext}
+                onClick={scrollNext}
+                {...props}
+            >
+                <ChevronRight size={24} className={cn("text-[#909090]", canScrollNext && "duration-300 group-hover:text-[#FFFFFF]")} />
             </button>
         );
     }
