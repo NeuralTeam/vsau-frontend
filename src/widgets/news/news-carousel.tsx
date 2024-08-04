@@ -57,7 +57,7 @@ export function CarouselSize({ title, posts }: Readonly<{ title: "Новости
                                 <NewsCard
                                     id={`${slugifyReplace(post.title, { lower: true, strict: true })}-${post.id}`}
                                     title={post.title}
-                                    createdAt={post.created_at}
+                                    createdAt={post.released_at}
                                 />
                             </div>
                         </CarouselItem>
