@@ -1,7 +1,6 @@
 import Image, { StaticImageData } from "next/image";
 import { NewsOpenPhotoDialog } from "@/widgets/news/news-open-photo-dialog";
-import { DownloadIcon, ShareIcon } from "@/shared/images/icons/other";
-import Link from "next/link";
+import { DownloadIcon } from "@/shared/images/icons/other";
 
 export function NewsGallery({ mediaId, photoList }: { mediaId?: number; photoList: StaticImageData[] }) {
     return (

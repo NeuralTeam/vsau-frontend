@@ -6,7 +6,7 @@ import { slugifyReplace } from "@/shared/libs/slugify";
 const NewsList = async ({ pagination, topic }: { pagination: { page: number; perPage: number }; topic: string }) => {
     const response = await fetch(
         `${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/posts?${topic === undefined ? "" : `topic=${topic}&`}type=1&page=${pagination.page}&perPage=${pagination.perPage}`,
-        { cache: "no-cache" }
+        { cache: "no-store" }
     );
     const newsList: { count_page: number; current_page: number; posts: IListPost[] } = await response.json();
 
@@ -21,7 +21,7 @@ const NewsList = async ({ pagination, topic }: { pagination: { page: number; per
                         id={`${slugifyReplace(post.title, { lower: true, strict: true })}-${post.id}`}
                         title={post.title}
                         body={post.body}
-                        createdAt={post.created_at}
+                        createdAt={post.released_at}
                         currentPage={pagination.page}
                     />
                 ))}

@@ -19,8 +19,8 @@ export interface IPost {
     title: string;
     body: string;
     preview_picture: string | null;
-    topic: string;
-    created_at: number;
+    topic: { id: number; title: string } | null;
+    released_at: number;
 }
 
 export interface IListPost {
@@ -31,11 +31,11 @@ export interface IListPost {
     type: number;
     topic: string;
     updated_at: number;
-    created_at: number;
+    released_at: number;
 }
 
 async function getNewsByID(id: number): Promise<IPost> {
-    return await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/posts/${id}`).then((res) => {
+    return await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/posts/${id}`, { cache: "no-store" }).then((res) => {
         const data = res.json();
         if (res.status !== 200) notFound();
 
@@ -50,12 +50,13 @@ export async function generateMetadata(
     const idSplit = params.id.split("-");
     const id = idSplit.slice(-1)[0];
     const news = await getNewsByID(+id);
-    const fmtDate = new Date(news.created_at * 1000).toLocaleString("ru", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" });
+    const fmtDate = new Date(news.released_at * 1000).toLocaleString("ru", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" });
+
     return {
         title: news.title,
         openGraph: {
             title: news.title,
-            tags: [news.topic],
+            tags: [news.topic != null ? news.topic.title : "Новости"],
             releaseDate: fmtDate
         }
     };
@@ -63,10 +64,8 @@ export async function generateMetadata(
 
 const RecommendedPosts = async () => {
     const posts: { count_page: number; current_page: number; posts: IListPost[] } = await fetch(
-        `${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/posts?type=1&page=1&perPage=4`,
-        {
-            cache: "no-cache"
-        }
+        `${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/posts?type=1&perPage=4`,
+        { cache: "no-store" }
     ).then((res) => res.json());
 
     return (
@@ -76,7 +75,7 @@ const RecommendedPosts = async () => {
                     key={data.id}
                     id={`${slugifyReplace(data.title, { lower: true, strict: true })}-${data.id}`}
                     title={data.title}
-                    createdAt={data.created_at}
+                    createdAt={data.released_at}
                 />
             ))}
         </>
@@ -95,7 +94,7 @@ const NewsIDPage = async ({ params, searchParams }: { params: { id: string }; se
         redirect(`${process.env.NEXT_PUBLIC_DOMAIN}/news/${seo_title}-${id}${searchParams.ref !== undefined ? ref : ""}`);
     }
 
-    const fmtDate = new Date(post.created_at * 1000).toLocaleString("ru", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" });
+    const fmtDate = new Date(post.released_at * 1000).toLocaleString("ru", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" });
 
     return (
         <main className="flex justify-center space-x-[5vw] pl-[calc(4vw-70px)] pr-[4vw] pt-[70px]">
@@ -112,8 +111,8 @@ const NewsIDPage = async ({ params, searchParams }: { params: { id: string }; se
                         {post.topic != null && (
                             <div className="flex text-[17px] font-normal leading-[20px] text-[#7C7C7C]">
                                 Раздел:
-                                <Link href="/news?topic=1" className="pl-2 text-[#0F91D6]">
-                                    {post.topic.charAt(0).toUpperCase() + post.topic.slice(1)}
+                                <Link href={`/news${`?topic=${post.topic.id}`}`} className="pl-2 text-[#0F91D6]">
+                                    {post.topic.title.charAt(0).toUpperCase() + post.topic.title.slice(1)}
                                 </Link>
                             </div>
                         )}
@@ -144,9 +143,15 @@ const NewsIDPage = async ({ params, searchParams }: { params: { id: string }; se
                         <NewsOpenPhotoDialog isOpen={searchParams.mediaId == 0} mediaId={0} photo={cardNewsPlug}>
                             <div className="overflow-hidden rounded-[10px]">
                                 <Image
-                                    src={cardNewsPlug}
+                                    src={
+                                        post.preview_picture === null
+                                            ? cardNewsPlug
+                                            : `${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/storage/${post.preview_picture}`
+                                    }
+                                    width={1920}
+                                    height={250}
                                     priority={false}
-                                    placeholder="blur"
+                                    placeholder="empty"
                                     alt="#"
                                     className="aspect-video object-cover transition duration-300 hover:scale-110 active:scale-100 active:opacity-50"
                                 />
