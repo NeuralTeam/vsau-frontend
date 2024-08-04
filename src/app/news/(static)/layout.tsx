@@ -10,12 +10,8 @@ const NewsLayout = async ({
 }: Readonly<{
     children: ReactNode;
 }>) => {
-    const topics: ITopic[] = await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/posts/topics`, { next: { revalidate: 3600 } }).then((res) =>
-        res.json()
-    );
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/posts?type=1&page=1&perPage=4`, {
-        next: { revalidate: 3600 }
-    });
+    const topics: ITopic[] = await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/posts/topics`, { cache: "no-store" }).then((res) => res.json());
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/posts?type=1&page=1&perPage=4`, { cache: "no-store" });
     const news: { count_page: number; current_page: number; posts: IListPost[] } = await response.json();
 
     return (
@@ -42,7 +38,7 @@ const NewsLayout = async ({
                             key={data.id}
                             id={`${slugifyReplace(data.title, { lower: true, strict: true })}-${data.id}`}
                             title={data.title}
-                            createdAt={data.created_at}
+                            createdAt={data.released_at}
                         />
                     ))}
                 </div>

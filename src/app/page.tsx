@@ -6,21 +6,15 @@ import relevantPlug from "@/shared/images/plugs/relevant.png";
 import { IListPost } from "@/app/news/[id]/page";
 
 const getNews = async (): Promise<{ count: number; posts: IListPost[] }> => {
-    return await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/posts?type=1&page=1&perPage=10`, { next: { revalidate: 3600 } }).then((res) =>
-        res.json()
-    );
+    return await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/posts?type=1&page=1&perPage=10`, { cache: "no-store" }).then((res) => res.json());
 };
 
 const getAds = async (): Promise<{ count: number; posts: IListPost[] }> => {
-    return await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/posts?type=2&page=1&perPage=10`, { next: { revalidate: 3600 } }).then((res) =>
-        res.json()
-    );
+    return await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/posts?type=2&page=1&perPage=10`, { cache: "no-store" }).then((res) => res.json());
 };
 
 const getAnnounces = async (): Promise<{ count: number; posts: IListPost[] }> => {
-    return await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/posts?type=3&page=1&perPage=10`, { next: { revalidate: 3600 } }).then((res) =>
-        res.json()
-    );
+    return await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/posts?type=3&page=1&perPage=10`, { cache: "no-store" }).then((res) => res.json());
 };
 
 const RootPage = async () => {
