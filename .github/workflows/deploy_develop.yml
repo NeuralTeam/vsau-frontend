@@ -68,4 +68,4 @@ jobs:
             docker login ${{ env.REGISTRY }} --username ${{ env.USERNAME }} --password ${{ secrets.GITHUB_TOKEN }}
             docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:develop
             docker rm -f ${{ env.CONTAINER_NAME }}
-            docker container run -d -p "127.0.0.1:3015:3000" --name ${{ env.CONTAINER_NAME }} ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:develop
+            docker container run -d -p "127.0.0.1:3015:3000" --name ${{ env.CONTAINER_NAME }} -e REVALIDATION_TOKEN=${{ secrets.REVALIDATION_TOKEN }} ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:develop

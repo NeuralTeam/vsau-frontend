@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Roboto, Rubik } from "next/font/google";
 import "@/shared/styles/globals.css";
+import "react-day-picker/style.css";
 import { ReactNode } from "react";
 import { ThemeProvider } from "@/shared/providers/theme-provider";
 import NavigationSidebar from "@/widgets/navbar/navigation-sidebar";
@@ -37,7 +38,7 @@ export default function RootLayout({
     children: ReactNode;
 }>) {
     return (
-        <html lang="ru" suppressHydrationWarning>
+        <html lang="ru" className="scroll-smooth" suppressHydrationWarning>
             <body className={rubikFont.className}>
                 <ThemeProvider attribute="class" defaultTheme="light" disableTransitionOnChange>
                     <NavigationSidebar />

@@ -4,6 +4,7 @@ import SectionFilter, { ITopic } from "@/widgets/news/news-filter";
 import NewsCard from "@/widgets/news/news-card";
 import { IListPost } from "@/app/news/[id]/page";
 import { slugifyReplace } from "@/shared/libs/slugify";
+import SectionSearchAndDate from "@/widgets/news/news-search-and-date";
 
 const NewsLayout = async ({
     children
@@ -18,8 +19,11 @@ const NewsLayout = async ({
         <main className="grid justify-center gap-x-16 space-y-7 pt-16">
             <h1 className="col-span-2 w-fit text-3xl font-semibold">Новости</h1>
             {children}
-            <div className="w-fit space-y-10">
-                <h2 className="w-fit text-xl font-semibold">Фильтры</h2>
+            <div className="w-[300px] space-y-10">
+                <div className="space-y-5">
+                    <h2 className="w-fit text-xl font-semibold">Фильтры</h2>
+                    <SectionSearchAndDate />
+                </div>
 
                 <div className="space-y-5">
                     <h2 className="w-fit text-xl font-semibold">Разделы</h2>
