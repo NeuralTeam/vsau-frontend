@@ -199,19 +199,23 @@ const NavigationSidebar = () => {
             </div>
 
             <div className={cn("flex h-[90px] w-full items-center justify-between bg-white px-16", pathname.startsWith("/sveden") && "hidden")}>
-                <Link target="_blank" href="https://vk.com/vsau1912" className="hover:scale-105">
+                <Link target="_blank" href="https://vk.com/vsau1912" className="duration-300 hover:scale-125 active:scale-100">
                     <VkIcon width={24} height={24} fill="#0F91D6" />
                 </Link>
-                <Link target="_blank" href="https://ok.ru/profile/574433460640" className="hover:scale-105">
+                <Link target="_blank" href="https://ok.ru/profile/574433460640" className="duration-300 hover:scale-125 active:scale-100">
                     <OkIcon width={22} height={22} fill="#0F91D6" />
                 </Link>
-                <Link target="_blank" href="https://t.me/vsau1912" className="hover:scale-105">
+                <Link target="_blank" href="https://t.me/vsau1912" className="duration-300 hover:scale-125 active:scale-100">
                     <TgIcon width={24} height={24} fill="#0F91D6" />
                 </Link>
-                <Link target="_blank" href="https://www.youtube.com/channel/UCF3LAx0wx0kjOW2QchlP6KQ" className="hover:scale-105">
+                <Link
+                    target="_blank"
+                    href="https://www.youtube.com/channel/UCF3LAx0wx0kjOW2QchlP6KQ"
+                    className="duration-300 hover:scale-125 active:scale-100"
+                >
                     <YtIcon width={70} height={32} fill="#0F91D6" />
                 </Link>
-                <Link target="_blank" href="https://dzen.ru/vsau1912" className="hover:scale-105">
+                <Link target="_blank" href="https://dzen.ru/vsau1912" className="duration-300 hover:scale-125 active:scale-100">
                     <DzenIcon width={22} height={22} fill="#0F91D6" />
                 </Link>
             </div>

@@ -3,7 +3,7 @@
 import { InView } from "react-intersection-observer";
 import { cn } from "@/shared/libs/shadcn-utils";
 import { useState } from "react";
-import { ITeachingStaff, ITeachingStaffBlock } from "@/shared/ui/vsau/sveden/types";
+import { ITeachingStaff, ITeachingStaffBlock, ITeachingStaffList } from "@/shared/ui/vsau/sveden/types";
 import Link from "next/link";
 
 export const TeachingStaffBlock = ({ staffList }: ITeachingStaffBlock) => {
@@ -17,7 +17,7 @@ export const TeachingStaffBlock = ({ staffList }: ITeachingStaffBlock) => {
                     acc[firstLetter] = [...(acc[firstLetter] || []), teachingStaff];
                     return acc;
                 },
-                {} as Record<string, ITeachingStaff[]>
+                {} as Record<string, ITeachingStaffList[]>
             )
         ).sort(([keyA], [keyB]) => keyA.localeCompare(keyB))
     );
@@ -70,7 +70,7 @@ export const TeachingStaffBlock = ({ staffList }: ITeachingStaffBlock) => {
                                         <Link href={`/sveden/employees/${staff.id}`} className="text-[18px]">
                                             {staff.last_name} {staff.first_name}
                                         </Link>
-                                        <p className="text-[13px]">{staff.post[0].title}</p>
+                                        <p className="text-[13px]">{staff.post}</p>
                                     </li>
                                 ))}
                             </ul>

@@ -146,11 +146,11 @@ const NewsIDPage = async ({ params, searchParams }: { params: { id: string }; se
                                     src={
                                         post.preview_picture === null
                                             ? cardNewsPlug
-                                            : `${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/storage/${post.preview_picture}`
+                                            : `${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/storage/${post.preview_picture}?bucket=posts`
                                     }
                                     width={1920}
                                     height={250}
-                                    priority={false}
+                                    priority={true}
                                     placeholder="empty"
                                     alt="#"
                                     className="aspect-video object-cover transition duration-300 hover:scale-110 active:scale-100 active:opacity-50"

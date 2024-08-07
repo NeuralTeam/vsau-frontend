@@ -25,19 +25,23 @@ const RootFooter = () => {
                 </Link>
 
                 <div className="flex items-center space-x-8">
-                    <Link target="_blank" href="https://vk.com/vsau1912" className="hover:scale-105">
+                    <Link target="_blank" href="https://vk.com/vsau1912" className="duration-300 hover:scale-125 active:scale-100 ">
                         <VkIcon width={28} height={28} fill="#030303" />
                     </Link>
-                    <Link target="_blank" href="https://ok.ru/profile/574433460640" className="hover:scale-105">
+                    <Link target="_blank" href="https://ok.ru/profile/574433460640" className="duration-300 hover:scale-125 active:scale-100 ">
                         <OkIcon width={28} height={28} fill="#030303" />
                     </Link>
-                    <Link target="_blank" href="https://t.me/vsau1912" className="hover:scale-105">
+                    <Link target="_blank" href="https://t.me/vsau1912" className="duration-300 hover:scale-125 active:scale-100 ">
                         <TgIcon width={28} height={28} fill="#030303" />
                     </Link>
-                    <Link target="_blank" href="https://www.youtube.com/channel/UCF3LAx0wx0kjOW2QchlP6KQ" className="hover:scale-105">
+                    <Link
+                        target="_blank"
+                        href="https://www.youtube.com/channel/UCF3LAx0wx0kjOW2QchlP6KQ"
+                        className="duration-300 hover:scale-125 active:scale-100 "
+                    >
                         <YtIcon width={80} height={40} fill="#030303" />
                     </Link>
-                    <Link target="_blank" href="https://dzen.ru/vsau1912" className="hover:scale-105">
+                    <Link target="_blank" href="https://dzen.ru/vsau1912" className="duration-300 hover:scale-125 active:scale-100 ">
                         <DzenIcon width={28} height={28} fill="#030303" />
                     </Link>
                 </div>

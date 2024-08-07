@@ -66,13 +66,13 @@ export const ShareBlock = () => {
 
             <div className="flex items-center space-x-5">
                 <p>Поделиться через:</p>
-                <Link target="_blank" href="https://vk.com/vsau1912">
+                <Link target="_blank" href="https://vk.com/vsau1912" className="duration-300 hover:scale-125 active:scale-100">
                     <VkIcon width={24} height={24} fill="#FFFFFF" />
                 </Link>
-                <Link target="_blank" href="https://ok.ru/profile/574433460640">
+                <Link target="_blank" href="https://ok.ru/profile/574433460640" className="duration-300 hover:scale-125 active:scale-100">
                     <OkIcon width={22} height={22} fill="#FFFFFF" />
                 </Link>
-                <Link target="_blank" href="">
+                <Link target="_blank" href="" className="duration-300 hover:scale-125 active:scale-100">
                     <TgIcon width={24} height={24} fill="#FFFFFF" />
                 </Link>
             </div>
