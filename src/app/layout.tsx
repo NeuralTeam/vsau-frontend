@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Roboto, Rubik } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "@/shared/styles/globals.css";
 import "react-day-picker/style.css";
 import { ReactNode } from "react";
@@ -8,6 +8,7 @@ import NavigationSidebar from "@/widgets/navbar/navigation-sidebar";
 import RootFooter from "@/widgets/root/root-footer";
 
 // https://fonts.google.com/specimen/Rubik
+// TODO: скачать локально шрифт Rubik
 const rubikFont = Roboto({ subsets: ["latin", "cyrillic"], weight: ["100", "300", "400", "500", "700", "900"] });
 
 export const metadata: Metadata = {
