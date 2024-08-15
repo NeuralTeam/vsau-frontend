@@ -6,18 +6,22 @@ import { IListPost } from "@/app/news/[id]/page";
 import { slugifyReplace } from "@/shared/libs/slugify";
 import Link from "next/link";
 
-export function CarouselSize({ title, posts }: Readonly<{ title: "Новости" | "Объявления" | "Анонсы"; posts: IListPost[] }>) {
+export function CarouselSize({ type, posts }: Readonly<{ type: number; posts: IListPost[] }>) {
+    let title = "";
     let link = "";
 
-    switch (title) {
-        case "Новости":
-            link = "/news";
+    switch (type) {
+        case 1:
+            title = "Новости";
+            link = "/posts/news";
             break;
-        case "Объявления":
-            link = "/news";
+        case 2:
+            title = "Объявления";
+            link = "/posts/ads";
             break;
-        case "Анонсы":
-            link = "/news";
+        case 3:
+            title = "Анонсы";
+            link = "/posts/announces";
             break;
     }
 
@@ -57,6 +61,7 @@ export function CarouselSize({ title, posts }: Readonly<{ title: "Новости
                                 <NewsCard
                                     id={`${slugifyReplace(post.title, { lower: true, strict: true })}-${post.id}`}
                                     title={post.title}
+                                    type={type}
                                     createdAt={post.released_at}
                                 />
                             </div>

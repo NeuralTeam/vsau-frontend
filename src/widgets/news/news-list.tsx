@@ -1,33 +1,28 @@
+"use client";
+
 import { LongNewsCard } from "@/widgets/news/long-news-card";
-import NewsPagination from "@/widgets/news/news-pagination";
-import { IListPost } from "@/app/news/[id]/page";
 import { slugifyReplace } from "@/shared/libs/slugify";
+import { usePostsStore } from "@/shared/providers/posts-store-provider";
 
-const NewsList = async ({ pagination, topic }: { pagination: { page: number; perPage: number }; topic: string }) => {
-    const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/posts?${topic === undefined ? "" : `topic=${topic}&`}type=1&page=${pagination.page}&perPage=${pagination.perPage}`,
-        { cache: "no-store" }
-    );
-    const newsList: { count_page: number; current_page: number; posts: IListPost[] } = await response.json();
+const NewsList = () => {
+    const { posts, searchParams } = usePostsStore((state) => state);
 
-    if (!newsList.posts.length) return <div className="h-[396px] w-[900px]">Пум Пум Пум ... Новостей по вашему запросу не нашлось</div>;
+    if (!posts.length) return <section className="h-[396px] w-[900px]">Пум Пум Пум ... Новостей по вашему запросу не нашлось</section>;
 
     return (
-        <>
-            <div className="space-y-5">
-                {newsList.posts.map((post) => (
-                    <LongNewsCard
-                        key={post.id}
-                        id={`${slugifyReplace(post.title, { lower: true, strict: true })}-${post.id}`}
-                        title={post.title}
-                        body={post.body}
-                        createdAt={post.released_at}
-                        currentPage={pagination.page}
-                    />
-                ))}
-            </div>
-            <NewsPagination pageCount={newsList.count_page} />
-        </>
+        <section className="space-y-5">
+            {posts.map((post) => (
+                <LongNewsCard
+                    key={post.id}
+                    id={`${slugifyReplace(post.title, { lower: true, strict: true })}-${post.id}`}
+                    title={post.title}
+                    body={post.body}
+                    type={post.type}
+                    createdAt={post.released_at}
+                    currentPage={searchParams.page}
+                />
+            ))}
+        </section>
     );
 };
 

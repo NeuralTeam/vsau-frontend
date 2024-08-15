@@ -6,8 +6,9 @@ import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 import carouselBannerRoot from "@/shared/images/plugs/carousel_banner_root.png";
 import { cn } from "@/shared/libs/shadcn-utils";
+import Link from "next/link";
 
-const RootCarousel = () => {
+const RootCarousel = ({ banners }: { banners: [{ id: number; link: string; picture: string; order: string }] }) => {
     const [api, setApi] = useState<CarouselApi>();
     const [current, setCurrent] = useState(0);
     const [count, setCount] = useState(0);
@@ -37,15 +38,23 @@ const RootCarousel = () => {
         <div className="-ml-[70px] flex flex-col items-center justify-center space-y-5">
             <Carousel setApi={setApi} opts={{ loop: true }} plugins={[Autoplay({ delay: 10000 })]}>
                 <CarouselContent>
-                    {Array.from({ length: 10 }).map((_, index) => (
-                        <CarouselItem key={index}>
-                            <Image
-                                src={carouselBannerRoot}
-                                priority={false}
-                                placeholder="blur"
-                                alt="#"
-                                className="max-h-[350px] duration-300 hover:scale-105"
-                            />
+                    {banners.map((banner) => (
+                        <CarouselItem key={banner.id}>
+                            <Link target="_blank" href={banner.link}>
+                                <Image
+                                    src={
+                                        banner.picture === null
+                                            ? carouselBannerRoot
+                                            : `${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/storage/${banner.picture}?bucket=posts`
+                                    }
+                                    width={1920}
+                                    height={250}
+                                    priority={true}
+                                    placeholder="empty"
+                                    alt="#"
+                                    className="max-h-[350px] duration-300 hover:scale-105"
+                                />
+                            </Link>
                         </CarouselItem>
                     ))}
                 </CarouselContent>
