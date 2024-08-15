@@ -17,6 +17,7 @@ const NewsList = () => {
                     id={`${slugifyReplace(post.title, { lower: true, strict: true })}-${post.id}`}
                     title={post.title}
                     body={post.body}
+                    type={post.type}
                     createdAt={post.released_at}
                     currentPage={searchParams.page}
                 />

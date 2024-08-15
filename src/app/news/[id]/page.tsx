@@ -19,6 +19,7 @@ export interface IPost {
     title: string;
     body: string;
     preview_picture: string | null;
+    type: number;
     topic: { id: number; title: string } | null;
     released_at: number;
 }
@@ -75,6 +76,7 @@ const RecommendedPosts = async () => {
                     key={data.id}
                     id={`${slugifyReplace(data.title, { lower: true, strict: true })}-${data.id}`}
                     title={data.title}
+                    type={data.type}
                     createdAt={data.released_at}
                 />
             ))}
@@ -94,6 +96,23 @@ const NewsIDPage = async ({ params, searchParams }: { params: { id: string }; se
         redirect(`${process.env.NEXT_PUBLIC_DOMAIN}/news/${seo_title}-${id}${searchParams.ref !== undefined ? ref : ""}`);
     }
 
+    let link = "";
+    let backTitle = "";
+    switch (post.type) {
+        case 1:
+            link = "/posts/news";
+            backTitle = "новостям";
+            break;
+        case 2:
+            link = "/posts/ads";
+            backTitle = "объявлениям";
+            break;
+        case 3:
+            link = "/posts/announces";
+            backTitle = "анонсам";
+            break;
+    }
+
     const fmtDate = new Date(post.released_at * 1000).toLocaleString("ru", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" });
 
     return (
@@ -111,7 +130,7 @@ const NewsIDPage = async ({ params, searchParams }: { params: { id: string }; se
                         {post.topic != null && (
                             <div className="flex text-[17px] font-normal leading-[20px] text-[#7C7C7C]">
                                 Раздел:
-                                <Link href={`/news${`?topic=${post.topic.id}`}`} className="pl-2 text-[#0F91D6]">
+                                <Link href={`/posts/news${`?topic=${post.topic.id}`}`} className="pl-2 text-[#0F91D6]">
                                     {post.topic.title.charAt(0).toUpperCase() + post.topic.title.slice(1)}
                                 </Link>
                             </div>
@@ -120,11 +139,11 @@ const NewsIDPage = async ({ params, searchParams }: { params: { id: string }; se
 
                     <div className="flex space-x-5">
                         <Link
-                            href={searchParams.ref ? `/${searchParams.ref}` : "/news"}
+                            href={searchParams.ref ? `/${searchParams.ref}` : link}
                             className="group flex h-fit w-fit items-center space-x-3 text-nowrap rounded-[10px] bg-[#E3E3E3FF] px-8 py-3 duration-300 hover:bg-[#767676] hover:text-[#FFFFFF] active:scale-90"
                         >
                             <BtnBackArrowIcon width={20} height={20} fill="#000000" className="duration-300 group-hover:fill-[#FFFFFF]" />
-                            <p>Назад к новостям</p>
+                            <p>Назад к {backTitle}</p>
                         </Link>
                         <Link
                             href="#share-section"

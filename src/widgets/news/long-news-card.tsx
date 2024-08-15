@@ -7,17 +7,31 @@ interface ILongNewsCard {
     id: string;
     title: string;
     body: string;
+    type: number;
     createdAt: number;
     img?: string;
     currentPage: number;
 }
 
-export const LongNewsCard = ({ id, title, body, createdAt, img, currentPage }: ILongNewsCard) => {
+export const LongNewsCard = ({ id, title, body, type, createdAt, img, currentPage }: ILongNewsCard) => {
     const fmtDate = new Date(createdAt * 1000).toLocaleString("ru", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" });
+    let link = "";
+
+    switch (type) {
+        case 1:
+            link = "/posts/news";
+            break;
+        case 2:
+            link = "/posts/ads";
+            break;
+        case 3:
+            link = "/posts/announces";
+            break;
+    }
 
     return (
         <Link
-            href={{ pathname: `/news/${id}`, query: { ref: `news?page=${currentPage}` } }}
+            href={{ pathname: `${link}/${id}`, query: { ref: `${link.substring(1)}?page=${currentPage}` } }}
             className="group block duration-300 hover:scale-105 hover:shadow-xl active:scale-100 active:opacity-50"
         >
             <div className="flex h-[178px] w-[900px] overflow-hidden rounded-[5px] bg-white">
