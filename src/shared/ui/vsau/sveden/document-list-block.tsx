@@ -13,7 +13,7 @@ export const DocumentListBlock = ({ title, itemProp, docList, className }: IDocu
                 {!docList[0].href ? (
                     <p itemProp={itemProp}>{docList[0].title}</p>
                 ) : (
-                    <Link href={docList[0].href} itemProp={itemProp}>
+                    <Link target="_blank" href={docList[0].href} itemProp={itemProp}>
                         {docList[0].title}
                     </Link>
                 )}
@@ -28,7 +28,7 @@ export const DocumentListBlock = ({ title, itemProp, docList, className }: IDocu
                         {!docEl.href ? (
                             <p itemProp={itemProp}>{docEl.title}</p>
                         ) : (
-                            <Link href={docEl.href} itemProp={itemProp}>
+                            <Link target="_blank" href={docEl.href} itemProp={itemProp}>
                                 {docEl.title}
                             </Link>
                         )}

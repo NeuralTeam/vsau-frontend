@@ -1,6 +1,23 @@
 import { TemplatePage } from "@/shared/ui/vsau/sveden";
 
-const SvedenVacantPage = () => {
+interface IVacants {
+    id: number;
+    code: string;
+    name: string;
+    level: string | null;
+    prof: string | null;
+    course: string | null;
+    form: string;
+    bf: number;
+    br: number;
+    bm: number;
+    pv: number;
+}
+
+const SvedenVacantPage = async () => {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/sveden/vacants`);
+    const vacants: IVacants[] = await response.json();
+
     return (
         <TemplatePage title="Вакантные места для приема (перевода) обучающихся">
             <div className="space-y-8 rounded-[10px] bg-white p-8">
@@ -41,37 +58,37 @@ const SvedenVacantPage = () => {
                         </tr>
                     </thead>
                     <tbody className="[&>*:nth-child(odd)]:bg-[#E7F4FB]">
-                        {Array.from({ length: 3 }).map((_, i) => (
-                            <tr key={i} itemProp="vacant">
+                        {vacants.map((el) => (
+                            <tr key={el.id} itemProp="vacant">
                                 <td itemProp="eduCode" className="px-4 py-4">
-                                    36.02.01
+                                    {el.code}
                                 </td>
                                 <td itemProp="eduName" className="px-4 py-4">
-                                    Ветеринария 3 года 10 месяцев
+                                    {el.name}
                                 </td>
                                 <td itemProp="eduLevel" className="px-4 py-4">
-                                    Среднее профессиональное образование
+                                    {el.level}
                                 </td>
                                 <td itemProp="eduProf" className="px-4 py-4">
-                                    Отсутствует
+                                    {el.prof}
                                 </td>
                                 <td itemProp="eduCourse" className="px-4 py-4">
-                                    1
+                                    {el.course}
                                 </td>
                                 <td itemProp="eduForm" className="px-4 py-4">
-                                    Очная
+                                    {el.form}
                                 </td>
                                 <td itemProp="numberBFVacant" className="px-4 py-4">
-                                    1
+                                    {el.bf}
                                 </td>
                                 <td itemProp="numberBRVacant" className="px-4 py-4">
-                                    0
+                                    {el.br}
                                 </td>
                                 <td itemProp="numberBMVacant" className="px-4 py-4">
-                                    0
+                                    {el.bm}
                                 </td>
                                 <td itemProp="numberPVacant" className="px-4 py-4">
-                                    53
+                                    {el.pv}
                                 </td>
                             </tr>
                         ))}

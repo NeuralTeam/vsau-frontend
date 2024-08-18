@@ -1,5 +1,5 @@
-import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Rubik } from "next/font/google";
 import "@/shared/styles/globals.css";
 import "react-day-picker/style.css";
 import { ReactNode } from "react";
@@ -9,7 +9,8 @@ import RootFooter from "@/widgets/root/root-footer";
 
 // https://fonts.google.com/specimen/Rubik
 // TODO: скачать локально шрифт Rubik
-const rubikFont = Roboto({ subsets: ["latin", "cyrillic"], weight: ["100", "300", "400", "500", "700", "900"] });
+const rubikFont = Rubik({ subsets: ["latin", "cyrillic"] });
+// const rubikFont = Roboto({ subsets: ["latin", "cyrillic"], weight: ["100", "300", "400", "500", "700", "900"] });
 
 export const metadata: Metadata = {
     // https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
@@ -33,6 +34,11 @@ export const metadata: Metadata = {
     // manifest: "/manifest.json"
 };
 
+export const viewport: Viewport = {
+    // TODO: принуждение телефона смотреть сайт как на ПК
+    width: "1024"
+};
+
 export default function RootLayout({
     children
 }: Readonly<{
@@ -41,13 +47,13 @@ export default function RootLayout({
     return (
         <html lang="ru" className="scroll-smooth" suppressHydrationWarning>
             <body className={rubikFont.className}>
-                <ThemeProvider attribute="class" defaultTheme="light" disableTransitionOnChange>
-                    <NavigationSidebar />
-                    <div className="ml-[470px] bg-[#F8F8F8] pl-[70px]">
-                        <div className="min-h-svh">{children}</div>
-                        <RootFooter />
-                    </div>
-                </ThemeProvider>
+                {/*<ThemeProvider attribute="class" defaultTheme="light" disableTransitionOnChange>*/}
+                <NavigationSidebar />
+                <div className="ml-[470px] bg-[#F8F8F8] pl-[70px]">
+                    <div className="min-h-svh">{children}</div>
+                    <RootFooter />
+                </div>
+                {/*</ThemeProvider>*/}
             </body>
         </html>
     );

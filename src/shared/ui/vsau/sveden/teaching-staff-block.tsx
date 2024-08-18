@@ -66,11 +66,16 @@ export const TeachingStaffBlock = ({ staffList }: ITeachingStaffBlock) => {
                             <p className="text-[26px] font-bold text-[#0F91D6]">{char.toUpperCase()}</p>
                             <ul className="relative space-y-4">
                                 {valueList.map((staff) => (
-                                    <li key={staff.id} className="flex w-full flex-col rounded-[10px] py-4 pl-10 shadow">
-                                        <Link href={`/sveden/employees/${staff.id}`} className="text-[18px]">
-                                            {staff.last_name} {staff.first_name}
+                                    <li key={staff.id}>
+                                        <Link
+                                            href={`/sveden/employees/${staff.id}`}
+                                            className="flex w-full flex-col rounded-[10px] py-4 pl-10 shadow duration-300 hover:scale-105 active:scale-100"
+                                        >
+                                            <p className="text-[18px]">
+                                                {staff.last_name} {staff.first_name}
+                                            </p>
+                                            <p className="text-[13px]">{staff.post}</p>
                                         </Link>
-                                        <p className="text-[13px]">{staff.post}</p>
                                     </li>
                                 ))}
                             </ul>
