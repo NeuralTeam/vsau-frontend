@@ -1,6 +1,32 @@
 import { DocumentListBlock, TemplatePage } from "@/shared/ui/vsau/sveden";
 
-const SvedenBudgetPage = () => {
+interface IFinInfo {
+    name: string;
+    bf: number;
+    br: number;
+    bm: number;
+    pv: number;
+}
+
+interface IVolumeInfo {
+    year: number;
+    income: number;
+    ras: number;
+    fin_plan_doc: string;
+}
+
+interface IFinancesInfo {
+    fin_info: IFinInfo[];
+    volume_info: IVolumeInfo[];
+}
+
+const SvedenBudgetPage = async () => {
+    const responseDocs = await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/sveden/documents?page=11`);
+    const docs = await responseDocs.json();
+
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/sveden/finances`);
+    const financesInfo: IFinancesInfo = await response.json();
+
     return (
         <TemplatePage title="Финансово-хозяйственная деятельность">
             <div className="space-y-8 rounded-[10px] bg-white p-8">
@@ -8,6 +34,9 @@ const SvedenBudgetPage = () => {
                 <table className="text-surface min-w-full text-left text-sm font-light">
                     <thead className="sticky top-0 z-10 bg-[#0F91D6] font-medium">
                         <tr>
+                            <th scope="col" className="px-4 py-4 text-white">
+                                Наименование
+                            </th>
                             <th scope="col" className="px-4 py-4 text-white">
                                 За счёт бюджетных ассигнований федерального бюджета (тыс. руб.)
                             </th>
@@ -23,19 +52,20 @@ const SvedenBudgetPage = () => {
                         </tr>
                     </thead>
                     <tbody className="[&>*:nth-child(odd)]:bg-[#E7F4FB]">
-                        {Array.from({ length: 3 }).map((_, i) => (
-                            <tr key={i}>
+                        {financesInfo.fin_info.map((el) => (
+                            <tr key={el.name}>
+                                <td className="px-4 py-4">{el.name}</td>
                                 <td itemProp="finBFVolume" className="px-4 py-4">
-                                    340932
+                                    {el.bf}
                                 </td>
                                 <td itemProp="finBRVolume" className="px-4 py-4">
-                                    0
+                                    {el.br}
                                 </td>
                                 <td itemProp="finBMVolume" className="px-4 py-4">
-                                    0
+                                    {el.bm}
                                 </td>
                                 <td itemProp="finPVolume" className="px-4 py-4">
-                                    172676.1
+                                    {el.pv}
                                 </td>
                             </tr>
                         ))}
@@ -62,16 +92,16 @@ const SvedenBudgetPage = () => {
                         </tr>
                     </thead>
                     <tbody className="[&>*:nth-child(odd)]:bg-[#E7F4FB]">
-                        {Array.from({ length: 3 }).map((_, i) => (
-                            <tr itemProp="volume" key={i}>
+                        {financesInfo.volume_info.map((el) => (
+                            <tr itemProp="volume" key={el.year}>
                                 <td itemProp="finYear" className="px-4 py-4">
-                                    2021
+                                    {el.year}
                                 </td>
                                 <td itemProp="finPost" className="px-4 py-4">
-                                    983279.91
+                                    {el.income}
                                 </td>
                                 <td itemProp="finRas" className="px-4 py-4">
-                                    938021.31
+                                    {el.ras}
                                 </td>
                             </tr>
                         ))}
@@ -82,16 +112,7 @@ const SvedenBudgetPage = () => {
             <DocumentListBlock
                 title="Утвержденный план финансово-хозяйственной деятельности образовательной организации или бюджетные сметы образовательной организации"
                 itemProp="finPlanDocLink"
-                docList={[
-                    {
-                        id: 1,
-                        title: "Приказ №421 от 31.12.2020 “О внесении изменений и дополнений в приказ от 29.12.2017 №524 “Об утверждении учетной политики”"
-                    },
-                    {
-                        id: 2,
-                        title: "Приказ №578 от 29.12.2021 “О внесении изменений и дополнений в приказ от 29.12.2017 №524 “Об утверждении учетной политики”"
-                    }
-                ]}
+                docList={docs[1]}
             />
         </TemplatePage>
     );

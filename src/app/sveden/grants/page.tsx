@@ -1,19 +1,32 @@
-import { Dot } from "lucide-react";
-import Link from "next/link";
 import { Block, DocumentListBlock, TemplatePage } from "@/shared/ui/vsau/sveden";
 
-const SvedenGrantsPage = () => {
+interface IGrantsInfo {
+    hostel_info: number;
+    hostel_num: number;
+    hostel_num_ovz: number;
+    inter_info: number;
+    inter_num: number;
+    inter_num_ovz: number;
+}
+
+const SvedenGrantsPage = async () => {
+    const responseDocs = await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/sveden/documents?page=9`);
+    const docs = await responseDocs.json();
+
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/sveden/grants`);
+    const grantsInfo: IGrantsInfo = await response.json();
+
     return (
         <TemplatePage title="Стипендии и меры поддержки виды обучающихся">
             <DocumentListBlock
                 title="Локальные нормативные акты, которыми регламентируется наличие и условия предоставления стипендий"
                 itemProp="localAct"
-                docList={[]}
+                docList={docs[1]}
             />
 
-            <DocumentListBlock title="Информация о предоставлении стипендии обучающимся" itemProp="grant" docList={[]} />
+            <DocumentListBlock title="Информация о предоставлении стипендии обучающимся" itemProp="grant" docList={docs[2]} />
 
-            <DocumentListBlock title="Информация о мерах социальной поддержки обучающихся" itemProp="support" docList={[]} />
+            <DocumentListBlock title="Информация о мерах социальной поддержки обучающихся" itemProp="support" docList={docs[3]} />
 
             <Block title="Сведения об общежитии, интернате, количестве жилых помещений в общежитии, интернате для иногородних обучающихся">
                 <table className="text-surface min-w-full text-left text-sm font-light">
@@ -36,10 +49,10 @@ const SvedenGrantsPage = () => {
                                 Количество общежитий/интернатов
                             </th>
                             <td itemProp="hostelInfo" className="max-w-10 px-4 py-4 text-center">
-                                111
+                                {grantsInfo.hostel_info}
                             </td>
                             <td itemProp="interInfo" className="max-w-10 px-4 py-4 text-center">
-                                111111
+                                {grantsInfo.inter_info}
                             </td>
                         </tr>
                         <tr>
@@ -47,10 +60,10 @@ const SvedenGrantsPage = () => {
                                 Количество мест
                             </th>
                             <td itemProp="hostelNum" className="max-w-16 px-4 py-4 text-center">
-                                222
+                                {grantsInfo.hostel_num}
                             </td>
                             <td itemProp="interNum" className="max-w-16 px-4 py-4 text-center">
-                                222222
+                                {grantsInfo.inter_num}
                             </td>
                         </tr>
                         <tr>
@@ -59,21 +72,17 @@ const SvedenGrantsPage = () => {
                                 здоровья
                             </th>
                             <td itemProp="hostelNumOvz" className="max-w-32 px-4 py-4 text-center">
-                                333
+                                {grantsInfo.hostel_num_ovz}
                             </td>
                             <td itemProp="interNumOvz" className="max-w-32 px-4 py-4 text-center">
-                                333333
+                                {grantsInfo.inter_num_ovz}
                             </td>
                         </tr>
                     </tbody>
                 </table>
-                <div className="flex items-center text-[18px] text-[#0F91D6] underline underline-offset-2">
-                    <Dot className="min-h-6 min-w-6" />
-                    <Link href="#" itemProp="localActObSt">
-                        Информация о формировании платы за проживание в общежитии
-                    </Link>
-                </div>
             </Block>
+
+            <DocumentListBlock title="Информация о формировании платы за проживание в общежитии" itemProp="localActObSt" docList={docs[4]} />
         </TemplatePage>
     );
 };

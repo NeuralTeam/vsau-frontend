@@ -1,17 +1,23 @@
 import { ShareBlock } from "@/shared/ui/vsau/share-block";
-import { Dot, Files, Share2, UserRound } from "lucide-react";
+import { Dot, UserRound } from "lucide-react";
 import { ITeachingStaff } from "@/shared/ui/vsau/sveden/types";
 import Link from "next/link";
+import { BackArrowIcon } from "@/shared/images/icons/navigation-menu";
+import { CopyIcon, ShareIcon } from "@/shared/images/icons/other";
 
 const SvedenEmployerPage = async ({ params }: { params: { id: string } }) => {
     const response = await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/sveden/employees/${params.id}`);
     const staff: ITeachingStaff = await response.json();
 
     return (
-        <div className="space-y-4 pr-[70px] pt-[50px]">
+        <div className="w-[calc(100vw-540px)] space-y-4 pr-[70px] pt-[50px]">
             <div className="flex space-x-4">
-                <div className="rounded-[10px] bg-white p-8"></div>
-                <div className="flex items-center justify-center space-x-8 rounded-[10px] bg-white p-8">
+                <div className="flex items-center rounded-[10px] bg-white p-8">
+                    <Link href="/sveden/employees">
+                        <BackArrowIcon width={28} height={28} className="duration-300 hover:scale-110 active:scale-100" />
+                    </Link>
+                </div>
+                <div className="flex min-w-[50%] items-center space-x-8 rounded-[10px] bg-white p-8">
                     <div className="flex min-h-32 min-w-32 justify-center overflow-hidden rounded-full bg-[#ECEBEB]">
                         <UserRound size={112} strokeWidth={1} fill="#FFFFFF" color="#FFFFFF" className="relative top-8" />
                     </div>
@@ -22,14 +28,14 @@ const SvedenEmployerPage = async ({ params }: { params: { id: string } }) => {
                 </div>
                 <div className="flex w-full flex-col items-end space-y-4">
                     <button className="flex h-fit w-fit items-center space-x-2 text-nowrap rounded-[10px] bg-[#E3E3E3FF] px-6 py-3">
-                        <Files size={20} strokeWidth={2} />
+                        <CopyIcon width={20} height={20} />
                         <p>Скопировать данные</p>
                     </button>
                     <Link
                         href="#share-section"
-                        className="flex h-fit w-fit items-center space-x-2 text-nowrap rounded-[10px] bg-[#E3E3E3FF] px-6 py-3"
+                        className="group flex h-fit w-fit items-center space-x-3 text-nowrap rounded-[10px] bg-[#E3E3E3FF] px-8 py-3 duration-300 hover:bg-[#767676] hover:text-[#FFFFFF] active:scale-90"
                     >
-                        <Share2 size={20} strokeWidth={3} />
+                        <ShareIcon width={20} height={20} className="duration-300 group-hover:fill-[#FFFFFF]" />
                         <p>Поделиться</p>
                     </Link>
                 </div>
