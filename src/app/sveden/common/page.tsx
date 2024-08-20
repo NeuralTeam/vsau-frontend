@@ -45,7 +45,7 @@ interface IMainInfo {
 }
 
 const SvedenCommonPage = async () => {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/sveden/main-info`);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/sveden/common`);
     const mainInfo: IMainInfo = await response.json();
 
     return (
