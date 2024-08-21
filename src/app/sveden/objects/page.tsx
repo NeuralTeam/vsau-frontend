@@ -14,10 +14,6 @@ const SvedenObjectsPage = async () => {
 
     const response = await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/sveden/objects`);
     const objectsInfo: IObjectsInfo = await response.json();
-    // TODO: исправить на бэкенде
-    objectsInfo.practices = [];
-    objectsInfo.libraries = [];
-    objectsInfo.sports = [];
 
     return (
         <TemplatePage title="Материально-техническое обеспечение и оснащённость образовательного процесса. Доступная среда">
