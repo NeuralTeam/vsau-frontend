@@ -1,6 +1,6 @@
 import { Block, DocumentListBlock, TemplatePage } from "@/shared/ui/vsau/sveden";
 
-interface IGrantsInfo {
+export interface IGrantsInfo {
     hostel_info: number;
     hostel_num: number;
     hostel_num_ovz: number;

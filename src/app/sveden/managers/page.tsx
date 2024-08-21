@@ -1,25 +1,24 @@
 import Image from "next/image";
-import { Block, TemplatePage } from "@/shared/ui/vsau/sveden";
+import { TemplatePage } from "@/shared/ui/vsau/sveden";
 import Link from "next/link";
-
-interface IManagersContacts {
-    workplace: string;
-    tels: string[];
-    emails: string[];
-}
 
 interface IManagersPerson {
     name: string;
     post: string;
-    photo?: string;
-    contacts: IManagersContacts;
+    tel: string;
+    email: string;
+    workplace: string | null;
+    photo_link: string | null;
 }
 
 interface IManagersFil {
+    fil_name: string;
     name: string;
     post: string;
-    fil_name: string;
-    contacts: IManagersContacts;
+    tel: string;
+    email: string;
+    workplace: string | null;
+    photo_link: string | null;
 }
 
 interface IManagers {
@@ -52,9 +51,9 @@ const SvedenManagersPage = async () => {
                             </div>
                             <div className="space-y-0.5 text-[17px] font-light leading-[18px]">
                                 <p itemProp="telephone">
-                                    {value.contacts.tels[0]} / {value.contacts.workplace}
+                                    {value.tel} / {value.workplace}
                                 </p>
-                                <p itemProp="email">{value.contacts.emails[0]}</p>
+                                <p itemProp="email">{value.email}</p>
                             </div>
                         </div>
                     </div>
@@ -75,13 +74,11 @@ const SvedenManagersPage = async () => {
                             </div>
                             <div className="flex flex-col space-y-1 text-[17px] font-light leading-[18px]">
                                 <p itemProp="telephone">
-                                    {value.contacts.tels[0].split("/").length == 2
-                                        ? `${value.contacts.tels[0].split("/")[0]} (доб. ${value.contacts.tels[0].split("/")[1]})`
-                                        : value.contacts.tels[0]}{" "}
-                                    / {value.contacts.workplace}
+                                    {value.tel.split("/").length == 2 ? `${value.tel.split("/")} (доб. ${value.tel.split("/")[1]})` : value.tel} /{" "}
+                                    {value.workplace}
                                 </p>
-                                <Link href={`mailto:${value.contacts.emails[0]}`} itemProp="email">
-                                    {value.contacts.emails[0]}
+                                <Link href={`mailto:${value.email}`} itemProp="email">
+                                    {value.email}
                                 </Link>
                             </div>
                         </div>
@@ -109,10 +106,10 @@ const SvedenManagersPage = async () => {
                                 </p>
                             </div>
                             <div className="flex flex-col space-y-1 text-[17px] font-light leading-[20px]">
-                                <p>{value.contacts.workplace}</p>
-                                <p itemProp="telephone">{value.contacts.tels[0]}</p>
-                                <Link href={`mailto:${value.contacts.emails[0]}`} itemProp="email">
-                                    {value.contacts.emails[0]}
+                                <p>{value.workplace}</p>
+                                <p itemProp="telephone">{value.tel}</p>
+                                <Link href={`mailto:${value.email}`} itemProp="email">
+                                    {value.email}
                                 </Link>
                             </div>
                         </div>
@@ -140,10 +137,10 @@ const SvedenManagersPage = async () => {
                                 </p>
                             </div>
                             <div className="flex flex-col space-y-1 text-[17px] font-light leading-[20px]">
-                                <p>{value.contacts.workplace}</p>
-                                <p itemProp="telephone">{value.contacts.tels[0]}</p>
-                                <Link href={`mailto:${value.contacts.emails[0]}`} itemProp="email">
-                                    {value.contacts.emails[0]}
+                                <p>{value.workplace}</p>
+                                <p itemProp="telephone">{value.tel}</p>
+                                <Link href={`mailto:${value.email}`} itemProp="email">
+                                    {value.email}
                                 </Link>
                             </div>
                         </div>
