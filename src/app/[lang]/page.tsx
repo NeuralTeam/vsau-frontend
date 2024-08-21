@@ -3,7 +3,8 @@ import Link from "next/link";
 import { CarouselSize } from "@/widgets/news/news-carousel";
 import Image from "next/image";
 import relevantPlug from "@/shared/images/plugs/relevant.png";
-import { IListPost } from "@/app/news/[id]/page";
+import { IListPost } from "@/app/[lang]/news/[id]/page";
+import { headers } from "next/headers";
 
 const getNews = async (): Promise<{ count: number; posts: IListPost[] }> => {
     return await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/posts?type=1&page=1&perPage=10`, { cache: "no-store" }).then((res) => res.json());

@@ -2,9 +2,8 @@ import NewsList from "@/widgets/news/news-list";
 import NewsPagination from "@/widgets/news/news-pagination";
 import { CounterStoreProvider } from "@/shared/providers/posts-store-provider";
 import SectionFilter, { ITopic } from "@/widgets/news/news-filter";
-import { IListPost } from "@/app/news/[id]/page";
+import { IListPost } from "@/app/[lang]/news/[id]/page";
 import SectionSearchAndDate from "@/widgets/news/news-search-and-date";
-import Link from "next/link";
 import NewsCard from "@/widgets/news/news-card";
 import { slugifyReplace } from "@/shared/libs/slugify";
 

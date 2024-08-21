@@ -2,7 +2,7 @@
 
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/shared/ui/shadcn/carousel";
 import NewsCard from "@/widgets/news/news-card";
-import { IListPost } from "@/app/news/[id]/page";
+import { IListPost } from "@/app/[lang]/news/[id]/page";
 import { slugifyReplace } from "@/shared/libs/slugify";
 import Link from "next/link";
 

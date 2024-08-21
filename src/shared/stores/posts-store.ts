@@ -1,5 +1,5 @@
 import { createStore } from "zustand/vanilla";
-import { IListPost } from "@/app/news/[id]/page";
+import { IListPost } from "@/app/[lang]/news/[id]/page";
 import { ITopic } from "@/widgets/news/news-filter";
 
 export type PostsState = {
