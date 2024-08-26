@@ -2,6 +2,12 @@
 
 import { Block } from "@/shared/ui/vsau/sveden";
 import { Dialog, DialogContent, DialogTrigger } from "@/shared/ui/shadcn/dialog";
+import Link from "next/link";
+
+interface IFile {
+    title: string;
+    link: string | null;
+}
 
 interface IEduAccred {
     id: number;
@@ -12,8 +18,8 @@ interface IEduAccred {
     form: string;
     learning_term: string;
     date_end: string;
-    pred: string;
-    prac: string;
+    pred: IFile[];
+    prac: IFile[];
     el: string;
 }
 
@@ -87,34 +93,34 @@ export const EducationTables = ({ tableData }: { tableData: IEducation }) => {
                         <table className="min-w-full text-left text-sm font-light">
                             <thead className="sticky top-0 z-10 border-b border-neutral-200 bg-[#0F91D6] font-medium">
                                 <tr className="text-white">
-                                    <th scope="col" className="px-4 py-4 text-center">
+                                    <th scope="col" className="px-4 py-4 align-text-bottom">
                                         Код специальности
                                     </th>
-                                    <th scope="col" className="px-4 py-4 text-center">
+                                    <th scope="col" className="px-4 py-4 align-text-bottom">
                                         Наименование специальности, направления подготовки
                                     </th>
-                                    <th scope="col" className="px-4 py-4 text-center">
+                                    <th scope="col" className="px-4 py-4 align-text-bottom">
                                         Образовательная программа, направленность, профиль, шифр и наименование научной специальности
                                     </th>
-                                    <th scope="col" className="px-4 py-4 text-center">
+                                    <th scope="col" className="px-4 py-4 align-text-bottom">
                                         Уровень образования
                                     </th>
-                                    <th scope="col" className="px-4 py-4 text-center">
+                                    <th scope="col" className="px-4 py-4 align-text-bottom">
                                         Форма обучения
                                     </th>
-                                    <th scope="col" className="px-4 py-4 text-center">
+                                    <th scope="col" className="px-4 py-4 align-text-bottom">
                                         Нормативный срок обучения
                                     </th>
-                                    <th scope="col" className="px-4 py-4 text-center">
+                                    <th scope="col" className="px-4 py-4 align-text-bottom">
                                         Срок действия государственной аккредитации образовательной программы
                                     </th>
-                                    <th scope="col" className="px-4 py-4 text-center">
+                                    <th scope="col" className="px-2 py-4 align-text-bottom">
                                         Учебные предметы, курсы, дисциплины (модули)
                                     </th>
-                                    <th scope="col" className="px-4 py-4 text-center">
+                                    <th scope="col" className="px-2 py-4 align-text-bottom">
                                         Практики
                                     </th>
-                                    <th scope="col" className="px-4 py-4 text-center">
+                                    <th scope="col" className="px-2 py-4 align-text-bottom">
                                         Информация об использовании при реализации образовательных программ электронного обучения и дистанционных
                                         образовательных технологий
                                     </th>
@@ -144,13 +150,29 @@ export const EducationTables = ({ tableData }: { tableData: IEducation }) => {
                                         <td itemProp="dateEnd" className="whitespace px-4 py-4 text-start align-text-top">
                                             {el.date_end}
                                         </td>
-                                        <td itemProp="eduPred" className="whitespace px-4 py-4 text-start align-text-top">
-                                            {el.pred}
+                                        <td itemProp="eduPred" className="whitespace px-2 py-4 text-start align-text-top">
+                                            {el.pred[0].title}
                                         </td>
-                                        <td itemProp="eduPrac" className="whitespace px-4 py-4 text-start align-text-top">
-                                            {el.prac}
+                                        <td itemProp="eduPrac" className="whitespace-nowrap px-2 py-4 text-start align-text-top">
+                                            <ul className="space-y-2">
+                                                {el.prac.map((p) => (
+                                                    <li key={p.title}>
+                                                        {p.link !== null ? (
+                                                            <Link
+                                                                href={p.link}
+                                                                target="_blank"
+                                                                className="underline-offset-2 duration-300 hover:underline"
+                                                            >
+                                                                {p.title}
+                                                            </Link>
+                                                        ) : (
+                                                            <p>{p.title}</p>
+                                                        )}
+                                                    </li>
+                                                ))}
+                                            </ul>
                                         </td>
-                                        <td itemProp="eduEl" className="whitespace px-4 py-4 text-start align-text-top">
+                                        <td itemProp="eduEl" className="whitespace px-2 py-4 text-center align-text-top">
                                             {el.el}
                                         </td>
                                     </tr>
