@@ -5,3 +5,4 @@ export { Block } from "@/shared/ui/vsau/sveden/block";
 export { TeachingStaffBlock } from "@/shared/ui/vsau/sveden/teaching-staff-block";
 export { CollapsingObjectsTable } from "@/shared/ui/vsau/sveden/collapsing-objects-table";
 export { CollapsingCateringTable } from "@/shared/ui/vsau/sveden/collapsing-catering-table";
+export { EducationTables } from "@/shared/ui/vsau/sveden/education-tables";
