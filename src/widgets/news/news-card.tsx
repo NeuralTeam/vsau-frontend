@@ -1,6 +1,7 @@
 import cardNewsPlug from "@/shared/images/plugs/card_news.png";
 import Image from "next/image";
 import Link from "next/link";
+import { AspectRatio } from "@/shared/ui/shadcn/aspect-ratio";
 
 interface INewsCard {
     id: string;
@@ -30,15 +31,16 @@ const NewsCard = ({ id, title, type, createdAt, img }: INewsCard) => {
         <Link href={`${link}/${id}`} className="group duration-300 hover:scale-105 hover:shadow-xl active:scale-100 active:opacity-50">
             <div className="flex h-[300px] w-[300px] flex-col overflow-hidden rounded-[5px] bg-white">
                 <div className="min-h-[60%] w-full overflow-hidden">
-                    <Image
-                        src={img === null ? cardNewsPlug : `${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/storage/${img}?bucket=posts`}
-                        priority={false}
-                        width={1920}
-                        height={1080}
-                        placeholder="empty"
-                        alt="#"
-                        className="w-full object-cover transition duration-300 group-hover:scale-105 group-active:scale-100"
-                    />
+                    <AspectRatio ratio={16 / 9}>
+                        <Image
+                            src={img === null ? cardNewsPlug : `${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/storage/${img}?bucket=posts`}
+                            priority={false}
+                            fill
+                            placeholder="empty"
+                            alt="#"
+                            className="w-full object-cover transition duration-300 group-hover:scale-105 group-active:scale-100"
+                        />
+                    </AspectRatio>
                 </div>
                 <div className="mx-5 mb-2 mt-4 flex h-full flex-col justify-between">
                     <p className="line-clamp-4 w-fit text-[15px] font-semibold leading-[17px]">{title}</p>

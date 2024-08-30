@@ -47,12 +47,12 @@ export const ShareBlock = () => {
                 >
                     {open ? (
                         <>
-                            <CircleCheck size={20} strokeWidth={2} color="#0F91D6" />
+                            <CircleCheck size={20} strokeWidth={2} color="#0F91D6" className="min-h-5 min-w-5" />
                             <p className="text-[#0F91D6]">Скопировано</p>
                         </>
                     ) : (
                         <>
-                            <CopyIcon width={20} height={20} fill="#000000" className="duration-300 group-hover:fill-[#0F91D6]" />
+                            <CopyIcon width={20} height={20} fill="#000000" className="min-h-5 min-w-5 duration-300 group-hover:fill-[#0F91D6]" />
                             <p className="duration-300 group-hover:text-[#0F91D6]">Скопировать ссылку</p>
                         </>
                     )}
