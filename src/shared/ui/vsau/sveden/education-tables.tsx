@@ -18,7 +18,7 @@ interface IEduAccred {
     form: string;
     learning_term: string;
     date_end: string;
-    pred: IFile[];
+    pred: IFile;
     prac: IFile[];
     el: string;
 }
@@ -40,12 +40,12 @@ interface IEduOp {
     level: string;
     prof: string;
     form: string;
-    main: string;
-    plan: string;
-    rpd: string;
-    shedule: string;
-    pr: string;
-    methodology: string;
+    main: IFile[];
+    plan: IFile[];
+    rpd: IFile[];
+    shedule: IFile[];
+    pr: IFile[];
+    methodology: IFile[];
 }
 
 interface IEduNir {
@@ -151,7 +151,13 @@ export const EducationTables = ({ tableData }: { tableData: IEducation }) => {
                                             {el.date_end}
                                         </td>
                                         <td itemProp="eduPred" className="whitespace px-2 py-4 text-start align-text-top">
-                                            {el.pred[0].title}
+                                            {el.pred.link !== null ? (
+                                                <Link href={el.pred.link} target="_blank" className="underline-offset-2 duration-300 hover:underline">
+                                                    {el.pred.title}
+                                                </Link>
+                                            ) : (
+                                                <p>{el.pred.title}</p>
+                                            )}
                                         </td>
                                         <td itemProp="eduPrac" className="whitespace-nowrap px-2 py-4 text-start align-text-top">
                                             <ul className="space-y-2">
@@ -353,38 +359,134 @@ export const EducationTables = ({ tableData }: { tableData: IEducation }) => {
                             <tbody className="[&>*:nth-child(odd)]:bg-[#E7F4FB]">
                                 {tableData.edu_op.map((el) => (
                                     <tr key={el.id} itemProp="eduOp" className="border-b border-neutral-200">
-                                        <td itemProp="eduCode" className="whitespace px-4 py-4 text-center">
+                                        <td itemProp="eduCode" className="whitespace px-4 py-4 text-start align-text-top">
                                             {el.code}
                                         </td>
-                                        <td itemProp="eduName" className="whitespace px-4 py-4 text-center">
+                                        <td itemProp="eduName" className="whitespace px-4 py-4 text-start align-text-top">
                                             {el.name}
                                         </td>
-                                        <td itemProp="eduLevel" className="whitespace px-4 py-4 text-center">
+                                        <td itemProp="eduLevel" className="whitespace px-4 py-4 text-start align-text-top">
                                             {el.level}
                                         </td>
-                                        <td itemProp="eduProf" className="whitespace px-4 py-4 text-center">
+                                        <td itemProp="eduProf" className="whitespace px-4 py-4 text-start align-text-top">
                                             {el.prof}
                                         </td>
-                                        <td itemProp="eduForm" className="whitespace px-4 py-4 text-center">
+                                        <td itemProp="eduForm" className="whitespace px-4 py-4 text-start align-text-top">
                                             {el.form}
                                         </td>
-                                        <td itemProp="opMain" className="whitespace px-4 py-4 text-center">
-                                            {el.main}
+                                        <td itemProp="opMain" className="whitespace px-4 py-4 text-start align-text-top">
+                                            <ul className="space-y-2">
+                                                {el.main.map((p) => (
+                                                    <li key={p.title}>
+                                                        {p.link !== null ? (
+                                                            <Link
+                                                                href={p.link}
+                                                                target="_blank"
+                                                                className="underline-offset-2 duration-300 hover:underline"
+                                                            >
+                                                                {p.title}
+                                                            </Link>
+                                                        ) : (
+                                                            <p>{p.title}</p>
+                                                        )}
+                                                    </li>
+                                                ))}
+                                            </ul>
                                         </td>
-                                        <td itemProp="educationPlan" className="whitespace px-4 py-4 text-center">
-                                            {el.plan}
+                                        <td itemProp="educationPlan" className="whitespace px-4 py-4 text-start align-text-top">
+                                            <ul className="space-y-2">
+                                                {el.plan.map((p) => (
+                                                    <li key={p.title}>
+                                                        {p.link !== null ? (
+                                                            <Link
+                                                                href={p.link}
+                                                                target="_blank"
+                                                                className="underline-offset-2 duration-300 hover:underline"
+                                                            >
+                                                                {p.title}
+                                                            </Link>
+                                                        ) : (
+                                                            <p>{p.title}</p>
+                                                        )}
+                                                    </li>
+                                                ))}
+                                            </ul>
                                         </td>
-                                        <td itemProp="educationRpd" className="whitespace px-4 py-4 text-center">
-                                            {el.rpd}
+                                        <td itemProp="educationRpd" className="whitespace px-4 py-4 text-start align-text-top">
+                                            <ul className="space-y-2">
+                                                {el.rpd.map((p) => (
+                                                    <li key={p.title}>
+                                                        {p.link !== null ? (
+                                                            <Link
+                                                                href={p.link}
+                                                                target="_blank"
+                                                                className="underline-offset-2 duration-300 hover:underline"
+                                                            >
+                                                                {p.title}
+                                                            </Link>
+                                                        ) : (
+                                                            <p>{p.title}</p>
+                                                        )}
+                                                    </li>
+                                                ))}
+                                            </ul>
                                         </td>
-                                        <td itemProp="educationShedule" className="whitespace px-4 py-4 text-center">
-                                            {el.shedule}
+                                        <td itemProp="educationShedule" className="whitespace px-4 py-4 text-start align-text-top">
+                                            <ul className="space-y-2">
+                                                {el.shedule.map((p) => (
+                                                    <li key={p.title}>
+                                                        {p.link !== null ? (
+                                                            <Link
+                                                                href={p.link}
+                                                                target="_blank"
+                                                                className="underline-offset-2 duration-300 hover:underline"
+                                                            >
+                                                                {p.title}
+                                                            </Link>
+                                                        ) : (
+                                                            <p>{p.title}</p>
+                                                        )}
+                                                    </li>
+                                                ))}
+                                            </ul>
                                         </td>
-                                        <td itemProp="eduPr" className="whitespace px-4 py-4 text-center">
-                                            {el.pr}
+                                        <td itemProp="eduPr" className="whitespace px-4 py-4 text-start align-text-top">
+                                            <ul className="space-y-2">
+                                                {el.pr.map((p) => (
+                                                    <li key={p.title}>
+                                                        {p.link !== null ? (
+                                                            <Link
+                                                                href={p.link}
+                                                                target="_blank"
+                                                                className="underline-offset-2 duration-300 hover:underline"
+                                                            >
+                                                                {p.title}
+                                                            </Link>
+                                                        ) : (
+                                                            <p>{p.title}</p>
+                                                        )}
+                                                    </li>
+                                                ))}
+                                            </ul>
                                         </td>
-                                        <td itemProp="methodology" className="whitespace px-4 py-4 text-center">
-                                            {el.methodology}
+                                        <td itemProp="methodology" className="whitespace px-4 py-4 text-start align-text-top">
+                                            <ul className="space-y-2">
+                                                {el.methodology.map((p) => (
+                                                    <li key={p.title}>
+                                                        {p.link !== null ? (
+                                                            <Link
+                                                                href={p.link}
+                                                                target="_blank"
+                                                                className="underline-offset-2 duration-300 hover:underline"
+                                                            >
+                                                                {p.title}
+                                                            </Link>
+                                                        ) : (
+                                                            <p>{p.title}</p>
+                                                        )}
+                                                    </li>
+                                                ))}
+                                            </ul>
                                         </td>
                                     </tr>
                                 ))}
@@ -460,22 +562,22 @@ export const EducationTables = ({ tableData }: { tableData: IEducation }) => {
                                             {el.form}
                                         </td>
                                         <td itemProp="opMain" className="whitespace px-4 py-4 text-center">
-                                            {el.main}
+                                            {/*{el.main}*/}
                                         </td>
                                         <td itemProp="educationPlan" className="whitespace px-4 py-4 text-center">
-                                            {el.plan}
+                                            {/*{el.plan}*/}
                                         </td>
                                         <td itemProp="educationRpd" className="whitespace px-4 py-4 text-center">
-                                            {el.rpd}
+                                            {/*{el.rpd}*/}
                                         </td>
                                         <td itemProp="educationShedule" className="whitespace px-4 py-4 text-center">
-                                            {el.shedule}
+                                            {/*{el.shedule}*/}
                                         </td>
                                         <td itemProp="eduPr" className="whitespace px-4 py-4 text-center">
-                                            {el.pr}
+                                            {/*{el.pr}*/}
                                         </td>
                                         <td itemProp="methodology" className="whitespace px-4 py-4 text-center">
-                                            {el.methodology}
+                                            {/*{el.methodology}*/}
                                         </td>
                                     </tr>
                                 ))}
