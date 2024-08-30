@@ -3,9 +3,9 @@ import { Rubik } from "next/font/google";
 import "@/shared/styles/globals.css";
 import "react-day-picker/style.css";
 import { ReactNode } from "react";
-import { ThemeProvider } from "@/shared/providers/theme-provider";
 import NavigationSidebar from "@/widgets/navbar/navigation-sidebar";
 import RootFooter from "@/widgets/root/root-footer";
+import Script from "next/script";
 
 // https://fonts.google.com/specimen/Rubik
 // TODO: скачать локально шрифт Rubik
@@ -47,14 +47,14 @@ export default function RootLayout({
     return (
         <html lang="ru" className="scroll-smooth" suppressHydrationWarning>
             <body className={rubikFont.className}>
-                {/*<ThemeProvider attribute="class" defaultTheme="light" disableTransitionOnChange>*/}
                 <NavigationSidebar />
                 <div className="ml-[470px] bg-[#F8F8F8] pl-[70px]">
                     <div className="min-h-svh">{children}</div>
                     <RootFooter />
                 </div>
-                {/*</ThemeProvider>*/}
             </body>
+            <Script src="/jquery.js" />
+            <Script src="/uhpv-full.js" />
         </html>
     );
 }
