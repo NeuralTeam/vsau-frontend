@@ -121,7 +121,7 @@ const NewsIDPage = async ({ params, searchParams }: { params: { id: string }; se
         <main className="flex justify-center space-x-[5vw] pl-[calc(4vw-70px)] pr-[4vw] pt-[70px]">
             <div className="flex max-w-[1000px] flex-col space-y-10">
                 <div className="flex justify-between">
-                    <div className="space-y-2">
+                    <div className="flex flex-col justify-center space-y-2">
                         <div className="flex items-center space-x-8">
                             <p className="text-[14px] font-normal leading-[16px] text-[#030303]">{fmtDate}</p>
                             {/*<div className="flex items-center space-x-1">*/}
@@ -174,7 +174,7 @@ const NewsIDPage = async ({ params, searchParams }: { params: { id: string }; se
                                     priority={true}
                                     placeholder="empty"
                                     alt="#"
-                                    className="aspect-video object-cover transition duration-300 hover:scale-110 active:scale-100 active:opacity-50"
+                                    className="aspect-video object-cover transition duration-300 active:scale-100 active:opacity-50"
                                 />
                             </div>
                         </NewsOpenPhotoDialog>

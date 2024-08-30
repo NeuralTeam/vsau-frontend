@@ -47,8 +47,8 @@ const RootCarousel = ({ banners }: { banners: [{ id: number; link: string; pictu
                                             ? carouselBannerRoot
                                             : `${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/storage/${banner.picture}?bucket=posts`
                                     }
-                                    width={1920}
-                                    height={250}
+                                    width={5000}
+                                    height={1300}
                                     priority={true}
                                     placeholder="empty"
                                     alt="#"

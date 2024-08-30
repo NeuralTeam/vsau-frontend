@@ -39,42 +39,26 @@ export const navGroups: INavItem[] = [
             },
             {
                 id: 23,
-                title: "Персонал",
-                href: "/23"
+                title: "Интерактивная карта университетского городка",
+                href: "/map"
             },
             {
                 id: 24,
-                title: "Интерактивная карта университетского городка",
-                href: "/map"
+                title: "Учебный процесс",
+                href: "http://www.vsau.ru/uchebnyj-process/"
+            },
+            {
+                id: 25,
+                title: "Научная деятельность",
+                href: "http://www.vsau.ru/nauchnaja-dejatelnost/"
             }
         ]
     },
     {
         id: 3,
-        title: "Абитуриентам",
+        title: "Абитуриенту",
         icon: ApplicantIcon,
-        child: [
-            {
-                id: 31,
-                title: "Бакалавриат и специалитет",
-                href: "/31"
-            },
-            {
-                id: 32,
-                title: "Магистратура",
-                href: "/32"
-            },
-            {
-                id: 33,
-                title: "Аспирантура",
-                href: "/33"
-            },
-            {
-                id: 34,
-                title: "СПО",
-                href: "/34"
-            }
-        ]
+        href: "https://abit.vsau.ru/"
     },
     {
         id: 4,
@@ -83,23 +67,28 @@ export const navGroups: INavItem[] = [
         child: [
             {
                 id: 41,
-                title: "Платные образовательные услуги",
-                href: "/41"
+                title: "Электронный каталог Научной библиотеки",
+                href: "http://www.catalog.vsau.ru/"
             },
             {
                 id: 42,
-                title: "Стипендии и меры поддержки обучающихся",
-                href: "/42"
+                title: "Портал дистанционого обучения",
+                href: "http://www.distedu.vsau.ru/"
             },
             {
                 id: 43,
-                title: "Оплата обучения",
-                href: "/43"
+                title: "Информация по изданиям типографии",
+                href: "http://ts2k.vsau.ru/tgrafindex/"
             },
             {
                 id: 44,
-                title: "Вход в личный кабинет и расписание",
-                href: "/44"
+                title: "Оформление заявки на получение справки о стипендии онлайн",
+                href: "http://comm.vsau.ru/order/"
+            },
+            {
+                id: 45,
+                title: "Социально-воспитательная работа",
+                href: "http://svr.vsau.ru/"
             }
         ]
     },
@@ -110,13 +99,8 @@ export const navGroups: INavItem[] = [
         child: [
             {
                 id: 51,
-                title: "Заказ справок для сотрудников",
-                href: "/51"
-            },
-            {
-                id: 52,
-                title: "Воинский учет",
-                href: "/52"
+                title: "Вакансии",
+                href: "http://www.vsau.ru/vakansii/"
             }
         ]
     },
@@ -124,7 +108,7 @@ export const navGroups: INavItem[] = [
         id: 6,
         title: "ЭИОС",
         icon: EiosIcon,
-        href: "/6"
+        href: "http://www.vsau.ru/dostup-v-internet/"
     }
 ];
 

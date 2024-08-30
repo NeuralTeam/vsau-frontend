@@ -163,7 +163,10 @@ const NavigationSidebar = () => {
                 )}
 
                 <div className="mx-8 mt-3 flex space-x-3">
-                    <button className="group flex items-center justify-center rounded-[10px] bg-[#FFFFFF15] p-5 duration-300 hover:bg-[#FFFFFF30]">
+                    <button
+                        id="specialButton"
+                        className="group flex items-center justify-center rounded-[10px] bg-[#FFFFFF15] p-5 duration-300 hover:bg-[#FFFFFF30]"
+                    >
                         <EyeIcon
                             width={32}
                             height={21}

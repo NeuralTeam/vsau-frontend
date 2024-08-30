@@ -11,6 +11,7 @@ import { CircleCheck, Files, Share2 } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { DownloadIcon, ShareIcon } from "@/shared/images/icons/other";
 import cardNewsPlug from "@/shared/images/plugs/card_news.png";
+import { AspectRatio } from "@/shared/ui/shadcn/aspect-ratio";
 
 // TODO: не забыть исправить
 export function NewsOpenPhotoDialog({
@@ -48,17 +49,20 @@ export function NewsOpenPhotoDialog({
             <DialogTrigger asChild className="cursor-pointer">
                 {children}
             </DialogTrigger>
-            <DialogContent className="h-fit w-[60%] overflow-hidden rounded-[10px]">
-                <Image
-                    src={photo === null ? cardNewsPlug : `${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/storage/${photo}?bucket=posts`}
-                    width={1920}
-                    height={1080}
-                    priority={true}
-                    placeholder="empty"
-                    alt="#"
-                    className="aspect-video object-cover"
-                />
-                <div className="flex h-20 items-center justify-between bg-black px-16 text-[14px] font-light text-white">
+            <DialogContent className="h-fit max-w-[60%] space-y-5 overflow-hidden rounded-[10px]">
+                <div className="flex items-center justify-center rounded-[10px] bg-black">
+                    <Image
+                        src={photo === null ? cardNewsPlug : `${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/storage/${photo}?bucket=posts`}
+                        width={1920}
+                        height={1080}
+                        priority={true}
+                        placeholder="empty"
+                        alt="#"
+                        className="h-[600px] w-fit"
+                    />
+                </div>
+
+                <div className="flex h-20 items-center justify-between rounded-[10px] bg-black px-16 text-[14px] font-light text-white">
                     <div className="flex space-x-16">
                         <div className="flex space-x-5">
                             <div className="flex items-center space-x-2">
