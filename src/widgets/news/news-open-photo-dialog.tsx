@@ -1,7 +1,7 @@
 "use client";
 
 import { Dialog, DialogTrigger, DialogContent } from "@/shared/ui/shadcn/dialog";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import { ReactNode, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { VkIcon } from "@/shared/images/icons/social-networks/vk-icon";
@@ -10,7 +10,9 @@ import { TgIcon } from "@/shared/images/icons/social-networks/tg-icon";
 import { CircleCheck, Files, Share2 } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { DownloadIcon, ShareIcon } from "@/shared/images/icons/other";
+import cardNewsPlug from "@/shared/images/plugs/card_news.png";
 
+// TODO: не забыть исправить
 export function NewsOpenPhotoDialog({
     children,
     isOpen,
@@ -20,7 +22,7 @@ export function NewsOpenPhotoDialog({
     children: ReactNode;
     mediaId?: number;
     isOpen?: boolean;
-    photo: StaticImageData;
+    photo: string | null;
 }) {
     const pathname = usePathname();
     const [open, setOpen] = useState(false);
@@ -47,7 +49,15 @@ export function NewsOpenPhotoDialog({
                 {children}
             </DialogTrigger>
             <DialogContent className="h-fit w-[60%] overflow-hidden rounded-[10px]">
-                <Image src={photo} priority={false} placeholder="blur" alt="#" className="aspect-video object-cover" />
+                <Image
+                    src={photo === null ? cardNewsPlug : `${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/storage/${photo}?bucket=posts`}
+                    width={1920}
+                    height={1080}
+                    priority={true}
+                    placeholder="empty"
+                    alt="#"
+                    className="aspect-video object-cover"
+                />
                 <div className="flex h-20 items-center justify-between bg-black px-16 text-[14px] font-light text-white">
                     <div className="flex space-x-16">
                         <div className="flex space-x-5">
@@ -92,10 +102,10 @@ export function NewsOpenPhotoDialog({
                         </button>
                     </div>
 
-                    <div className="flex items-center space-x-2">
-                        <DownloadIcon width={16} height={16} fill="#FFFFFF" />
-                        <p>Скачать</p>
-                    </div>
+                    {/*<div className="flex items-center space-x-2">*/}
+                    {/*    <DownloadIcon width={16} height={16} fill="#FFFFFF" />*/}
+                    {/*    <p>Скачать</p>*/}
+                    {/*</div>*/}
                 </div>
             </DialogContent>
         </Dialog>

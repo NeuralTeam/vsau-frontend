@@ -18,6 +18,7 @@ const NewsList = () => {
                     title={post.title}
                     body={post.body}
                     type={post.type}
+                    img={post.preview_picture}
                     createdAt={post.released_at}
                     currentPage={searchParams.page}
                 />

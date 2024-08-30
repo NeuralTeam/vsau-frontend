@@ -19,6 +19,7 @@ export interface IPost {
     title: string;
     body: string;
     preview_picture: string | null;
+    media_files: string[] | null;
     type: number;
     topic: { id: number; title: string } | null;
     released_at: number;
@@ -77,6 +78,7 @@ const RecommendedPosts = async () => {
                     id={`${slugifyReplace(data.title, { lower: true, strict: true })}-${data.id}`}
                     title={data.title}
                     type={data.type}
+                    img={data.preview_picture}
                     createdAt={data.released_at}
                 />
             ))}
@@ -122,10 +124,10 @@ const NewsIDPage = async ({ params, searchParams }: { params: { id: string }; se
                     <div className="space-y-2">
                         <div className="flex items-center space-x-8">
                             <p className="text-[14px] font-normal leading-[16px] text-[#030303]">{fmtDate}</p>
-                            <div className="flex items-center space-x-1">
-                                <Eye size={20} strokeWidth={2} />
-                                <p className="text-[14px] font-normal leading-[16px] text-[#030303]">1234</p>
-                            </div>
+                            {/*<div className="flex items-center space-x-1">*/}
+                            {/*    <Eye size={20} strokeWidth={2} />*/}
+                            {/*    <p className="text-[14px] font-normal leading-[16px] text-[#030303]">1234</p>*/}
+                            {/*</div>*/}
                         </div>
                         {post.topic != null && (
                             <div className="flex text-[17px] font-normal leading-[20px] text-[#7C7C7C]">
@@ -159,7 +161,7 @@ const NewsIDPage = async ({ params, searchParams }: { params: { id: string }; se
                     <h1 className="text-[28px] font-medium leading-[32px] text-[#030303]">{post.title}</h1>
 
                     <div className="space-y-8">
-                        <NewsOpenPhotoDialog isOpen={searchParams.mediaId == 0} mediaId={0} photo={cardNewsPlug}>
+                        <NewsOpenPhotoDialog isOpen={searchParams.mediaId == 0} mediaId={0} photo={post.preview_picture}>
                             <div className="overflow-hidden rounded-[10px]">
                                 <Image
                                     src={
@@ -168,7 +170,7 @@ const NewsIDPage = async ({ params, searchParams }: { params: { id: string }; se
                                             : `${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/storage/${post.preview_picture}?bucket=posts`
                                     }
                                     width={1920}
-                                    height={250}
+                                    height={1080}
                                     priority={true}
                                     placeholder="empty"
                                     alt="#"
@@ -181,7 +183,7 @@ const NewsIDPage = async ({ params, searchParams }: { params: { id: string }; se
                             <MDXRemote source={post.body} />
                         </div>
 
-                        <NewsGallery mediaId={searchParams.mediaId} photoList={Array.from({ length: 11 }).map(() => cardNewsPlug)} />
+                        {post.media_files !== null && <NewsGallery mediaId={searchParams.mediaId} photoList={post.media_files} />}
                     </div>
 
                     <ShareBlock />

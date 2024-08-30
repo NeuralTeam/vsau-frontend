@@ -9,7 +9,7 @@ interface ILongNewsCard {
     body: string;
     type: number;
     createdAt: number;
-    img?: string;
+    img: string | null;
     currentPage: number;
 }
 
@@ -35,7 +35,15 @@ export const LongNewsCard = ({ id, title, body, type, createdAt, img, currentPag
             className="group block duration-300 hover:scale-105 hover:shadow-xl active:scale-100 active:opacity-50"
         >
             <div className="flex h-[178px] w-[900px] overflow-hidden rounded-[5px] bg-white">
-                <Image src={img ?? cardNewsPlug} priority={false} placeholder="blur" alt="#" className="h-full max-w-[300px] object-cover" />
+                <Image
+                    src={img === null ? cardNewsPlug : `${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/storage/${img}?bucket=posts`}
+                    priority={false}
+                    width={1920}
+                    height={1080}
+                    placeholder="empty"
+                    alt="#"
+                    className="h-full max-w-[300px] object-cover"
+                />
                 <div className="flex w-full flex-col justify-between px-10 pb-5 pt-8">
                     <div className="flex flex-col space-y-3">
                         <p className="line-clamp-2 text-[16px] font-semibold leading-[18px]">{title}</p>

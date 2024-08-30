@@ -70,17 +70,17 @@ const AboutPage = () => {
             <div className="space-y-4 pr-[70px]">
                 <h1 className="text-2xl font-bold">Галерея</h1>
                 <div className="grid w-full grid-cols-4 gap-5">
-                    {Array.from({ length: 11 }).map((_, i) => (
-                        <NewsOpenPhotoDialog key={i} isOpen={1 == i + 100} mediaId={i + 100} photo={cardNewsPlug}>
-                            <Image
-                                src={cardNewsPlug}
-                                priority={false}
-                                placeholder="blur"
-                                alt="#"
-                                className="aspect-video min-h-[100px] rounded-[10px] object-cover transition duration-200 hover:scale-105"
-                            />
-                        </NewsOpenPhotoDialog>
-                    ))}
+                    {/*{Array.from({ length: 11 }).map((_, i) => (*/}
+                    {/*    <NewsOpenPhotoDialog key={i} isOpen={1 == i + 100} mediaId={i + 100} photo={cardNewsPlug}>*/}
+                    {/*        <Image*/}
+                    {/*            src={cardNewsPlug}*/}
+                    {/*            priority={false}*/}
+                    {/*            placeholder="blur"*/}
+                    {/*            alt="#"*/}
+                    {/*            className="aspect-video min-h-[100px] rounded-[10px] object-cover transition duration-200 hover:scale-105"*/}
+                    {/*        />*/}
+                    {/*    </NewsOpenPhotoDialog>*/}
+                    {/*))}*/}
                 </div>
             </div>
         </div>
