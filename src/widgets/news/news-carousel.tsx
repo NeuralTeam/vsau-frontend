@@ -62,6 +62,7 @@ export function CarouselSize({ type, posts }: Readonly<{ type: number; posts: IL
                                     id={`${slugifyReplace(post.title, { lower: true, strict: true })}-${post.id}`}
                                     title={post.title}
                                     type={type}
+                                    img={post.preview_picture}
                                     createdAt={post.released_at}
                                 />
                             </div>

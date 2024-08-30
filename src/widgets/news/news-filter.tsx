@@ -27,7 +27,7 @@ const SectionFilter = () => {
 
         const page = +(params.get("page") ?? 1);
 
-        setSearchParams({ page: page, perPage: 3, topic: topic });
+        setSearchParams({ page: page, perPage: 10, topic: topic });
         window.history.replaceState(null, "", `?${params.toString()}`);
     };
 

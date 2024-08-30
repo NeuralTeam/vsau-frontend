@@ -33,7 +33,7 @@ const NewsPagination = () => {
         const paramTopic = params.get("topic");
         const topic = paramTopic === null ? 0 : +paramTopic;
 
-        setSearchParams({ page: page, perPage: 3, topic: topic });
+        setSearchParams({ page: page, perPage: 10, topic: topic });
         window.history.replaceState(null, "", `?${params.toString()}`);
     };
 

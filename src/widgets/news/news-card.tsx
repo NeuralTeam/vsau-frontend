@@ -7,7 +7,7 @@ interface INewsCard {
     title: string;
     type: number;
     createdAt: number;
-    img?: string;
+    img: string | null;
 }
 
 const NewsCard = ({ id, title, type, createdAt, img }: INewsCard) => {
@@ -31,9 +31,11 @@ const NewsCard = ({ id, title, type, createdAt, img }: INewsCard) => {
             <div className="flex h-[300px] w-[300px] flex-col overflow-hidden rounded-[5px] bg-white">
                 <div className="min-h-[60%] w-full overflow-hidden">
                     <Image
-                        src={img ?? cardNewsPlug}
+                        src={img === null ? cardNewsPlug : `${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/storage/${img}?bucket=posts`}
                         priority={false}
-                        placeholder="blur"
+                        width={1920}
+                        height={1080}
+                        placeholder="empty"
                         alt="#"
                         className="w-full object-cover transition duration-300 group-hover:scale-105 group-active:scale-100"
                     />

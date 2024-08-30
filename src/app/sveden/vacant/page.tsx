@@ -67,13 +67,13 @@ const SvedenVacantPage = async () => {
                                     {el.name}
                                 </td>
                                 <td itemProp="eduLevel" className="px-4 py-4">
-                                    {el.level}
+                                    {el.level == null ? "Отсутствует" : el.level}
                                 </td>
                                 <td itemProp="eduProf" className="px-4 py-4">
-                                    {el.prof}
+                                    {el.prof == null ? "Отсутствует" : el.prof}
                                 </td>
                                 <td itemProp="eduCourse" className="px-4 py-4">
-                                    {el.course}
+                                    {el.course == null ? "Отсутствует" : el.course}
                                 </td>
                                 <td itemProp="eduForm" className="px-4 py-4">
                                     {el.form}

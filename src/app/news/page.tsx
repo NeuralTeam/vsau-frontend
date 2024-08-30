@@ -15,7 +15,7 @@ const NewsPage = async ({
 }>) => {
     const postType = searchParams.type === undefined ? 1 : +searchParams.type;
     const page = searchParams.page === undefined ? 1 : +searchParams.page;
-    const perPage = searchParams.perPage === undefined ? 3 : +searchParams.perPage;
+    const perPage = searchParams.perPage === undefined ? 10 : +searchParams.perPage;
     const topic = searchParams.topic === undefined ? 0 : +searchParams.topic;
 
     const url = new URL(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/posts?type=${postType}`);
@@ -100,6 +100,7 @@ const NewsPage = async ({
                                     id={`${slugifyReplace(data.title, { lower: true, strict: true })}-${data.id}`}
                                     type={2}
                                     title={data.title}
+                                    img={data.preview_picture}
                                     createdAt={data.released_at}
                                 />
                             ))}
@@ -110,6 +111,7 @@ const NewsPage = async ({
                                     id={`${slugifyReplace(data.title, { lower: true, strict: true })}-${data.id}`}
                                     type={1}
                                     title={data.title}
+                                    img={data.preview_picture}
                                     createdAt={data.released_at}
                                 />
                             ))}

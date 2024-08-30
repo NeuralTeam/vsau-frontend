@@ -38,7 +38,19 @@ const SvedenManagersPage = async () => {
                 {managers.ruk.map((value) => (
                     <div key={value.name} className="flex max-w-[650px] items-center space-x-10 rounded-[10px] bg-[#0F91D6] p-10">
                         <div>
-                            <Image src="/manifest_logo512_example.png" width={180} height={180} alt="#" />
+                            <Image
+                                src={
+                                    value.photo_link === null
+                                        ? "/manifest_logo512_example.png"
+                                        : `${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/storage/${value.photo_link}?bucket=sveden`
+                                }
+                                width={178}
+                                height={178}
+                                priority={true}
+                                placeholder="empty"
+                                alt="#"
+                                className="min-h[178px] min-w-[178px] duration-300 hover:scale-105"
+                            />
                         </div>
                         <div itemProp="rucovodstvo" className="space-y-4 text-white">
                             <div className="space-y-2">
@@ -61,7 +73,19 @@ const SvedenManagersPage = async () => {
                 {managers.zam_ruk.map((value) => (
                     <div key={value.name} className="flex max-w-[650px] items-center space-x-10 rounded-[10px] bg-[#0F91D6] p-10">
                         <div>
-                            <Image src="/manifest_logo512_example.png" width={180} height={180} alt="#" />
+                            <Image
+                                src={
+                                    value.photo_link === null
+                                        ? "/manifest_logo512_example.png"
+                                        : `${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/storage/${value.photo_link}?bucket=sveden`
+                                }
+                                width={178}
+                                height={178}
+                                priority={true}
+                                placeholder="empty"
+                                alt="#"
+                                className="min-h[178px] min-w-[178px] duration-300 hover:scale-105"
+                            />
                         </div>
                         <div itemProp="rucovodstvoZam" className="space-y-4 text-white">
                             <div className="space-y-2">
