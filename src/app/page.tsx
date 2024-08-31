@@ -58,7 +58,7 @@ const RootPage = async () => {
                                 <Link
                                     key={el.id}
                                     href={el.link}
-                                    className="min-h-[128px] min-w-[400px] max-w-[530px] duration-300 hover:scale-105 hover:shadow-xl"
+                                    className="min-h-[128px] min-w-[400px] max-w-[530px] overflow-hidden rounded-[10px] duration-300 hover:scale-105 hover:shadow-xl"
                                 >
                                     <Image
                                         src={
@@ -71,6 +71,7 @@ const RootPage = async () => {
                                         priority={true}
                                         placeholder="empty"
                                         alt="#"
+                                        className=""
                                     />
                                 </Link>
                             ))}
