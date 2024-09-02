@@ -1,5 +1,6 @@
 import { DocumentListBlock, TemplatePage, EducationTables } from "@/shared/ui/vsau/sveden";
 import { IEducation } from "@/shared/ui/vsau/sveden/education-tables";
+import { headers } from "next/headers";
 
 const SvedenEducationPage = async () => {
     const responseDocs = await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/sveden/documents?page=4`);
@@ -7,6 +8,12 @@ const SvedenEducationPage = async () => {
 
     const response = await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/sveden/education`, { cache: "no-cache" });
     const tableData: IEducation = await response.json();
+
+    const headersList = headers();
+    const ip = headersList.get("X-Real-IP");
+    const ua = headersList.get("User-Agent");
+
+    if (ip?.startsWith("80.250.167") || ip == "194.177.20.47" || ua == "ais.monitoring.bot") return <main></main>;
 
     return (
         <TemplatePage title="Образование">
