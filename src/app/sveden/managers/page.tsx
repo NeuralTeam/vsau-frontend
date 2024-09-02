@@ -114,7 +114,24 @@ const SvedenManagersPage = async () => {
                 <p className="text-[24px] font-semibold leading-[24px]">Информация о руководителях филиалов образовательной организации</p>
 
                 {managers.fil_ruk.length == 0 ? (
-                    <p>У образовательной организации нет филиалов</p>
+                    <>
+                        <p>У образовательной организации нет филиалов</p>
+                        <p itemProp="nameFil" hidden>
+                            Отсутствует
+                        </p>
+                        <p itemProp="fio" hidden>
+                            Отсутствует
+                        </p>
+                        <p itemProp="post" hidden>
+                            Отсутствует
+                        </p>
+                        <p itemProp="telephone" hidden>
+                            Отсутствует
+                        </p>
+                        <p itemProp="email" hidden>
+                            Отсутствует
+                        </p>
+                    </>
                 ) : (
                     managers.fil_ruk.map((value) => (
                         <div key={value.name} className="space-y-2">
@@ -145,7 +162,24 @@ const SvedenManagersPage = async () => {
                 <p className="text-[24px] font-semibold leading-[24px]">Информация о руководителях представительств образовательной организации</p>
 
                 {managers.predst_ruk.length == 0 ? (
-                    <p>У образовательной организации нет представительств</p>
+                    <>
+                        <p>У образовательной организации нет представительств</p>
+                        <p itemProp="nameRep" hidden>
+                            Отсутствует
+                        </p>
+                        <p itemProp="fio" hidden>
+                            Отсутствует
+                        </p>
+                        <p itemProp="post" hidden>
+                            Отсутствует
+                        </p>
+                        <p itemProp="telephone" hidden>
+                            Отсутствует
+                        </p>
+                        <p itemProp="email" hidden>
+                            Отсутствует
+                        </p>
+                    </>
                 ) : (
                     managers.predst_ruk.map((value) => (
                         <div key={value.name} className="space-y-2">
