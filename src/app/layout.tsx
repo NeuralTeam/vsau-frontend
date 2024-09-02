@@ -15,13 +15,13 @@ const rubikFont = Rubik({ subsets: ["latin", "cyrillic"] });
 export const metadata: Metadata = {
     // https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
     metadataBase: new URL(process.env.NEXT_PUBLIC_DOMAIN),
-    title: "ВГАУ: Сайт",
+    title: "ФГБОУ ВО Воронежский ГАУ",
     description: "Публичный сайт Воронежского Государственного Аграрного Университета имени Петра Великого",
     category: "education",
     authors: [{ name: "NeuralTeam", url: "https://neuralteam.ru" }],
     // https://ogp.me
     openGraph: {
-        title: "ВГАУ",
+        title: "ФГБОУ ВО Воронежский ГАУ",
         description: "Публичный сайт Воронежского ГАУ",
         url: process.env.NEXT_PUBLIC_DOMAIN,
         countryName: "russia",
@@ -52,9 +52,9 @@ export default function RootLayout({
                     <div className="min-h-svh">{children}</div>
                     <RootFooter />
                 </div>
+                <Script src="/jquery.js" />
+                <Script src="/uhpv-full.js" />
             </body>
-            <Script src="/jquery.js" />
-            <Script src="/uhpv-full.js" />
         </html>
     );
 }

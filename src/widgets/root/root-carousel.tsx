@@ -47,9 +47,10 @@ const RootCarousel = ({ banners }: { banners: [{ id: number; link: string; pictu
                                             ? carouselBannerRoot
                                             : `${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/storage/${banner.picture}?bucket=posts`
                                     }
-                                    width={5000}
-                                    height={1300}
-                                    priority={true}
+                                    width={1900}
+                                    height={350}
+                                    quality={80}
+                                    priority={false}
                                     placeholder="empty"
                                     alt="#"
                                     className="max-h-[350px] duration-300 hover:scale-105"

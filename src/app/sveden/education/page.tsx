@@ -5,7 +5,7 @@ const SvedenEducationPage = async () => {
     const responseDocs = await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/sveden/documents?page=4`);
     const docs = await responseDocs.json();
 
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/sveden/education`);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/sveden/education`, { cache: "no-cache" });
     const tableData: IEducation = await response.json();
 
     return (
