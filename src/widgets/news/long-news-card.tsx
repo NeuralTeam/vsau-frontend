@@ -38,8 +38,8 @@ export const LongNewsCard = ({ id, title, body, type, createdAt, img, currentPag
                 <Image
                     src={img === null ? cardNewsPlug : `${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/storage/${img}?bucket=posts`}
                     priority={false}
-                    width={1920}
-                    height={1080}
+                    width={300}
+                    height={170}
                     placeholder="empty"
                     alt="#"
                     className="h-full max-w-[300px] object-cover"

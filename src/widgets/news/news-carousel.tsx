@@ -5,6 +5,7 @@ import NewsCard from "@/widgets/news/news-card";
 import { IListPost } from "@/app/news/[id]/page";
 import { slugifyReplace } from "@/shared/libs/slugify";
 import Link from "next/link";
+import { Suspense } from "react";
 
 export function CarouselSize({ type, posts }: Readonly<{ type: number; posts: IListPost[] }>) {
     let title = "";

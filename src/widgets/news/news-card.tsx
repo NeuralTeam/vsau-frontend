@@ -35,7 +35,9 @@ const NewsCard = ({ id, title, type, createdAt, img }: INewsCard) => {
                         <Image
                             src={img === null ? cardNewsPlug : `${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/storage/${img}?bucket=posts`}
                             priority={false}
-                            fill
+                            width={300}
+                            height={170}
+                            quality={60}
                             placeholder="empty"
                             alt="#"
                             className="w-full object-cover transition duration-300 group-hover:scale-105 group-active:scale-100"
