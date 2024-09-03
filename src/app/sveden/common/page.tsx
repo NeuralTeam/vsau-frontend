@@ -87,9 +87,31 @@ const SvedenCommonPage = async () => {
                                 {mainInfo.email}
                             </Link>
                         </div>
-                        <div className="space-x-3">
+                        <div className="flex space-x-3">
                             <span>График работы:</span>
-                            {/*<span itemProp="workTime">{mainInfo.work_time}</span>*/}
+                            <div>
+                                <p>
+                                    ПН: <span itemProp="workTime">{mainInfo.work_time[1]}</span>
+                                </p>
+                                <p>
+                                    ВТ: <span itemProp="workTime">{mainInfo.work_time[2]}</span>
+                                </p>
+                                <p>
+                                    СР: <span itemProp="workTime">{mainInfo.work_time[3]}</span>
+                                </p>
+                                <p>
+                                    ЧТ: <span itemProp="workTime">{mainInfo.work_time[4]}</span>
+                                </p>
+                                <p>
+                                    ПТ: <span itemProp="workTime">{mainInfo.work_time[5]}</span>
+                                </p>
+                                <p>
+                                    СБ: <span itemProp="workTime">{mainInfo.work_time[6]}</span>
+                                </p>
+                                <p>
+                                    ВС: <span itemProp="workTime">{mainInfo.work_time[7]}</span>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </Block>

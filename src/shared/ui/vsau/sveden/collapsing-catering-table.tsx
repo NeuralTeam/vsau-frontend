@@ -83,25 +83,35 @@ export const CollapsingCateringTable = ({ cateringInfo }: { cateringInfo: ICater
                                 </tr>
                             </thead>
                             <tbody className="[&>*:nth-child(odd)]:bg-[#E7F4FB]">
-                                {cateringInfo.food_conditions.map((el) => (
-                                    <tr key={el.id} itemProp="meals">
-                                        <td itemProp="objName" className="px-4 py-4">
-                                            {el.name}
-                                        </td>
-                                        <td itemProp="objAddress" className="px-4 py-4">
-                                            {el.address}
-                                        </td>
-                                        <td itemProp="objSq" className="px-4 py-4">
-                                            {el.area}
-                                        </td>
-                                        <td itemProp="objCnt" className="px-4 py-4">
-                                            {el.places_number}
-                                        </td>
-                                        <td itemProp="objOvz" className="px-4 py-4">
-                                            {el.person_disabilities}
-                                        </td>
+                                {cateringInfo.food_conditions.length !== 0 ? (
+                                    cateringInfo.food_conditions.map((el) => (
+                                        <tr key={el.id} itemProp="meals">
+                                            <td itemProp="objName" className="px-4 py-4">
+                                                {el.name}
+                                            </td>
+                                            <td itemProp="objAddress" className="px-4 py-4">
+                                                {el.address}
+                                            </td>
+                                            <td itemProp="objSq" className="px-4 py-4">
+                                                {el.area}
+                                            </td>
+                                            <td itemProp="objCnt" className="px-4 py-4">
+                                                {el.places_number}
+                                            </td>
+                                            <td itemProp="objOvz" className="px-4 py-4">
+                                                {el.person_disabilities}
+                                            </td>
+                                        </tr>
+                                    ))
+                                ) : (
+                                    <tr itemProp="meals" hidden>
+                                        <td itemProp="objName">Отсутствует</td>
+                                        <td itemProp="objAddress">Отсутствует</td>
+                                        <td itemProp="objSq">Отсутствует</td>
+                                        <td itemProp="objCnt">Отсутствует</td>
+                                        <td itemProp="objOvz">Отсутствует</td>
                                     </tr>
-                                ))}
+                                )}
                             </tbody>
                         </table>
                     </div>
@@ -151,25 +161,35 @@ export const CollapsingCateringTable = ({ cateringInfo }: { cateringInfo: ICater
                                 </tr>
                             </thead>
                             <tbody className="[&>*:nth-child(odd)]:bg-[#E7F4FB]">
-                                {cateringInfo.health_protection_conditions.map((el) => (
-                                    <tr key={el.id} itemProp="health">
-                                        <td itemProp="objName" className="px-4 py-4">
-                                            {el.name}
-                                        </td>
-                                        <td itemProp="objAddress" className="px-4 py-4">
-                                            {el.address}
-                                        </td>
-                                        <td itemProp="objSq" className="px-4 py-4">
-                                            {el.area}
-                                        </td>
-                                        <td itemProp="objCnt" className="px-4 py-4">
-                                            {el.places_number}
-                                        </td>
-                                        <td itemProp="objOvz" className="px-4 py-4">
-                                            {el.person_disabilities}
-                                        </td>
+                                {cateringInfo.health_protection_conditions.length !== 0 ? (
+                                    cateringInfo.health_protection_conditions.map((el) => (
+                                        <tr key={el.id} itemProp="health">
+                                            <td itemProp="objName" className="px-4 py-4">
+                                                {el.name}
+                                            </td>
+                                            <td itemProp="objAddress" className="px-4 py-4">
+                                                {el.address}
+                                            </td>
+                                            <td itemProp="objSq" className="px-4 py-4">
+                                                {el.area}
+                                            </td>
+                                            <td itemProp="objCnt" className="px-4 py-4">
+                                                {el.places_number}
+                                            </td>
+                                            <td itemProp="objOvz" className="px-4 py-4">
+                                                {el.person_disabilities}
+                                            </td>
+                                        </tr>
+                                    ))
+                                ) : (
+                                    <tr itemProp="health" hidden>
+                                        <td itemProp="objName">Отсутствует</td>
+                                        <td itemProp="objAddress">Отсутствует</td>
+                                        <td itemProp="objSq">Отсутствует</td>
+                                        <td itemProp="objCnt">Отсутствует</td>
+                                        <td itemProp="objOvz">Отсутствует</td>
                                     </tr>
-                                ))}
+                                )}
                             </tbody>
                         </table>
                     </div>

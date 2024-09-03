@@ -119,10 +119,10 @@ const SvedenObjectsPage = async () => {
                                 Количество общежитий/интернатов
                             </th>
                             <td itemProp="hostelInfo" className="max-w-10 px-4 py-4 text-center">
-                                {grantsInfo.hostel_info}
+                                {grantsInfo.hostel_info !== null ? grantsInfo.hostel_info : "Отсутствует"}
                             </td>
                             <td itemProp="interInfo" className="max-w-10 px-4 py-4 text-center">
-                                {grantsInfo.inter_info}
+                                {grantsInfo.inter_info !== null ? grantsInfo.inter_info : "Отсутствует"}
                             </td>
                         </tr>
                         <tr>
@@ -130,10 +130,10 @@ const SvedenObjectsPage = async () => {
                                 Количество мест
                             </th>
                             <td itemProp="hostelNum" className="max-w-16 px-4 py-4 text-center">
-                                {grantsInfo.hostel_num}
+                                {grantsInfo.hostel_num !== null ? grantsInfo.hostel_num : "Отсутствует"}
                             </td>
                             <td itemProp="interNum" className="max-w-16 px-4 py-4 text-center">
-                                {grantsInfo.inter_num}
+                                {grantsInfo.inter_num !== null ? grantsInfo.inter_num : "Отсутствует"}
                             </td>
                         </tr>
                         <tr>
@@ -142,10 +142,10 @@ const SvedenObjectsPage = async () => {
                                 здоровья
                             </th>
                             <td itemProp="hostelNumOvz" className="max-w-32 px-4 py-4 text-center">
-                                {grantsInfo.hostel_num_ovz}
+                                {grantsInfo.hostel_num_ovz !== null ? grantsInfo.hostel_num_ovz : "Отсутствует"}
                             </td>
                             <td itemProp="interNumOvz" className="max-w-32 px-4 py-4 text-center">
-                                {grantsInfo.inter_num_ovz}
+                                {grantsInfo.inter_num_ovz !== null ? grantsInfo.inter_num_ovz : "Отсутствует"}
                             </td>
                         </tr>
                     </tbody>
