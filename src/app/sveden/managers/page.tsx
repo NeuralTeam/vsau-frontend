@@ -98,7 +98,7 @@ const SvedenManagersPage = async () => {
                             </div>
                             <div className="flex flex-col space-y-1 text-[17px] font-light leading-[18px]">
                                 <p itemProp="telephone">
-                                    {value.tel.split("/").length == 2 ? `${value.tel.split("/")} (доб. ${value.tel.split("/")[1]})` : value.tel} /{" "}
+                                    {value.tel.split("/").length == 2 ? `${value.tel.split("/")[0]} (доб. ${value.tel.split("/")[1]})` : value.tel} /{" "}
                                     {value.workplace}
                                 </p>
                                 <Link href={`mailto:${value.email}`} itemProp="email">

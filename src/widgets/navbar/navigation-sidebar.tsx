@@ -34,7 +34,7 @@ const NavigationSidebar = () => {
 
     return (
         <nav className="fixed flex h-full w-[470px] flex-col items-start justify-between bg-[#0F91D6]">
-            <div className="w-full overflow-y-scroll">
+            <div className="w-full overflow-y-auto">
                 <Link href="/" className="mt-10 flex items-center justify-center overflow-hidden">
                     <div>
                         <VsauLogoIcon width={100} height={100} fill="#FFFFFF" />
