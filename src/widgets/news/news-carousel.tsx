@@ -57,7 +57,7 @@ export function CarouselSize({ type, posts }: Readonly<{ type: number; posts: IL
 
                 <CarouselContent className="-ml-0 mr-10">
                     {posts.map((post) => (
-                        <CarouselItem key={post.id} className="md:basis-2/3 lg:basis-[25%]">
+                        <CarouselItem key={post.id} className="md:basis-2/3 lg:basis-1">
                             <div className="flex flex-col space-y-4 pb-3 sm:flex-row sm:flex-nowrap sm:gap-8 sm:space-y-0">
                                 <NewsCard
                                     id={`${slugifyReplace(post.title, { lower: true, strict: true })}-${post.id}`}

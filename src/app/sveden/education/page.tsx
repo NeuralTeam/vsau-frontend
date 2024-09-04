@@ -1,6 +1,7 @@
 import { DocumentListBlock, TemplatePage, EducationTables } from "@/shared/ui/vsau/sveden";
 import { IEducation } from "@/shared/ui/vsau/sveden/education-tables";
 import { headers } from "next/headers";
+import { IDocument } from "@/shared/ui/vsau/sveden/types";
 
 const SvedenEducationPage = async () => {
     const responseDocs = await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/sveden/documents?page=4`);
@@ -13,9 +14,101 @@ const SvedenEducationPage = async () => {
     const ip = headersList.get("X-Real-IP");
     const ua = headersList.get("User-Agent");
 
-    if (ip?.startsWith("80.250.167") || ip == "194.177.20.47" || ua == "ais.monitoring.bot")
+    if (tableData.edu_accred.length == 0)
+        tableData.edu_accred.push({
+            id: 99999999,
+            code: "Отсутствует",
+            name: "Отсутствует",
+            prof: "Отсутствует",
+            level: "Отсутствует",
+            form: "Отсутствует",
+            learning_term: "Отсутствует",
+            date_end: "Отсутствует",
+            pred: { title: "Отсутствует", link: "#" },
+            prac: [{ title: "Отсутствует", link: "#" }],
+            el: "Отсутствует"
+        });
+
+    if (tableData.edu_po_accred.length == 0)
+        tableData.edu_po_accred.push({
+            id: 99999999,
+            code: "Отсутствует",
+            name: "Отсутствует",
+            level: "Отсутствует",
+            prof: "Отсутствует",
+            org_name: "Отсутствует",
+            date_end: "Отсутствует"
+        });
+
+    if (tableData.edu_o_accred.length == 0)
+        tableData.edu_o_accred.push({
+            id: 99999999,
+            code: "Отсутствует",
+            name: "Отсутствует",
+            level: "Отсутствует",
+            prof: "Отсутствует",
+            org_name: "Отсутствует",
+            date_end: "Отсутствует"
+        });
+
+    if (tableData.edu_op.length == 0)
+        tableData.edu_op.push({
+            id: 99999999,
+            code: "Отсутствует",
+            name: "Отсутствует",
+            level: "Отсутствует",
+            prof: "Отсутствует",
+            form: "Отсутствует",
+            main: [{ title: "Отсутствует", link: "#" }],
+            plan: [{ title: "Отсутствует", link: "#" }],
+            rpd: [{ title: "Отсутствует", link: "#" }],
+            shedule: [{ title: "Отсутствует", link: "#" }],
+            pr: [{ title: "Отсутствует", link: "#" }],
+            methodology: [{ title: "Отсутствует", link: "#" }]
+        });
+
+    if (tableData.edu_ad_op.length == 0)
+        tableData.edu_ad_op.push({
+            id: 99999999,
+            code: "Отсутствует",
+            name: "Отсутствует",
+            level: "Отсутствует",
+            prof: "Отсутствует",
+            form: "Отсутствует",
+            main: [{ title: "Отсутствует", link: "#" }],
+            plan: [{ title: "Отсутствует", link: "#" }],
+            rpd: [{ title: "Отсутствует", link: "#" }],
+            shedule: [{ title: "Отсутствует", link: "#" }],
+            pr: [{ title: "Отсутствует", link: "#" }],
+            methodology: [{ title: "Отсутствует", link: "#" }]
+        });
+
+    if (tableData.edu_nir.length == 0)
+        tableData.edu_nir.push({
+            id: 99999999,
+            code: "Отсутствует",
+            name: "Отсутствует",
+            perechen_nir: "Отсутствует",
+            prof: "Отсутствует",
+            level: "Отсутствует",
+            naprav_nir: "Отсутствует",
+            result_nir: "Отсутствует",
+            base_nir: "Отсутствует"
+        });
+
+    if (tableData.graduate_job.length == 0)
+        tableData.graduate_job.push({
+            id: 99999999,
+            code: "Отсутствует",
+            name: "Отсутствует",
+            prof: "Отсутствует",
+            v1: "Отсутствует",
+            t1: "Отсутствует"
+        });
+
+    if (ip?.startsWith("80.250.167") || ip == "194.177.20.47" || ua == "ais.monitoring.bot") {
         return (
-            <main>
+            <main itemProp="copy">
                 <table>
                     <tbody>
                         {tableData.edu_accred.map((el) => (
@@ -235,13 +328,36 @@ const SvedenEducationPage = async () => {
                 </table>
 
                 <ul>
-                    <li itemProp="languageEl">{docs[1]}</li>
-                    <li itemProp="eduChislenEl">{docs[2]}</li>
-                    <li itemProp="eduPriemEl">{docs[3]}</li>
-                    <li itemProp="eduPerevodEl">{docs[4]}</li>
+                    {docs[1].map((item: IDocument) => (
+                        <li key={item.id} itemProp="languageEl">
+                            <a href={item.href}>{item.title}</a>
+                        </li>
+                    ))}
+                </ul>
+                <ul>
+                    {docs[2].map((item: IDocument) => (
+                        <li key={item.id} itemProp="eduChislenEl">
+                            <a href={item.href}>{item.title}</a>
+                        </li>
+                    ))}
+                </ul>
+                <ul>
+                    {docs[3].map((item: IDocument) => (
+                        <li key={item.id} itemProp="eduPriemEl">
+                            <a href={item.href}>{item.title}</a>
+                        </li>
+                    ))}
+                </ul>
+                <ul>
+                    {docs[4].map((item: IDocument) => (
+                        <li key={item.id} itemProp="eduPerevodEl">
+                            <a href={item.href}>{item.title}</a>
+                        </li>
+                    ))}
                 </ul>
             </main>
         );
+    }
 
     return (
         <TemplatePage title="Образование">
