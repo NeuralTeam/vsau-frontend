@@ -57,12 +57,12 @@ const RootPage = async () => {
                                 <h1 className="line-clamp-1 w-fit text-3xl font-semibold">Актуальное</h1>
                             </div>
 
-                            <div className="grid grid-cols-3 gap-5 pr-[70px]">
+                            <div className="grid grid-cols-2 gap-5 pr-[70px] xl:grid-cols-3">
                                 {(await getActualities()).map((el) => (
                                     <Link
                                         key={el.id}
                                         href={el.link}
-                                        className="min-h-[128px] min-w-[400px] max-w-[530px] overflow-hidden rounded-[10px] duration-300 hover:scale-105 hover:shadow-xl"
+                                        className="max-w-[500px] shrink-0 grow-0 basis-full overflow-hidden rounded-[10px] duration-300 hover:scale-105 hover:shadow-xl"
                                     >
                                         <Image
                                             src={

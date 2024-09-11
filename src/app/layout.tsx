@@ -46,10 +46,10 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="ru" className="scroll-smooth" suppressHydrationWarning>
-            <body className={rubikFont.className}>
+            <body className={"flex h-screen w-screen" + rubikFont.className}>
                 <NavigationSidebar />
-                <div className="ml-[470px] bg-[#F8F8F8] pl-[70px]">
-                    <div className="min-h-svh">{children}</div>
+                <div className="h-full max-h-screen w-full overflow-y-auto overflow-x-hidden bg-[#F8F8F8]">
+                    <div className="pl-[70px]">{children}</div>
                     <RootFooter />
                 </div>
                 <Script src="/jquery.js" />

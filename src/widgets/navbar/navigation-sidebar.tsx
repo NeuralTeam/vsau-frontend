@@ -33,9 +33,9 @@ const NavigationSidebar = () => {
     }, []);
 
     return (
-        <nav className="fixed flex h-full w-[470px] flex-col items-start justify-between bg-[#0F91D6]">
-            <div className="w-full overflow-y-auto">
-                <Link href="/" className="mt-10 flex items-center justify-center overflow-hidden">
+        <nav className="flex h-full w-[30%] flex-col items-center justify-between bg-[#0F91D6]">
+            <div className="px-8">
+                <Link href="/" className="flex items-center justify-center overflow-hidden">
                     <div>
                         <VsauLogoIcon width={100} height={100} fill="#FFFFFF" />
                     </div>
@@ -51,7 +51,7 @@ const NavigationSidebar = () => {
                 </Link>
 
                 {pathname.startsWith("/sveden") ? (
-                    <div className="ml-8 mr-8 mt-10 flex flex-col space-y-6 rounded-[10px] bg-[#FFFFFF15]">
+                    <div className="mt-10 flex flex-col space-y-6 rounded-[10px] bg-[#FFFFFF15]">
                         <div className="flex h-28 items-center justify-between border-b border-[#FFFFFF50] text-white">
                             <div className="px-10 py-6">
                                 <p className="text-[18px] font-bold leading-[20px]">Сведения об образовательной организации</p>
@@ -162,7 +162,7 @@ const NavigationSidebar = () => {
                     </>
                 )}
 
-                <div className="mx-8 mt-3 flex space-x-3">
+                <div className="mx-8 flex space-x-3">
                     <button
                         id="specialButton"
                         className="group flex items-center justify-center rounded-[10px] bg-[#FFFFFF15] p-5 duration-300 hover:bg-[#FFFFFF30]"
