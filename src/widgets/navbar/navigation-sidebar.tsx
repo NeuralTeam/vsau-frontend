@@ -57,7 +57,7 @@ const NavigationSidebar = () => {
 
                 <div className="">
                     {pathname.startsWith("/sveden") ? (
-                        <div className="mt-10 flex flex-col space-y-6 rounded-[10px] bg-[#FFFFFF15]">
+                        <div className="mx-8 mt-10 flex flex-col space-y-6 rounded-[10px] bg-[#FFFFFF15]">
                             <div className="flex h-28 items-center justify-between border-b border-[#FFFFFF50] text-white">
                                 <div className="px-10 py-6">
                                     <p className="text-[18px] font-bold leading-[20px]">Сведения об образовательной организации</p>
