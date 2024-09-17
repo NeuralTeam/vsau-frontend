@@ -34,8 +34,8 @@ const NavigationSidebar = () => {
 
     return (
         <nav className="flex h-full w-[30%] flex-col items-center justify-between bg-[#0F91D6]">
-            <div className="space-y-10 px-8">
-                <Link href="/" className="mt-8 flex items-center justify-center overflow-hidden px-6 2xl:px-0">
+            <div className="space-y-10">
+                <Link href="/" className="mt-8 flex items-center justify-center overflow-hidden px-6 2xl:px-8">
                     <div>
                         <VsauLogoIcon
                             width={100}
@@ -55,7 +55,7 @@ const NavigationSidebar = () => {
                     </div>
                 </Link>
 
-                <div>
+                <div className="">
                     {pathname.startsWith("/sveden") ? (
                         <div className="mt-10 flex flex-col space-y-6 rounded-[10px] bg-[#FFFFFF15]">
                             <div className="flex h-28 items-center justify-between border-b border-[#FFFFFF50] text-white">
@@ -169,7 +169,7 @@ const NavigationSidebar = () => {
                     )}
                 </div>
 
-                <div className="mx-8 flex space-x-3">
+                <div className="flex w-full space-x-3 px-8">
                     <button
                         id="specialButton"
                         className="group flex items-center justify-center rounded-[10px] bg-[#FFFFFF15] p-5 duration-300 hover:bg-[#FFFFFF30]"
