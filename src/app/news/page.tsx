@@ -61,7 +61,10 @@ const NewsPage = async ({
                 searchParams: { page: page, perPage: perPage, topic: topic },
                 posts: posts.posts,
                 countPages: posts.count_page,
-                topics: topics
+                topics: topics,
+                startDate: null,
+                endDate: null,
+                search: ""
             }}
         >
             <main className="grid justify-center gap-x-16 space-y-7 pt-16">

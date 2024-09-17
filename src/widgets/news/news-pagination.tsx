@@ -6,7 +6,7 @@ import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, Pagi
 import { usePostsStore } from "@/shared/providers/posts-store-provider";
 
 const NewsPagination = () => {
-    const { countPages, setSearchParams } = usePostsStore((state) => state);
+    const { countPages, setSearchParams, startDate, endDate, search } = usePostsStore((state) => state);
     const searchParams = useSearchParams();
 
     const currentPage = +(searchParams.get("page") ?? 1);
@@ -33,7 +33,7 @@ const NewsPagination = () => {
         const paramTopic = params.get("topic");
         const topic = paramTopic === null ? 0 : +paramTopic;
 
-        setSearchParams({ page: page, perPage: 10, topic: topic });
+        setSearchParams({ page: page, perPage: 10, topic: topic }, startDate, endDate, search);
         window.history.replaceState(null, "", `?${params.toString()}`);
     };
 
@@ -65,9 +65,9 @@ const NewsPagination = () => {
                 </PaginationContent>
             </Pagination>
 
-            <button className="min-h-12 w-1/3 rounded-[10px] bg-[#EBEBEB] px-10 font-bold text-[#767676] duration-300 hover:bg-[#767676] hover:text-[#EBEBEB] active:scale-90">
-                Показать ещё
-            </button>
+            {/*<button className="min-h-12 w-1/3 rounded-[10px] bg-[#EBEBEB] px-10 font-bold text-[#767676] duration-300 hover:bg-[#767676] hover:text-[#EBEBEB] active:scale-90">*/}
+            {/*    Показать ещё*/}
+            {/*</button>*/}
         </div>
     );
 };
