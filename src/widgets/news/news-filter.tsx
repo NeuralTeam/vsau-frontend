@@ -13,7 +13,7 @@ export interface ITopic {
 }
 
 const SectionFilter = () => {
-    const { topics, setSearchParams } = usePostsStore((state) => state);
+    const { topics, setSearchParams, startDate, endDate, search } = usePostsStore((state) => state);
     const searchParams = useSearchParams();
     const currentTopicId = +(searchParams.get("topic") ?? 0);
     const [currentTopic, setCurrentTopic] = useState("Всё");
@@ -27,7 +27,7 @@ const SectionFilter = () => {
 
         const page = +(params.get("page") ?? 1);
 
-        setSearchParams({ page: page, perPage: 10, topic: topic });
+        setSearchParams({ page: page, perPage: 10, topic: topic }, startDate, endDate, search);
         window.history.replaceState(null, "", `?${params.toString()}`);
     };
 
