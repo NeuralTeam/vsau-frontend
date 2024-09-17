@@ -7,9 +7,9 @@ const RootFooter = () => {
     const currentYear = new Date().getFullYear();
 
     return (
-        <div className="mt-[45px] flex h-[280px] w-full flex-col justify-between bg-[#E4E4E4] pb-16 pt-10">
+        <div className="mt-[45px] flex h-[280px] w-full flex-col justify-between bg-[#E4E4E4] px-10 pb-16 pt-10">
             <div className="flex items-center justify-between">
-                <Link href="/" className="flex items-center justify-center">
+                <Link href="/" className="flex items-center justify-center lg:max-w-[50%] xl:max-w-[30%]">
                     <div>
                         <VsauLogoIcon width={100} height={100} fill="#030303" />
                     </div>
