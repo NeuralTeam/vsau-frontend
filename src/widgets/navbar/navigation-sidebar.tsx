@@ -86,7 +86,7 @@ const NavigationSidebar = () => {
                         </div>
                     ) : (
                         <>
-                            <div className="ml-[72px] mr-16 mt-10 flex flex-col space-y-10 text-white transition-all">
+                            <div className="ml-[72px] mr-16 mt-10 flex flex-col space-y-10 text-white">
                                 <Accordion
                                     type="single"
                                     collapsible

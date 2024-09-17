@@ -6,6 +6,7 @@ import { ReactNode } from "react";
 import NavigationSidebar from "@/widgets/navbar/navigation-sidebar";
 import RootFooter from "@/widgets/root/root-footer";
 import Script from "next/script";
+import { cn } from "@/shared/libs/shadcn-utils";
 
 // https://fonts.google.com/specimen/Rubik
 // TODO: скачать локально шрифт Rubik
@@ -46,7 +47,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="ru" className="scroll-smooth" suppressHydrationWarning>
-            <body className={"flex h-screen w-screen" + rubikFont.className}>
+            <body className={cn("flex h-screen w-screen", rubikFont.className)}>
                 <NavigationSidebar />
                 <div className="h-full max-h-screen w-full overflow-y-auto overflow-x-hidden bg-[#F8F8F8]">
                     <div className="pl-[70px]">{children}</div>
