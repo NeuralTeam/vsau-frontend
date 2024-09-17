@@ -34,7 +34,7 @@ export const LongNewsCard = ({ id, title, body, type, createdAt, img, currentPag
             href={{ pathname: `${link}/${id}`, query: { ref: `${link.substring(1)}?page=${currentPage}` } }}
             className="group block duration-300 hover:scale-105 hover:shadow-xl active:scale-100 active:opacity-50"
         >
-            <div className="flex h-[178px] w-[900px] overflow-hidden rounded-[5px] bg-white">
+            <div className="flex max-h-[178px] w-[900px] overflow-hidden rounded-[5px] bg-white">
                 <Image
                     src={img === null ? cardNewsPlug : `${process.env.NEXT_PUBLIC_API_DOMAIN}/v1/storage/${img}?bucket=posts`}
                     priority={false}
