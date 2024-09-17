@@ -50,7 +50,7 @@ export default function RootLayout({
             <body className={cn("flex h-screen w-screen overflow-hidden", rubikFont.className)}>
                 <NavigationSidebar />
                 <div className="h-full max-h-screen w-full overflow-y-auto overflow-x-hidden bg-[#F8F8F8]">
-                    <div className="pl-[70px]">{children}</div>
+                    <div className="min-h-screen pl-[70px]">{children}</div>
                     <RootFooter />
                 </div>
                 <Script src="/jquery.js" />
