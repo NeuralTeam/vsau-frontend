@@ -7,18 +7,18 @@ const RootFooter = () => {
     const currentYear = new Date().getFullYear();
 
     return (
-        <div className="-ml-[70px] mt-[45px] flex h-[280px] flex-col justify-between bg-[#E4E4E4] pb-16 pt-10">
-            <div className="flex items-center justify-between px-20">
-                <Link href="/" className="flex items-center justify-center">
+        <div className="mt-[45px] flex h-[280px] w-full flex-col justify-between bg-[#E4E4E4] px-10 pb-16 pt-10">
+            <div className="flex items-center justify-between">
+                <Link href="/" className="flex items-center justify-center lg:max-w-[50%] xl:max-w-[30%]">
                     <div>
                         <VsauLogoIcon width={100} height={100} fill="#030303" />
                     </div>
 
-                    <div className="w-[300px] items-center space-y-1 text-[#000000]">
-                        <p className="ml-5 line-clamp-2 min-w-[200px] max-w-[full] text-[10px] font-normal leading-3">
+                    <div className="items-center space-y-1 text-black">
+                        <p className="ml-5 line-clamp-2 text-[10px] font-normal leading-3">
                             Федеральное государственное бюджетное образовательное учреждение высшего образования
                         </p>
-                        <p className="ml-5 line-clamp-3 min-w-[250px] max-w-[full] text-[16px] font-semibold leading-[17px]">
+                        <p className="ml-5 line-clamp-3 text-[16px] font-semibold leading-[17px]">
                             Воронежский государственный аграрный университет имени императора Петра I
                         </p>
                     </div>
@@ -47,7 +47,7 @@ const RootFooter = () => {
                 </div>
             </div>
 
-            <div className="flex items-center justify-between gap-10 pl-24 pr-20">
+            <div className="flex items-center justify-between">
                 <div className="flex flex-col text-[10px] font-light leading-3">
                     <p>© {currentYear} ВГАУ - Воронежский государственный аграрный университет</p>
                     <p>Все права на материалы сайта vsau.ru принадлежат ВГАУ</p>
