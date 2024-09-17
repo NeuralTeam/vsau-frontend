@@ -47,7 +47,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="ru" className="scroll-smooth" suppressHydrationWarning>
-            <body className={cn("flex h-screen w-screen", rubikFont.className)}>
+            <body className={cn("flex h-screen w-screen overflow-hidden", rubikFont.className)}>
                 <NavigationSidebar />
                 <div className="h-full max-h-screen w-full overflow-y-auto overflow-x-hidden bg-[#F8F8F8]">
                     <div className="pl-[70px]">{children}</div>
